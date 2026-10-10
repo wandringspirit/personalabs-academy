@@ -1405,7 +1405,12 @@ function closeLegalModal() {
 // HYBRID PAYMENT GATEWAY & META PIXEL CONFIGURATION
 // =========================================================================
 const PAYMENT_GATEWAY_CONFIG = {
-  // 0. META PIXEL ID (Facebook / Instagram Ads Conversion Tracking)
+  // 0a. GOOGLE SHEETS REAL-TIME ORDER & LEAD DATABASE WEBHOOK URL
+  // Paste your Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)
+  // Automatically logs every Checkout Lead (INITIATED_CHECKOUT) and Paid Order (PAID_SUCCESS) with Txn ID, Price, Currency & Items!
+  googleSheetWebhookUrl: 'YOUR_GOOGLE_SHEET_WEBHOOK_URL',
+
+  // 0b. META PIXEL ID (Facebook / Instagram Ads Conversion Tracking)
   // Paste your 15-digit Meta Pixel ID from business.facebook.com/events_manager
   // Automatically tracks: PageView, ViewContent, AddToCart, InitiateCheckout, and Purchase (with exact INR/USD value!)
   metaPixelId: 'YOUR_META_PIXEL_ID',
@@ -1497,19 +1502,23 @@ function buildCheckoutOrderPayload() {
   const phoneVal = (document.getElementById('customer-phone')?.value || '').replace(/\D/g, '');
   const nameVal = document.getElementById('customer-name')?.value.trim() || '';
   const dialCode = state.currency === 'INR' ? '+91' : '+1';
+  const orderId = state.currentOrderId || ('ORD-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(100 + Math.random() * 900));
+  state.currentOrderId = orderId;
 
   return {
+    orderId,
     currency: state.currency, // 'INR' (India IP) or 'USD' (US/Global IP)
     visitorCountry: state.visitorCountry,
     gateway: state.currency === 'INR' ? 'razorpay' : 'paypal',
     amount: finalTotal,
+    formattedAmount: formatPrice(finalTotal),
     amountInSubunits: Math.round(finalTotal * 100), // Paise for Razorpay (INR) / Cents for PayPal (USD)
     offerStatus: state.offerExpired ? 'expired_standard_price' : 'active_10m_flash_offer',
     breakdown: {
       baseKit: base,
       uncensoredHackBump: state.bumpAdded ? activeBump1Price : 0,
       viralHooksBump: state.bump2Added ? activeBump2Price : 0,
-      promoCode: state.promoCode,
+      promoCode: state.promoCode || 'NONE',
       discountAmount: discount
     },
     items: [
@@ -1526,6 +1535,71 @@ function buildCheckoutOrderPayload() {
     createdAt: new Date().toISOString()
   };
 }
+
+// Automatically logs every Checkout Lead (INITIATED_CHECKOUT) and Completed Order (PAID_SUCCESS)
+// to your Google Sheet via Google Apps Script Webhook (plus local backup in localStorage)
+async function logOrderToGoogleSheet(eventStatus = 'PAID_SUCCESS', extra = {}) {
+  try {
+    const payload = window.lastCheckoutOrderPayload || buildCheckoutOrderPayload();
+    const now = new Date();
+    const istTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'medium' });
+
+    const sheetRow = {
+      timestampIST: istTime,
+      timestampISO: now.toISOString(),
+      status: eventStatus, // 'INITIATED_CHECKOUT' or 'PAID_SUCCESS'
+      orderId: payload.orderId,
+      transactionId: extra.transactionId || state.lastTransactionId || 'PENDING',
+      customerName: payload.customer.name || 'Guest',
+      customerEmail: payload.customer.email || '',
+      customerPhone: payload.customer.phone || '',
+      currency: payload.currency,
+      totalPaid: payload.amount,
+      formattedTotal: payload.formattedAmount,
+      basePrice: payload.breakdown.baseKit,
+      bump1_UncensoredHack: state.bumpAdded ? `YES (+${formatPrice(payload.breakdown.uncensoredHackBump)})` : 'NO',
+      bump2_ViralHooksPack: state.bump2Added ? `YES (+${formatPrice(payload.breakdown.viralHooksBump)})` : 'NO',
+      promoCode: payload.breakdown.promoCode !== 'NONE' ? `${payload.breakdown.promoCode} (-${formatPrice(payload.breakdown.discountAmount)})` : 'NONE',
+      paymentMethod: extra.paymentMethod || state.lastPaymentMethod || payload.gateway.toUpperCase(),
+      offerTier: state.offerExpired ? 'Expired Standard Price' : '10-Min Flash Sale',
+      visitorCountry: payload.visitorCountry || 'IN',
+      itemsSummary: payload.items.map((i) => i.name).join(' + '),
+      pageUrl: window.location.href
+    };
+
+    // 1. Save to local backup log in browser localStorage
+    try {
+      const existingLogs = JSON.parse(localStorage.getItem('personalabs_order_log') || '[]');
+      existingLogs.unshift(sheetRow);
+      localStorage.setItem('personalabs_order_log', JSON.stringify(existingLogs.slice(0, 100)));
+    } catch (e) {}
+
+    // 2. Send to Google Sheets Webhook if configured
+    const webhookUrl = (PAYMENT_GATEWAY_CONFIG.googleSheetWebhookUrl || '').trim();
+    if (!webhookUrl || webhookUrl.includes('YOUR_')) {
+      console.info('[Google Sheets DB Preview] Row ready to log:', sheetRow);
+      return sheetRow;
+    }
+
+    await fetch(webhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(sheetRow)
+    });
+    return sheetRow;
+  } catch (err) {
+    console.warn('Google Sheet webhook log warning:', err);
+  }
+}
+
+// Helper you can run from browser console: testGoogleSheetWebhook() to send a test row to your Google Sheet!
+window.testGoogleSheetWebhook = function () {
+  return logOrderToGoogleSheet('TEST_WEBHOOK_PING', {
+    transactionId: 'TEST-TXN-' + Math.floor(100000 + Math.random() * 900000),
+    paymentMethod: 'Webhook Connection Test'
+  });
+};
 
 // Dynamically load and mount official PayPal Smart Buttons when PAYMENT_GATEWAY_CONFIG.paypal.clientId is configured
 let paypalSdkLoaded = false;
@@ -1562,7 +1636,8 @@ function mountPayPalSdkButtonsIfConfigured() {
         onApprove: function (data, actions) {
           return actions.order.capture().then(function (details) {
             const payerName = details?.payer?.name?.given_name || '';
-            simulatePaymentComplete(`PayPal USD (${details.id || payerName || 'Verified'})`);
+            const ppTxId = details?.id || 'PP-' + Math.floor(10000000 + Math.random() * 90000000);
+            simulatePaymentComplete(`PayPal USD (${ppTxId || payerName || 'Verified'})`, ppTxId);
           });
         }
       })
@@ -1649,6 +1724,7 @@ async function handleCheckoutSubmit(event) {
 
   if (!valid) return;
 
+  state.currentOrderId = 'ORD-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(100 + Math.random() * 900);
   const orderPayload = buildCheckoutOrderPayload();
   window.lastCheckoutOrderPayload = orderPayload;
 
@@ -1658,6 +1734,12 @@ async function handleCheckoutSubmit(event) {
     currency: orderPayload.currency,
     num_items: orderPayload.items.length,
     content_name: orderPayload.items.map((i) => i.name).join(' + ')
+  });
+
+  // Log Lead / Initiated Checkout to Google Sheet right away (captures WhatsApp/Email even if buyer drops off!)
+  logOrderToGoogleSheet('INITIATED_CHECKOUT', {
+    transactionId: 'PENDING_PAYMENT',
+    paymentMethod: orderPayload.currency === 'INR' ? 'Razorpay (Initiated)' : 'PayPal (Initiated)'
   });
 
   // 1. Auto-Region Live Routing:
@@ -1681,7 +1763,8 @@ async function handleCheckoutSubmit(event) {
         handler: function (response) {
           document.getElementById('payment-modal').classList.remove('hidden');
           document.getElementById('payment-modal').classList.add('flex');
-          simulatePaymentComplete(`Razorpay UPI/Card (${response.razorpay_payment_id || 'Verified'})`);
+          const rzpTxId = response.razorpay_payment_id || 'rzp_verified_' + Date.now();
+          simulatePaymentComplete(`Razorpay UPI/Card (${rzpTxId})`, rzpTxId);
         }
       });
       rzp.open();
@@ -1715,9 +1798,12 @@ async function handleCheckoutSubmit(event) {
   modal.classList.add('flex');
 }
 
-function simulatePaymentComplete(methodName) {
+function simulatePaymentComplete(methodName, explicitTxId = null) {
   triggerHaptic(40);
   state.lastPaymentMethod = methodName;
+  const txId = explicitTxId || ('PLA-' + Math.floor(10000000 + Math.random() * 90000000));
+  state.lastTransactionId = txId;
+
   const nameVal = document.getElementById('customer-name').value.trim() || 'Creator';
   const emailVal = document.getElementById('customer-email').value.trim();
 
@@ -1730,12 +1816,21 @@ function simulatePaymentComplete(methodName) {
     content_type: 'product'
   });
 
+  // Log Completed Order with Transaction ID, Price, Currency & Items to Google Sheet
+  if (methodName !== 'Verified Order Lookup' && methodName !== 'Verified Order') {
+    logOrderToGoogleSheet('PAID_SUCCESS', {
+      transactionId: txId,
+      paymentMethod: methodName
+    });
+  }
+
   // Save unlocked status locally so the buyer can re-open their Vault anytime with 1 click (Zero Email Required)
   try {
     localStorage.setItem(
       'personalabs_unlocked_vault',
       JSON.stringify({
         unlocked: true,
+        transactionId: txId,
         name: nameVal,
         email: emailVal,
         method: methodName,
@@ -1751,7 +1846,7 @@ function simulatePaymentComplete(methodName) {
   successStep.classList.remove('hidden');
 
   document.getElementById('success-customer-greeting').textContent =
-    `Hi ${nameVal}! Payment via ${methodName} is verified. Click any button below for instant access — no email wait required!`;
+    `Hi ${nameVal}! Payment (${txId}) via ${methodName} is verified. Click any button below for instant access — no email wait required!`;
 
   const urlInput = document.getElementById('direct-vault-url-input');
   if (urlInput) {
@@ -1811,7 +1906,7 @@ function openSignInModal() {
         const modal = document.getElementById('payment-modal');
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-        simulatePaymentComplete(state.lastPaymentMethod);
+        simulatePaymentComplete(state.lastPaymentMethod, saved.transactionId || null);
         return;
       }
     }
@@ -1833,7 +1928,7 @@ function downloadOfficialReceipt() {
   const nameVal = document.getElementById('customer-name').value.trim() || 'Valued Creator';
   const emailVal = document.getElementById('customer-email').value.trim() || 'creator@example.com';
   const phoneVal = document.getElementById('customer-phone').value.trim() || '';
-  const txId = 'PLA-' + Math.floor(10000000 + Math.random() * 90000000);
+  const txId = state.lastTransactionId || ('PLA-' + Math.floor(10000000 + Math.random() * 90000000));
   const vaultOrigin = window.location.origin.startsWith('http') ? window.location.origin : 'https://personalabs.store';
 
   const items = ['1x AI Influencer Accelerator – 5-Day Launch Kit (Lifetime Access)'];
