@@ -33,25 +33,25 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
 
   <!-- High-Urgency Sticky Top Flash Offer Banner (10-Min Flash Offer + Dynamic Live Viewers + IP Currency Lock) -->
   <header class="sticky top-0 z-40 urgency-top-bar">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-3 py-2 sm:px-6 gap-2">
-      <!-- Left: High-Urgency 10-Minute Flash Offer, Countdown & Live Viewers Pill -->
-      <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs">
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-400 text-slate-950 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6 gap-2 flex-nowrap">
+      <!-- Left: High-Urgency 10-Minute Flash Offer, Countdown & Live Viewers Pill (Strictly Single-Line Inline) -->
+      <div class="flex flex-nowrap items-center gap-1.5 sm:gap-2.5 text-xs whitespace-nowrap overflow-x-auto no-scrollbar min-w-0">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-400 text-slate-950 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm shrink-0">
           <span id="offer-pulse-dot" class="relative flex h-2 w-2 items-center justify-center text-red-600 pulse-dot">
             <span id="offer-pulse-inner" class="h-2 w-2 rounded-full bg-red-600"></span>
           </span>
           <span>⚡ URGENT</span>
         </span>
 
-        <span id="offer-header-text" class="font-bold text-white tracking-tight">
+        <span id="offer-header-text" class="font-bold text-white tracking-tight shrink-0">
           <span id="offer-discount-label" class="text-amber-300 font-black">88% OFF FLASH SALE</span>
-          <span id="offer-ends-label" class="hidden md:inline text-white/90 font-medium"> — Grab For ₹249 Before Price Jumps To ₹499:</span>
+          <span id="offer-ends-label" class="hidden xl:inline text-white/95 font-medium"> — Grab For ₹249 Before Price Jumps To ₹499:</span>
         </span>
 
         <button
@@ -59,15 +59,15 @@
           id="countdown-timer"
           onclick="toggleGeoSimPopover()"
           title="10-Minute Flash Offer — Price increases automatically when timer reaches 00:00 (Click to test or reset)"
-          class="font-mono-num rounded-md bg-yellow-300 border-2 border-white px-2.5 py-0.5 text-xs sm:text-sm font-black text-red-950 shadow-md transition-all cursor-pointer"
+          class="font-mono-num rounded-md bg-yellow-300 border-2 border-white px-2.5 py-0.5 text-xs sm:text-sm font-black text-red-950 shadow-md transition-all cursor-pointer shrink-0"
         >
           ⏱ 10:00
         </button>
 
-        <!-- Dynamic Live Viewers Pill (👁 32 viewing now) -->
+        <!-- Dynamic Live Viewers Pill (👁 32 viewing now — Always Inline With Timer) -->
         <div
           id="live-viewers-top-pill"
-          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 border border-emerald-400/60 px-2.5 py-0.5 text-[11px] font-bold text-emerald-200 transition-transform duration-300"
+          class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 border border-emerald-400/60 px-2.5 py-0.5 text-[11px] font-bold text-emerald-200 transition-transform duration-300 shrink-0"
           title="Real-time active visitors on this page"
         >
           <svg class="h-3.5 w-3.5 text-emerald-300 shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -214,7 +214,7 @@
                 />
               </div>
               <div>
-                <div class="text-xs text-slate-400 font-medium">Created by</div>
+                <div class="text-xs text-slate-600 font-semibold">Created by</div>
                 <div class="flex items-center gap-1.5">
                   <span class="text-sm sm:text-base font-bold text-slate-900 tracking-tight">PersonaLabs Academy</span>
                   <svg class="h-4 w-4 text-sky-500 shrink-0" viewBox="0 0 24 24" fill="currentColor" title="Verified Creator Academy">
@@ -229,44 +229,16 @@
               AI Influencer Accelerator – Start Your AI Creator Business
             </h1>
 
-            <!-- 3-Panel Viral AI Reels Hero Image (Matches Reference 2.5M / 1.2M / 3.6M Layout) -->
+            <!-- 3-Panel Viral AI Reels Hero Image (With Smooth Pointer Hover Enlarge Effect) -->
             <div
               ondblclick="spawnFloatingHeart(event, this)"
-              class="mt-5 relative group overflow-hidden rounded-lg border border-slate-200 shadow-sm select-none bg-slate-100"
+              class="mt-5 relative group overflow-hidden rounded-xl border border-slate-200 shadow-md select-none bg-slate-900 cursor-pointer"
             >
               <img
-                src="assets/images/hero_showcase.jpg"
-                alt="AI Influencer Accelerator – Create Viral AI Reels"
-                class="w-full object-cover"
+                src="assets/images/hero_showcase.jpg?v=9"
+                alt="AI Influencer Accelerator – Create Viral AI Reels (2.5M, 1.2M, 3.6M Views)"
+                class="hero-hover-zoom w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
               />
-
-              <!-- Top-Left View Count Badges on Each of the 3 Panels (Exact Match to Reference) -->
-              <div class="absolute top-0 inset-x-0 grid grid-cols-3 pointer-events-none p-2.5 sm:p-3.5">
-                <div class="flex items-center gap-1 text-white font-extrabold text-xs sm:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)]">
-                  <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                  <span>2.5M</span>
-                </div>
-                <div class="flex items-center gap-1 text-white font-extrabold text-xs sm:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)] pl-1">
-                  <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                  <span>1.2M</span>
-                </div>
-                <div class="flex items-center gap-1 text-white font-extrabold text-xs sm:text-base drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)] pl-1">
-                  <svg class="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                  <span>3.6M</span>
-                </div>
-              </div>
-
-              <!-- Bottom Headline Banner Overlay (CREATE VIRAL AI REELS / EARN LAKHS EVERY MONTH) -->
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent pt-12 pb-4 sm:pb-6 px-4 text-center pointer-events-none">
-                <div class="font-display text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-[#fde047] drop-shadow-[0_3px_4px_rgba(0,0,0,0.95)] leading-none">
-                  CREATE VIRAL AI REELS
-                </div>
-                <div class="mt-1.5 inline-block bg-[#dc2626] px-4 py-1 rounded shadow-lg">
-                  <span class="font-display text-sm sm:text-xl font-black uppercase tracking-wide text-white drop-shadow">
-                    EARN LAKHS EVERY MONTH
-                  </span>
-                </div>
-              </div>
             </div>
 
             <!-- Reference "Already made a payment on this page?" Callout Strip -->
@@ -1536,22 +1508,24 @@
                 <div
                   id="order-bump-container"
                   onclick="toggleOrderBump()"
-                  class="order-bump-card cursor-pointer rounded-xl p-2.5 space-y-1.5"
+                  class="order-bump-card group cursor-pointer rounded-xl p-2.5 space-y-1.5"
                 >
                   <div class="flex items-center gap-3">
-                    <img
-                      src="assets/images/uncensored_hack_cover.jpg"
-                      alt="Uncensored Content Hack"
-                      class="h-12 w-12 rounded-lg object-cover shrink-0 border border-slate-200"
-                    />
+                    <div class="h-12 w-12 rounded-lg overflow-hidden shrink-0 border border-slate-200 bg-slate-100">
+                      <img
+                        src="assets/images/uncensored_hack_cover.jpg?v=9"
+                        alt="Uncensored Content Hack"
+                        class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                      />
+                    </div>
                     <div class="flex-1 min-w-0">
                       <div class="flex items-center justify-between gap-1.5">
-                        <h3 class="text-xs sm:text-sm font-semibold text-slate-800 truncate">
+                        <h3 class="text-xs sm:text-sm font-semibold text-slate-900 truncate">
                           Uncensored Content Hack
                         </h3>
                         <span id="bump-price-display" class="font-mono-num text-xs font-bold text-slate-900 shrink-0">+₹249</span>
                       </div>
-                      <p class="text-[11px] text-slate-500 line-clamp-2 leading-snug mt-0.5">
+                      <p class="text-[11px] text-slate-600 line-clamp-2 leading-snug mt-0.5">
                         Discover the Uncensored Content Hack — how top creators structure high-curiosity reels &amp; attract massive engagement safely...
                       </p>
                     </div>
@@ -1564,9 +1538,9 @@
                           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                         </svg>
                       </div>
-                      <span id="bump-tag-right" class="text-xs text-slate-700 font-semibold">+Add to cart</span>
+                      <span id="bump-tag-right" class="text-xs text-slate-800 font-semibold">+Add to cart</span>
                     </div>
-                    <span id="bump-status-pill" class="text-[10px] font-medium text-slate-400">
+                    <span id="bump-status-pill" class="text-[10px] font-medium text-slate-500">
                       Optional Add-On
                     </span>
                   </div>
@@ -1578,22 +1552,24 @@
                 <div
                   id="order-bump-2-container"
                   onclick="toggleSecondOrderBump()"
-                  class="order-bump-card cursor-pointer rounded-xl p-2.5 space-y-1.5"
+                  class="order-bump-card group cursor-pointer rounded-xl p-2.5 space-y-1.5"
                 >
                   <div class="flex items-center gap-3">
-                    <img
-                      src="assets/images/persona_aira.jpg"
-                      alt="500+ Viral Reel Hooks & Auto-DM Pack"
-                      class="h-12 w-12 rounded-lg object-cover shrink-0 border border-slate-200"
-                    />
+                    <div class="h-12 w-12 rounded-lg overflow-hidden shrink-0 border border-slate-200 bg-slate-100">
+                      <img
+                        src="assets/images/persona_aira.jpg?v=9"
+                        alt="500+ Viral Reel Hooks & Auto-DM Pack"
+                        class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                      />
+                    </div>
                     <div class="flex-1 min-w-0">
                       <div class="flex items-center justify-between gap-1.5">
-                        <h3 class="text-xs sm:text-sm font-semibold text-slate-800 truncate">
+                        <h3 class="text-xs sm:text-sm font-semibold text-slate-900 truncate">
                           500+ Viral Reel Hooks &amp; Auto-DM Pack
                         </h3>
                         <span id="bump-2-price-display" class="font-mono-num text-xs font-bold text-slate-900 shrink-0">+₹149</span>
                       </div>
-                      <p class="text-[11px] text-slate-500 line-clamp-2 leading-snug mt-0.5">
+                      <p class="text-[11px] text-slate-600 line-clamp-2 leading-snug mt-0.5">
                         Copy-paste 500+ high-retention reel hooks &amp; ManyChat comment-to-DM templates that turn reel views into 24/7 sales...
                       </p>
                     </div>
@@ -1606,9 +1582,9 @@
                           <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
                         </svg>
                       </div>
-                      <span id="bump-2-tag-right" class="text-xs text-slate-700 font-semibold">+Add to cart</span>
+                      <span id="bump-2-tag-right" class="text-xs text-slate-800 font-semibold">+Add to cart</span>
                     </div>
-                    <span id="bump-2-status-pill" class="text-[10px] font-medium text-slate-400">
+                    <span id="bump-2-status-pill" class="text-[10px] font-medium text-slate-500">
                       Optional Add-On
                     </span>
                   </div>

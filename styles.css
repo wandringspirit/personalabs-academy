@@ -106,9 +106,36 @@ html[data-theme="light"] .text-amber-400 {
   color: #d97706 !important;
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="light"] .text-slate-400,
+html[data-theme="light"] .text-slate-500,
+html[data-theme="light"] .text-slate-600 {
+  color: #475569 !important;
+}
+
+html[data-theme="light"] .text-slate-700,
+html[data-theme="light"] .text-slate-800,
+html[data-theme="light"] .text-slate-900 {
+  color: #0f172a !important;
+}
+
 html[data-theme="light"] .urgency-top-bar .text-amber-300,
 html[data-theme="light"] .urgency-top-bar .text-yellow-300 {
   color: #fde047 !important;
+}
+
+/* Smooth pointer hover zoom effect for hero and showcase images */
+.hero-hover-zoom {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.group:hover .hero-hover-zoom,
+.hero-hover-zoom:hover {
+  transform: scale(1.035);
 }
 
 /* Automatic Clean Dark-Mode Overrides for Light Utility Classes */
