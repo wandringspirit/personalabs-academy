@@ -164,6 +164,10 @@ html[data-theme="dark"] .order-bump-card {
   border-color: rgba(255, 255, 255, 0.14);
 }
 
+html[data-theme="dark"] .text-\[\#1a1f71\] {
+  color: #93c5fd !important;
+}
+
 /* Optional Desktop "Mobile Frame Simulator" Mode */
 body.mobile-frame-active {
   max-width: 430px;
