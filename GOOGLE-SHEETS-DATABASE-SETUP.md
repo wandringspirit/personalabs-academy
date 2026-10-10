@@ -118,6 +118,25 @@ function doPost(e) {
     // Auto color-code row: Green for PAID_SUCCESS, Soft Yellow for INITIATED_CHECKOUT (Lead)
     if (data.status === 'PAID_SUCCESS') {
       rowRange.setBackground('#dcfce7');
+
+      // OPTIONAL DRM: Auto-whitelist buyer's Gmail on your Restricted Google Drive folders!
+      // Paste your 3 Google Drive Folder IDs below once uploaded from your Brand Gmail account:
+      const CORE_FOLDER_ID = '';   // Folder 01: 01-Core-Course-Videos
+      const NSFW_FOLDER_ID = '';   // Folder 02: 02-Uncensored-NSFW-Addon-Videos (Bump #1)
+      const HOOKS_FOLDER_ID = '';  // Folder 03: 03-500-Viral-Hooks-And-Prompts-Pack (Bump #2)
+      const buyerEmail = String(data.customerEmail || '').trim();
+
+      if (buyerEmail && buyerEmail.includes('@')) {
+        try {
+          if (CORE_FOLDER_ID) DriveApp.getFolderById(CORE_FOLDER_ID).addViewer(buyerEmail);
+          if (NSFW_FOLDER_ID && String(data.bump1_UncensoredHack || '').startsWith('YES')) {
+            DriveApp.getFolderById(NSFW_FOLDER_ID).addViewer(buyerEmail);
+          }
+          if (HOOKS_FOLDER_ID && String(data.bump2_ViralHooksPack || '').startsWith('YES')) {
+            DriveApp.getFolderById(HOOKS_FOLDER_ID).addViewer(buyerEmail);
+          }
+        } catch (driveErr) {}
+      }
     } else if (data.status === 'INITIATED_CHECKOUT') {
       rowRange.setBackground('#fef9c3');
     }
@@ -131,6 +150,47 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   } finally {
     lock.releaseLock();
+  }
+}
+
+// Server-side verification endpoint called by course-vault/index.html (?action=verify&email=...)
+function doGet(e) {
+  try {
+    const params = (e && e.parameter) || {};
+    if (params.action === 'verify' && params.email) {
+      const targetEmail = String(params.email).trim().toLowerCase();
+      const sheet = ensureSheetAndHeaders();
+      const rows = sheet.getDataRange().getValues();
+      let bump1 = false;
+      let bump2 = false;
+      let verified = false;
+
+      for (let i = 1; i < rows.length; i++) {
+        const status = String(rows[i][1] || '');
+        const rowEmail = String(rows[i][5] || '').trim().toLowerCase();
+        if (status === 'PAID_SUCCESS' && rowEmail === targetEmail) {
+          verified = true;
+          if (String(rows[i][11] || '').toUpperCase().startsWith('YES')) bump1 = true;
+          if (String(rows[i][12] || '').toUpperCase().startsWith('YES')) bump2 = true;
+        }
+      }
+
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          ok: verified,
+          bump1: bump1,
+          bump2: bump2,
+          nsfwDriveUrl: bump1 ? 'https://drive.google.com/drive/folders/YOUR_NSFW_FOLDER_ID' : ''
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: true, service: 'PersonaLabs Orders DB' }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
   }
 }
 ```

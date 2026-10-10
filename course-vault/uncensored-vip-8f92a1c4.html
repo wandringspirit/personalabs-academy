@@ -3,7 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <title>The "Uncensored Content Hack" VIP Guide — PersonaLabs Academy</title>
+  <script>
+    (function() {
+      function sig(email, tx, key) {
+        var raw = 'PL_VIP_2026::' + String(email || '').trim().toLowerCase() + '::' + String(tx || '').trim() + '::' + key;
+        var h1 = 0x811c9dc5;
+        for (var i = 0; i < raw.length; i++) { h1 ^= raw.charCodeAt(i); h1 = Math.imul(h1, 0x01000193); }
+        return (h1 >>> 0).toString(16).padStart(8, '0');
+      }
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var saved = JSON.parse(localStorage.getItem('personalabs_unlocked_vault') || '{}');
+        var email = p.get('email') || saved.email || '';
+        var tx = p.get('tx') || saved.transactionId || '';
+        var vt1 = p.get('vt1') || saved.vt1 || '';
+        if (!email || !tx || vt1 !== sig(email, tx, 'BUMP1_NSFW_8f92a1c4')) {
+          window.location.replace('../?upgrade=bump1');
+        }
+      } catch (e) { window.location.replace('../?upgrade=bump1'); }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">

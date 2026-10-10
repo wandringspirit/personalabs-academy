@@ -1843,13 +1843,34 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
     });
   }
 
-  // Save unlocked status locally so the buyer can re-open their Vault anytime with 1 click (Zero Email Required)
-  // Also merge with any previously unlocked bumps if the buyer is upgrading later!
+  // Compute deterministic verification signature tied to (email, txId, addonKey)
+  // Prevents manual URL (?b1=1) or localStorage (bumpAdded: true) tampering
+  function computeAddonSig(email, tx, addonKey) {
+    const raw = `PL_VIP_2026::${String(email || '').trim().toLowerCase()}::${String(tx || '').trim()}::${addonKey}`;
+    let h1 = 0x811c9dc5;
+    for (let i = 0; i < raw.length; i++) {
+      h1 ^= raw.charCodeAt(i);
+      h1 = Math.imul(h1, 0x01000193);
+    }
+    return (h1 >>> 0).toString(16).padStart(8, '0');
+  }
+
+  let vt1 = '';
+  let vt2 = '';
   try {
     const prevRaw = localStorage.getItem('personalabs_unlocked_vault');
     const prev = prevRaw ? JSON.parse(prevRaw) : {};
-    state.bumpAdded = Boolean(state.bumpAdded || prev.bumpAdded);
-    state.bump2Added = Boolean(state.bump2Added || prev.bump2Added);
+    const prevTx = prev.transactionId || txId;
+    const prevEmail = prev.email || emailVal;
+
+    const prevB1Valid = Boolean(prev.bumpAdded && prev.vt1 === computeAddonSig(prevEmail, prevTx, 'BUMP1_NSFW_8f92a1c4'));
+    const prevB2Valid = Boolean(prev.bump2Added && prev.vt2 === computeAddonSig(prevEmail, prevTx, 'BUMP2_HOOKS_3d7e91b2'));
+
+    state.bumpAdded = Boolean(state.bumpAdded || prevB1Valid);
+    state.bump2Added = Boolean(state.bump2Added || prevB2Valid);
+
+    if (state.bumpAdded) vt1 = computeAddonSig(emailVal, txId, 'BUMP1_NSFW_8f92a1c4');
+    if (state.bump2Added) vt2 = computeAddonSig(emailVal, txId, 'BUMP2_HOOKS_3d7e91b2');
 
     localStorage.setItem(
       'personalabs_unlocked_vault',
@@ -1861,6 +1882,8 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
         method: methodName,
         bumpAdded: state.bumpAdded,
         bump2Added: state.bump2Added,
+        vt1,
+        vt2,
         unlockedAt: new Date().toISOString()
       })
     );
@@ -1873,7 +1896,13 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
   document.getElementById('success-customer-greeting').textContent =
     `Hi ${nameVal}! Payment (${txId}) via ${methodName} is verified. Click any button below for instant access — no email wait required!`;
 
-  const vaultParams = `?b1=${state.bumpAdded ? 1 : 0}&b2=${state.bump2Added ? 1 : 0}`;
+  const qs = new URLSearchParams();
+  qs.set('email', emailVal);
+  qs.set('tx', txId);
+  if (vt1) qs.set('vt1', vt1);
+  if (vt2) qs.set('vt2', vt2);
+  const vaultParams = `?${qs.toString()}`;
+
   const portalBtn = document.getElementById('delivery-link-vault-portal');
   if (portalBtn) {
     portalBtn.href = `course-vault/index.html${vaultParams}`;
@@ -1884,15 +1913,19 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
   }
 
   const bumpDownload = document.getElementById('success-bump-download');
-  if (state.bumpAdded) {
+  const bump1Link = document.getElementById('delivery-link-bump1');
+  if (state.bumpAdded && vt1) {
+    if (bump1Link) bump1Link.href = `course-vault/uncensored-vip-8f92a1c4.html?email=${encodeURIComponent(emailVal)}&tx=${encodeURIComponent(txId)}&vt1=${vt1}`;
     bumpDownload.classList.remove('hidden');
   } else {
     bumpDownload.classList.add('hidden');
   }
 
   const bump2Download = document.getElementById('success-bump-2-download');
+  const bump2Link = document.getElementById('delivery-link-bump2');
   if (bump2Download) {
-    if (state.bump2Added) {
+    if (state.bump2Added && vt2) {
+      if (bump2Link) bump2Link.href = `course-vault/hooks-vip-3d7e91b2.html?email=${encodeURIComponent(emailVal)}&tx=${encodeURIComponent(txId)}&vt2=${vt2}`;
       bump2Download.classList.remove('hidden');
     } else {
       bump2Download.classList.add('hidden');
