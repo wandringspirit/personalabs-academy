@@ -1408,7 +1408,7 @@ const PAYMENT_GATEWAY_CONFIG = {
   // 0a. GOOGLE SHEETS REAL-TIME ORDER & LEAD DATABASE WEBHOOK URL
   // Paste your Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)
   // Automatically logs every Checkout Lead (INITIATED_CHECKOUT) and Paid Order (PAID_SUCCESS) with Txn ID, Price, Currency & Items!
-  googleSheetWebhookUrl: 'YOUR_GOOGLE_SHEET_WEBHOOK_URL',
+  googleSheetWebhookUrl: 'https://script.google.com/macros/s/AKfycbx5gW7QlFdzIzf_vGjmdnJlYZTHffP67kTj5pfc1cfVaVWt0QnKv5PsuQH_qwRrOvoSEA/exec',
 
   // 0b. META PIXEL ID (Facebook / Instagram Ads Conversion Tracking)
   // Paste your 15-digit Meta Pixel ID from business.facebook.com/events_manager
