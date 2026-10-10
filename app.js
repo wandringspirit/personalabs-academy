@@ -55,7 +55,8 @@ function formatPrice(amount) {
 // Compute current totals (automatically increases price after 10-minute timer expires)
 function getTotals() {
   const cfg = state.prices[state.currency];
-  const base = state.offerExpired ? cfg.expiredBase : cfg.base;
+  const rawBase = state.offerExpired ? cfg.expiredBase : cfg.base;
+  const base = state.upgradeOnly ? 0 : rawBase;
   const activeBump1Price = state.offerExpired ? cfg.expiredBump1 : cfg.bump1;
   const activeBump2Price = state.offerExpired ? cfg.expiredBump2 : cfg.bump2;
   const bump1 = state.bumpAdded ? activeBump1Price : 0;
@@ -283,11 +284,21 @@ function toggleSecondOrderBump() {
   const container = document.getElementById('order-bump-2-container');
   const checkboxVis = document.getElementById('bump-2-checkbox-visual');
   const checkSvg = document.getElementById('bump-2-check-svg');
+  const statusPill = document.getElementById('bump-2-status-pill');
+  const tagRight = document.getElementById('bump-2-tag-right');
 
   if (state.bump2Added) {
     container.classList.add('active');
-    checkboxVis.classList.add('bg-emerald-500', 'border-emerald-500');
+    checkboxVis.classList.add('bg-fuchsia-500', 'border-fuchsia-500');
     checkSvg.classList.remove('hidden');
+    if (statusPill) {
+      statusPill.textContent = '✔ Added to Order';
+      statusPill.className = 'text-[10px] font-medium text-emerald-600';
+    }
+    if (tagRight) {
+      tagRight.textContent = 'Added ✓';
+      tagRight.className = 'text-xs font-semibold text-emerald-600';
+    }
     const { activeBump2Price } = getTotals();
     trackMetaPixelEvent('AddToCart', {
       content_name: '500+ Viral Reel Hooks & Auto-DM Templates Pack',
@@ -297,8 +308,16 @@ function toggleSecondOrderBump() {
     });
   } else {
     container.classList.remove('active');
-    checkboxVis.classList.remove('bg-emerald-500', 'border-emerald-500');
+    checkboxVis.classList.remove('bg-fuchsia-500', 'border-fuchsia-500');
     checkSvg.classList.add('hidden');
+    if (statusPill) {
+      statusPill.textContent = 'Optional Add-On';
+      statusPill.className = 'text-[10px] font-medium text-slate-400';
+    }
+    if (tagRight) {
+      tagRight.textContent = '+Add to cart';
+      tagRight.className = 'text-xs font-semibold text-slate-700';
+    }
   }
 
   renderPricing();
@@ -1825,7 +1844,13 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
   }
 
   // Save unlocked status locally so the buyer can re-open their Vault anytime with 1 click (Zero Email Required)
+  // Also merge with any previously unlocked bumps if the buyer is upgrading later!
   try {
+    const prevRaw = localStorage.getItem('personalabs_unlocked_vault');
+    const prev = prevRaw ? JSON.parse(prevRaw) : {};
+    state.bumpAdded = Boolean(state.bumpAdded || prev.bumpAdded);
+    state.bump2Added = Boolean(state.bump2Added || prev.bump2Added);
+
     localStorage.setItem(
       'personalabs_unlocked_vault',
       JSON.stringify({
@@ -1848,9 +1873,14 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
   document.getElementById('success-customer-greeting').textContent =
     `Hi ${nameVal}! Payment (${txId}) via ${methodName} is verified. Click any button below for instant access — no email wait required!`;
 
+  const vaultParams = `?b1=${state.bumpAdded ? 1 : 0}&b2=${state.bump2Added ? 1 : 0}`;
+  const portalBtn = document.getElementById('delivery-link-vault-portal');
+  if (portalBtn) {
+    portalBtn.href = `course-vault/index.html${vaultParams}`;
+  }
   const urlInput = document.getElementById('direct-vault-url-input');
   if (urlInput) {
-    urlInput.value = `${window.location.origin}/course-vault/index.html`;
+    urlInput.value = `${window.location.origin}/course-vault/index.html${vaultParams}`;
   }
 
   const bumpDownload = document.getElementById('success-bump-download');
@@ -2214,4 +2244,41 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicLiveViewers();
   initReelSwipeGestures();
   initMetaPixel();
+
+  // Check if a returning student clicked a 1-Click Add-On Upgrade link from course-vault/index.html (?upgrade=bump1 or ?upgrade=bump2)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const upgradeTarget = (params.get('upgrade') || '').toLowerCase();
+    if (upgradeTarget === 'bump1' || upgradeTarget === 'bump2') {
+      state.upgradeOnly = true;
+      const prevRaw = localStorage.getItem('personalabs_unlocked_vault');
+      const prev = prevRaw ? JSON.parse(prevRaw) : {};
+
+      // Mark already-owned add-on so student knows it's already in their vault and isn't charged twice
+      if (prev.bumpAdded && upgradeTarget === 'bump2') {
+        const p1 = document.getElementById('bump-status-pill');
+        const t1 = document.getElementById('bump-tag-right');
+        if (p1) { p1.textContent = '✔ Already Owned in Vault'; p1.className = 'text-[10px] font-bold text-emerald-600'; }
+        if (t1) { t1.textContent = 'Owned ✓'; t1.className = 'text-xs font-semibold text-emerald-600'; }
+      }
+      if (prev.bump2Added && upgradeTarget === 'bump1') {
+        const p2 = document.getElementById('bump-2-status-pill');
+        const t2 = document.getElementById('bump-2-tag-right');
+        if (p2) { p2.textContent = '✔ Already Owned in Vault'; p2.className = 'text-[10px] font-bold text-emerald-600'; }
+        if (t2) { t2.textContent = 'Owned ✓'; t2.className = 'text-xs font-semibold text-emerald-600'; }
+      }
+
+      if (upgradeTarget === 'bump1' && !state.bumpAdded) toggleOrderBump();
+      if (upgradeTarget === 'bump2' && !state.bump2Added) toggleSecondOrderBump();
+      renderPricing();
+      setTimeout(() => {
+        scrollToCheckout();
+        triggerPayoutToast(
+          upgradeTarget === 'bump1'
+            ? '🔓 Add-On Upgrade Mode: Paying only for Uncensored Content Hack (+4 NSFW Videos)!'
+            : '⚡ Add-On Upgrade Mode: Paying only for 500+ Viral Reel Hooks Pack!'
+        );
+      }, 400);
+    }
+  } catch (e) {}
 });

@@ -695,13 +695,13 @@
         <span>🧬 250+ Character DNA Bible</span>
         <span class="tag">Included</span>
       </a>
-      <a href="uncensored-content-hack.html" class="vault-link-card">
+      <a id="sidebar-link-bump1" href="uncensored-content-hack.html" class="vault-link-card">
         <span>🔥 Uncensored Content Hack</span>
-        <span class="tag">VIP Bump #1</span>
+        <span id="sidebar-tag-bump1" class="tag">VIP Bump #1</span>
       </a>
-      <a href="viral-hooks-and-autodm-pack.html" class="vault-link-card">
+      <a id="sidebar-link-bump2" href="viral-hooks-and-autodm-pack.html" class="vault-link-card">
         <span>⚡ 500+ Hooks & Auto-DM Pack</span>
-        <span class="tag">VIP Bump #2</span>
+        <span id="sidebar-tag-bump2" class="tag">VIP Bump #2</span>
       </a>
 
       <div class="sidebar-section-label">Quick Actions</div>
@@ -721,8 +721,11 @@
           <p>Bookmark this page (<strong>personalabs.store/course-vault/</strong>) for lifetime access—no login or email required! Follow the 5-Day Launch Blueprint step-by-step below, or open your bonus vaults and Google Drive folder anytime.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:0.5rem;min-width:230px;">
-          <a href="https://drive.google.com/drive/folders/13prDNfskRSTJNdFlTsunhzY6Mu34YiMv?usp=sharing" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:#10b981;color:#052e16;font-weight:800;font-size:0.84rem;padding:0.75rem 1.1rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 15px rgba(16,185,129,0.3);">
-            <span>📂 Open Google Drive Folder ↗</span>
+          <a id="vault-core-drive-btn" href="https://drive.google.com/drive/folders/13prDNfskRSTJNdFlTsunhzY6Mu34YiMv?usp=sharing" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:#10b981;color:#052e16;font-weight:800;font-size:0.84rem;padding:0.75rem 1.1rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 15px rgba(16,185,129,0.3);">
+            <span>📂 Open Core Videos Drive ↗</span>
+          </a>
+          <a id="vault-nsfw-drive-btn" href="../?upgrade=bump1" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:rgba(245,158,11,0.15);border:1px dashed rgba(245,158,11,0.6);color:#fbbf24;font-weight:700;font-size:0.76rem;padding:0.55rem 0.9rem;border-radius:8px;text-decoration:none;">
+            <span id="vault-nsfw-drive-label">🔒 Unlock 4 NSFW Videos (+₹249) ↗</span>
           </a>
           <button onclick="window.print()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#f8fafc;font-weight:600;font-size:0.78rem;padding:0.55rem 0.9rem;border-radius:8px;cursor:pointer;">
             🖨️ Save / Print Guide as PDF
@@ -733,19 +736,19 @@
       <!-- Quick Access Vault Cards -->
       <div class="quick-bonuses">
         <a href="character-dna-prompt-bible.html" class="bonus-box">
-          <div class="bonus-box-top"><span>Master Prompt Library</span><span>Open →</span></div>
+          <div class="bonus-box-top"><span>Master Prompt Library</span><span style="color:#34d399;font-weight:700;">✓ Included • Open →</span></div>
           <h3>250+ Character DNA & Face-Lock Bible</h3>
           <p>Copy-paste Indian Ethnic, Luxury Travel, Cyber Streetwear & Fitness prompts with seed parameters.</p>
         </a>
-        <a href="uncensored-content-hack.html" class="bonus-box">
-          <div class="bonus-box-top"><span>Order Bump #1 VIP Guide</span><span>Open →</span></div>
+        <a id="card-link-bump1" href="uncensored-content-hack.html" class="bonus-box">
+          <div class="bonus-box-top"><span>Order Bump #1 (+NSFW Videos 14–17)</span><span id="card-badge-bump1">Open →</span></div>
           <h3>The "Uncensored Content Hack" Blueprint</h3>
-          <p>Safe high-curiosity visual hooks, realism skin modifiers, and shadowban-proof Telegram/Fanvue funnels.</p>
+          <p id="card-desc-bump1">Includes the 4 Uncensored FaceFusion NSFW Video Tutorials + Safe high-curiosity visual hooks & Fanvue funnel guide.</p>
         </a>
-        <a href="viral-hooks-and-autodm-pack.html" class="bonus-box">
-          <div class="bonus-box-top"><span>Order Bump #2 Automation</span><span>Open →</span></div>
+        <a id="card-link-bump2" href="viral-hooks-and-autodm-pack.html" class="bonus-box">
+          <div class="bonus-box-top"><span>Order Bump #2 Automation</span><span id="card-badge-bump2">Open →</span></div>
           <h3>500+ Viral Reel Hooks & ManyChat Scripts</h3>
-          <p>Copy-paste viral text hooks, caption frameworks, and 24/7 comment-to-DM conversion flows.</p>
+          <p id="card-desc-bump2">Copy-paste viral text hooks, caption frameworks, and 24/7 comment-to-DM conversion flows.</p>
         </a>
       </div>
 
@@ -1380,7 +1383,139 @@ Open to me sending over 2 free sample renders wearing one of your products today
       });
     }
 
-    document.addEventListener('DOMContentLoaded', updateProgressUI);
+    // Dynamically locks or unlocks Add-On #1 (Uncensored Content Hack + 4 NSFW Videos)
+    // and Add-On #2 (500+ Viral Reel Hooks Pack) across all 4 ownership combinations:
+    //   1) Basic Only (b1=0, b2=0) -> Both show 1-click upgrade links (../?upgrade=bump1 & ../?upgrade=bump2)
+    //   2) Basic + Bump #1 (b1=1, b2=0) -> Bump #1 unlocked, Bump #2 shows 1-click upgrade link
+    //   3) Basic + Bump #2 (b1=0, b2=1) -> Bump #2 unlocked, Bump #1 shows 1-click upgrade link
+    //   4) Full Bundle (b1=1, b2=1) -> Everything unlocked!
+    const NSFW_VIDEOS_DRIVE_URL = 'https://drive.google.com/drive/folders/13prDNfskRSTJNdFlTsunhzY6Mu34YiMv?usp=sharing'; // Update with Folder 2 link once uploaded
+
+    function syncAddonUnlockState() {
+      let hasBump1 = false;
+      let hasBump2 = false;
+
+      try {
+        const raw = localStorage.getItem('personalabs_unlocked_vault');
+        const saved = raw ? JSON.parse(raw) : {};
+        hasBump1 = Boolean(saved.bumpAdded);
+        hasBump2 = Boolean(saved.bump2Added);
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('b1') === '1') hasBump1 = true;
+        if (params.get('b2') === '1') hasBump2 = true;
+
+        // Persist merged state back to localStorage so future visits remember all unlocked add-ons
+        if (params.has('b1') || params.has('b2')) {
+          localStorage.setItem(
+            'personalabs_unlocked_vault',
+            JSON.stringify({
+              ...saved,
+              unlocked: true,
+              bumpAdded: hasBump1,
+              bump2Added: hasBump2
+            })
+          );
+        }
+      } catch (e) {}
+
+      // 1. Update Add-On #1 (Uncensored Content Hack + 4 NSFW Videos)
+      const sbLink1 = document.getElementById('sidebar-link-bump1');
+      const sbTag1 = document.getElementById('sidebar-tag-bump1');
+      const cardLink1 = document.getElementById('card-link-bump1');
+      const cardBadge1 = document.getElementById('card-badge-bump1');
+      const nsfwDriveBtn = document.getElementById('vault-nsfw-drive-btn');
+      const nsfwDriveLabel = document.getElementById('vault-nsfw-drive-label');
+
+      if (hasBump1) {
+        if (sbLink1) sbLink1.href = 'uncensored-content-hack.html?unlocked=1';
+        if (sbTag1) {
+          sbTag1.textContent = '✓ Unlocked';
+          sbTag1.style.background = 'rgba(16,185,129,0.2)';
+          sbTag1.style.color = '#34d399';
+        }
+        if (cardLink1) {
+          cardLink1.href = 'uncensored-content-hack.html?unlocked=1';
+          cardLink1.style.borderColor = 'rgba(16,185,129,0.45)';
+        }
+        if (cardBadge1) {
+          cardBadge1.textContent = '✓ Unlocked • Open →';
+          cardBadge1.style.color = '#34d399';
+          cardBadge1.style.fontWeight = '700';
+        }
+        if (nsfwDriveBtn) {
+          nsfwDriveBtn.href = NSFW_VIDEOS_DRIVE_URL;
+          nsfwDriveBtn.target = '_blank';
+          nsfwDriveBtn.style.background = 'rgba(230,92,228,0.18)';
+          nsfwDriveBtn.style.border = '1px solid rgba(230,92,228,0.5)';
+          nsfwDriveBtn.style.color = '#f5d0fe';
+        }
+        if (nsfwDriveLabel) {
+          nsfwDriveLabel.textContent = '🔞 Open 4 NSFW Videos Drive ↗';
+        }
+      } else {
+        if (sbLink1) sbLink1.href = '../?upgrade=bump1';
+        if (sbTag1) {
+          sbTag1.textContent = '🔒 Upgrade +₹249';
+          sbTag1.style.background = 'rgba(245,158,11,0.2)';
+          sbTag1.style.color = '#fbbf24';
+        }
+        if (cardLink1) {
+          cardLink1.href = '../?upgrade=bump1';
+          cardLink1.style.border = '1px dashed rgba(245,158,11,0.55)';
+        }
+        if (cardBadge1) {
+          cardBadge1.textContent = '🔒 Locked — Unlock Now (+₹249 / $9) →';
+          cardBadge1.style.color = '#fbbf24';
+          cardBadge1.style.fontWeight = '700';
+        }
+      }
+
+      // 2. Update Add-On #2 (500+ Viral Reel Hooks & Auto-DM Pack)
+      const sbLink2 = document.getElementById('sidebar-link-bump2');
+      const sbTag2 = document.getElementById('sidebar-tag-bump2');
+      const cardLink2 = document.getElementById('card-link-bump2');
+      const cardBadge2 = document.getElementById('card-badge-bump2');
+
+      if (hasBump2) {
+        if (sbLink2) sbLink2.href = 'viral-hooks-and-autodm-pack.html?unlocked=1';
+        if (sbTag2) {
+          sbTag2.textContent = '✓ Unlocked';
+          sbTag2.style.background = 'rgba(16,185,129,0.2)';
+          sbTag2.style.color = '#34d399';
+        }
+        if (cardLink2) {
+          cardLink2.href = 'viral-hooks-and-autodm-pack.html?unlocked=1';
+          cardLink2.style.borderColor = 'rgba(16,185,129,0.45)';
+        }
+        if (cardBadge2) {
+          cardBadge2.textContent = '✓ Unlocked • Open →';
+          cardBadge2.style.color = '#34d399';
+          cardBadge2.style.fontWeight = '700';
+        }
+      } else {
+        if (sbLink2) sbLink2.href = '../?upgrade=bump2';
+        if (sbTag2) {
+          sbTag2.textContent = '🔒 Upgrade +₹149';
+          sbTag2.style.background = 'rgba(245,158,11,0.2)';
+          sbTag2.style.color = '#fbbf24';
+        }
+        if (cardLink2) {
+          cardLink2.href = '../?upgrade=bump2';
+          cardLink2.style.border = '1px dashed rgba(245,158,11,0.55)';
+        }
+        if (cardBadge2) {
+          cardBadge2.textContent = '🔒 Locked — Unlock Now (+₹149 / $5) →';
+          cardBadge2.style.color = '#fbbf24';
+          cardBadge2.style.fontWeight = '700';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateProgressUI();
+      syncAddonUnlockState();
+    });
   </script>
 </body>
 </html>

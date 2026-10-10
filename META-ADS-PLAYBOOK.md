@@ -64,8 +64,9 @@ Your buyers get **100% instant on-screen link delivery** the moment they pay —
     2. `course-vault/character-dna-prompt-bible.html` — **250+ Character DNA & Face-Lock Prompt Bible**
     3. `course-vault/uncensored-content-hack.html` — **Order Bump #1 (+₹249): Uncensored Content Hack VIP Guide**
     4. `course-vault/viral-hooks-and-autodm-pack.html` — **Order Bump #2 (+₹149): 500+ Viral Reel Hooks & Auto-DM Pack**
-- [ ] **Step 3.2 — (Optional) Put PDFs in Your Own Google Drive Folder:**
-  - Open each of the 4 pages above → click **`🖨️ Save / Print as PDF`** → upload the 4 PDFs to a folder in your Google Drive → Share as *Anyone with the link (Viewer)* → paste your Drive link into `index.html` and `course-vault/index.html`.
+- [ ] **Step 3.2 — Create a Dedicated Brand Gmail Account & Upload Captioned Videos to Google Drive:**
+  - **IMPORTANT PRIVACY STEP:** Create a fresh Gmail account specifically for your brand (e.g., `personalabs.academy@gmail.com` or `vault.personalabs@gmail.com` with First Name: **`PersonaLabs`**, Last Name: **`Academy`**). *Why? Because Google Drive displays the file owner's name and email in the sidebar — using a dedicated brand Gmail ensures your personal name/email is never visible to buyers!*
+  - Upload all watermark-free, English-captioned videos from `C:\Projects\ai-influencer-course-website\videos-captioned\` into that new Google Drive account → Share folder as *Anyone with the link (Viewer)* → give me the new Drive link so we replace the old link in `index.html` and `course-vault/index.html`.
 
 ---
 
