@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --brand-purple: #d946ef;
+  --brand-orchid: #e65ce4;
+  --brand-purple-dark: #a21caf;
+  --brand-emerald: #10b981;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Clean White Default Theme (Matches EarlyCaves Reference Aesthetic) */
+html,
+html[data-theme="light"] {
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f8fafc;
+  --bg-surface-glass: rgba(255, 255, 255, 0.95);
+  --bg-input: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-subtle: #e5e7eb;
+  --border-strong: #d1d5db;
+  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.05);
+  --checkout-shadow: 0 14px 45px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.06);
+  --accent-strip-bg: #eb5fe7;
+}
+
+/* Optional Dark Mode */
+html[data-theme="dark"] {
+  --bg-page: #0f1117;
+  --bg-surface: #161922;
+  --bg-surface-elevated: #1e2230;
+  --bg-surface-glass: rgba(22, 25, 34, 0.92);
+  --bg-input: #12151e;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(230, 92, 228, 0.4);
+  --card-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+  --checkout-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
+  --accent-strip-bg: linear-gradient(165deg, #7e22ce 0%, #be4bdb 100%);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  touch-action: manipulation;
+}
+
+/* Automatic Clean Light-Mode Overrides for Any Dark Utility Classes */
+html[data-theme="light"] .border-white\/10,
+html[data-theme="light"] .border-white\/15,
+html[data-theme="light"] .border-white\/5 {
+  border-color: #e5e7eb !important;
+}
+
+html[data-theme="light"] .bg-black\/20,
+html[data-theme="light"] .bg-black\/25,
+html[data-theme="light"] .bg-black\/30,
+html[data-theme="light"] .bg-black\/35,
+html[data-theme="light"] .bg-black\/40 {
+  background-color: #f8fafc !important;
+  color: #1f2937 !important;
+}
+
+html[data-theme="light"] .bg-white\/10 {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+}
+
+html[data-theme="light"] .text-brand-300,
+html[data-theme="light"] .text-brand-400 {
+  color: #a21caf !important;
+}
+
+html[data-theme="light"] .text-emerald-300,
+html[data-theme="light"] .text-emerald-400 {
+  color: #059669 !important;
+}
+
+html[data-theme="light"] .text-pink-300,
+html[data-theme="light"] .text-pink-400 {
+  color: #db2777 !important;
+}
+
+html[data-theme="light"] .text-amber-300,
+html[data-theme="light"] .text-amber-400 {
+  color: #d97706 !important;
+}
+
+html[data-theme="light"] .urgency-top-bar .text-amber-300,
+html[data-theme="light"] .urgency-top-bar .text-yellow-300 {
+  color: #fde047 !important;
+}
+
+/* Automatic Clean Dark-Mode Overrides for Light Utility Classes */
+html[data-theme="dark"] .text-slate-900,
+html[data-theme="dark"] .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .text-slate-700,
+html[data-theme="dark"] .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .text-slate-500,
+html[data-theme="dark"] .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .checkout-floating-card .bg-white,
+html[data-theme="dark"] .surface-card .bg-white,
+html[data-theme="dark"] #geo-sim-popover,
+html[data-theme="dark"] #direct-vault-url-input {
+  background-color: var(--bg-surface) !important;
+}
+
+html[data-theme="dark"] #bump-checkbox-visual,
+html[data-theme="dark"] #bump-2-checkbox-visual {
+  background-color: var(--bg-input) !important;
+}
+
+html[data-theme="dark"] .bg-slate-50,
+html[data-theme="dark"] .bg-slate-100 {
+  background-color: var(--bg-surface-elevated) !important;
+}
+
+html[data-theme="dark"] .border-slate-100,
+html[data-theme="dark"] .border-slate-200,
+html[data-theme="dark"] .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Keep dark text inside bright yellow/amber/gold badges & QR box in dark mode */
+html[data-theme="dark"] .bg-amber-400,
+html[data-theme="dark"] .bg-amber-400 *,
+html[data-theme="dark"] .bg-yellow-300,
+html[data-theme="dark"] .bg-yellow-300 *,
+html[data-theme="dark"] .bg-\[\#ffc439\] *,
+html[data-theme="dark"] #payment-gateway-in svg {
+  color: #0f172a !important;
+}
+
+html[data-theme="dark"] .order-bump-card {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Optional Desktop "Mobile Frame Simulator" Mode */
+body.mobile-frame-active {
+  max-width: 430px;
+  margin: 16px auto;
+  border: 8px solid #1e293b;
+  border-radius: 44px;
+  box-shadow: 0 25px 70px rgba(15, 23, 42, 0.25);
+  overflow-x: hidden;
+}
+
+body.mobile-frame-active .accent-right-backdrop {
+  display: none !important;
+}
+
+body.mobile-frame-active .xl\:grid-cols-12,
+body.mobile-frame-active .lg\:grid-cols-12 {
+  grid-template-columns: 1fr !important;
+}
+
+body.mobile-frame-active .xl\:col-span-7,
+body.mobile-frame-active .xl\:col-span-5,
+body.mobile-frame-active .lg\:col-span-7,
+body.mobile-frame-active .lg\:col-span-5 {
+  grid-column: span 1 / span 1 !important;
+}
+
+body.mobile-frame-active .xl\:hidden,
+body.mobile-frame-active .lg\:hidden {
+  display: block !important;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+}
+
+/* High-Urgency Sticky Top Flash Offer Banner (Solid Single Color) */
+.urgency-top-bar {
+  background-color: #991b1b !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid #fbbf24 !important;
+  box-shadow: 0 4px 16px rgba(153, 27, 27, 0.2);
+}
+
+/* High-Contrast Checkout Card Urgency Strip (Solid Single Color — No Gradient) */
+.checkout-urgency-banner {
+  background-color: #dc2626 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid #b91c1c !important;
+}
+
+.checkout-urgency-banner.expired {
+  background-color: #991b1b !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid #7f1d1d !important;
+}
+
+/* Signature Right-Side EarlyCaves Pink Polka-Dot Backdrop */
+.accent-right-backdrop {
+  background: var(--accent-strip-bg);
+}
+
+.accent-dot-grid {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.55) 2.2px, transparent 0);
+  background-size: 38px 38px;
+}
+
+/* Surfaces & Cards */
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkout-floating-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--checkout-shadow);
+}
+
+.surface-elevated {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-panel {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Touch Active Feedback for Mobile Buttons & Cards */
+.touch-scale {
+  transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.touch-scale:active {
+  transform: scale(0.97);
+}
+
+/* Clean Minimal Inputs (Matches EarlyCaves Form Inputs with Crisp Visible Borders) */
+.custom-input {
+  background-color: var(--bg-input) !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: var(--text-primary) !important;
+  transition: all 0.15s ease;
+  font-size: 16px;
+}
+
+html[data-theme="dark"] .custom-input {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+@media (min-width: 640px) {
+  .custom-input {
+    font-size: 0.875rem;
+  }
+}
+
+.custom-input:focus {
+  outline: none;
+  border-color: #e65ce4 !important;
+  box-shadow: 0 0 0 3px rgba(230, 92, 228, 0.18) !important;
+}
+
+.custom-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.65;
+}
+
+/* Clean Minimal Order Bump Cards (Matches Reference Uncensored Content Hack) */
+.order-bump-card {
+  border: 1.5px solid #e2e8f0;
+  background: var(--bg-surface-elevated);
+  transition: all 0.2s ease;
+}
+
+.order-bump-card:hover {
+  border-color: #e65ce4;
+}
+
+.order-bump-card.active {
+  border: 1.5px solid #d946ef;
+  background: rgba(230, 92, 228, 0.05);
+}
+
+/* Secondary Bump Card */
+.order-bump-secondary {
+  border: 1px dashed var(--border-strong);
+  background: var(--bg-surface-elevated);
+  transition: all 0.2s ease;
+}
+
+.order-bump-secondary:hover {
+  border-color: #10b981;
+}
+
+.order-bump-secondary.active {
+  border: 1.5px solid #10b981;
+  background: rgba(16, 185, 129, 0.06);
+}
+
+/* Clean EarlyCaves Orchid-Pink Primary CTA Button */
+.btn-primary-cta {
+  background: #e65ce4;
+  color: #ffffff !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(230, 92, 228, 0.35);
+}
+
+.btn-primary-cta:hover {
+  background: #d946ef;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.45);
+}
+
+.btn-primary-cta:active {
+  transform: scale(0.98);
+}
+
+/* Double-Tap Floating Heart Animation */
+@keyframes floatHeartPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3) rotate(-12deg);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-50%, -65%) scale(1.25) rotate(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -120%) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: absolute;
+  pointer-events: none;
+  font-size: 3rem;
+  z-index: 30;
+  filter: drop-shadow(0 6px 16px rgba(236, 72, 153, 0.65));
+  animation: floatHeartPop 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Audio Waveform Bars in Reel Player */
+@keyframes eqBar {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+.eq-bar-1 { animation: eqBar 0.6s ease-in-out infinite; }
+.eq-bar-2 { animation: eqBar 0.45s ease-in-out 0.15s infinite; }
+.eq-bar-3 { animation: eqBar 0.7s ease-in-out 0.3s infinite; }
+.eq-bar-4 { animation: eqBar 0.5s ease-in-out 0.1s infinite; }
+
+/* Mobile Horizontal Touch Snap Carousel */
+.mobile-snap-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.mobile-snap-item {
+  scroll-snap-align: center;
+}
+
+/* Pulse dot */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  animation: pulseRing 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Custom Range Slider */
+input[type="range"].creator-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  outline: none;
+}
+
+input[type="range"].creator-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e65ce4;
+  border: 3px solid #ffffff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].creator-slider::-webkit-slider-thumb:hover,
+input[type="range"].creator-slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+}
+
+/* Smooth Accordion */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  opacity: 0;
+}
+
+.accordion-content.open {
+  opacity: 1;
+}
+
+/* Hide scrollbar for horizontal pill nav */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

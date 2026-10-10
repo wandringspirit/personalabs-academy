@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The "Uncensored Content Hack" VIP Guide — PersonaLabs Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #07080d;
+      --bg-secondary: #0f111a;
+      --bg-card: #151824;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-pink: rgba(236, 72, 153, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --gradient-vip: linear-gradient(135deg, #ec4899 0%, #8b5cf6 55%, #f59e0b 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.68;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 8, 13, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .print-btn {
+      background: var(--gradient-vip);
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .vip-hero {
+      background: radial-gradient(circle at top right, rgba(236, 72, 153, 0.24), rgba(139, 92, 246, 0.1), var(--bg-card));
+      border: 1px solid var(--border-pink);
+      border-radius: 20px;
+      padding: 2.5rem 2.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .vip-badge {
+      display: inline-block;
+      background: rgba(236, 72, 153, 0.2);
+      border: 1px solid rgba(236, 72, 153, 0.5);
+      color: #f472b6;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 99px;
+      margin-bottom: 0.85rem;
+    }
+
+    .vip-hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .vip-hero p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 760px;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-pink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-card h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    /* Comparison Matrix Table */
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.25rem;
+      font-size: 0.87rem;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .matrix-table th {
+      background: var(--bg-secondary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .bad-token {
+      color: #f87171;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    .good-token {
+      color: #34d399;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    /* Prompt Box */
+    .prompt-box {
+      background: #090b12;
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 1rem 0;
+    }
+
+    .prompt-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.55rem;
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #f472b6;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .copy-btn {
+      background: rgba(236, 72, 153, 0.2);
+      border: 1px solid rgba(236, 72, 153, 0.45);
+      color: #fff;
+      padding: 0.28rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-pink);
+    }
+
+    .prompt-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.55;
+    }
+
+    /* Funnel Diagram */
+    .funnel-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .funnel-step {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent-pink);
+      border-radius: 12px;
+      padding: 1.15rem;
+    }
+
+    .funnel-step .step-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent-amber);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .funnel-step h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.96rem;
+      margin: 0.35rem 0 0.45rem;
+    }
+
+    .funnel-step p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    /* Checklist */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.8rem 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+      accent-color: var(--accent-emerald);
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .checklist-item div {
+      font-size: 0.89rem;
+      color: var(--text-secondary);
+    }
+
+    .checklist-item div strong {
+      color: var(--text-primary);
+    }
+
+    .alert-warning {
+      background: rgba(239, 68, 68, 0.08);
+      border-left: 3px solid var(--accent-red);
+      padding: 0.9rem 1.15rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.87rem;
+      color: #fecaca;
+      margin: 1rem 0;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+      }
+      .top-bar, .copy-btn {
+        display: none !important;
+      }
+      .vip-hero, .section-card, .prompt-box, .funnel-step, .checklist-item {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      p, td, th, .prompt-code, .checklist-item div {
+        color: #222 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="index.html" class="back-link">← Back to Student Portal Dashboard</a>
+    <div class="top-actions">
+      <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="vip-hero">
+      <span class="vip-badge">Order Bump #1 • VIP Underground Playbook</span>
+      <h1>The "Uncensored Content Hack" & Multi-Platform Funnel Guide</h1>
+      <p>How top 1% AI creators bypass strict cloud prompt filters, render ultra-realistic skin & high-curiosity editorial glamour, and funnel millions of safe Instagram Reel views into $10k/month exclusive vaults without ever getting shadowbanned.</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section class="section-card">
+      <span class="section-num">MODULE 01 • ALGORITHM PSYCHOLOGY</span>
+      <h2>Safe-for-Instagram High-Curiosity Visual Hooks</h2>
+      <p>Instagram's AI vision moderation (`Meta Shield`) automatically demotes accounts that post explicit nudity or overly sheer lingerie in Reels—restricting your account status to <em>"Not Eligible for Recommendation"</em>. The secret of 500k+ follower AI accounts is <strong>High-Curiosity Implied Glamour</strong>: 100% compliant resort/editorial visuals paired with psychological curiosity loops.</p>
+
+      <h3>The 4 Highest-Converting "Safe Glamour" Visual Archetypes:</h3>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Visual Archetype</th>
+            <th>Why It Passes IG Safe-Search 100%</th>
+            <th>Curiosity Hook Overlay (Text on Screen)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Golden-Hour Infinity Pool / Yacht Editorial</strong></td>
+            <td>Instagram classifies ocean/poolside backgrounds as "Travel & Resort Wear," allowing designer swimwear & sarongs without restriction.</td>
+            <td><em>"My friends told me not to post the 3rd slide from Monaco... 🙈"</em></td>
+          </tr>
+          <tr>
+            <td><strong>2. Getting Ready / Backless Evening Gown Mirror POV</strong></td>
+            <td>High-fashion evening wear triggers "Luxury Fashion" categorization while keeping watch time above 130%.</td>
+            <td><em>"Helping me pick tonight's date dress: Red Silk or Black Velvet? 👇"</em></td>
+          </tr>
+          <tr>
+            <td><strong>3. Rainy Window / Oversized White Shirt Morning Coffee</strong></td>
+            <td>Cozy indoor lifestyle lighting feels intimate and personal ("parasocial girlfriend effect") while remaining PG-13.</td>
+            <td><em>"POV: You woke up late on a rainy Sunday in Mumbai ☕🌧️"</em></td>
+          </tr>
+          <tr>
+            <td><strong>4. Reformer Pilates / Gym Mirror Check-In</strong></td>
+            <td>Activewear in a gym context is 100% whitelisted by Meta's classifier and drives massive saves + male/female engagement.</td>
+            <td><em>"Wait until you realize I don't actually exist in real life 🤖✨"</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section-card">
+      <span class="section-num">MODULE 02 • FILTER-BYPASS PROMPT ENGINEERING</span>
+      <h2>The Cloud Filter-Bypass Vocabulary Matrix & Skin Realism</h2>
+      <p>Cloud generators (SeaArt, Tensor.art, Kling AI, Luma) use automated keyword blacklists. If you type amateur anatomical words, your prompt gets blocked or blurred. Replace blacklisted words with <strong>Vogue Editorial & Cinematography Tokens</strong> to unlock unrestricted photorealistic anatomy, collarbone lighting, and natural skin texture:</p>
+
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Blocked / Flagged Trigger Word ❌</th>
+            <th>Safe Editorial Replacement Token ✅ (Passes Filters)</th>
+            <th>Visual Effect Produced</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="bad-token">sexy, seductive, cleavage, curvy</span></td>
+            <td><span class="good-token">Vogue Italia editorial posture, hourglass athletic silhouette, structured couture neckline, confident gaze</span></td>
+            <td>Produces high-fashion alluring proportions without triggering NSFW word blocks.</td>
+          </tr>
+          <tr>
+            <td><span class="bad-token">bikini, underwear, lingerie</span></td>
+            <td><span class="good-token">two-piece Amalfi resort swimwear, silk lounge camisole set, Sports Illustrated Swimsuit coastal styling</span></td>
+            <td>Whitelisted by fashion/swimwear dataset tokens in Flux & SDXL.</td>
+          </tr>
+          <tr>
+            <td><span class="bad-token">wet skin, sweaty body, bare skin</span></td>
+            <td><span class="good-token">dewy sun-kissed epidermis, subsurface scattering, golden-hour specular highlights on collarbones, post-workout glow</span></td>
+            <td>Renders ultra-realistic lifelike skin sheen and micro-pores instead of plastic skin.</td>
+          </tr>
+          <tr>
+            <td><span class="bad-token">bedroom selfie, laying on bed</span></td>
+            <td><span class="good-token">luxury boutique hotel suite interior, candid over-the-shoulder portrait against linen pillows, warm tungsten lamp light</span></td>
+            <td>Creates cozy intimate atmosphere with rich cinematic shadows.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Copy-Paste "Ultra-Real Skin & Resort Editorial" Master Prompt:</h3>
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span>Safe Filter-Bypass Glamour Prompt (Flux.1 Dev / Juggernaut XL)</span>
+          <button class="copy-btn" onclick="copyText(this)">Copy Prompt</button>
+        </div>
+        <div class="prompt-code">Candid iPhone 15 Pro portrait of [INSERT YOUR CHARACTER DNA], wearing a minimalist emerald-green two-piece Amalfi resort swimwear and sheer white linen beach cover-up shirt draped off one shoulder, standing on a sun-drenched teakwood yacht deck in Monaco, golden hour sunlight creating natural subsurface scattering and warm specular highlights across collarbones and shoulders, dewy sun-kissed skin texture with visible micro-pores, wet wavy espresso hair, confident warm eye contact, Sports Illustrated editorial photography, shot on 35mm lens, unretouched raw photo --ar 9:16</div>
+      </div>
+
+      <h3>Switching to 100% Uncensored Models for Private VIP Vault Renders:</h3>
+      <p>When creating exclusive bonus photoshoots for your private Fanvue or Patreon subscribers (never for public Instagram!), switch your SeaArt/Tensor/Fooocus checkpoint away from censored commercial APIs to these open-weight checkpoints:</p>
+      <div class="funnel-steps">
+        <div class="funnel-step">
+          <span class="step-tag">Checkpoint #1</span>
+          <h4>Lustify SDXL / Pony Realism</h4>
+          <p>Available inside Tensor.art (enable "Show Mature Content" in account settings) & Fooocus Colab.</p>
+        </div>
+        <div class="funnel-step">
+          <span class="step-tag">Checkpoint #2</span>
+          <h4>Juggernaut XL Ragnarok</h4>
+          <p>Zero keyword censorship when run via Fooocus Google Colab or SeaArt Private Mode.</p>
+        </div>
+        <div class="funnel-step">
+          <span class="step-tag">Checkpoint #3</span>
+          <h4>Flux.1 Dev + Realism LoRA</h4>
+          <p>Superior hand/body anatomy for high-fashion editorial boudoir and beach sets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section-card">
+      <span class="section-num">MODULE 03 • SHADOWBAN-PROOF MONETIZATION ARCHITECTURE</span>
+      <h2>The 3-Step "Shield Bridge" Funnel (IG → Telegram/Bridge → VIP Vault)</h2>
+      <p>Never paste a direct link to Fanvue, OnlyFans, or adult subscription pages in your Instagram bio or ManyChat DMs! Instagram's link crawler scans destination URLs and will shadowban your Reels within 48 hours. Use this <strong>3-Layer Shield Bridge</strong> instead:</p>
+
+      <div class="funnel-steps">
+        <div class="funnel-step">
+          <span class="step-tag">Layer 1 • Traffic</span>
+          <h4>Instagram Reels + ManyChat</h4>
+          <p>Post 100% PG-13 high-curiosity Reels. Call-to-action: <em>"Comment 'VIP' and I'll DM you my private diary channel 💌"</em></p>
+        </div>
+        <div class="funnel-step">
+          <span class="step-tag">Layer 2 • The Shield Bridge</span>
+          <h4>Free Telegram Channel or Custom Domain</h4>
+          <p>ManyChat sends a clean link to your <strong>Free Telegram Broadcast Channel</strong> (or a clean custom page on Beacons/Stan). Instagram loves Telegram & Beacons links.</p>
+        </div>
+        <div class="funnel-step">
+          <span class="step-tag">Layer 3 • The Cash Machine</span>
+          <h4>Fanvue / Paid Vault ($9.99–$29/mo)</h4>
+          <p>Inside your Free Telegram channel, post daily voice notes + blurred previews with the direct link to your Fanvue or Razorpay/Stripe Exclusive Photo Pack!</p>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span>Copy-Paste Telegram Welcome Pin Message (Converts at 8–14%)</span>
+          <button class="copy-btn" onclick="copyText(this)">Copy Script</button>
+        </div>
+        <div class="prompt-code">Hey love! Welcome to my private Telegram diary 🤫✨
+
+Instagram is super strict with what I'm allowed to post on my main feed, so I created this private space for my closest supporters.
+
+Here's what happens here:
+1️⃣ Unedited behind-the-scenes photos from my Milan & Goa trips
+2️⃣ Late-night voice notes from me 🎧
+3️⃣ Direct access to my Uncensored VIP Vault & 1-on-1 DMs (where I actually reply to every message personally 💕)
+
+👉 Tap here to unlock my full VIP Vault & message me directly: [YOUR_FANVUE_OR_VAULT_LINK]</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section-card">
+      <span class="section-num">MODULE 04 • ACCOUNT SAFETY & METADATA STRIPPING</span>
+      <h2>Pre-Upload Account Safety & Anti-Detection Checklist</h2>
+      <p>AI generators embed hidden EXIF and C2PA metadata (`Software: Stable Diffusion / ComfyUI / Kling`) inside image and video files. Before uploading any photo or Reel to Instagram, run through this 4-point safety checklist:</p>
+
+      <div class="alert-warning">
+        <strong>CRITICAL RULE:</strong> Never use third-party "unfollow tracker" apps or automated liking bots on your AI Influencer account. Only use <strong>ManyChat</strong> (which is an official Meta Business Partner).
+      </div>
+
+      <label class="checklist-item">
+        <input type="checkbox" />
+        <div><strong>1. Strip Image EXIF & C2PA Metadata:</strong> Screenshot your final upscaled image on your phone OR pass it through CapCut / Lightroom Mobile / Snapseed and export as a fresh JPEG. This replaces the `Stable Diffusion` header with standard Apple/Android camera metadata.</div>
+      </label>
+
+      <label class="checklist-item">
+        <input type="checkbox" />
+        <div><strong>2. Check Account Status Weekly:</strong> In Instagram → <strong>Settings → Account Status</strong>, verify that both <em>"Content Can Be Recommended to Non-Followers"</em> and <em>"Features You Can Use"</em> have green checkmarks. If a single post triggers an orange warning, delete that specific post immediately to restore green status within 24 hours.</div>
+      </label>
+
+      <label class="checklist-item">
+        <input type="checkbox" />
+        <div><strong>3. Transparent Bio Disclosure ("Virtual Muse / Powered by AI"):</strong> Including <em>"Digital Creator / Virtual Muse ✨"</em> in your bio protects your account from "Impersonation" reports while actually increasing curiosity and engagement!</div>
+      </label>
+
+      <label class="checklist-item">
+        <input type="checkbox" />
+        <div><strong>4. The 80/20 Content Ratio:</strong> Keep 80% of your Instagram grid focused on aspirational lifestyle, fashion, travel, and relatable POV reels, and only 20% on high-glamour resort/evening wear. This keeps your account in Instagram's Tier-1 advertiser-friendly bucket.</div>
+      </label>
+    </section>
+  </main>
+
+  <script>
+    function copyText(btn) {
+      const code = btn.closest('.prompt-box').querySelector('.prompt-code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✓ Copied!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+        }, 1800);
+      });
+    }
+  </script>
+</body>
+</html>

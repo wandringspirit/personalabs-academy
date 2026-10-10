@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PersonaLabs Academy Vault — AI Influencer Accelerator (5-Day Launch Kit)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #07080d;
+      --bg-secondary: #0f111a;
+      --bg-card: #151824;
+      --bg-card-hover: #1c2030;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(139, 92, 246, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --gradient-brand: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --shadow-glow: 0 10px 40px -10px rgba(139, 92, 246, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Header */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 8, 13, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--gradient-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.35);
+    }
+
+    .brand-text h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .progress-widget {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+    }
+
+    .progress-info {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .progress-info strong {
+      color: var(--text-primary);
+    }
+
+    .progress-bar-outer {
+      width: 130px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      width: 0%;
+      background: var(--gradient-brand);
+      border-radius: 99px;
+      transition: width 0.35s ease;
+    }
+
+    /* Main Layout */
+    .vault-layout {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      max-width: 1480px;
+      width: 100%;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+      height: calc(100vh - 68px);
+      position: sticky;
+      top: 68px;
+      overflow-y: auto;
+    }
+
+    .sidebar-section-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin: 1.25rem 0 0.6rem 0.5rem;
+    }
+
+    .sidebar-section-label:first-child {
+      margin-top: 0;
+    }
+
+    .day-tab-btn {
+      width: 100%;
+      text-align: left;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      transition: all 0.2s ease;
+    }
+
+    .day-tab-btn:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+    }
+
+    .day-tab-btn.active {
+      background: rgba(139, 92, 246, 0.14);
+      border-color: var(--border-accent);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+    }
+
+    .day-badge {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.15rem 0.45rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .day-tab-btn.active .day-badge {
+      background: var(--accent-purple);
+      color: #fff;
+    }
+
+    .vault-link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      padding: 0.75rem 0.9rem;
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .vault-link-card:hover {
+      border-color: var(--accent-pink);
+      background: rgba(236, 72, 153, 0.08);
+      transform: translateX(3px);
+    }
+
+    .vault-link-card span.tag {
+      font-size: 0.65rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(236, 72, 153, 0.2);
+      color: #f472b6;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Main Content Area */
+    .content-area {
+      padding: 2.25rem 2.5rem 4rem;
+      max-width: 1020px;
+    }
+
+    .welcome-banner {
+      background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.22), rgba(236, 72, 153, 0.08), var(--bg-card));
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .welcome-banner h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .welcome-banner p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      max-width: 640px;
+    }
+
+    .quick-bonuses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .bonus-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .bonus-box:hover {
+      border-color: var(--accent-purple);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .bonus-box-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      color: var(--accent-amber);
+    }
+
+    .bonus-box h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .bonus-box p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Day Sections */
+    .day-panel {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .day-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .day-header {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-kicker {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-purple);
+      background: rgba(139, 92, 246, 0.12);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.6rem;
+    }
+
+    .day-header h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .day-header p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Lesson Card */
+    .lesson-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .lesson-card.completed {
+      border-color: rgba(16, 185, 129, 0.45);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, var(--bg-card) 100%);
+    }
+
+    .lesson-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+    }
+
+    .lesson-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .lesson-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(6, 182, 212, 0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+    }
+
+    .lesson-duration {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .lesson-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .complete-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .complete-toggle:hover {
+      border-color: var(--accent-emerald);
+      color: var(--text-primary);
+    }
+
+    .lesson-card.completed .complete-toggle {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--accent-emerald);
+      color: var(--accent-emerald);
+    }
+
+    .lesson-body p {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-body h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 1.25rem 0 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .step-list {
+      list-style: none;
+      margin: 0.75rem 0 1.15rem;
+    }
+
+    .step-list li {
+      position: relative;
+      padding-left: 1.85rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.91rem;
+      color: var(--text-secondary);
+    }
+
+    .step-list li strong {
+      color: var(--text-primary);
+    }
+
+    .step-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0.35rem;
+      top: 0;
+      color: var(--accent-purple);
+      font-weight: 700;
+    }
+
+    /* Prompt Copy Box */
+    .prompt-box {
+      background: #090b12;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+
+    .prompt-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.55rem;
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .copy-btn {
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #fff;
+      padding: 0.28rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-purple);
+    }
+
+    .prompt-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.55;
+    }
+
+    /* Callout Pro-Tip */
+    .pro-tip {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 3px solid var(--accent-amber);
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+      font-size: 0.87rem;
+      color: #fde68a;
+    }
+
+    .pro-tip strong {
+      color: var(--accent-amber);
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .param-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.65rem;
+      margin: 0.85rem 0;
+    }
+
+    .param-pill {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+    }
+
+    .param-pill span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .param-pill strong {
+      color: var(--text-primary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .day-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-btn {
+      background: var(--gradient-brand);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-btn.secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+
+    .nav-btn:hover {
+      opacity: 0.92;
+    }
+
+    @media (max-width: 960px) {
+      .vault-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .content-area {
+        padding: 1.5rem 1.15rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="index.html" class="brand">
+      <div class="brand-logo">PL</div>
+      <div class="brand-text">
+        <h1>PersonaLabs Academy Vault</h1>
+        <span>Verified Student Member Portal</span>
+      </div>
+    </a>
+
+    <div class="progress-widget">
+      <div class="progress-info">
+        Course Progress: <strong id="progressCount">0 / 18</strong> (<span id="progressPercent">0%</span>)
+      </div>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="progressBar"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="vault-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section-label">5-Day Launch Curriculum</div>
+      <button class="day-tab-btn active" onclick="switchDay('day1', this)">
+        <span>Day 1: Niche & Persona DNA</span>
+        <span class="day-badge">4 Lessons</span>
+      </button>
+      <button class="day-tab-btn" onclick="switchDay('day2', this)">
+        <span>Day 2: 100% Face-Lock System</span>
+        <span class="day-badge">4 Lessons</span>
+      </button>
+      <button class="day-tab-btn" onclick="switchDay('day3', this)">
+        <span>Day 3: Viral AI Reels & Motion</span>
+        <span class="day-badge">4 Lessons</span>
+      </button>
+      <button class="day-tab-btn" onclick="switchDay('day4', this)">
+        <span>Day 4: IG Algorithm & Auto-DM</span>
+        <span class="day-badge">3 Lessons</span>
+      </button>
+      <button class="day-tab-btn" onclick="switchDay('day5', this)">
+        <span>Day 5: Monetization & Scale</span>
+        <span class="day-badge">3 Lessons</span>
+      </button>
+
+      <div class="sidebar-section-label">VIP Bonuses & Order Bumps</div>
+      <a href="character-dna-prompt-bible.html" class="vault-link-card">
+        <span>🧬 250+ Character DNA Bible</span>
+        <span class="tag">Included</span>
+      </a>
+      <a href="uncensored-content-hack.html" class="vault-link-card">
+        <span>🔥 Uncensored Content Hack</span>
+        <span class="tag">VIP Bump #1</span>
+      </a>
+      <a href="viral-hooks-and-autodm-pack.html" class="vault-link-card">
+        <span>⚡ 500+ Hooks & Auto-DM Pack</span>
+        <span class="tag">VIP Bump #2</span>
+      </a>
+
+      <div class="sidebar-section-label">Quick Actions</div>
+      <button class="day-tab-btn" onclick="resetProgress()" style="color: var(--text-muted); font-size: 0.78rem;">
+        <span>↺ Reset Progress Tracker</span>
+      </button>
+    </aside>
+
+    <!-- Right Main Content -->
+    <main class="content-area">
+      <div class="welcome-banner">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:0.45rem;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.4);color:#34d399;font-size:0.74rem;font-weight:700;padding:0.25rem 0.7rem;border-radius:999px;margin-bottom:0.65rem;text-transform:uppercase;letter-spacing:0.05em;">
+            <span>✓ Payment Confirmed • Lifetime Access Unlocked</span>
+          </div>
+          <h2>Welcome to the AI Influencer Accelerator 🚀</h2>
+          <p>Bookmark this page (<strong>personalabs.store/course-vault/</strong>) for lifetime access—no login or email required! Follow the 5-Day Launch Blueprint step-by-step below, or open your bonus vaults and Google Drive folder anytime.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;min-width:230px;">
+          <a href="https://drive.google.com/drive/folders/13prDNfskRSTJNdFlTsunhzY6Mu34YiMv?usp=sharing" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;background:#10b981;color:#052e16;font-weight:800;font-size:0.84rem;padding:0.75rem 1.1rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 15px rgba(16,185,129,0.3);">
+            <span>📂 Open Google Drive Folder ↗</span>
+          </a>
+          <button onclick="window.print()" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#f8fafc;font-weight:600;font-size:0.78rem;padding:0.55rem 0.9rem;border-radius:8px;cursor:pointer;">
+            🖨️ Save / Print Guide as PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Access Vault Cards -->
+      <div class="quick-bonuses">
+        <a href="character-dna-prompt-bible.html" class="bonus-box">
+          <div class="bonus-box-top"><span>Master Prompt Library</span><span>Open →</span></div>
+          <h3>250+ Character DNA & Face-Lock Bible</h3>
+          <p>Copy-paste Indian Ethnic, Luxury Travel, Cyber Streetwear & Fitness prompts with seed parameters.</p>
+        </a>
+        <a href="uncensored-content-hack.html" class="bonus-box">
+          <div class="bonus-box-top"><span>Order Bump #1 VIP Guide</span><span>Open →</span></div>
+          <h3>The "Uncensored Content Hack" Blueprint</h3>
+          <p>Safe high-curiosity visual hooks, realism skin modifiers, and shadowban-proof Telegram/Fanvue funnels.</p>
+        </a>
+        <a href="viral-hooks-and-autodm-pack.html" class="bonus-box">
+          <div class="bonus-box-top"><span>Order Bump #2 Automation</span><span>Open →</span></div>
+          <h3>500+ Viral Reel Hooks & ManyChat Scripts</h3>
+          <p>Copy-paste viral text hooks, caption frameworks, and 24/7 comment-to-DM conversion flows.</p>
+        </a>
+      </div>
+
+      <!-- ==================== DAY 1 ==================== -->
+      <section id="day1" class="day-panel active">
+        <div class="day-header">
+          <span class="day-kicker">Day 1 • Foundation & First Photorealistic Render</span>
+          <h2>Niche Selection, Persona Architecture & First Mobile Render</h2>
+          <p>Today you will pick a high-CPM niche, design a hyper-distinctive AI model bio, configure SeaArt.ai & Tensor.art on your phone for $0, and render your Base Anchor Portrait.</p>
+        </div>
+
+        <!-- Lesson 1.1 -->
+        <article class="lesson-card" data-lesson="1.1">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 1.1</span>
+                <span class="lesson-duration">⏱ 15 Mins • Strategy</span>
+              </div>
+              <h3 class="lesson-title">Selecting a High-CPM AI Niche (Indian & Global Markets)</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('1.1')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>90% of beginners fail because they create a "generic pretty AI girl" with zero storyline. Brands, affiliate programs, and exclusive subscribers pay for <strong>specific aspirational aesthetics</strong>. Choose one of the 4 proven high-monetization archetypes below:</p>
+            <ul class="step-list">
+              <li><strong>Archetype A: Contemporary Indian Luxury & Fusion Editorial (Highest Viral Reach in India)</strong> — Designer sarees, festive lehengas, Mumbai/Delhi rooftop cafes, Udaipur palaces. Monetizes via Myntra/Nykaa/Ajio affiliate links & D2C jewelry sponsors.</li>
+              <li><strong>Archetype B: Old-Money Euro-Summer & Jetset Travel (Highest Tier-1 USA/UK RPM)</strong> — Amalfi coast yachts, Monaco cafés, linen resort wear, private aviation aesthetics. Monetizes via luxury hotel referrals, digital travel guides, and high-ticket lifestyle sponsorships.</li>
+              <li><strong>Archetype C: Cozy Tech / Gamer / Night-Owl Aesthetic (Highest Fanvue/Telegram Conversion)</strong> — RGB bedroom setups, oversized hoodies, Tokyo neon streets, relatable late-night POV reels.</li>
+              <li><strong>Archetype D: Pilates, Wellness & Athleisure Muse (Highest Repeat Supplement/Gear Sales)</strong> — Morning matcha routines, reformer pilates studios, clean-girl skincare, activewear sets.</li>
+            </ul>
+            <div class="pro-tip">
+              <strong>Pro Tip: The "Hybrid Identity" Rule</strong>
+              Give your persona a two-city backstory (e.g., "Born in Bengaluru, studying Architecture in Milan • Powered by AI ✨"). This lets you post both Indian festive aesthetics AND European travel content while attracting global Tier-1 audiences.
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 1.2 -->
+        <article class="lesson-card" data-lesson="1.2">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 1.2</span>
+                <span class="lesson-duration">⏱ 15 Mins • Branding</span>
+              </div>
+              <h3 class="lesson-title">The "Character DNA" Sheet: Facial Structure, Age & Backstory</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('1.2')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>AI image generators produce different faces every time unless you feed them a repeatable <strong>Facial DNA Token String</strong>. Before generating a single image, lock in these 5 immutable traits that will stay identical in every prompt you ever write:</p>
+            <div class="param-grid">
+              <div class="param-pill"><span>1. Exact Age & Ethnicity</span><strong>22yo Indo-Mediterranean</strong></div>
+              <div class="param-pill"><span>2. Eye Shape & Color</span><strong>Almond hazel-brown eyes</strong></div>
+              <div class="param-pill"><span>3. Bone Structure</span><strong>Soft jawline, high cheekbones</strong></div>
+              <div class="param-pill"><span>4. Signature Feature</span><strong>Beauty mark under left eye</strong></div>
+              <div class="param-pill"><span>5. Hair Signature</span><strong>Shoulder-length wavy espresso hair</strong></div>
+            </div>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Copyable Character DNA Token Block</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy DNA</button>
+              </div>
+              <div class="prompt-code">22-year-old Indian-Mediterranean female model, expressive almond-shaped hazel-brown eyes, subtle beauty mark below left eye, natural arched eyebrows, soft sculpted jawline, warm olive skin tone with visible natural skin pores and subtle freckles across nose bridge, shoulder-length layered dark espresso wavy hair</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 1.3 -->
+        <article class="lesson-card" data-lesson="1.3">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 1.3</span>
+                <span class="lesson-duration">⏱ 20 Mins • Tool Setup</span>
+              </div>
+              <h3 class="lesson-title">Zero-Cost Mobile Setup: SeaArt.ai, Tensor.art & Fooocus Mobile</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('1.3')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>You do NOT need a $10/month Midjourney plan or an expensive GPU. We use three free cloud platforms directly from Chrome/Safari on Android or iOS:</p>
+            <ul class="step-list">
+              <li><strong>Tool 1: SeaArt.ai (150 Free Daily Stamina Credits)</strong> — Create a free account at <code>seaart.ai</code>. Switch to <strong>Creation → Image Generation</strong>. Select Checkpoint Model: <strong>Flux.1 Dev Hyper-Real</strong> or <strong>Juggernaut XL v9</strong> (for SDXL workflows).</li>
+              <li><strong>Tool 2: Tensor.art (50–100 Free Daily Credits)</strong> — Backup powerhouse with native <strong>Adetailer (After Detailer)</strong> for automatic eye and face repair on mobile.</li>
+              <li><strong>Tool 3: Fooocus Google Colab (Unlimited Free GPU via Google Drive)</strong> — When creating 50+ batch photos on desktop or mobile browser, open the official Fooocus Colab notebook in Realistic mode (`RealisticStockPhoto_v2`).</li>
+            </ul>
+            <div class="param-grid">
+              <div class="param-pill"><span>Aspect Ratio</span><strong>9:16 (768 × 1344)</strong></div>
+              <div class="param-pill"><span>Sampler</span><strong>DPM++ 2M SDE Karras</strong></div>
+              <div class="param-pill"><span>Sampling Steps</span><strong>28 – 32 Steps</strong></div>
+              <div class="param-pill"><span>CFG Scale</span><strong>4.5 (Flux) / 6.0 (SDXL)</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 1.4 -->
+        <article class="lesson-card" data-lesson="1.4">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 1.4</span>
+                <span class="lesson-duration">⏱ 25 Mins • Lab Execution</span>
+              </div>
+              <h3 class="lesson-title">Generating Your "Master Anchor Face" (Seed Locking Method)</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('1.4')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Your <strong>Master Anchor Face</strong> is the single crisp, front-facing, evenly-lit portrait that every future photo and video will use as its facial reference. Follow these exact steps:</p>
+            <ul class="step-list">
+              <li><strong>Step 1:</strong> Paste the Master Anchor Prompt below into SeaArt.ai or Tensor.art using Flux.1 Dev or Juggernaut XL.</li>
+              <li><strong>Step 2:</strong> Generate 4 variations at a time until you find a face that looks 100% indistinguishable from a real human iPhone photo.</li>
+              <li><strong>Step 3:</strong> Click the image info (<code>i</code> icon) and <strong>copy the exact Seed Number</strong> (e.g., <code>3849201944</code>). Save this image to a dedicated folder on your phone called <code>00_MASTER_ANCHOR</code>.</li>
+            </ul>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Master Anchor Portrait Prompt (Copy & Paste)</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+              </div>
+              <div class="prompt-code"> Candid iPhone 15 Pro close-up portrait of a 22-year-old Indian-Mediterranean female model looking directly into camera, expressive almond hazel-brown eyes, subtle beauty mark below left eye, warm olive skin with ultra-detailed natural skin texture, visible pores, slight peach fuzz, no heavy makeup, clean girl aesthetic, wearing a simple white ribbed tank top, soft diffused morning window light, neutral beige apartment background, shot on 35mm lens, f/2.0, unedited raw smartphone photo, hyper-realistic --ar 9:16</div>
+            </div>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Universal Negative Prompt (Paste in Negative Box)</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy Negative</button>
+              </div>
+              <div class="prompt-code">plastic skin, airbrushed, waxy, CGI, 3d render, doll, anime, cartoon, overly smooth skin, asymmetrical eyes, crossed eyes, deformed pupils, extra fingers, mutated hands, bad anatomy, watermark, text, oversaturated, heavy glamour makeup</div>
+            </div>
+          </div>
+        </article>
+
+        <div class="day-footer-nav">
+          <span></span>
+          <button class="nav-btn" onclick="switchDayById('day2')">Continue to Day 2: 100% Face-Lock System →</button>
+        </div>
+      </section>
+
+      <!-- ==================== DAY 2 ==================== -->
+      <section id="day2" class="day-panel">
+        <div class="day-header">
+          <span class="day-kicker">Day 2 • 100% Facial Consistency & Photorealism</span>
+          <h2>The Face-Lock Pipeline: Same Face in Any Outfit, Pose & Country</h2>
+          <p>Learn how top AI agencies keep the exact same face across 500+ posts using IP-Adapter FaceID, InsightFace Swap, ControlNet OpenPose, and skin-imperfection LoRAs.</p>
+        </div>
+
+        <!-- Lesson 2.1 -->
+        <article class="lesson-card" data-lesson="2.1">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 2.1</span>
+                <span class="lesson-duration">⏱ 25 Mins • Core Tech</span>
+              </div>
+              <h3 class="lesson-title">The 2-Layer Face-Lock Pipeline (IP-Adapter + InsightFace Swap)</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('2.1')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Relying on text prompts alone gives you only ~70% facial similarity. Relying on a cheap face-swap app alone gives you a flat "pasted-on" face with wrong head shapes. The secret is our <strong>2-Layer Hybrid Lock</strong>:</p>
+            <ul class="step-list">
+              <li><strong>Layer 1 (During Generation — IP-Adapter FaceID Plus v2):</strong> Inside SeaArt/Tensor ControlNet settings, upload your <code>00_MASTER_ANCHOR</code> image into <strong>Reference / IP-Adapter FaceID</strong>. Set Weight to <code>0.75</code>. This forces the AI to generate the exact skull shape, hair hairline, and eye spacing of your character.</li>
+              <li><strong>Layer 2 (Post-Generation Polish — InsightFace / FaceSwap):</strong> Run the generated photo through SeaArt's built-in <strong>Face Swapper</strong> (or Discord InsightFace `Picsi.Ai`) using the same <code>00_MASTER_ANCHOR</code> photo. This locks 100% of the micro-features (beauty mark, nose bridge, lip shape).</li>
+            </ul>
+            <div class="pro-tip">
+              <strong>Why This Beats Custom LoRA Training on Day 1</strong>
+              Training a custom Kohya_ss LoRA requires 25 consistent photos first. Use the 2-Layer Hybrid Lock to generate your first 25 consistent angles in 30 minutes, and you can optionally one-click train a permanent Flux LoRA inside Tensor.art later!
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 2.2 -->
+        <article class="lesson-card" data-lesson="2.2">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 2.2</span>
+                <span class="lesson-duration">⏱ 20 Mins • Pose Control</span>
+              </div>
+              <h3 class="lesson-title">Stealing Any Viral Pinterest/Instagram Pose with ControlNet OpenPose</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('2.2')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Never struggle to describe complex body positions ("sitting cross-legged holding iced coffee looking over shoulder"). Instead, clone real influencer poses legally and ethically:</p>
+            <ul class="step-list">
+              <li><strong>Step 1:</strong> Screenshot any viral lifestyle pose from Pinterest or Instagram.</li>
+              <li><strong>Step 2:</strong> In SeaArt/Tensor, enable <strong>ControlNet Unit 1 → OpenPose (Full Body + Hand)</strong> or <strong>Depth Anything</strong>.</li>
+              <li><strong>Step 3:</strong> Upload the Pinterest screenshot as the ControlNet reference image and set <strong>Control Weight = 0.80</strong>, <strong>End Control Step = 0.85</strong>.</li>
+              <li><strong>Step 4:</strong> Type your Character DNA + new outfit/background prompt. Your AI influencer will replicate the exact body posture and camera angle with zero deformed limbs!</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 2.3 -->
+        <article class="lesson-card" data-lesson="2.3">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 2.3</span>
+                <span class="lesson-duration">⏱ 20 Mins • Realism Secrets</span>
+              </div>
+              <h3 class="lesson-title">Destroying the "AI Plastic Look": Amateur iPhone & Skin Texture Modifiers</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('2.3')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Why do most AI influencers look fake? Because beginners type words like <em>"8k, masterpiece, studio lighting, bokeh, ultra HD"</em>—which makes the image look like a CGI video game! Real Instagram influencers post slightly imperfect smartphone photos.</p>
+            <h4>The "Amateur iPhone Realism" Formula:</h4>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Realism Suffix (Append to the End of Every Prompt)</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy Suffix</button>
+              </div>
+              <div class="prompt-code">shot on iPhone 15 Pro Max front camera, IMG_4829.HEIC, candid amateur photography, slightly uneven natural lighting, deep depth of field (everything in background relatively sharp, no fake DSLR blur), natural skin imperfections, subtle under-eye texture, micro skin pores, flyaway hair strands, unretouched VSCO film grain</div>
+            </div>
+            <ul class="step-list">
+              <li><strong>Recommended Free LoRA Stack (Add at 0.35 weight):</strong> Search <code>Amateur Photography Snapshot LoRA</code> or <code>Detail Tweaker XL</code> inside SeaArt/Tensor LoRA selector and set weight to <code>0.35</code>.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 2.4 -->
+        <article class="lesson-card" data-lesson="2.4">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 2.4</span>
+                <span class="lesson-duration">⏱ 20 Mins • Fixing Hands & Eyes</span>
+              </div>
+              <h3 class="lesson-title">Fixing Hands, Eyes & Wardrobe Details with Mobile Inpainting</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('2.4')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Never throw away a 95% perfect image because one hand has a weird pinky finger or you want to change the outfit color for a second carousel slide:</p>
+            <ul class="step-list">
+              <li><strong>1-Click Hand Repair:</strong> Open the image inside SeaArt <strong>Inpaint (局部重绘)</strong>. Brush over the hand only. Set <strong>Denoising Strength = 0.55</strong>, Mask Area = <strong>Only Masked</strong>, and prompt: <code>natural anatomically correct female hand with five fingers, manicure</code>.</li>
+              <li><strong>Instant Outfit Change for Carousel Slides:</strong> Brush over the top/dress, set Denoising Strength to <code>0.72</code>, and type a new outfit (e.g., <code>emerald green silk slip dress</code>). Now you have two matching photos in the same room for an Instagram "Which outfit: 1 or 2?" engagement post!</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="day-footer-nav">
+          <button class="nav-btn secondary" onclick="switchDayById('day1')">← Back to Day 1</button>
+          <button class="nav-btn" onclick="switchDayById('day3')">Continue to Day 3: Viral AI Reels & Motion →</button>
+        </div>
+      </section>
+
+      <!-- ==================== DAY 3 ==================== -->
+      <section id="day3" class="day-panel">
+        <div class="day-header">
+          <span class="day-kicker">Day 3 • Hyper-Realistic AI Video & Viral Reels</span>
+          <h2>Turning Static AI Photos into 1M+ View Instagram Reels</h2>
+          <p>Static photos build trust, but 9:16 Vertical Reels bring 95% of your free organic followers. Master Kling AI, Hailuo MiniMax, Luma, Lip-Syncing, and the CapCut 60fps Upscale Hack.</p>
+        </div>
+
+        <!-- Lesson 3.1 -->
+        <article class="lesson-card" data-lesson="3.1">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 3.1</span>
+                <span class="lesson-duration">⏱ 25 Mins • Image-to-Video</span>
+              </div>
+              <h3 class="lesson-title">Animating Photos with Kling AI, Hailuo MiniMax & Luma Dream Machine</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('3.1')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Never generate video from text alone (it ruins your character's face). Always use <strong>Image-to-Video (I2V)</strong> starting with a Face-Locked Day 2 photo!</p>
+            <ul class="step-list">
+              <li><strong>Kling AI (klingai.com — 66 Free Daily Credits):</strong> Best for micro-facial expressions, hair blowing in the wind, coffee sipping, and walking toward the camera. Use <strong>Kling 1.6 / 2.0 Standard (5 Seconds)</strong> with Creativity = <code>0.5</code> (keeps face locked).</li>
+              <li><strong>Hailuo AI MiniMax (hailuoai.video — Free Daily Generations):</strong> Incredible camera movement and natural handheld phone shake. Use model <code>I2V-01-Live</code>.</li>
+              <li><strong>Golden Rule of AI Motion Prompts:</strong> Keep movements subtle! Fast dancing or acrobatics morphs faces. Micro-movements (eye contact, shy smile, tucking hair behind ear, handheld camera sway) fool 99% of viewers.</li>
+            </ul>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Kling AI / Hailuo High-Retention Micro-Motion Prompt</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy Motion Prompt</button>
+              </div>
+              <div class="prompt-code">Subtle handheld smartphone camera movement, the young woman makes natural eye contact with the camera, gives a warm shy smile, gently tucks a strand of hair behind her ear while breeze softly moves her hair, natural blinking, realistic breathing motion, candid real-life physics, 4k photorealistic video</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 3.2 -->
+        <article class="lesson-card" data-lesson="3.2">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 3.2</span>
+                <span class="lesson-duration">⏱ 20 Mins • Video Face-Swap</span>
+              </div>
+              <h3 class="lesson-title">Motion Transfer & Video Face-Lock (Replacing Real Reel Clips)</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('3.2')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Want your AI influencer to perform a trending dance or transition reel without any AI warping? Use <strong>Video-to-Video Face Lock</strong>:</p>
+            <ul class="step-list">
+              <li><strong>Step 1:</strong> Record yourself (or a consenting friend/creator, or use Kling Motion Brush / Runway Act-One) doing a 5-second trending head-nod or transition in good lighting.</li>
+              <li><strong>Step 2:</strong> Open <strong>SeaArt Video Face Swap</strong>, <strong>Remaker AI Video</strong>, or <strong>Akool Face Swap</strong> (free trial credits).</li>
+              <li><strong>Step 3:</strong> Upload the 5-second source video + your <code>00_MASTER_ANCHOR</code> portrait.</li>
+              <li><strong>Step 4:</strong> Enable <strong>Face Enhance (GFPGAN/CodeFormer)</strong> so skin lighting matches the video frame-by-frame.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 3.3 -->
+        <article class="lesson-card" data-lesson="3.3">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 3.3</span>
+                <span class="lesson-duration">⏱ 20 Mins • Voice & Lip-Sync</span>
+              </div>
+              <h3 class="lesson-title">Giving Your Persona a Voice: ElevenLabs + Kling Lip-Sync</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('3.3')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Talking-head reels build 10x deeper parasocial connection and command ₹25,000–₹80,000 per brand integration because your character can directly pitch products.</p>
+            <ul class="step-list">
+              <li><strong>Step 1 (ElevenLabs Free Tier):</strong> Go to <code>elevenlabs.io</code> → Voice Library. Pick a natural conversational voice (e.g., <em>"Aria - Casual Hinglish/Indian English"</em> or <em>"Jessica - Warm Gen-Z"</em>). Use <strong>Speech-to-Speech</strong> (record yourself whispering or talking on your phone mic so the pacing, pauses, and laugh sound 100% human!).</li>
+              <li><strong>Step 2 (Syncing Lips):</strong> Inside Kling AI → <strong>Lip Sync</strong> (or Hedra / HeyGen free tier), upload your 5-second Kling video + the ElevenLabs MP3 audio file.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 3.4 -->
+        <article class="lesson-card" data-lesson="3.4">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 3.4</span>
+                <span class="lesson-duration">⏱ 15 Mins • Post-Processing</span>
+              </div>
+              <h3 class="lesson-title">The CapCut Mobile "Anti-AI" Color Grade & 4-Second Loop Formula</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('3.4')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Never upload raw video straight from Kling AI to Instagram. Raw AI video has metadata tags and slightly soft edges. Run this 90-second CapCut Mobile workflow on every reel:</p>
+            <ul class="step-list">
+              <li><strong>1. Trim to 4.2 – 5.5 Seconds:</strong> Short reels loop automatically while people read your caption—skyrocketing your Average Percentage Viewed (APV) above 140%!</li>
+              <li><strong>2. Apply the "Anti-AI" Crispness Adjustment:</strong> In CapCut → <strong>Adjust</strong> → set <code>Sharpen +18</code>, <code>Grain +8</code>, <code>Contrast +5</code>, <code>Saturation -4</code>. That tiny bit of film grain masks AI smoothness and makes it look like an iPhone 15 night shot.</li>
+              <li><strong>3. Export Settings:</strong> Export at <strong>1080p, 60fps, High Bitrate</strong>. This strips the original AI generator metadata and creates a fresh `.MOV` / `.MP4` container.</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="day-footer-nav">
+          <button class="nav-btn secondary" onclick="switchDayById('day2')">← Back to Day 2</button>
+          <button class="nav-btn" onclick="switchDayById('day4')">Continue to Day 4: IG Algorithm & Auto-DM →</button>
+        </div>
+      </section>
+
+      <!-- ==================== DAY 4 ==================== -->
+      <section id="day4" class="day-panel">
+        <div class="day-header">
+          <span class="day-kicker">Day 4 • Instagram Algorithm Mastery & Auto-DM Funnels</span>
+          <h2>Warmup Protocol, Trial Reels Hack & ManyChat Automation</h2>
+          <p>How to launch a brand-new Instagram account without getting stuck in the "0-View Jail", trigger non-follower recommendations, and convert comments into DMs automatically.</p>
+        </div>
+
+        <!-- Lesson 4.1 -->
+        <article class="lesson-card" data-lesson="4.1">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 4.1</span>
+                <span class="lesson-duration">⏱ 15 Mins • Account Trust</span>
+              </div>
+              <h3 class="lesson-title">The 48-Hour Instagram Warmup Protocol (Avoiding 0-View Shadowbans)</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('4.1')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>If you create a new Instagram account and immediately post a Reel 5 minutes later, Instagram's anti-bot classifier flags your account as spam and caps your reach at 0–15 views. Follow this exact 48-hour warmup:</p>
+            <ul class="step-list">
+              <li><strong>Hours 0–24 (Human Trust Signals):</strong> Create the account using a mobile phone number (not just disposable email). Switch to <strong>Creator Account (Category: Digital Creator or Public Figure)</strong>. Do NOT post yet. Spend 10 minutes scrolling Reels in your target niche, saving 5 reels, leaving 3 genuine 6+ word comments, and following 10 big creators in your niche.</li>
+              <li><strong>Hours 24–48 (Bio & Story Primer):</strong> Upload your profile picture, write your 3-line bio, and post 1 Story with a Poll or Location sticker.</li>
+              <li><strong>Hour 48 (First Post Launch):</strong> Publish your first 3-slide Photo Carousel + first 4.5-second Reel using trending audio at 8% volume.</li>
+            </ul>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>High-Converting AI Influencer Bio Template</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy Bio</button>
+              </div>
+              <div class="prompt-code">✨ Kiara • 22 • Mumbai ✈️ Milan
+🎨 Digital Muse & Virtual Style Diary
+💌 Daily fits, travel & behind-the-code
+👇 My exclusive vault & outfit links</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lesson 4.2 -->
+        <article class="lesson-card" data-lesson="4.2">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 4.2</span>
+                <span class="lesson-duration">⏱ 20 Mins • Viral Growth</span>
+              </div>
+              <h3 class="lesson-title">Instagram "Trial Reels" Hack & The 3-Second Hook Architecture</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('4.2')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Instagram's <strong>Trial Reels</strong> feature allows you to test Reels strictly to <strong>100% Non-Followers</strong> without cluttering your main grid. Here is how we exploit it:</p>
+            <ul class="step-list">
+              <li><strong>The 3x Hook Split-Test:</strong> Take ONE 5-second AI video clip. Export 3 versions in CapCut with 3 different on-screen text hooks from your <a href="viral-hooks-and-autodm-pack.html" style="color:var(--accent-pink);">500+ Viral Hooks Pack</a>.</li>
+              <li><strong>Toggle "Trial" ON:</strong> Upload 1 main Reel to your feed and 2 variations as <strong>Trial Reels</strong> per day. Whichever Trial Reel crosses a 12% Share/Save rate within 24 hours—click <strong>"Share to Everyone"</strong> so it snowballs onto the main Explore algorithm!</li>
+              <li><strong>The "Look Closer" Loop Trick:</strong> Hide a tiny intentional detail in the background or caption (e.g., <em>"Wait until you notice what's behind me in the mirror 😳"</em>). Viewers re-watch 3 times and argue in the comments—forcing the algorithm to push your Reel to 100,000+ people.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 4.3 -->
+        <article class="lesson-card" data-lesson="4.3">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 4.3</span>
+                <span class="lesson-duration">⏱ 20 Mins • Automation</span>
+              </div>
+              <h3 class="lesson-title">ManyChat Auto-DM Setup: Turning Comments into Leads & Sales 24/7</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('4.3')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Never tell viewers "Link in Bio" (only 0.5% click). Instead, tell them: <strong>"Comment 'LINK' or 'SECRET' and I'll DM it to you right now!"</strong> This doubles your Reel comments (boosting the algorithm) AND opens a direct 1-on-1 DM conversation.</p>
+            <ul class="step-list">
+              <li><strong>Step 1:</strong> Connect your Instagram Creator account to <strong>ManyChat.com (Free Tier includes up to 1,000 contacts)</strong>.</li>
+              <li><strong>Step 2:</strong> Choose Automation → <strong>"User comments on your Post or Reel"</strong>.</li>
+              <li><strong>Step 3:</strong> Set Keyword Triggers: <code>FIT, LINK, SECRET, AI, VIP, GUIDE</code>.</li>
+              <li><strong>Step 4:</strong> Enable <strong>Auto-Reply to Comment</strong> with 3 rotating variations (<em>"Just sent it to your DMs babe! Check requests 💌"</em>).</li>
+              <li><strong>Step 5:</strong> Set the DM message with a clickable button leading to your Affiliate Storefront, Telegram Channel, Fanvue, or Digital Product! (Grab 15 complete copy-paste DM scripts inside the <a href="viral-hooks-and-autodm-pack.html" style="color:var(--accent-pink);">Viral Hooks & Auto-DM Pack</a>).</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="day-footer-nav">
+          <button class="nav-btn secondary" onclick="switchDayById('day3')">← Back to Day 3</button>
+          <button class="nav-btn" onclick="switchDayById('day5')">Continue to Day 5: Monetization & Scale →</button>
+        </div>
+      </section>
+
+      <!-- ==================== DAY 5 ==================== -->
+      <section id="day5" class="day-panel">
+        <div class="day-header">
+          <span class="day-kicker">Day 5 • Multi-Stream Monetization & Scaling to ₹1.5L+/Mo</span>
+          <h2>5 Proven Revenue Streams for Your AI Influencer</h2>
+          <p>You don't need 100,000 followers to make money. Learn how to monetize from your very first 1,000 followers using Affiliate Auto-DMs, Exclusive Vault Subscriptions, D2C Brand Deals, and AI Creation Retainers.</p>
+        </div>
+
+        <!-- Lesson 5.1 -->
+        <article class="lesson-card" data-lesson="5.1">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 5.1</span>
+                <span class="lesson-duration">⏱ 20 Mins • Cashflow Stream #1 & #2</span>
+              </div>
+              <h3 class="lesson-title">Fashion/Tech Affiliate Auto-DMs & Digital Product Funnels</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('5.1')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>The fastest way to make your first ₹10,000–₹50,000 requires zero brand approval:</p>
+            <ul class="step-list">
+              <li><strong>Stream 1: Wishlink / Hypd / Amazon Influencer / LTK Outfit Links:</strong> Dress your AI persona in trending outfits found on Myntra, Ajio, Savana, or Amazon. Post a Reel with the text: <em>"Found the ultimate ₹999 date-night dress 😍 Comment 'DRESS' for the direct link!"</em> Every comment triggers ManyChat to send your affiliate link. At 50,000 Reel views, a 2% click-to-purchase rate yields effortless daily commissions.</li>
+              <li><strong>Stream 2: Selling Your Own Low-Ticket Digital Guide (100% Profit Margin):</strong> Once viewers see how realistic your AI model looks, hundreds of people will comment <em>"Wait is she AI?! How did you make this?"</em> Set up a ManyChat keyword <code>PROMPT</code> or <code>AI</code> that automatically DMs them a link to your own ₹199–₹499 prompt pack or affiliate link!</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 5.2 -->
+        <article class="lesson-card" data-lesson="5.2">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 5.2</span>
+                <span class="lesson-duration">⏱ 25 Mins • Cashflow Stream #3</span>
+              </div>
+              <h3 class="lesson-title">Subscription Platforms (Fanvue, Patreon & Exclusive Telegram Vaults)</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('5.2')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>Recurring monthly subscriptions in USD ($) are where solo AI creators scale to $3,000–$10,000/month:</p>
+            <ul class="step-list">
+              <li><strong>Fanvue (100% AI-Friendly Creator Platform):</strong> Unlike older platforms that ban AI, Fanvue explicitly welcomes AI creators and includes built-in AI voice notes and 24/7 smart chatting tools. Charge $9.99/month for exclusive beach/glamour photoshoots, personal voice messages, and behind-the-scenes stories.</li>
+              <li><strong>The Safe "Bridge Funnel" (Crucial!):</strong> Never put a direct Fanvue link in your Instagram bio (Instagram suppresses direct adult/subscription links). Instead, send Instagram traffic to a clean <strong>Linktree / Beacons page</strong> or <strong>Free Telegram Channel</strong> first, and place your VIP subscription link inside Telegram! (Read the full step-by-step setup in your <a href="uncensored-content-hack.html" style="color:var(--accent-pink);">Uncensored Content Hack VIP Guide</a>).</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Lesson 5.3 -->
+        <article class="lesson-card" data-lesson="5.3">
+          <div class="lesson-top">
+            <div>
+              <div class="lesson-meta">
+                <span class="lesson-number">LESSON 5.3</span>
+                <span class="lesson-duration">⏱ 20 Mins • Cashflow Stream #4 & #5</span>
+              </div>
+              <h3 class="lesson-title">Pitching D2C Brands & B2B AI Model Photoshoot Retainers</h3>
+            </div>
+            <button class="complete-toggle" onclick="toggleLesson('5.3')">☐ Mark Complete</button>
+          </div>
+          <div class="lesson-body">
+            <p>D2C clothing, jewelry, sunglasses, and skincare brands in India and globally spend ₹50,000+ per physical studio shoot. Your AI persona can wear their exact product using <strong>Inpainting / Virtual Try-On (Kolors Virtual Try-On or SeaArt Outfit Swap)</strong> for 1/10th the cost!</p>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Copy-Paste Brand Outreach & B2B Pitch Script</span>
+                <button class="copy-btn" onclick="copyPrompt(this)">Copy Pitch Script</button>
+              </div>
+              <div class="prompt-code">Hey [Brand Name] team! 👋
+
+Love your new [Collection/Product Name] drop! We actually styled our virtual fashion muse @[YourHandle] (reaching [X]k+ monthly fashion lovers) in a mock editorial inspired by your aesthetic—attached the preview photo here!
+
+We’d love to feature your exact piece in an upcoming Reel + Story Auto-DM campaign, OR deliver 15 studio-grade AI model catalog images wearing your SKU for your website/ads within 48 hours (zero studio or model booking costs).
+
+Open to me sending over 2 free sample renders wearing one of your products today?</div>
+            </div>
+            <div class="pro-tip">
+              <strong>The "Free Sample" Close Rate</strong>
+              Download 1 product image from a D2C brand's website, put it on your AI influencer using Kolors Virtual Try-On (free on HuggingFace/SeaArt), and DM the finished photo to the brand founder on Instagram. 3 out of 10 brands reply within 24 hours asking for your package pricing (₹15,000–₹45,000/month)!
+            </div>
+          </div>
+        </article>
+
+        <div class="day-footer-nav">
+          <button class="nav-btn secondary" onclick="switchDayById('day4')">← Back to Day 4</button>
+          <a href="character-dna-prompt-bible.html" class="nav-btn" style="text-decoration:none;">Open 250+ Character DNA Prompt Bible →</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'personalabs_completed_lessons_v1';
+    const TOTAL_LESSONS = 18;
+
+    function getCompletedLessons() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveCompletedLessons(list) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    function updateProgressUI() {
+      const completed = getCompletedLessons();
+      const count = completed.length;
+      const pct = Math.round((count / TOTAL_LESSONS) * 100);
+
+      document.getElementById('progressCount').textContent = `${count} / ${TOTAL_LESSONS}`;
+      document.getElementById('progressPercent').textContent = `${pct}%`;
+      document.getElementById('progressBar').style.width = `${pct}%`;
+
+      document.querySelectorAll('.lesson-card').forEach(card => {
+        const id = card.getAttribute('data-lesson');
+        const btn = card.querySelector('.complete-toggle');
+        if (completed.includes(id)) {
+          card.classList.add('completed');
+          if (btn) btn.innerHTML = '✓ Completed';
+        } else {
+          card.classList.remove('completed');
+          if (btn) btn.innerHTML = '☐ Mark Complete';
+        }
+      });
+    }
+
+    function toggleLesson(lessonId) {
+      let completed = getCompletedLessons();
+      if (completed.includes(lessonId)) {
+        completed = completed.filter(item => item !== lessonId);
+      } else {
+        completed.push(lessonId);
+      }
+      saveCompletedLessons(completed);
+      updateProgressUI();
+    }
+
+    function resetProgress() {
+      if (confirm('Reset your course completion progress tracker?')) {
+        saveCompletedLessons([]);
+        updateProgressUI();
+      }
+    }
+
+    function switchDay(dayId, btnEl) {
+      document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sidebar .day-tab-btn').forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById(dayId);
+      if (target) target.classList.add('active');
+      if (btnEl) btnEl.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchDayById(dayId) {
+      const buttons = document.querySelectorAll('.sidebar .day-tab-btn');
+      const indexMap = { day1: 0, day2: 1, day3: 2, day4: 3, day5: 4 };
+      const btn = buttons[indexMap[dayId]];
+      switchDay(dayId, btn);
+    }
+
+    function copyPrompt(btn) {
+      const box = btn.closest('.prompt-box');
+      const code = box.querySelector('.prompt-code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✓ Copied!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+        }, 1800);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', updateProgressUI);
+  </script>
+</body>
+</html>

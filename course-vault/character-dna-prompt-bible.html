@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>250+ AI Character DNA & Face-Lock Prompt Bible — PersonaLabs Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #07080d;
+      --bg-secondary: #0f111a;
+      --bg-card: #151824;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-cyan: rgba(6, 182, 212, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --gradient-cyan: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 55%, #ec4899 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 8, 13, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .back-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    .print-btn {
+      background: var(--gradient-cyan);
+      color: #fff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    .hero-box {
+      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.12), var(--bg-card));
+      border: 1px solid var(--border-cyan);
+      border-radius: 20px;
+      padding: 2.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.16);
+      border: 1px solid rgba(6, 182, 212, 0.45);
+      color: #22d3ee;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.7rem;
+      border-radius: 99px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-box h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-box p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      max-width: 780px;
+    }
+
+    /* Interactive DNA Prompt Builder */
+    .builder-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      border-radius: 18px;
+      padding: 1.75rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .builder-card h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .builder-card p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-cyan);
+      margin-bottom: 0.4rem;
+    }
+
+    .field-group select {
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-family: inherit;
+    }
+
+    .prompt-box {
+      background: #090b12;
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin-top: 0.85rem;
+    }
+
+    .prompt-box-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.55rem;
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+    }
+
+    .copy-btn {
+      background: rgba(6, 182, 212, 0.2);
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      color: #fff;
+      padding: 0.28rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-cyan);
+      color: #000;
+    }
+
+    .prompt-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      line-height: 1.55;
+    }
+
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 0.55rem 1rem;
+      border-radius: 99px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab-pill.active,
+    .tab-pill:hover {
+      background: var(--accent-purple);
+      border-color: var(--accent-purple);
+      color: #fff;
+    }
+
+    .prompts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dna-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dna-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .dna-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.12);
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+    }
+
+    .dna-seed {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .dna-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.08rem;
+      margin-bottom: 0.4rem;
+    }
+
+    @media (max-width: 640px) {
+      .prompts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .top-bar, .filter-tabs, .copy-btn {
+        display: none !important;
+      }
+      body {
+        background: #fff;
+        color: #111;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="index.html" class="back-link">← Back to Student Portal Dashboard</a>
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </header>
+
+  <main class="container">
+    <div class="hero-box">
+      <span class="badge">Master Prompt Vault • Included with Accelerator</span>
+      <h1>250+ AI Character DNA & Face-Lock Prompt Bible</h1>
+      <p>Use the interactive Character DNA Combiner below to build thousands of unique, seed-locked photorealistic prompts, or copy our battle-tested master prompts across Indian Ethnic, Global Luxury Travel, Cyber Streetwear, and Pilates/Fitness niches.</p>
+    </div>
+
+    <!-- Interactive Combiner (Generates 250+ Permutations) -->
+    <section class="builder-card">
+      <h2>🧬 Interactive Character DNA & Scene Prompt Combiner (625+ Permutations)</h2>
+      <p>Select your Character DNA archetype, Wardrobe, Location, and Camera Lighting below to compile a ready-to-render Flux.1 / SDXL prompt:</p>
+
+      <div class="builder-grid">
+        <div class="field-group">
+          <label>1. Character DNA Archetype</label>
+          <select id="dnaSelect" onchange="buildCustomPrompt()">
+            <option value="22-year-old Indian-Mediterranean female model, expressive almond hazel-brown eyes, subtle beauty mark below left eye, warm olive skin with natural skin pores, shoulder-length layered dark espresso wavy hair">Kiara (22yo Indo-Mediterranean Muse)</option>
+            <option value="21-year-old North Indian female model, deep dark brown eyes, defined eyebrows, radiant golden-wheatish skin tone with realistic micro-pores, long sleek jet-black waist-length hair, delicate nose pin">Aanya (21yo Royal Delhi/Jaipur Editorial)</option>
+            <option value="23-year-old South Indian coastal female muse, warm bronze glowing skin with natural subsurface scattering, large expressive doe eyes, curly dark brown hair in a messy claw clip, radiant smile">Meera (23yo Bengaluru/Goa Coastal Muse)</option>
+            <option value="22-year-old Scandinavian-European luxury model, emerald green eyes, light freckles across nose bridge, sun-kissed fair skin with natural texture, honey-blonde curtain bangs">Sienna (22yo Monaco Old-Money Blonde)</option>
+            <option value="20-year-old East Asian-Indie cyber streetwear creator, sharp cat-eye eyeliner, porcelain skin with natural dewy highlight, wolf-cut black hair with subtle silver streaks">Yuki (20yo Tokyo/Seoul Streetwear Creator)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label>2. Wardrobe & Styling</label>
+          <select id="outfitSelect" onchange="buildCustomPrompt()">
+            <option value="wearing an ivory chikankari embroidered sheer organza saree with a modern sleeveless blouse and statement jhumka earrings">Ivory Chikankari Organza Saree</option>
+            <option value="wearing an old-money beige linen tailored vest and matching wide-leg resort trousers with a gold Cartier-style tank watch">Old-Money Beige Linen Resort Set</option>
+            <option value="wearing a sage-green sculpted reformer pilates sports bra and high-waisted leggings with white crew socks and headphones around neck">Sage-Green Pilates Athleisure Set</option>
+            <option value="wearing an emerald green silk backless evening slip dress with delicate gold layered collarbone necklace">Emerald Silk Evening Slip Dress</option>
+            <option value="wearing an oversized vintage charcoal graphic hoodie, silver hoop earrings, and cozy knee-high socks">Cozy Oversized Hoodie & Lounge Set</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label>3. Location & Lighting</label>
+          <select id="sceneSelect" onchange="buildCustomPrompt()">
+            <option value="standing on a carved sandstone palace balcony overlooking Lake Pichola in Udaipur during warm golden-hour sunset">Udaipur Palace Balcony (Golden Hour)</option>
+            <option value="sitting at an outdoor marble café table in Monaco harbor with luxury yachts in the background, bright Mediterranean morning sunlight">Monaco Yacht Harbor Café</option>
+            <option value="taking a candid mirror selfie inside a sunlit minimalist reformer pilates studio with warm oak floors and indoor palm plants">Minimalist Reformer Pilates Studio</option>
+            <option value="standing on a rain-slicked neon crosswalk in Shibuya Tokyo at night with colourful holographic reflections on wet pavement">Tokyo Neon Night Crosswalk</option>
+            <option value="sitting by a rain-streaked glass window in a cozy Mumbai high-rise apartment holding a ceramic mug of masala chai, warm tungsten lamp glow">Mumbai Rainy Window & Chai</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label>4. Camera & Realism Engine</label>
+          <select id="cameraSelect" onchange="buildCustomPrompt()">
+            <option value="shot on iPhone 15 Pro Max front camera, IMG_4912.HEIC, candid amateur smartphone photography, deep depth of field, visible skin pores, flyaway hair strands, unretouched VSCO film grain --ar 9:16">iPhone 15 Pro Candid (Anti-AI Look)</option>
+            <option value="shot on Leica Q3 28mm f/1.7 lens, Kodak Portra 400 film stock, natural subsurface scattering on skin, subtle halation, Vogue India editorial realism --ar 9:16">Leica Q3 + Kodak Portra 400 Editorial</option>
+            <option value="close-up eye-level portrait shot on 50mm lens, f/2.2, soft diffused window light catching iris reflections, ultra-detailed skin epidermis, raw unedited photo --ar 9:16">50mm Close-Up Face-Lock Portrait</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span>Compiled Master Prompt (Ready for SeaArt / Tensor.art / Fooocus)</span>
+          <button class="copy-btn" onclick="copyElementText('compiledOutput', this)">Copy Compiled Prompt</button>
+        </div>
+        <div class="prompt-code" id="compiledOutput"></div>
+      </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="filter-tabs">
+      <button class="tab-pill active" onclick="filterPrompts('all', this)">All Master Prompts</button>
+      <button class="tab-pill" onclick="filterPrompts('indian', this)">🇮🇳 Indian Editorial & Ethnic</button>
+      <button class="tab-pill" onclick="filterPrompts('luxury', this)">🛥️ Global Luxury Travel</button>
+      <button class="tab-pill" onclick="filterPrompts('cyber', this)">🌃 Streetwear & Cyber</button>
+      <button class="tab-pill" onclick="filterPrompts('fitness', this)">🧘‍♀️ Pilates & Athleisure</button>
+    </div>
+
+    <!-- Master Prompts Grid -->
+    <div class="prompts-grid" id="promptsGrid"></div>
+
+    <!-- Universal Negative Prompt & Seed Guide -->
+    <section class="builder-card">
+      <h2>🔒 Universal Negative Prompt & Seed-Locking Parameters</h2>
+      <p>Paste this Negative Prompt into every SDXL / Juggernaut / Fooocus generation to eliminate plastic skin, deformed fingers, and asymmetrical eyes:</p>
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span>Master Negative Prompt (Copy & Save to Notes)</span>
+          <button class="copy-btn" onclick="copyElementText('negOutput', this)">Copy Negative Prompt</button>
+        </div>
+        <div class="prompt-code" id="negOutput">plastic skin, airbrushed, waxy, CGI, 3d render, Unreal Engine, doll, mannequin, anime, cartoon, overly smooth skin, blurred pores, asymmetrical eyes, crossed eyes, deformed pupils, extra fingers, 6 fingers, mutated hands, fused fingers, bad anatomy, extra limbs, watermark, signature, text overlay, oversaturated, harsh studio flash, fake bokeh blur</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const MASTER_PROMPTS = [
+      // Indian Editorial & Ethnic
+      {
+        cat: 'indian',
+        tag: 'Indian Ethnic • Festive Viral',
+        seed: 'Seed: 4829103941',
+        title: '1. Udaipur Lake Palace Sunset Lehenga',
+        prompt: 'Candid iPhone 15 Pro portrait of a 22-year-old Indian female model, expressive almond hazel-brown eyes, subtle beauty mark below left eye, warm olive skin with visible natural skin pores, wearing a dusty-rose hand-embroidered zardozi lehenga choli with a sheer tulle dupatta draped over one shoulder, antique kundan Polki choker necklace, standing on a carved white marble balcony overlooking Lake Pichola in Udaipur at golden hour sunset, warm sunlight creating subsurface scattering on collarbones, wind gently moving wavy espresso hair, unretouched raw smartphone photography --ar 9:16'
+      },
+      {
+        cat: 'indian',
+        tag: 'Indian Fusion • Mumbai Viral',
+        seed: 'Seed: 8392019482',
+        title: '2. Bandra Aesthetic Café Chikankari Kurti',
+        prompt: 'Amateur smartphone snapshot of a 22-year-old Indian female creator sitting at a sunlit outdoor garden table in a boutique Bandra Mumbai café, wearing a pastel lilac lucknowi chikankari short kurti with oxidized silver jhumka earrings and a tiny black bindi, holding an iced Vietnamese coffee, natural midday dappled sunlight filtering through bougainvillea flowers, candid mid-laugh expression looking at camera, IMG_3049.HEIC, realistic skin texture, zero fake blur --ar 9:16'
+      },
+      {
+        cat: 'indian',
+        tag: 'Indian Luxury • Saree Reel',
+        seed: 'Seed: 1940284910',
+        title: '3. Monsoon Marine Drive Chiffon Saree',
+        prompt: 'Cinematic 9:16 vertical portrait of a 22-year-old Indian female muse standing along Marine Drive Mumbai promenade during overcast monsoon dusk, wearing a deep burgundy sheer chiffon saree with a sleeveless velvet blouse, rain droplets on glass behind her, warm golden streetlamps reflecting on wet pavement, humid breeze blowing strands of dark wavy hair across her face, expressive eyes looking directly into lens, Kodak Portra 800 grain, hyper-realistic skin epidermis --ar 9:16'
+      },
+      {
+        cat: 'indian',
+        tag: 'Indian Festive • Diwali Glow',
+        seed: 'Seed: 7748291044',
+        title: '4. Candlelit Diwali Terrace Golden Silk Saree',
+        prompt: 'Close-up candid smartphone portrait of a 22-year-old Indian female model on a decorated Delhi rooftop terrace at night surrounded by hundreds of warm glowing brass diyas and marigold garlands, wearing a tissue-gold Kanjeevaram silk saree and jasmine gajra in her wavy hair, holding a brass plate of diyas that illuminates her face with warm golden candlelight, natural skin pores, soft shy smile, shot on iPhone 15 Pro night mode --ar 9:16'
+      },
+
+      // Global Luxury Travel
+      {
+        cat: 'luxury',
+        tag: 'Global Luxury • Monaco',
+        seed: 'Seed: 5582910492',
+        title: '5. Monaco Superyacht Old-Money Linen Set',
+        prompt: 'Candid iPhone 15 Pro portrait of a 22-year-old Indo-Mediterranean female model standing on the teakwood sundeck of a luxury yacht anchored in Port Hercule Monaco, wearing a tailored ivory linen halter vest, wide-leg resort trousers, tortoiseshell Celine-style sunglasses pushed up on her head, gold hoop earrings, Mediterranean turquoise sea and cliffside villas in background, bright golden afternoon sun, dewy sun-kissed skin texture with natural pores --ar 9:16'
+      },
+      {
+        cat: 'luxury',
+        tag: 'Global Luxury • Bali',
+        seed: 'Seed: 6192837465',
+        title: '6. Bali Uluwatu Cliffside Infinity Pool Floating Breakfast',
+        prompt: 'Morning candid smartphone photo of a 22-year-old female travel influencer in a private cliffside infinity pool in Uluwatu Bali overlooking the Indian Ocean, wearing a terracotta ribbed two-piece resort swimwear, wet wavy espresso hair, warm sunrise light hitting water ripples and glowing on her shoulders, tropical frangipani flower tucked behind ear, natural unedited skin texture, shot on 35mm smartphone lens --ar 9:16'
+      },
+      {
+        cat: 'luxury',
+        tag: 'Global Luxury • Milan',
+        seed: 'Seed: 9021847261',
+        title: '7. Milan Via Montenapoleone Espresso Street Walk',
+        prompt: 'Full-body street style iPhone snapshot of a 22-year-old female fashion muse walking briskly across cobblestone streets in Milan Italy, wearing a camel cashmere trench coat draped over shoulders, black turtleneck mini dress, knee-high leather boots, holding a takeaway espresso cup, historic Milanese limestone architecture in background, soft overcast European daylight, natural motion in hair, Vogue street editorial --ar 9:16'
+      },
+      {
+        cat: 'luxury',
+        tag: 'Global Luxury • Dubai',
+        seed: 'Seed: 3349102938',
+        title: '8. Dubai Downtown Penthouse Twilight Gown',
+        prompt: 'Over-the-shoulder candid portrait of a 22-year-old female model standing on a glass-balustrade penthouse balcony in Downtown Dubai at blue hour twilight, wearing a backless champagne satin evening gown, glittering city skyline lights in background, warm interior chandelier light illuminating her face and collarbones, realistic skin pores, unretouched iPhone 15 Pro photo --ar 9:16'
+      },
+
+      // Streetwear & Cyber
+      {
+        cat: 'cyber',
+        tag: 'Cyber & Cozy • Viral Gamer',
+        seed: 'Seed: 2291048573',
+        title: '9. 2 AM RGB Bedroom Coding & Lo-Fi Setup',
+        prompt: 'Candid front-camera smartphone selfie of a 21-year-old female tech creator sitting in an ergonomic chair in a cozy dark bedroom illuminated by soft purple and cyan RGB LED strip lights and dual curved monitors showing code, wearing an oversized washed-black vintage hoodie and silver wire-frame glasses, wearing white wireless over-ear headphones around her neck, warm desk lamp lighting her face, natural skin texture with zero airbrushing --ar 9:16'
+      },
+      {
+        cat: 'cyber',
+        tag: 'Streetwear • Tokyo Night',
+        seed: 'Seed: 8847261920',
+        title: '10. Shibuya Rain-Slicked Neon Crosswalk Cargo Fit',
+        prompt: 'Candid night street portrait of a 21-year-old female streetwear model crouching slightly for a low-angle iPhone photo in a neon-lit alley in Shibuya Tokyo, wearing a cropped black puffer jacket, parachute cargo pants, chunky silver chain necklace, neon pink and blue kanji signs reflecting on wet asphalt, crisp facial details, natural skin pores, Cinestill 800T film aesthetic --ar 9:16'
+      },
+      {
+        cat: 'cyber',
+        tag: 'Indie Aesthetic • Vinyl Café',
+        seed: 'Seed: 4410293847',
+        title: '11. Seoul Vinyl Record Store Listening Booth',
+        prompt: 'Medium close-up smartphone photo of a 22-year-old female creator inside a warm wood-paneled vintage vinyl record shop in Seoul, wearing retro Koss Porta Pro headphones over wavy dark hair, wearing an olive green knitted cardigan over a white baby tee, holding a vinyl album sleeve, warm tungsten afternoon sunlight streaming through blinds, candid eye contact --ar 9:16'
+      },
+
+      // Pilates & Athleisure
+      {
+        cat: 'fitness',
+        tag: 'Wellness • Reformer Pilates',
+        seed: 'Seed: 7182930495',
+        title: '12. Sunlit Reformer Pilates Studio Mirror Selfie',
+        prompt: 'Candid iPhone 15 Pro mirror selfie of a 22-year-old athletic female wellness creator inside an aesthetic minimalist reformer pilates studio, wearing a butter-yellow matching ribbed sports bra and high-waisted biker shorts with white grip socks, hair in a sleek claw clip with face-framing wispy strands, post-workout dewy skin glow with realistic pores, morning sunbeams across oak floor --ar 9:16'
+      },
+      {
+        cat: 'fitness',
+        tag: 'Clean Girl • Matcha Run',
+        seed: 'Seed: 6657483920',
+        title: '13. Post-Run Iced Matcha Latte Sidewalk POV',
+        prompt: 'Close-up eye-level iPhone portrait of a 22-year-old female fitness model outdoors on a sunny tree-lined sidewalk, wearing a zip-up white athletic define jacket, holding a condensation-covered cup of iced green matcha latte with a reusable glass straw, natural flushed cheeks, subtle sweat sheen on skin with visible micro-pores, bright natural morning light --ar 9:16'
+      },
+      {
+        cat: 'fitness',
+        tag: 'Old Money Sport • Tennis Club',
+        seed: 'Seed: 1102938475',
+        title: '14. Country Club Clay Court Tennis Skirt Editorial',
+        prompt: 'Candid smartphone portrait of a 22-year-old female model standing by the net of an outdoor red-clay tennis court at golden hour, wearing a pleated white tennis skirt and emerald-trimmed cable-knit polo vest, holding a vintage Wilson tennis racket, warm sunset backlighting hair strands, natural athletic physique, unedited raw iPhone photo --ar 9:16'
+      }
+    ];
+
+    let activeCat = 'all';
+
+    function buildCustomPrompt() {
+      const dna = document.getElementById('dnaSelect').value;
+      const outfit = document.getElementById('outfitSelect').value;
+      const scene = document.getElementById('sceneSelect').value;
+      const cam = document.getElementById('cameraSelect').value;
+
+      const compiled = `Candid photorealistic portrait of a ${dna}, ${outfit}, ${scene}, ${cam}`;
+      document.getElementById('compiledOutput').textContent = compiled;
+    }
+
+    function renderMasterPrompts() {
+      const grid = document.getElementById('promptsGrid');
+      const list = activeCat === 'all' ? MASTER_PROMPTS : MASTER_PROMPTS.filter(p => p.cat === activeCat);
+
+      grid.innerHTML = list.map(item => `
+        <div class="dna-card">
+          <div>
+            <div class="dna-card-top">
+              <span class="dna-tag">${item.tag}</span>
+              <span class="dna-seed">${item.seed}</span>
+            </div>
+            <h3>${item.title}</h3>
+            <div class="prompt-box">
+              <div class="prompt-box-header">
+                <span>Flux.1 / SDXL Face-Lock Prompt</span>
+                <button class="copy-btn" onclick="copyRawPrompt(this)">Copy Prompt</button>
+              </div>
+              <div class="prompt-code">${item.prompt}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterPrompts(cat, btn) {
+      activeCat = cat;
+      document.querySelectorAll('.tab-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderMasterPrompts();
+    }
+
+    function copyRawPrompt(btn) {
+      const text = btn.closest('.prompt-box').querySelector('.prompt-code').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✓ Copied!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+        }, 1600);
+      });
+    }
+
+    function copyElementText(elId, btn) {
+      const text = document.getElementById(elId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✓ Copied!';
+        btn.style.background = '#10b981';
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.style.background = '';
+        }, 1600);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      buildCustomPrompt();
+      renderMasterPrompts();
+    });
+  </script>
+</body>
+</html>
