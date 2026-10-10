@@ -1,22 +1,76 @@
 # 🗓️ PersonaLabs Academy — Launch Roadmap & 30-Day Content Calendar (`ROADMAP.md`)
 
 > [!IMPORTANT]
-> ### 🔐 CRITICAL OWNER REMINDER: Dedicated Gmail & 3-Folder Google Drive Setup
-> 1. **Create 1 Dedicated Brand Gmail Account** (e.g., `personalabs.academy@gmail.com`) and **ONLY** share course files from that account so your personal Gmail/name is never visible in Google Drive folder info.
-> 2. **Split Google Drive into 3 Separate Shared Folders** (Set each to *Anyone with the link -> Viewer*):
->    - 📁 **Folder 1 (`01-Core-Course-Videos`)**: Upload the 19 watermark-free, English-captioned Core Videos + `Bonus.docx` + `readme.docx` + `250-AI-Character-DNA-Prompt-Bible.html`. *(Shared with ALL buyers).*
->    - 📁 **Folder 2 (`02-Uncensored-NSFW-Addon-Videos`)**: Upload the 4 watermark-free, English-captioned NSFW/Uncensored Videos (`14, 15, 16, 17`) + `Uncensored-Content-Hack-VIP-Guide.html`. *(Shared ONLY with Order Bump #1 buyers).*
->    - 📁 **Folder 3 (`03-500-Viral-Hooks-And-Prompts-Pack`)**: Upload `500-Viral-Reel-Hooks-And-AutoDM-Pack.html` + `250-AI-Character-DNA-Prompt-Bible.html`. *(Shared ONLY with Order Bump #2 buyers, in addition to their unlocked Course Vault tab).*
+> ### 🔐 CRITICAL OWNER REMINDER: Dedicated Gmail & 3-Folder Private Google Drive Setup
+> 1. **Create 1 Dedicated Brand Gmail Account** (e.g., `personalabs.academy@gmail.com`) and host both your **Google Sheet (`PersonaLabs Academy — Orders DB`)** and your **3 Google Drive Folders** under this same Gmail account so your personal Gmail/name is never visible.
+> 2. **Split Google Drive into 3 Separate Folders — Keep All 3 Set to `Restricted (Only people added can open)`**:
+>    - 📁 **Folder 1 (`01-Core-Course-Videos`)**: Upload the 19 watermark-free, English-captioned Core Videos + `Bonus.docx` + `readme.docx` + `250-AI-Character-DNA-Prompt-Bible.html`. *(Auto-whitelisted via `DriveApp.addViewer` for ALL buyers).*
+>    - 📁 **Folder 2 (`02-Uncensored-NSFW-Addon-Videos`)**: Upload the 4 watermark-free, English-captioned NSFW/Uncensored Videos (`14, 15, 16, 17`) + `Uncensored-Content-Hack-VIP-Guide.html`. *(Auto-whitelisted ONLY for Order Bump #1 buyers).*
+>    - 📁 **Folder 3 (`03-500-Viral-Hooks-And-Prompts-Pack`)**: Upload `500-Viral-Reel-Hooks-And-AutoDM-Pack.html` + `250-AI-Character-DNA-Prompt-Bible.html`. *(Auto-whitelisted ONLY for Order Bump #2 buyers).*
+> 3. **Paste the 3 Folder IDs into your Google Apps Script** (see [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)) so every buyer's Gmail is automatically granted Viewer access the second they complete checkout!
 
 ---
 
 ## Phase 1: Pre-Launch Checklist (Day 0)
 - [x] Deploy `https://personalabs.store` via GitHub + Netlify Continuous Deployment.
-- [x] Connect real-time Google Sheets Order & Lead Database (`PersonaLabs Academy — Orders DB`).
-- [x] Wire Dual Order Bumps (`Uncensored Content Hack` + `500+ Viral Reel Hooks & Auto-DM Pack`) and 4-combination 1-Click Post-Purchase Upgrades (`?upgrade=bump1` & `?upgrade=bump2`).
+- [x] Connect real-time Google Sheets Order & Lead Database (`PersonaLabs Academy — Orders DB`) with automatic Google Drive `DriveApp.addViewer` email whitelisting.
+- [x] Wire Dual Order Bumps (`Uncensored Content Hack` + `500+ Viral Reel Hooks & Auto-DM Pack`), unguessable VIP URLs (`uncensored-vip-8f92a1c4.html` & `hooks-vip-3d7e91b2.html`), and 4-combination 1-Click Post-Purchase Upgrades (`?upgrade=bump1` & `?upgrade=bump2`).
 - [x] Remove `INVISION ACADEMY` watermarks and burn **Style 1 English Captions** across all 23 course videos while preserving 100% original audio quality.
-- [ ] Create dedicated `PersonaLabs Academy` Gmail account, upload the 3 Google Drive folders, and paste the folder links into `index.html` & `course-vault/index.html`.
+- [x] Create approved consistent AI Influencer persona & render 3 ready-to-post 9:16 Video Ads (`ads-ready/`).
+- [ ] Create dedicated `PersonaLabs Academy` Gmail account, upload the 3 Google Drive folders, and paste the Folder IDs into Google Apps Script + folder links into `index.html` & `course-vault/index.html`.
 - [ ] Switch `upiConfig.enabled = true` (or Razorpay live key) in `app.js` for real instant payments.
+
+---
+
+## 🎬 Phase 3: The 3 High-Converting Video Ad Scripts (9:16 Vertical Reels & Meta Ads)
+
+All 3 ads feature the approved **Golden-Blonde Blue-Eyed AI Influencer Persona** (`ads-ready/character-assets/`) and are rendered as ready-to-post `1080x1920 @ 30fps` `.mp4` videos in `ads-ready/` with **Style 1 (Netflix/YouTube Pro Dark Pill Box)** dynamic captions.
+
+### 🔥 Video Ad #1: "The Curiosity Reveal" (Cold Traffic & Viral Organic Reels — 18s)
+- **File:** `ads-ready/Ad-01-Curiosity-Reveal-9x16.mp4`
+- **Top Hook Banner:** `WAIT… SHE DOESN'T ACTUALLY EXIST?! 🤯`
+- **Target Audience:** Broad Creators, Side-Hustlers, Digital Marketing & AI Interest (18–38).
+- **Scene-by-Scene Script:**
+  - **0:00 – 0:04 (Hook):** *(Close-up of the blonde blue-eyed AI character at the sunlit outdoor cafe in her emerald green top, transitioning smoothly into the Bali beach club sunset)*
+    > **Voiceover & Captions:** *"Wait… she doesn't actually exist. Every single photo and Reel you're looking at is 100% AI-generated."*
+  - **0:04 – 0:09 (Problem / Agitation):** *(Transition to her penthouse off-shoulder Reel look + gym mirror selfie)*
+    > **Voiceover & Captions:** *"While most people waste hours scrolling Instagram, smart creators are building faceless AI influencers with locked facial consistency."*
+  - **0:09 – 0:14 (Solution / Proof):** *(Fast showcase of the 3-panel viral Reel proof `2.5M | 1.2M | 3.6M` + 23-Video Course Vault)*
+    > **Voiceover & Captions:** *"No camera, no studio, and no expensive models. Just copy-paste our exact prompts and free AI tools in 15 minutes a day."*
+  - **0:14 – 0:18 (Call to Action):** *(High-contrast offer card: `88% OFF FLASH SALE — ₹249 / $9`)*
+    > **Voiceover & Captions:** *"Tap Learn More or visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit for just ₹249 before the timer hits zero!"*
+
+---
+
+### 💰 Video Ad #2: "The Proof & Monetization Breakdown" (Side-Hustle & Business Angle — 19s)
+- **File:** `ads-ready/Ad-02-Proof-Monetization-9x16.mp4`
+- **Top Hook Banner:** `HOW AI INFLUENCERS MONETIZE 24/7 📈`
+- **Target Audience:** E-commerce, Affiliate Marketing, Passive Income, Instagram Growth.
+- **Scene-by-Scene Script:**
+  - **0:00 – 0:04 (Hook):** *(Penthouse golden-hour portrait of the blonde AI character + viral 3.6M view proof)*
+    > **Voiceover & Captions:** *"Stop paying ₹15,000 for product shoots or showing your own face on camera to grow on Instagram."*
+  - **0:04 – 0:09 (Mechanism):** *(Cafe -> Rooftop Black Silk Evening Dress -> Beach Club transitions showing 100% identical face lock)*
+    > **Voiceover & Captions:** *"Look at how this AI model keeps the exact same face across cafes, luxury resorts, and evening Reels."*
+  - **0:09 – 0:14 (Value Stack):** *(Showcasing the 23 HD Video Lessons + 250+ Character DNA Prompts + 500+ Viral Hooks & ManyChat Auto-DM Pack)*
+    > **Voiceover & Captions:** *"Inside PersonaLabs Academy, you get 23 step-by-step video lessons, 250+ face-lock prompts, and automated DM funnels."*
+  - **0:14 – 0:19 (Call to Action):** *(Offer screen with instant Course Vault & Google Drive unlock)*
+    > **Voiceover & Captions:** *"Unlock instant lifetime access today for 88% off at PersonaLabs.store. Click the link below and launch your AI influencer tonight!"*
+
+---
+
+### ⚡ Video Ad #3: "The 5-Day Zero-to-Viral System" (Objection Crusher & Retargeting — 18s)
+- **File:** `ads-ready/Ad-03-No-Laptop-5Day-System-9x16.mp4`
+- **Top Hook Banner:** `BUILD YOUR AI INFLUENCER IN 5 DAYS 🚀`
+- **Target Audience:** Website Visitors, Video Viewers, Checkout Initiators, Tech Beginners.
+- **Scene-by-Scene Script:**
+  - **0:00 – 0:04 (Hook):** *(Gym mirror selfie -> Cafe emerald top transition of the blonde AI character)*
+    > **Voiceover & Captions:** *"Think you need a gaming PC or coding skills to create an ultra-realistic AI influencer? Watch this."*
+  - **0:04 – 0:09 (5-Day Walkthrough):** *(Rapid visual breakdown: Day 1 Character DNA -> Day 2 Outfit Swaps -> Day 3 Viral Video Reels)*
+    > **Voiceover & Captions:** *"In just 5 days, we walk you click-by-click from generating her face to animating 9:16 viral Reels using free browser tools."*
+  - **0:09 – 0:14 (VIP Add-Ons Highlight):** *(Highlighting the Uncensored FaceFusion Workflow + 500+ Viral Hooks Pack)*
+    > **Voiceover & Captions:** *"Plus, you can unlock our private FaceFusion pro workflow and 500 viral Reel hooks that stop the scroll in 1.5 seconds."*
+  - **0:14 – 0:18 (Call to Action):** *(Final CTA slide with `personalabs.store` button)*
+    > **Voiceover & Captions:** *"Don't miss the ₹249 flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
 
 ---
 
@@ -41,3 +95,4 @@
 | **Day 15–20** | **Scale Winners (2 Reels/Day):** Remix the top 3 highest-comment Reels from Days 1–14 with new trending audio + run WhatsApp follow-up on all `INITIATED_CHECKOUT` leads in Google Sheets. | | Comment **"AI"** | Scale daily volume to 15–30 sales/day |
 | **Day 21–25** | **Post-Purchase Upgrade Push:** Message all Basic Pack buyers (`b1=0` or `b2=0`) on WhatsApp/Email with their 1-click upgrade links (`?upgrade=bump1` & `?upgrade=bump2`). | | Direct WhatsApp / Email | Collect pure-profit add-on upgrades (`+₹249` / `+₹149`) |
 | **Day 26–30** | **Meta Ads Retargeting & Lookalike Scale:** Launch ₹500/day Instagram Reel Ad using the #1 organic Reel (>5% comment rate) driving directly to `https://personalabs.store`. | | Direct `"Learn More"` CTA | Scale to ₹1.5L–₹3L/month automated run-rate |
+

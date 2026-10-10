@@ -1583,7 +1583,10 @@ async function logOrderToGoogleSheet(eventStatus = 'PAID_SUCCESS', extra = {}) {
       offerTier: state.offerExpired ? 'Expired Standard Price' : '10-Min Flash Sale',
       visitorCountry: payload.visitorCountry || 'IN',
       itemsSummary: payload.items.map((i) => i.name).join(' + '),
-      pageUrl: window.location.href
+      pageUrl: window.location.href,
+      grantCoreDrive: eventStatus === 'PAID_SUCCESS',
+      grantNsfwDrive: Boolean(eventStatus === 'PAID_SUCCESS' && state.bumpAdded),
+      grantHooksDrive: Boolean(eventStatus === 'PAID_SUCCESS' && state.bump2Added)
     };
 
     // 1. Save to local backup log in browser localStorage
@@ -1835,14 +1838,6 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
     content_type: 'product'
   });
 
-  // Log Completed Order with Transaction ID, Price, Currency & Items to Google Sheet
-  if (methodName !== 'Verified Order Lookup' && methodName !== 'Verified Order') {
-    logOrderToGoogleSheet('PAID_SUCCESS', {
-      transactionId: txId,
-      paymentMethod: methodName
-    });
-  }
-
   // Compute deterministic verification signature tied to (email, txId, addonKey)
   // Prevents manual URL (?b1=1) or localStorage (bumpAdded: true) tampering
   function computeAddonSig(email, tx, addonKey) {
@@ -1889,12 +1884,20 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
     );
   } catch (e) {}
 
+  // Log Completed Order + Trigger Automatic Google Drive Folder Whitelisting (DriveApp.addViewer)
+  if (methodName !== 'Verified Order Lookup' && methodName !== 'Verified Order') {
+    logOrderToGoogleSheet('PAID_SUCCESS', {
+      transactionId: txId,
+      paymentMethod: methodName
+    });
+  }
+
   document.getElementById('payment-step-select').classList.add('hidden');
   const successStep = document.getElementById('payment-step-success');
   successStep.classList.remove('hidden');
 
   document.getElementById('success-customer-greeting').textContent =
-    `Hi ${nameVal}! Payment (${txId}) via ${methodName} is verified. Click any button below for instant access — no email wait required!`;
+    `Hi ${nameVal}! Payment (${txId}) verified. Google Drive viewer access has been automatically whitelisted for ${emailVal}!`;
 
   const qs = new URLSearchParams();
   qs.set('email', emailVal);
