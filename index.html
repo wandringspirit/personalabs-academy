@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>AI Influencer Accelerator – Start Your AI Creator Business | PersonaLabs Academy</title>
   <meta name="description" content="Get instant access to the AI Influencer Launch Kit by PersonaLabs Academy — a complete step-by-step system that shows you how to create, grow, and monetize AI influencers in 5 days using modern AI tools." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -195,16 +198,29 @@
 
           <!-- 1. CLEAN CREATOR HEADER, 3-PANEL HERO & DESCRIPTION (EXACT REFERENCE LAYOUT) -->
           <section id="sec-overview" class="scroll-mt-24">
-            <!-- Creator Profile Row (Clean Minimal like EarlyCaves) -->
+            <!-- Creator Profile Row (Clean Minimal with Official Brand Logo & Verified Badge) -->
             <div class="flex items-center gap-3.5">
-              <img
-                src="assets/images/creator_avatar.jpg"
-                alt="PersonaLabs Academy"
-                class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover shadow-sm border border-slate-200"
-              />
+              <div class="relative shrink-0">
+                <img
+                  src="assets/images/creator_avatar.jpg"
+                  alt="PersonaLabs Academy"
+                  class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover shadow-md border-2 border-brand-500/40"
+                />
+                <img
+                  src="favicon.svg"
+                  alt="PersonaLabs Logo"
+                  title="PersonaLabs Academy Official"
+                  class="absolute -bottom-1 -right-1 h-6 w-6 rounded-md shadow-md ring-2 ring-white"
+                />
+              </div>
               <div>
                 <div class="text-xs text-slate-400 font-medium">Created by</div>
-                <div class="text-sm sm:text-base font-bold text-slate-900 tracking-tight">PersonaLabs Academy</div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-sm sm:text-base font-bold text-slate-900 tracking-tight">PersonaLabs Academy</span>
+                  <svg class="h-4 w-4 text-sky-500 shrink-0" viewBox="0 0 24 24" fill="currentColor" title="Verified Creator Academy">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
               </div>
             </div>
 

@@ -2,3 +2,9 @@
 .DS_Store
 Thumbs.db
 
+
+videos/
+videos-captioned/
+*.mp4
+*.srt
+

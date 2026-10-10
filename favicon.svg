@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="plBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14091f"/>
+      <stop offset="100%" stop-color="#0b0d14"/>
+    </linearGradient>
+    <linearGradient id="plBrand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="50%" stop-color="#e65ce4"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+    <linearGradient id="plGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded Squircle Container -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#plBg)" stroke="url(#plBrand)" stroke-width="3"/>
+  <!-- Stylized Bold 'P' Monogram -->
+  <path d="M18 16 H34 C41.5 16 46 20.2 46 26.5 C46 32.8 41.5 37 34 37 H26 V48 H18 Z M26 23 V30 H33.5 C36.5 30 38.2 28.6 38.2 26.5 C38.2 24.4 36.5 23 33.5 23 Z" fill="url(#plBrand)"/>
+  <!-- Subtle 'L' Accent Bar -->
+  <path d="M32 39 H40 V44 H47 V48 H32 Z" fill="#ffffff" opacity="0.92"/>
+  <!-- AI Sparkle Star (Top Right) -->
+  <path d="M49 11 L50.8 15.2 L55 17 L50.8 18.8 L49 23 L47.2 18.8 L43 17 L47.2 15.2 Z" fill="url(#plGold)"/>
+</svg>
