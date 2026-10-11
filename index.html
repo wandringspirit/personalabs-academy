@@ -37,10 +37,10 @@
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- High-Urgency Sticky Top Flash Offer Banner (10-Min Flash Offer + Dynamic Live Viewers + IP Currency Lock) -->
+  <!-- High-Urgency Sticky Top Flash Offer Banner (10-Min Flash Offer + Right-Aligned Live Viewers & Theme Toggle) -->
   <header class="sticky top-0 z-40 urgency-top-bar">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6 gap-2 flex-nowrap">
-      <!-- Left: High-Urgency 10-Minute Flash Offer, Countdown & Live Viewers Pill (Strictly Single-Line Inline) -->
+      <!-- Left: High-Urgency 10-Minute Flash Offer & Countdown (Strictly Single-Line Inline) -->
       <div class="flex flex-nowrap items-center gap-1.5 sm:gap-2.5 text-xs whitespace-nowrap overflow-x-auto no-scrollbar min-w-0">
         <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-400 text-slate-950 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm shrink-0">
           <span id="offer-pulse-dot" class="relative flex h-2 w-2 items-center justify-center text-red-600 pulse-dot">
@@ -51,20 +51,20 @@
 
         <span id="offer-header-text" class="font-bold text-white tracking-tight shrink-0">
           <span id="offer-discount-label" class="text-amber-300 font-black">88% OFF FLASH SALE</span>
-          <span id="offer-ends-label" class="hidden xl:inline text-white/95 font-medium"> — Grab For ₹249 Before Price Jumps To ₹499:</span>
+          <span id="offer-ends-label" class="hidden md:inline text-white/95 font-medium"> — Grab For ₹249 Before Price Jumps To ₹499:</span>
         </span>
 
-        <button
-          type="button"
+        <span
           id="countdown-timer"
-          onclick="toggleGeoSimPopover()"
-          title="10-Minute Flash Offer — Price increases automatically when timer reaches 00:00 (Click to test or reset)"
-          class="font-mono-num rounded-md bg-yellow-300 border-2 border-white px-2.5 py-0.5 text-xs sm:text-sm font-black text-red-950 shadow-md transition-all cursor-pointer shrink-0"
+          title="10-Minute Flash Offer — Price increases automatically when timer reaches 00:00"
+          class="font-mono-num rounded-md bg-yellow-300 border-2 border-white px-2.5 py-0.5 text-xs sm:text-sm font-black text-red-950 shadow-md transition-all shrink-0"
         >
           ⏱ 10:00
-        </button>
+        </span>
+      </div>
 
-        <!-- Dynamic Live Viewers Pill (👁 32 viewing now — Always Inline With Timer) -->
+      <!-- Right: Dynamic Live Viewers Pill (👁 32 viewing now) & Theme Switcher -->
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
         <div
           id="live-viewers-top-pill"
           class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 border border-emerald-400/60 px-2.5 py-0.5 text-[11px] font-bold text-emerald-200 transition-transform duration-300 shrink-0"
@@ -75,95 +75,6 @@
           </svg>
           <span class="live-viewer-count font-mono-num font-black text-white transition-all duration-200">32</span>
           <span>viewing now</span>
-        </div>
-      </div>
-
-      <!-- Right: Subtle Utilities (Reels Preview, Mobile Frame Simulator, Geo-IP Currency & Theme) -->
-      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-        <button
-          onclick="openReelFeedModal(0)"
-          class="touch-scale flex items-center gap-1 rounded-lg bg-white/15 hover:bg-white/25 border border-white/20 px-2.5 py-1 text-xs font-semibold text-white transition-all cursor-pointer"
-          title="Open Interactive Mobile AI Reel Feed"
-        >
-          <span>🎬</span>
-          <span class="hidden sm:inline">Preview Reels</span>
-        </button>
-
-        <button
-          id="btn-mobile-frame"
-          onclick="toggleMobileFrameMode()"
-          class="hidden lg:flex items-center gap-1 rounded-lg bg-white/15 hover:bg-white/25 border border-white/20 px-2.5 py-1 text-xs font-medium text-white transition-all cursor-pointer"
-          title="Simulate Mobile Phone App View on Desktop"
-        >
-          <span>📱</span>
-          <span id="mobile-frame-label">Mobile View</span>
-        </button>
-
-        <!-- Geo-IP Locked Currency Badge (Only shows INR for Indian IPs, Only USD for US/Global IPs) -->
-        <div class="relative">
-          <button
-            id="geo-currency-badge"
-            type="button"
-            onclick="toggleGeoSimPopover()"
-            class="touch-scale inline-flex items-center gap-1.5 rounded-lg bg-white/15 hover:bg-white/25 border border-white/25 px-2.5 py-1 text-xs font-bold text-white transition-all cursor-pointer"
-            title="Currency locked automatically by IP address (Click to test US vs India IP or 10-Min Timer)"
-          >
-            <span id="geo-flag-icon">🇮🇳</span>
-            <span id="geo-currency-text">INR (₹)</span>
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400" title="Auto-detected via IP"></span>
-          </button>
-
-          <!-- Dev IP & 10-Min Timer Simulator Popover -->
-          <div
-            id="geo-sim-popover"
-            class="hidden absolute right-0 mt-2 w-64 rounded-xl bg-white text-slate-800 border border-slate-200 p-3 shadow-2xl z-50 text-xs space-y-2"
-          >
-            <div class="flex items-center justify-between pb-1.5 border-b border-slate-200">
-              <span class="font-bold text-[10px] uppercase tracking-wider text-slate-500">🌐 Geo-IP &amp; Timer Test</span>
-              <span id="geo-detected-ip-label" class="font-mono-num text-[10px] text-slate-400">Auto IP</span>
-            </div>
-            <p class="text-[11px] text-slate-500 leading-snug">
-              Simulate visitor IP currency lock:
-            </p>
-            <button
-              type="button"
-              onclick="simulateVisitorCountry('IN')"
-              id="geo-sim-btn-in"
-              class="w-full flex items-center justify-between rounded-lg px-2.5 py-1.5 font-semibold bg-brand-500 text-white transition-all cursor-pointer"
-            >
-              <span>🇮🇳 India Visitor IP</span>
-              <span class="font-mono-num">Only ₹ INR</span>
-            </button>
-            <button
-              type="button"
-              onclick="simulateVisitorCountry('US')"
-              id="geo-sim-btn-us"
-              class="w-full flex items-center justify-between rounded-lg px-2.5 py-1.5 font-semibold text-slate-700 hover:bg-slate-100 transition-all cursor-pointer"
-            >
-              <span>🇺🇸 US Visitor IP</span>
-              <span class="font-mono-num">Only $ USD</span>
-            </button>
-
-            <div class="pt-2 border-t border-slate-200 space-y-1.5">
-              <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500">⏱️ 10-Min Offer Price Hike Test:</div>
-              <button
-                type="button"
-                onclick="fastForwardOfferTimer()"
-                class="w-full flex items-center justify-between rounded-lg px-2.5 py-1.5 font-semibold bg-rose-50 border border-rose-200 text-rose-700 hover:bg-rose-100 transition-all cursor-pointer"
-              >
-                <span>⏩ Fast-Forward to 00:03</span>
-                <span>Test Price Jump</span>
-              </button>
-              <button
-                type="button"
-                onclick="resetOfferTimer()"
-                class="w-full flex items-center justify-between rounded-lg px-2.5 py-1.5 font-semibold bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100 transition-all cursor-pointer"
-              >
-                <span>🔄 Reset 10:00 Timer</span>
-                <span>Restore 88% Off</span>
-              </button>
-            </div>
-          </div>
         </div>
 
         <!-- Theme Switcher -->
@@ -202,7 +113,7 @@
             <div class="flex items-center gap-3.5">
               <div class="relative shrink-0 group">
                 <img
-                  src="assets/images/creator_avatar.jpg?v=12"
+                  src="assets/insta_profile_closeup_hd.jpg?v=16"
                   alt="PersonaLabs Academy"
                   class="h-14 w-14 sm:h-16 sm:w-16 rounded-full object-cover shadow-md border-2 border-brand-500/40 transition-transform duration-300 group-hover:scale-105"
                 />
@@ -1626,7 +1537,7 @@
                   <div class="flex items-center gap-3">
                     <div class="h-12 w-12 rounded-lg overflow-hidden shrink-0 border border-slate-200 bg-slate-100">
                       <img
-                        src="assets/images/uncensored_hack_cover.jpg?v=12"
+                        src="assets/insta_profile_closeup_hd.jpg?v=16"
                         alt="Uncensored Content Hack"
                         class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                       />
@@ -2076,7 +1987,7 @@
       <div id="payment-step-select" class="space-y-4">
         <div class="flex items-center justify-between gap-3 border-b border-slate-200 pb-3">
           <div class="flex items-center gap-3">
-            <img src="assets/images/creator_avatar.jpg?v=12" alt="PersonaLabs Academy" class="h-10 w-10 rounded-full object-cover border border-slate-200" />
+            <img src="assets/insta_profile_closeup_hd.jpg?v=16" alt="PersonaLabs Academy" class="h-10 w-10 rounded-full object-cover border border-slate-200" />
             <div>
               <div class="text-xs text-slate-500">Paying to <strong class="text-slate-900">PersonaLabs Academy</strong></div>
               <div id="modal-payable-amount" class="font-mono-num text-lg font-extrabold text-slate-900">₹249</div>
