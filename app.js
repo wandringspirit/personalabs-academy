@@ -1320,7 +1320,7 @@ function handleCustomAiQuestion(event) {
   } else if (lower.includes('earn') || lower.includes('money') || lower.includes('monetiz') || lower.includes('income')) {
     reply = `💸 <strong>4 Monetization Streams:</strong> Day 5 covers Brand Deals, Exclusive Fan Subscriptions, High-Ticket Affiliate Links, and Automated ManyChat DM Funnels so you can monetize even with under 5,000 followers.`;
   } else {
-    reply = `✨ <strong>Great question about "${q}"!</strong> Yes — everything is covered step-by-step inside the 18 HD video lessons and 250+ DNA prompt templates. Plus, you get direct support at <strong>sayana.official.help@gmail.com</strong> and our 7-day risk-free guarantee!`;
+    reply = `✨ <strong>Great question about "${q}"!</strong> Yes — everything is covered step-by-step inside the 18 HD video lessons and 250+ DNA prompt templates. Plus, you get direct support at <strong>personalabsacademy@gmail.com</strong> and our 7-day risk-free guarantee!`;
   }
 
   box.innerHTML = reply;
@@ -2077,7 +2077,7 @@ function downloadOfficialReceipt() {
     state.bumpAdded ? `4. Uncensored Content Hack Guide   : ${vaultOrigin}/course-vault/uncensored-content-hack.html` : '',
     state.bump2Added ? `5. 500+ Viral Reel Hooks & Auto-DM : ${vaultOrigin}/course-vault/viral-hooks-and-autodm-pack.html` : '',
     '----------------------------------------------------------',
-    'Support Email  : sayana.official.help@gmail.com',
+    'Support Email  : personalabsacademy@gmail.com',
     '=========================================================='
   ].filter(Boolean).join('\n');
 

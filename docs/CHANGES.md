@@ -1,10 +1,12 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.7.0 — 2026-10-11 (Latest Release)
+## v2.7.1 — 2026-10-11 (Latest Release)
+- **Official Support Email Updated to `personalabsacademy@gmail.com` ([`index.html`](../index.html), [`app.js`](../app.js)):**
+  - Replaced all occurrences of `sayana.official.help@gmail.com` across the website support footer, Legal & Refund Policy modal, AI Assistant, and downloadable `.txt` receipts with **`personalabsacademy@gmail.com`** (`?v=12`).
 - **Live Razorpay Checkout Activated for India (`INR`) ([`app.js`](../app.js), [`index.html`](../index.html)):**
-  - Configured `PAYMENT_GATEWAY_CONFIG.razorpay.keyId = 'rzp_live_TmX62nNGuBaTUc'` in [`app.js`](../app.js) (`?v=10` in [`index.html`](../index.html)).
+  - Configured `PAYMENT_GATEWAY_CONFIG.razorpay.keyId = 'rzp_live_TmX62nNGuBaTUc'` in [`app.js`](../app.js).
   - Added `ensureRazorpaySdkLoaded()` and `openLiveRazorpayCheckout()` so clicking **Make Payment** in `INR` always launches the live Razorpay Standard Checkout modal (`UPI / GPay / PhonePe / Paytm / Cards / Netbanking`) with rich order `notes` (`order_id`, `customer_email`, `customer_phone`, `items`, `bump1_nsfw`, `bump2_hooks`).
-  - Removed simulated preview bypasses from `#payment-gateway-in` in [`index.html`](../index.html) so only verified Razorpay transactions (`response.razorpay_payment_id`) unlock the member vault and trigger Google Drive email whitelisting.
+  - Blocked simulated `PLA-...` preview IDs in `INR` and required live Google Sheet `lookupOrder` verification in `openSignInModal()`.
   - Kept the Razorpay `Live Key Secret` strictly out of client-side code and GitHub commits to protect account security.
 
 ## v2.6.1 — 2026-10-11
