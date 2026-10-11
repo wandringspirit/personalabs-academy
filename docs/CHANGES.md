@@ -1,6 +1,12 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.7.1 — 2026-10-11 (Latest Release)
+## v2.7.2 — 2026-10-11 (Latest Release)
+- **Country-Aware Phone Number & Strict Email Validation ([`app.js`](../app.js), [`index.html`](../index.html)):**
+  - Added `<select id="phone-country-select">` (`+91 IN`, `+1 US/CA`, `+44 GB`, `+61 AU`, `+971 AE`, `+65 SG`, `+49 DE`, `+33 FR`, `+31 NL`, `+966 SA`, `+60 MY`, `+27 ZA`, `+55 BR`, `OTHER`) automatically synced to the visitor's IP country.
+  - Added `PHONE_COUNTRY_RULES` in [`app.js`](../app.js) enforcing each country's exact subscriber digit length (`10` digits for `IN`/`US`/`CA`/`GB`, `9` digits for `AE`/`AU`/`FR`/`NL`/`SA`/`ZA`, `8` digits for `SG`, `10–11` for `DE`/`BR`), automatically stripping leading `0`s or pasted dial prefixes, validating starting digits (e.g. `6–9` for India `+91`), and rejecting repeated/dummy digits (`/(.)\1{5,}/`).
+  - Added strict RFC email validation (`validateEmailField`) with real-time domain typo detection (`gamil.com`, `gmial.com`, `gmail.co`, `yaho.com`, `outlok.com`, etc.) and disposable/fake domain blocking.
+
+## v2.7.1 — 2026-10-11
 - **Official Support Email Updated to `personalabsacademy@gmail.com` ([`index.html`](../index.html), [`app.js`](../app.js)):**
   - Replaced all occurrences of `sayana.official.help@gmail.com` across the website support footer, Legal & Refund Policy modal, AI Assistant, and downloadable `.txt` receipts with **`personalabsacademy@gmail.com`** (`?v=12`).
 - **Live Razorpay Checkout Activated for India (`INR`) ([`app.js`](../app.js), [`index.html`](../index.html)):**

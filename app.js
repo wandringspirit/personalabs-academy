@@ -526,13 +526,16 @@ function applyVisitorRegion(countryCode, ipSourceLabel = '') {
     }
   }
 
-  // 2. Update Checkout Phone Country Code & Placeholder
-  const phoneFlag = document.getElementById('phone-country-flag');
-  const phoneCode = document.getElementById('phone-country-code');
-  const phoneInput = document.getElementById('customer-phone');
-  if (phoneFlag) phoneFlag.textContent = isIndia ? '🇮🇳' : '🇺🇸';
-  if (phoneCode) phoneCode.textContent = isIndia ? '+91' : '+1';
-  if (phoneInput) phoneInput.placeholder = isIndia ? '98765 43210' : '(555) 234-5678';
+  // 2. Update Checkout Phone Country Selector, MaxLength & Placeholder
+  const phoneSelect = document.getElementById('phone-country-select');
+  if (phoneSelect) {
+    const upperCode = String(countryCode || (isIndia ? 'IN' : 'US')).toUpperCase();
+    const hasOption = Array.from(phoneSelect.options).some((opt) => opt.value === upperCode);
+    phoneSelect.value = hasOption ? upperCode : (isIndia ? 'IN' : 'OTHER');
+    if (typeof handlePhoneCountryChange === 'function') {
+      handlePhoneCountryChange(false);
+    }
+  }
 
   // 3. Swap Checkout Payment Badges (PhonePe/UPI vs Stripe/Apple Pay)
   const badgesIn = document.getElementById('payment-badges-in');
@@ -1328,13 +1331,335 @@ function handleCustomAiQuestion(event) {
 }
 
 // =========================================================================
-// CHECKOUT DRAFT PERSISTENCE, VALIDATION & RECEIPT DOWNLOAD
+// CHECKOUT DRAFT PERSISTENCE, COUNTRY-AWARE PHONE & EMAIL VALIDATION
 // =========================================================================
+const PHONE_COUNTRY_RULES = {
+  IN: {
+    dialCode: '+91',
+    minDigits: 10,
+    maxDigits: 10,
+    placeholder: '98765 43210',
+    stripPrefixRegex: /^(?:91|0)+/,
+    pattern: /^[6-9]\d{9}$/,
+    errorMsg: 'Enter a valid 10-digit Indian mobile number (starts with 6, 7, 8, or 9; no leading 0).'
+  },
+  US: {
+    dialCode: '+1',
+    minDigits: 10,
+    maxDigits: 10,
+    placeholder: '555 234 5678',
+    stripPrefixRegex: /^1(?=\d{10}$)/,
+    pattern: /^[2-9]\d{2}[2-9]\d{6}$/,
+    errorMsg: 'Enter a valid 10-digit US phone number (area code cannot start with 0 or 1).'
+  },
+  CA: {
+    dialCode: '+1',
+    minDigits: 10,
+    maxDigits: 10,
+    placeholder: '416 234 5678',
+    stripPrefixRegex: /^1(?=\d{10}$)/,
+    pattern: /^[2-9]\d{2}[2-9]\d{6}$/,
+    errorMsg: 'Enter a valid 10-digit Canadian phone number.'
+  },
+  GB: {
+    dialCode: '+44',
+    minDigits: 10,
+    maxDigits: 10,
+    placeholder: '7700 900077',
+    stripPrefixRegex: /^(?:44(?=\d{10}$)|0+)/,
+    pattern: /^[1-9]\d{9}$/,
+    errorMsg: 'Enter a valid 10-digit UK phone number (without leading 0).'
+  },
+  AU: {
+    dialCode: '+61',
+    minDigits: 9,
+    maxDigits: 9,
+    placeholder: '412 345 678',
+    stripPrefixRegex: /^(?:61(?=\d{9}$)|0+)/,
+    pattern: /^[2-9]\d{8}$/,
+    errorMsg: 'Enter a valid 9-digit Australian phone number (without leading 0).'
+  },
+  AE: {
+    dialCode: '+971',
+    minDigits: 9,
+    maxDigits: 9,
+    placeholder: '50 123 4567',
+    stripPrefixRegex: /^(?:971(?=\d{9}$)|0+)/,
+    pattern: /^[2-9]\d{8}$/,
+    errorMsg: 'Enter a valid 9-digit UAE phone number (e.g. 501234567).'
+  },
+  SG: {
+    dialCode: '+65',
+    minDigits: 8,
+    maxDigits: 8,
+    placeholder: '8123 4567',
+    stripPrefixRegex: /^(?:65(?=\d{8}$)|0+)/,
+    pattern: /^[3689]\d{7}$/,
+    errorMsg: 'Enter a valid 8-digit Singapore phone number (starts with 3, 6, 8, or 9).'
+  },
+  DE: {
+    dialCode: '+49',
+    minDigits: 10,
+    maxDigits: 11,
+    placeholder: '1512 3456789',
+    stripPrefixRegex: /^(?:49(?=\d{10,11}$)|0+)/,
+    pattern: /^[1-9]\d{9,10}$/,
+    errorMsg: 'Enter a valid 10 to 11-digit German phone number (without leading 0).'
+  },
+  FR: {
+    dialCode: '+33',
+    minDigits: 9,
+    maxDigits: 9,
+    placeholder: '6 12 34 56 78',
+    stripPrefixRegex: /^(?:33(?=\d{9}$)|0+)/,
+    pattern: /^[1-9]\d{8}$/,
+    errorMsg: 'Enter a valid 9-digit French phone number (without leading 0).'
+  },
+  NL: {
+    dialCode: '+31',
+    minDigits: 9,
+    maxDigits: 9,
+    placeholder: '6 12345678',
+    stripPrefixRegex: /^(?:31(?=\d{9}$)|0+)/,
+    pattern: /^[1-9]\d{8}$/,
+    errorMsg: 'Enter a valid 9-digit Netherlands phone number (without leading 0).'
+  },
+  SA: {
+    dialCode: '+966',
+    minDigits: 9,
+    maxDigits: 9,
+    placeholder: '50 123 4567',
+    stripPrefixRegex: /^(?:966(?=\d{9}$)|0+)/,
+    pattern: /^[1-9]\d{8}$/,
+    errorMsg: 'Enter a valid 9-digit Saudi Arabia phone number (without leading 0).'
+  },
+  MY: {
+    dialCode: '+60',
+    minDigits: 9,
+    maxDigits: 10,
+    placeholder: '12 345 6789',
+    stripPrefixRegex: /^(?:60(?=\d{9,10}$)|0+)/,
+    pattern: /^[1-9]\d{8,9}$/,
+    errorMsg: 'Enter a valid 9 to 10-digit Malaysian phone number (without leading 0).'
+  },
+  ZA: {
+    dialCode: '+27',
+    minDigits: 9,
+    maxDigits: 9,
+    placeholder: '82 123 4567',
+    stripPrefixRegex: /^(?:27(?=\d{9}$)|0+)/,
+    pattern: /^[1-9]\d{8}$/,
+    errorMsg: 'Enter a valid 9-digit South African phone number (without leading 0).'
+  },
+  BR: {
+    dialCode: '+55',
+    minDigits: 10,
+    maxDigits: 11,
+    placeholder: '11 91234 5678',
+    stripPrefixRegex: /^(?:55(?=\d{10,11}$)|0+)/,
+    pattern: /^[1-9]\d{9,10}$/,
+    errorMsg: 'Enter a valid 10 to 11-digit Brazilian phone number.'
+  },
+  OTHER: {
+    dialCode: '+',
+    minDigits: 7,
+    maxDigits: 12,
+    placeholder: 'Phone number',
+    stripPrefixRegex: /^0+/,
+    pattern: /^[1-9]\d{6,11}$/,
+    errorMsg: 'Enter a valid phone number (7 to 12 digits, no leading 0).'
+  }
+};
+
+function getActivePhoneRule() {
+  const selectEl = document.getElementById('phone-country-select');
+  const code = selectEl ? selectEl.value : (state.currency === 'INR' ? 'IN' : 'US');
+  return PHONE_COUNTRY_RULES[code] || PHONE_COUNTRY_RULES.OTHER;
+}
+
+function sanitizePhoneForCountry(rawDigits, rule) {
+  let digits = String(rawDigits || '').replace(/\D/g, '');
+  if (!digits) return '';
+  // Strip leading 0s (or pasted country code prefix when total length exceeds maxDigits)
+  if (digits.startsWith('0')) {
+    digits = digits.replace(/^0+/, '');
+  } else if (rule.stripPrefixRegex && digits.length > rule.maxDigits) {
+    digits = digits.replace(rule.stripPrefixRegex, '');
+  }
+  return digits.slice(0, rule.maxDigits);
+}
+
+function handlePhoneCountryChange(revalidate = true) {
+  const rule = getActivePhoneRule();
+  const phoneInput = document.getElementById('customer-phone');
+  if (phoneInput) {
+    phoneInput.maxLength = rule.maxDigits;
+    phoneInput.placeholder = rule.placeholder;
+    if (phoneInput.value) {
+      phoneInput.value = sanitizePhoneForCountry(phoneInput.value, rule);
+    }
+  }
+  saveCheckoutDraft();
+  if (revalidate && phoneInput && phoneInput.value) {
+    validatePhoneField(true);
+  }
+}
+
+function handlePhoneInput(inputEl) {
+  const rule = getActivePhoneRule();
+  const cleaned = sanitizePhoneForCountry(inputEl.value, rule);
+  if (inputEl.value !== cleaned) {
+    inputEl.value = cleaned;
+  }
+  saveCheckoutDraft();
+  const errPhone = document.getElementById('err-phone');
+  if (errPhone && !errPhone.classList.contains('hidden')) {
+    validatePhoneField(true);
+  }
+}
+
+function validatePhoneField(showErrorUI = true) {
+  const phoneEl = document.getElementById('customer-phone');
+  const errPhone = document.getElementById('err-phone');
+  if (!phoneEl) return false;
+
+  const rule = getActivePhoneRule();
+  const cleaned = sanitizePhoneForCountry(phoneEl.value, rule);
+  if (phoneEl.value !== cleaned) phoneEl.value = cleaned;
+
+  let errorText = '';
+  if (!cleaned) {
+    errorText = rule.errorMsg;
+  } else if (cleaned.length < rule.minDigits || cleaned.length > rule.maxDigits || !rule.pattern.test(cleaned)) {
+    errorText = rule.errorMsg;
+  } else if (/(.)\1{5,}/.test(cleaned) || cleaned === '1234567890' || cleaned === '9876543210') {
+    // Reject obvious fake/spam numbers like 959989888888 or 9999999999
+    errorText = 'Please enter a real active mobile number (repeated/dummy digits detected).';
+  }
+
+  if (showErrorUI && errPhone) {
+    if (errorText) {
+      errPhone.textContent = errorText;
+      errPhone.classList.remove('hidden');
+      phoneEl.classList.add('border-rose-500');
+    } else {
+      errPhone.classList.add('hidden');
+      phoneEl.classList.remove('border-rose-500');
+    }
+  }
+  return !errorText;
+}
+
+const EMAIL_DOMAIN_TYPOS = {
+  'gamil.com': 'gmail.com',
+  'gmial.com': 'gmail.com',
+  'gmai.com': 'gmail.com',
+  'gmail.co': 'gmail.com',
+  'gmail.con': 'gmail.com',
+  'gmail.cm': 'gmail.com',
+  'gmail.c': 'gmail.com',
+  'gmail.om': 'gmail.com',
+  'gmaill.com': 'gmail.com',
+  'gimail.com': 'gmail.com',
+  'yaho.com': 'yahoo.com',
+  'yahooo.com': 'yahoo.com',
+  'yahoo.co': 'yahoo.com',
+  'outlok.com': 'outlook.com',
+  'hotmial.com': 'hotmail.com',
+  'iclod.com': 'icloud.com'
+};
+
+const BLOCKED_FAKE_EMAIL_DOMAINS = new Set([
+  'example.com',
+  'test.com',
+  'asdf.com',
+  'mailinator.com',
+  'yopmail.com',
+  'tempmail.com',
+  '10minutemail.com',
+  'guerrillamail.com',
+  'trashmail.com'
+]);
+
+function handleEmailInput(inputEl) {
+  saveCheckoutDraft();
+  const errEmail = document.getElementById('err-email');
+  if (errEmail && !errEmail.classList.contains('hidden')) {
+    validateEmailField(true);
+  }
+}
+
+function validateEmailField(showErrorUI = true) {
+  const emailEl = document.getElementById('customer-email');
+  const errEmail = document.getElementById('err-email');
+  if (!emailEl) return false;
+
+  const val = emailEl.value.trim().toLowerCase();
+  let errorText = '';
+
+  const strictEmailRegex = /^[a-z0-9]+(?:[._%+-][a-z0-9]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,12}$/;
+  if (!val || !strictEmailRegex.test(val)) {
+    errorText = 'Please enter a valid email address (e.g. yourname@gmail.com).';
+  } else {
+    const [localPart, domainPart] = val.split('@');
+    if (localPart.length < 2) {
+      errorText = 'Email username must be at least 2 characters long.';
+    } else if (EMAIL_DOMAIN_TYPOS[domainPart]) {
+      errorText = `Typo detected in "@${domainPart}" — did you mean "@${EMAIL_DOMAIN_TYPOS[domainPart]}"?`;
+    } else if (BLOCKED_FAKE_EMAIL_DOMAINS.has(domainPart)) {
+      errorText = 'Please enter your real personal email (Gmail recommended for instant Google Drive access).';
+    }
+  }
+
+  if (showErrorUI && errEmail) {
+    if (errorText) {
+      errEmail.textContent = errorText;
+      errEmail.classList.remove('hidden');
+      emailEl.classList.add('border-rose-500');
+    } else {
+      errEmail.classList.add('hidden');
+      emailEl.classList.remove('border-rose-500');
+    }
+  }
+  return !errorText;
+}
+
+function handleNameInput(inputEl) {
+  saveCheckoutDraft();
+  const errName = document.getElementById('err-name');
+  if (errName && !errName.classList.contains('hidden')) {
+    validateNameField(true);
+  }
+}
+
+function validateNameField(showErrorUI = true) {
+  const nameEl = document.getElementById('customer-name');
+  const errName = document.getElementById('err-name');
+  if (!nameEl) return false;
+
+  const val = nameEl.value.trim();
+  const hasLetters = /[a-zA-Z]{2,}/.test(val);
+  const isValid = val.length >= 2 && hasLetters;
+
+  if (showErrorUI && errName) {
+    if (!isValid) {
+      errName.textContent = 'Please enter your real name (at least 2 letters).';
+      errName.classList.remove('hidden');
+      nameEl.classList.add('border-rose-500');
+    } else {
+      errName.classList.add('hidden');
+      nameEl.classList.remove('border-rose-500');
+    }
+  }
+  return isValid;
+}
+
 function saveCheckoutDraft() {
   try {
     const draft = {
       email: document.getElementById('customer-email')?.value || '',
       phone: document.getElementById('customer-phone')?.value || '',
+      phoneCountry: document.getElementById('phone-country-select')?.value || '',
       name: document.getElementById('customer-name')?.value || ''
     };
     localStorage.setItem('ai_accel_checkout_draft', JSON.stringify(draft));
@@ -1347,7 +1672,16 @@ function loadCheckoutDraft() {
     if (!raw) return;
     const draft = JSON.parse(raw);
     if (draft.email) document.getElementById('customer-email').value = draft.email;
-    if (draft.phone) document.getElementById('customer-phone').value = draft.phone;
+    if (draft.phoneCountry) {
+      const sel = document.getElementById('phone-country-select');
+      if (sel && Array.from(sel.options).some((o) => o.value === draft.phoneCountry)) {
+        sel.value = draft.phoneCountry;
+      }
+    }
+    if (draft.phone) {
+      const rule = getActivePhoneRule();
+      document.getElementById('customer-phone').value = sanitizePhoneForCountry(draft.phone, rule);
+    }
     if (draft.name) document.getElementById('customer-name').value = draft.name;
   } catch (e) {}
 }
@@ -1513,7 +1847,7 @@ function buildCheckoutOrderPayload() {
   const emailVal = document.getElementById('customer-email')?.value.trim() || '';
   const phoneVal = (document.getElementById('customer-phone')?.value || '').replace(/\D/g, '');
   const nameVal = document.getElementById('customer-name')?.value.trim() || '';
-  const dialCode = state.currency === 'INR' ? '+91' : '+1';
+  const dialCode = typeof getActivePhoneRule === 'function' ? getActivePhoneRule().dialCode : (state.currency === 'INR' ? '+91' : '+1');
   const orderId = state.currentOrderId || ('ORD-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(100 + Math.random() * 900));
   state.currentOrderId = orderId;
 
@@ -1712,39 +2046,22 @@ async function handleCheckoutSubmit(event) {
   event.preventDefault();
   triggerHaptic(25);
 
-  const emailEl = document.getElementById('customer-email');
-  const phoneEl = document.getElementById('customer-phone');
-  const nameEl = document.getElementById('customer-name');
+  const emailValid = validateEmailField(true);
+  const phoneValid = validatePhoneField(true);
+  const nameValid = validateNameField(true);
 
-  const errEmail = document.getElementById('err-email');
-  const errPhone = document.getElementById('err-phone');
-  const errName = document.getElementById('err-name');
-
-  errEmail.classList.add('hidden');
-  errPhone.classList.add('hidden');
-  errName.classList.add('hidden');
-
-  let valid = true;
-  const emailVal = emailEl.value.trim();
-  const phoneVal = phoneEl.value.replace(/\D/g, '');
-  const nameVal = nameEl.value.trim();
-
-  if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
-    errEmail.classList.remove('hidden');
-    valid = false;
+  if (!emailValid) {
+    document.getElementById('customer-email')?.focus();
+    return;
   }
-
-  if (!phoneVal || phoneVal.length < 10) {
-    errPhone.classList.remove('hidden');
-    valid = false;
+  if (!phoneValid) {
+    document.getElementById('customer-phone')?.focus();
+    return;
   }
-
-  if (!nameVal || nameVal.length < 2) {
-    errName.classList.remove('hidden');
-    valid = false;
+  if (!nameValid) {
+    document.getElementById('customer-name')?.focus();
+    return;
   }
-
-  if (!valid) return;
 
   state.currentOrderId = 'ORD-' + Date.now().toString(36).toUpperCase() + '-' + Math.floor(100 + Math.random() * 900);
   const orderPayload = buildCheckoutOrderPayload();
