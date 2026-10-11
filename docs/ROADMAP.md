@@ -32,9 +32,9 @@ Every past and upcoming action planned day-by-day (updated to reflect Day 2–4 
 
 - [x] **Legal & Brand Privacy:** Registered Udyam MSME Certificate (`UDYAM-UP-43-0208040`) under **`PersonaLabs Academy`**; updated all storefront, legal modal, AI assistant, and downloadable `.txt` receipt emails to **`personalabsacademy@gmail.com`**.
 - [x] **Storefront & Conversion UX ([`index.html`](../index.html), [`styles.css`](../styles.css), [`app.js`](../app.js)):**
-  - Geo-IP currency lock (`INR ₹199` for India / `USD $9` for Global).
+  - Geo-IP currency lock (`INR ₹249` for India / `USD $9` for Global).
   - **"Nothing to lose. Everything to gain."** 100% 7-Day Money-Back Guarantee banner right below the Hero description.
-  - **2-Tier Discount Ladder (`Option A1`):** When the 10-minute `₹199` (`$9`) flash timer hits `00:00`, the price transitions to `₹499` (`$19`) while keeping **`₹1,999` (`$79`)** crossed out (`SAVE 75% OFF ₹1,999 — LAUNCH OFFER`).
+  - **2-Tier Discount Ladder (`Option A1`):** When the 10-minute `₹249` (`$9`) flash timer hits `00:00`, the price transitions to `₹499` (`$19`) while keeping **`₹1,999` (`$79`)** crossed out (`SAVE 75% OFF ₹1,999 — LAUNCH OFFER`).
   - **Country-Aware Phone & Strict Email Validation:** `<select id="phone-country-select">` (`14` country rules synced to IP country) + RFC email validation with `@gamil.com` / `@gmial.com` typo warnings and disposable domain blocking.
 - [x] **Live Payment Gateways (Zero Bypass / Verified TxId Required):**
   - **India (`INR`):** Live Razorpay Standard Checkout (`rzp_live_TmX62nNGuBaTUc`) with UPI (`GPay / PhonePe / Paytm`), QR, Cards, and Netbanking + order `notes`.
