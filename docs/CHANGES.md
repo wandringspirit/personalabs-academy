@@ -1,6 +1,15 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.5.1 — 2026-10-11 (Latest Release)
+## v2.6.0 — 2026-10-11 (Latest Release)
+- **"Nothing to lose. Everything to gain." — 100% Money-Back Guarantee Section & Graphic:**
+  - Recreated the **"Nothing to lose. Everything to gain."** 2-column Guarantee + 3 Key Answers layout matched to the PersonaLabs Academy dark/amber/fuchsia theme right below the Hero & Description in [`index.html`](../index.html) (`lines 270–360`) so it is immediately visible at the top of the page.
+  - Generated the standalone high-resolution `1600x900` banner graphic at [`assets/images/nothing_to_lose_guarantee.png`](../assets/images/nothing_to_lose_guarantee.png).
+- **Dual-Currency Video Ad Variants (India `INR ₹249` vs. Global `USD $9`):**
+  - Split all 3 promotional 9:16 Video Ads into two region-specific folders (`6` rendered `.mp4` ads in total) with dedicated voiceovers, captions, and CTA end-cards:
+    - [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads): Shows **only `₹249` (`Reg. ₹1,999`)** and `₹15,000` in voiceover/captions (zero `$` symbols).
+    - [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads): Shows **only `$9` (`Reg. $49`)** and `$500` in voiceover/captions (zero `₹` symbols).
+
+## v2.5.1 — 2026-10-11
 - **Website Avatar & Order Bump #1 Thumbnail Updated to Approved AI Character:**
   - Replaced [`assets/images/creator_avatar.jpg`](../assets/images/creator_avatar.jpg) (`Created by PersonaLabs Academy` header avatar & checkout modal avatar) and [`assets/images/uncensored_hack_cover.jpg`](../assets/images/uncensored_hack_cover.jpg) (Order Bump #1 `Uncensored Content Hack` thumbnail) with the spotless, mole-free square portrait of the approved blonde emerald-top cafe AI Influencer persona.
   - Bumped cache-busting query strings to `?v=11` in [`index.html`](../index.html).

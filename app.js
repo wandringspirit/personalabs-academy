@@ -1644,9 +1644,16 @@ function mountPayPalSdkButtonsIfConfigured() {
         createOrder: function (data, actions) {
           const payload = buildCheckoutOrderPayload();
           return actions.order.create({
+            application_context: {
+              brand_name: 'PersonaLabs Academy',
+              shipping_preference: 'NO_SHIPPING',
+              user_action: 'PAY_NOW'
+            },
             purchase_units: [
               {
                 description: payload.items.map((i) => i.name).join(' + '),
+                soft_descriptor: 'PERSONALABS',
+                custom_id: state.currentOrderId || '',
                 amount: {
                   currency_code: 'USD',
                   value: String(payload.amount.toFixed(2))

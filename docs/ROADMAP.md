@@ -22,55 +22,53 @@
 
 ---
 
-## 🎬 Phase 3: The 3 High-Converting Video Ad Scripts (9:16 Vertical Reels & Meta Ads)
+## 🎬 Phase 3: The 3 High-Converting Video Ad Scripts (2 Currency Variants: India `INR` + Global `USD`)
 
-All 3 ads feature the approved **Golden-Blonde Blue-Eyed AI Influencer Persona** (`ads-ready/character-assets/`) and are rendered as ready-to-post `1080x1920 @ 30fps` `.mp4` videos in `ads-ready/` with **Style 1 (Netflix/YouTube Pro Dark Pill Box)** dynamic captions.
+All 3 ads are rendered in **two dedicated currency variants (`6` ready-to-post `1080x1920 @ 30fps` `.mp4` videos in total)** inside [`ads-ready/`](../ads-ready):
+- 🇮🇳 **India Variant ([`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads))**: Uses **only `₹249` (`Reg. ₹1,999`)** and `₹15,000` in voiceover, captions, and CTA end-card.
+- 🌍 **Global Variant ([`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads))**: Uses **only `$9` (`Reg. $49`)** and `$500` in voiceover, captions, and CTA end-card.
 
-### 🔥 Video Ad #1: "The Curiosity Reveal" (Cold Traffic & Viral Organic Reels — 18s)
-- **File:** `ads-ready/Ad-01-Curiosity-Reveal-9x16.mp4`
-- **Top Hook Banner:** `WAIT… SHE DOESN'T ACTUALLY EXIST?! 🤯`
-- **Target Audience:** Broad Creators, Side-Hustlers, Digital Marketing & AI Interest (18–38).
+### 🔥 Video Ad #1: "The Curiosity Reveal" (Cold Traffic & Viral Organic Reels)
+- **India File:** `ads-ready/01-India-INR-Ads/Ad-01-Curiosity-Reveal-INR-9x16.mp4`
+- **Global File:** `ads-ready/02-Global-USD-Ads/Ad-01-Curiosity-Reveal-USD-9x16.mp4`
+- **Top Hook Banner:** `WAIT... SHE DOESN'T ACTUALLY EXIST?!`
 - **Scene-by-Scene Script:**
-  - **0:00 – 0:04 (Hook):** *(Close-up of the blonde blue-eyed AI character at the sunlit outdoor cafe in her emerald green top, transitioning smoothly into the Bali beach club sunset)*
-    > **Voiceover & Captions:** *"Wait… she doesn't actually exist. Every single photo and Reel you're looking at is 100% AI-generated."*
-  - **0:04 – 0:09 (Problem / Agitation):** *(Transition to her penthouse off-shoulder Reel look + gym mirror selfie)*
-    > **Voiceover & Captions:** *"While most people waste hours scrolling Instagram, smart creators are building faceless AI influencers with locked facial consistency."*
-  - **0:09 – 0:14 (Solution / Proof):** *(Fast showcase of the 3-panel viral Reel proof `2.5M | 1.2M | 3.6M` + 23-Video Course Vault)*
-    > **Voiceover & Captions:** *"No camera, no studio, and no expensive models. Just copy-paste our exact prompts and free AI tools in 15 minutes a day."*
-  - **0:14 – 0:18 (Call to Action):** *(High-contrast offer card: `88% OFF FLASH SALE — ₹249 / $9`)*
-    > **Voiceover & Captions:** *"Tap Learn More or visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit for just ₹249 before the timer hits zero!"*
+  - **0:00 – 0:04 (Hook):** *"Wait… she doesn't actually exist. Every single photo and Reel you're looking at is 100% AI-generated."*
+  - **0:04 – 0:09 (Problem / Agitation):** *"While most people waste hours scrolling Instagram, smart creators are building faceless AI influencers with locked facial consistency."*
+  - **0:09 – 0:14 (Solution / Proof):** *"No camera, no studio, and no expensive models. Just copy-paste our exact prompts and free AI tools in 15 minutes a day."*
+  - **0:14 – End (Call to Action):**
+    - **India (`INR`):** *"Visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit for just ₹249!"*
+    - **Global (`USD`):** *"Visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit for just $9!"*
 
 ---
 
-### 💰 Video Ad #2: "The Proof & Monetization Breakdown" (Side-Hustle & Business Angle — 19s)
-- **File:** `ads-ready/Ad-02-Proof-Monetization-9x16.mp4`
-- **Top Hook Banner:** `HOW AI INFLUENCERS MONETIZE 24/7 📈`
-- **Target Audience:** E-commerce, Affiliate Marketing, Passive Income, Instagram Growth.
+### 💰 Video Ad #2: "The Proof & Monetization Breakdown" (Side-Hustle & Business Angle)
+- **India File:** `ads-ready/01-India-INR-Ads/Ad-02-Proof-Monetization-INR-9x16.mp4`
+- **Global File:** `ads-ready/02-Global-USD-Ads/Ad-02-Proof-Monetization-USD-9x16.mp4`
+- **Top Hook Banner:** `HOW AI INFLUENCERS MONETIZE 24/7`
 - **Scene-by-Scene Script:**
-  - **0:00 – 0:04 (Hook):** *(Penthouse golden-hour portrait of the blonde AI character + viral 3.6M view proof)*
-    > **Voiceover & Captions:** *"Stop paying ₹15,000 for product shoots or showing your own face on camera to grow on Instagram."*
-  - **0:04 – 0:09 (Mechanism):** *(Cafe -> Rooftop Black Silk Evening Dress -> Beach Club transitions showing 100% identical face lock)*
-    > **Voiceover & Captions:** *"Look at how this AI model keeps the exact same face across cafes, luxury resorts, and evening Reels."*
-  - **0:09 – 0:14 (Value Stack):** *(Showcasing the 23 HD Video Lessons + 250+ Character DNA Prompts + 500+ Viral Hooks & ManyChat Auto-DM Pack)*
-    > **Voiceover & Captions:** *"Inside PersonaLabs Academy, you get 23 step-by-step video lessons, 250+ face-lock prompts, and automated DM funnels."*
-  - **0:14 – 0:19 (Call to Action):** *(Offer screen with instant Course Vault & Google Drive unlock)*
-    > **Voiceover & Captions:** *"Unlock instant lifetime access today for 88% off at PersonaLabs.store. Click the link below and launch your AI influencer tonight!"*
+  - **0:00 – 0:04 (Hook):**
+    - **India (`INR`):** *"Stop paying ₹15,000 for product shoots or showing your own face on camera to grow on Instagram."*
+    - **Global (`USD`):** *"Stop paying $500 for product shoots or showing your own face on camera to grow on Instagram."*
+  - **0:04 – 0:09 (Mechanism):** *"Look at how our AI models keep the exact same face across luxury resorts, gym selfies, cafes, and viral evening Reels."*
+  - **0:09 – 0:14 (Value Stack):** *"Inside PersonaLabs Academy, you get 23 step-by-step video lessons, 250+ face-lock prompts, and automated DM funnels."*
+  - **0:14 – End (Call to Action):**
+    - **India (`INR`):** *"Unlock instant lifetime access today for just ₹249 at PersonaLabs.store and launch your AI influencer tonight!"*
+    - **Global (`USD`):** *"Unlock instant lifetime access today for just $9 at PersonaLabs.store and launch your AI influencer tonight!"*
 
 ---
 
-### ⚡ Video Ad #3: "The 5-Day Zero-to-Viral System" (Objection Crusher & Retargeting — 18s)
-- **File:** `ads-ready/Ad-03-No-Laptop-5Day-System-9x16.mp4`
-- **Top Hook Banner:** `BUILD YOUR AI INFLUENCER IN 5 DAYS 🚀`
-- **Target Audience:** Website Visitors, Video Viewers, Checkout Initiators, Tech Beginners.
+### ⚡ Video Ad #3: "The 5-Day Zero-to-Viral System" (Objection Crusher & Retargeting)
+- **India File:** `ads-ready/01-India-INR-Ads/Ad-03-No-Laptop-5Day-System-INR-9x16.mp4`
+- **Global File:** `ads-ready/02-Global-USD-Ads/Ad-03-No-Laptop-5Day-System-USD-9x16.mp4`
+- **Top Hook Banner:** `BUILD YOUR AI INFLUENCER IN 5 DAYS`
 - **Scene-by-Scene Script:**
-  - **0:00 – 0:04 (Hook):** *(Gym mirror selfie -> Cafe emerald top transition of the blonde AI character)*
-    > **Voiceover & Captions:** *"Think you need a gaming PC or coding skills to create an ultra-realistic AI influencer? Watch this."*
-  - **0:04 – 0:09 (5-Day Walkthrough):** *(Rapid visual breakdown: Day 1 Character DNA -> Day 2 Outfit Swaps -> Day 3 Viral Video Reels)*
-    > **Voiceover & Captions:** *"In just 5 days, we walk you click-by-click from generating her face to animating 9:16 viral Reels using free browser tools."*
-  - **0:09 – 0:14 (VIP Add-Ons Highlight):** *(Highlighting the Uncensored FaceFusion Workflow + 500+ Viral Hooks Pack)*
-    > **Voiceover & Captions:** *"Plus, you can unlock our private FaceFusion pro workflow and 500 viral Reel hooks that stop the scroll in 1.5 seconds."*
-  - **0:14 – 0:18 (Call to Action):** *(Final CTA slide with `personalabs.store` button)*
-    > **Voiceover & Captions:** *"Don't miss the ₹249 flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
+  - **0:00 – 0:04 (Hook):** *"Think you need an expensive gaming PC or coding skills to create an ultra-realistic AI influencer? Watch this."*
+  - **0:04 – 0:09 (5-Day Walkthrough):** *"In just 5 days, we walk you click-by-click from generating her face to animating viral vertical Reels using free browser tools."*
+  - **0:09 – 0:14 (VIP Add-Ons Highlight):** *"Plus, you can unlock our private FaceFusion pro workflow and 500 viral Reel hooks that stop the scroll in seconds."*
+  - **0:14 – End (Call to Action):**
+    - **India (`INR`):** *"Don't miss the ₹249 flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
+    - **Global (`USD`):** *"Don't miss the $9 flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
 
 ---
 
