@@ -65,6 +65,17 @@
 
       <!-- Right: Dynamic Live Viewers Pill (👁 32 viewing now) & Theme Switcher -->
       <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <!-- Test Mode Currency Toggle Button (Hidden on normal storefront; only shown on /kjboavhpoieabpraegnaln when enabled) -->
+        <button
+          id="test-sandbox-top-toggle"
+          type="button"
+          onclick="toggleTestSandboxCurrency()"
+          class="hidden items-center gap-1.5 rounded-lg bg-amber-300 hover:bg-amber-200 border border-white px-2.5 py-0.5 text-[11px] font-black text-slate-950 shadow-sm cursor-pointer transition-all shrink-0"
+          title="Click to switch between ₹5 INR (Razorpay) and $1 USD (PayPal)"
+        >
+          <span id="test-top-toggle-label">🧪 Test: 🇮🇳 ₹5 (Switch to $1)</span>
+        </button>
+
         <div
           id="live-viewers-top-pill"
           class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/25 border border-emerald-400/60 px-2.5 py-0.5 text-[11px] font-bold text-emerald-200 transition-transform duration-300 shrink-0"
@@ -803,7 +814,7 @@
 
             <!-- Mobile-Friendly 1-Tap Niche Pills -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              <button type="button" onclick="selectLabNichePill('monaco')" id="pill-niche-monaco" class="touch-scale rounded-xl bg-brand-500 text-white px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
+              <button type="button" onclick="selectLabNichePill('monaco')" id="pill-niche-monaco" class="touch-scale rounded-xl surface-elevated px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-brand-500 transition-all">
                 <span>💎</span> <span>Monaco Luxury</span>
               </button>
               <button type="button" onclick="selectLabNichePill('seoul')" id="pill-niche-seoul" class="touch-scale rounded-xl surface-elevated px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-brand-500 transition-all">
@@ -812,7 +823,7 @@
               <button type="button" onclick="selectLabNichePill('dubai')" id="pill-niche-dubai" class="touch-scale rounded-xl surface-elevated px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-brand-500 transition-all">
                 <span>🏋️‍♂️</span> <span>Dubai Fitness</span>
               </button>
-              <button type="button" onclick="selectLabNichePill('bali')" id="pill-niche-bali" class="touch-scale rounded-xl surface-elevated px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-brand-500 transition-all">
+              <button type="button" onclick="selectLabNichePill('bali')" id="pill-niche-bali" class="touch-scale rounded-xl bg-brand-500 text-white px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
                 <span>🌴</span> <span>Bali Travel</span>
               </button>
             </div>
@@ -825,7 +836,7 @@
                   <option value="monaco">💎 Monaco Luxury & High Fashion</option>
                   <option value="seoul">⚡ Neo-Seoul Cyber Streetwear</option>
                   <option value="dubai">🏋️‍♂️ Dubai Penthouse Fitness</option>
-                  <option value="bali">🌴 Bali Tropical Resort Travel</option>
+                  <option value="bali" selected>🌴 Bali Tropical Resort Travel</option>
                 </select>
               </div>
               <div>
@@ -853,7 +864,7 @@
                 ondblclick="spawnFloatingHeart(event, this)"
                 class="md:col-span-5 relative rounded-xl overflow-hidden aspect-[3/4] max-h-80 mx-auto w-full select-none cursor-pointer"
               >
-                <img id="lab-preview-img" src="assets/images/persona_maya.jpg" alt="AI Persona Preview" class="h-full w-full object-cover transition-all duration-300" />
+                <img id="lab-preview-img" src="assets/images/persona_bali.jpg" alt="AI Persona Preview" class="h-full w-full object-cover transition-all duration-300" />
                 <div id="lab-loading-overlay" class="hidden absolute inset-0 bg-black/75 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center">
                   <div class="h-8 w-8 rounded-full border-2 border-brand-400 border-t-transparent animate-spin mb-2"></div>
                   <span class="text-xs font-bold text-brand-300">Synthesizing Face-Lock Seed...</span>
@@ -861,9 +872,9 @@
                 <div class="absolute top-2.5 right-2.5 rounded-full bg-black/65 backdrop-blur-md px-2.5 py-1 text-[10px] font-semibold text-white">
                   ❤️ Double-tap to Like
                 </div>
-                <div class="absolute bottom-2.5 left-2.5 right-2.5 rounded-lg bg-black/75 backdrop-blur-md px-3 py-2 text-[11px] text-white flex items-center justify-between">
-                  <span id="lab-persona-handle" class="font-bold">@mayavirtual</span>
-                  <span id="lab-persona-cpm" class="text-emerald-400 font-mono-num font-bold">Est. $14.2K/mo</span>
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 rounded-lg bg-black/75 backdrop-blur-md px-2.5 py-1.5 text-[10.5px] text-white flex items-center justify-between gap-1.5 whitespace-nowrap">
+                  <span id="lab-persona-handle" class="font-bold truncate">@virtual_journey</span>
+                  <span id="lab-persona-cpm" class="text-emerald-400 font-mono-num font-bold shrink-0">Est. $16.5K/mo</span>
                 </div>
               </div>
 
@@ -876,13 +887,13 @@
                   </button>
                 </div>
                 <div id="lab-prompt-box" class="rounded-xl bg-black/40 border border-white/10 p-3 font-mono-num text-xs leading-relaxed opacity-90 select-all">
-                  [SEED_LOCK: 8849201] Hyper-realistic vertical 9:16 Instagram Reel frame of Maya, 23yo Mediterranean luxury fashion model at Monaco sunset harbor lounge, natural micro-pore skin texture, wearing architectural navy silk evening wear, shot on 85mm f/1.4 lens, warm golden hour rim lighting --ar 9:16 --style raw --v 6.1
+                  [SEED_LOCK: 8854549] Hyper-realistic vertical 9:16 Instagram Reel frame of Sienna, 24yo sun-kissed travel &amp; resort virtual creator in an infinity pool overlooking Ubud tropical jungle in Bali at sunrise, white linen resort wear, floating breakfast tray, shot on Canon RF 85mm f/1.4L, shallow depth of field, warm golden hour rim lighting, Kodak Portra 400 color grade --ar 9:16 --style raw --cw 100 --v 6.1
                 </div>
 
                 <div class="rounded-xl bg-brand-500/10 border border-brand-500/25 p-3 space-y-1">
-                  <div class="text-[11px] font-bold uppercase tracking-wider text-pink-400">Matched Viral Reel Hook & Monetization Angle:</div>
+                  <div class="text-[11px] font-bold uppercase tracking-wider text-pink-400">Matched Viral Reel Hook &amp; Monetization Angle:</div>
                   <p id="lab-hook-box" class="text-xs opacity-90 leading-relaxed">
-                    <strong>On-Screen Hook (0–3s):</strong> "Everyone asked how I flew to Monaco twice this week without leaving my bedroom..." → <strong>Monetization:</strong> Luxury travel preset link + automated ManyChat DM keyword "MONACO".
+                    <strong>On-Screen Hook (0–3s):</strong> "99% of people scrolling past this have no idea I don't actually exist..." → <strong>Monetization:</strong> Pinned comment triggers automated ManyChat DM funnel.
                   </p>
                 </div>
 
@@ -1144,115 +1155,6 @@
             </div>
           </section>
 
-          <!-- 5. 4 AI INFLUENCER PERSONAS (TOUCH-SWIPEABLE CAROUSEL ON MOBILE + REEL FEED LAUNCHER) -->
-          <section id="sec-personas" class="surface-card rounded-2xl p-4 sm:p-7 space-y-5 scroll-mt-28">
-            <div class="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-pink-400">100% AI Generated Personas</span>
-                <h2 class="font-display text-lg sm:text-xl font-bold mt-0.5">Virtual Creators Built With This Framework</h2>
-              </div>
-              <button
-                type="button"
-                onclick="openReelFeedModal(0)"
-                class="touch-scale rounded-full bg-gradient-to-r from-pink-500 to-brand-500 px-3.5 py-1.5 text-xs font-extrabold text-white shadow-md flex items-center gap-1.5"
-              >
-                <span>🎬 Open Full-Screen Reel Feed</span>
-              </button>
-            </div>
-
-            <div class="sm:hidden flex items-center justify-between text-[11px] opacity-75 px-1">
-              <span>👈 Swipe horizontally to explore personas</span>
-              <span>Tap card for Case Study</span>
-            </div>
-
-            <!-- Horizontal Touch-Snap Carousel on Mobile, 4-Col Grid on Desktop -->
-            <div class="flex sm:grid sm:grid-cols-4 gap-3.5 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 mobile-snap-carousel no-scrollbar">
-              <!-- Persona 1: Maya -->
-              <div onclick="openPersonaModal('maya')" class="mobile-snap-item shrink-0 w-[72%] sm:w-auto group cursor-pointer rounded-2xl overflow-hidden border border-white/10 surface-elevated transition-all hover:-translate-y-1 hover:border-brand-500">
-                <div class="relative aspect-[3/4] overflow-hidden">
-                  <img src="assets/images/persona_maya.jpg" alt="Maya Virtual Luxury AI Influencer" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div class="absolute top-2 left-2 rounded-full bg-black/70 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white">
-                    Luxury Fashion
-                  </div>
-                </div>
-                <div class="p-3">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-xs sm:text-sm">@mayavirtual</span>
-                    <span class="text-xs font-bold text-emerald-400">$14.2K/m</span>
-                  </div>
-                  <div class="mt-1 text-[11px] opacity-70">184K Followers • 1.8M Views</div>
-                  <div class="mt-2 flex items-center justify-between text-[11px] font-bold text-brand-400">
-                    <span>Case Study →</span>
-                    <button type="button" onclick="event.stopPropagation(); openReelFeedModal(0);" class="text-pink-400 hover:underline">▶ Reel</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Persona 2: Aira -->
-              <div onclick="openPersonaModal('aira')" class="mobile-snap-item shrink-0 w-[72%] sm:w-auto group cursor-pointer rounded-2xl overflow-hidden border border-white/10 surface-elevated transition-all hover:-translate-y-1 hover:border-brand-500">
-                <div class="relative aspect-[3/4] overflow-hidden">
-                  <img src="assets/images/persona_aira.jpg" alt="Aira Digital Streetwear AI Influencer" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div class="absolute top-2 left-2 rounded-full bg-black/70 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white">
-                    Cyber Street
-                  </div>
-                </div>
-                <div class="p-3">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-xs sm:text-sm">@aira_digital</span>
-                    <span class="text-xs font-bold text-emerald-400">$19.8K/m</span>
-                  </div>
-                  <div class="mt-1 text-[11px] opacity-70">310K Followers • 3.4M Views</div>
-                  <div class="mt-2 flex items-center justify-between text-[11px] font-bold text-brand-400">
-                    <span>Case Study →</span>
-                    <button type="button" onclick="event.stopPropagation(); openReelFeedModal(1);" class="text-pink-400 hover:underline">▶ Reel</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Persona 3: Alex -->
-              <div onclick="openPersonaModal('alex')" class="mobile-snap-item shrink-0 w-[72%] sm:w-auto group cursor-pointer rounded-2xl overflow-hidden border border-white/10 surface-elevated transition-all hover:-translate-y-1 hover:border-brand-500">
-                <div class="relative aspect-[3/4] overflow-hidden">
-                  <img src="assets/images/persona_alex.jpg" alt="Alex Fit AI Fitness Influencer" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div class="absolute top-2 left-2 rounded-full bg-black/70 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white">
-                    Dubai Fitness
-                  </div>
-                </div>
-                <div class="p-3">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-xs sm:text-sm">@alex_fit_ai</span>
-                    <span class="text-xs font-bold text-emerald-400">$11.4K/m</span>
-                  </div>
-                  <div class="mt-1 text-[11px] opacity-70">142K Followers • 2.1M Views</div>
-                  <div class="mt-2 flex items-center justify-between text-[11px] font-bold text-brand-400">
-                    <span>Case Study →</span>
-                    <button type="button" onclick="event.stopPropagation(); openReelFeedModal(2);" class="text-pink-400 hover:underline">▶ Reel</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Persona 4: Bali Journey -->
-              <div onclick="openPersonaModal('bali')" class="mobile-snap-item shrink-0 w-[72%] sm:w-auto group cursor-pointer rounded-2xl overflow-hidden border border-white/10 surface-elevated transition-all hover:-translate-y-1 hover:border-brand-500">
-                <div class="relative aspect-[3/4] overflow-hidden">
-                  <img src="assets/images/persona_bali.jpg" alt="Virtual Journey Bali Travel AI Influencer" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div class="absolute top-2 left-2 rounded-full bg-black/70 backdrop-blur-md px-2 py-0.5 text-[10px] font-bold text-white">
-                    Resort Travel
-                  </div>
-                </div>
-                <div class="p-3">
-                  <div class="flex items-center justify-between">
-                    <span class="font-bold text-xs sm:text-sm">@virtual_journey</span>
-                    <span class="text-xs font-bold text-emerald-400">$16.5K/m</span>
-                  </div>
-                  <div class="mt-1 text-[11px] opacity-70">265K Followers • 4.2M Views</div>
-                  <div class="mt-2 flex items-center justify-between text-[11px] font-bold text-brand-400">
-                    <span>Case Study →</span>
-                    <button type="button" onclick="event.stopPropagation(); openReelFeedModal(3);" class="text-pink-400 hover:underline">▶ Reel</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <!-- 8. INTERACTIVE AI ADVISOR & FAQS -->
           <section id="sec-faq" class="surface-card rounded-2xl p-4 sm:p-7 space-y-6 scroll-mt-28">
             <!-- Interactive "Ask PersonaLabs AI Course Assistant" Widget -->
@@ -1424,6 +1326,34 @@
               <span id="checkout-mini-timer" class="font-mono-num rounded bg-yellow-300 text-red-950 px-1.5 py-0.5 font-black shrink-0">10:00</span>
             </div>
 
+            <!-- Owner Live Payment Test Mode Toggle (Hidden on normal storefront; only shown on /kjboavhpoieabpraegnaln when enabled) -->
+            <div id="test-sandbox-checkout-bar" class="hidden mb-3 rounded-xl bg-slate-900 text-white p-2.5 border border-fuchsia-500/50 shadow-md space-y-2">
+              <div class="flex items-center justify-between gap-2 text-[11px]">
+                <span class="font-extrabold text-amber-300 uppercase tracking-wider">🧪 Live Payment Test Mode Active</span>
+                <span class="rounded bg-emerald-500/20 border border-emerald-400/40 px-1.5 py-0.5 text-[10px] font-bold text-emerald-300">Drive + Sheet Live</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  id="test-btn-currency-inr"
+                  onclick="switchTestSandboxCurrency('INR')"
+                  class="rounded-lg py-2 px-2.5 text-xs font-extrabold flex items-center justify-center gap-1.5 bg-fuchsia-600 text-white shadow cursor-pointer transition-all"
+                >
+                  <span>🇮🇳</span>
+                  <span>Rupees (₹5 / item)</span>
+                </button>
+                <button
+                  type="button"
+                  id="test-btn-currency-usd"
+                  onclick="switchTestSandboxCurrency('USD')"
+                  class="rounded-lg py-2 px-2.5 text-xs font-extrabold flex items-center justify-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition-all"
+                >
+                  <span>🇺🇸</span>
+                  <span>Dollars ($1 / item)</span>
+                </button>
+              </div>
+            </div>
+
             <!-- Checkout Form (Compact so Make Payment is ALWAYS visible without scrolling) -->
             <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="space-y-2.5" novalidate>
               <!-- Email Input -->
@@ -1560,7 +1490,7 @@
                   <div class="flex items-center gap-3">
                     <div class="h-12 w-12 rounded-lg overflow-hidden shrink-0 border border-slate-200 bg-slate-100">
                       <img
-                        src="assets/images/persona_aira.jpg?v=9"
+                        src="assets/images/persona_bali.jpg?v=17"
                         alt="500+ Viral Reel Hooks & Auto-DM Pack"
                         class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                       />
@@ -2292,7 +2222,7 @@
 
   <!-- Official Razorpay Standard Checkout SDK (for India INR payments) -->
   <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
-  <script src="app.js?v=16"></script>
+  <script src="app.js?v=17"></script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1661173205598260&ev=PageView&noscript=1" alt="" /></noscript>
 </body>
 </html>

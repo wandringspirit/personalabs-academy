@@ -571,10 +571,15 @@ function applyVisitorRegion(countryCode, ipSourceLabel = '') {
     modalGeoPill.textContent = isIndia ? '🇮🇳 INR • Razorpay' : '🇺🇸 USD • PayPal';
   }
 
+  if (typeof syncTestSandboxToggleUI === 'function') {
+    syncTestSandboxToggleUI();
+  }
+
   renderPricing();
 }
 
 function setCurrency(curr) {
+  state.manualCurrencyOverride = true;
   applyVisitorRegion(curr === 'INR' ? 'IN' : 'US');
 }
 
@@ -586,6 +591,7 @@ function toggleGeoSimPopover() {
 
 function simulateVisitorCountry(countryCode) {
   triggerHaptic(18);
+  state.manualCurrencyOverride = true;
   applyVisitorRegion(countryCode, `Simulated ${countryCode} IP`);
   const pop = document.getElementById('geo-sim-popover');
   if (pop) pop.classList.add('hidden');
@@ -602,18 +608,21 @@ async function detectCurrencyByIP() {
     const params = new URLSearchParams(window.location.search);
     const geoParam = (params.get('geo') || params.get('country') || '').toUpperCase();
     if (geoParam === 'US' || geoParam === 'IN') {
+      state.manualCurrencyOverride = true;
       applyVisitorRegion(geoParam, `URL ?geo=${geoParam}`);
       return;
     }
   } catch (e) {}
 
   // 2. Instant zero-flicker timezone heuristic before IP response arrives
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    const isIndianTz = tz.includes('Calcutta') || tz.includes('Kolkata') || tz.includes('Asia/Colombo');
-    applyVisitorRegion(isIndianTz ? 'IN' : 'US', 'Detecting IP...');
-  } catch (e) {
-    applyVisitorRegion('IN', 'Detecting IP...');
+  if (!state.manualCurrencyOverride) {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      const isIndianTz = tz.includes('Calcutta') || tz.includes('Kolkata') || tz.includes('Asia/Colombo');
+      applyVisitorRegion(isIndianTz ? 'IN' : 'US', 'Detecting IP...');
+    } catch (e) {
+      applyVisitorRegion('IN', 'Detecting IP...');
+    }
   }
 
   // 3. Live IP Geolocation lookup (Primary: ipapi.co, Fallback: ipwho.is)
@@ -624,7 +633,7 @@ async function detectCurrencyByIP() {
     clearTimeout(timeout);
     if (res.ok) {
       const data = await res.json();
-      if (data && data.country_code) {
+      if (data && data.country_code && !state.manualCurrencyOverride) {
         const cc = String(data.country_code).toUpperCase();
         const ipShort = data.ip ? `${cc} IP (${data.ip})` : `${cc} IP`;
         applyVisitorRegion(cc === 'IN' ? 'IN' : 'US', ipShort);
@@ -640,7 +649,7 @@ async function detectCurrencyByIP() {
     clearTimeout(timeout2);
     if (res2.ok) {
       const data2 = await res2.json();
-      if (data2 && data2.country_code) {
+      if (data2 && data2.country_code && !state.manualCurrencyOverride) {
         const cc2 = String(data2.country_code).toUpperCase();
         const ipShort2 = data2.ip ? `${cc2} IP (${data2.ip})` : `${cc2} IP`;
         applyVisitorRegion(cc2 === 'IN' ? 'IN' : 'US', ipShort2);
@@ -1796,6 +1805,16 @@ const PAYMENT_GATEWAY_CONFIG = {
   customApi: {
     createOrderEndpoint: '/api/checkout/create-order',
     verifyPaymentEndpoint: '/api/checkout/verify-payment'
+  },
+
+  // 4. OWNER LIVE PAYMENT TEST PAGE (/kjboavhpoieabpraegnaln)
+  // Set enabled: true to test real live payments at ₹5 INR (Razorpay) / $1 USD (PayPal) per course/add-on.
+  // Set enabled: false after testing to disable /kjboavhpoieabpraegnaln (automatically redirects to '/') while keeping it for future use.
+  testSandboxPage: {
+    slug: 'kjboavhpoieabpraegnaln',
+    enabled: true,
+    inrUnitPrice: 5, // ₹5 per course & order bump in INR
+    usdUnitPrice: 1  // $1 per course & order bump in USD
   }
 };
 
@@ -2655,8 +2674,123 @@ function initDynamicLiveViewers() {
   scheduleNextViewerTick();
 }
 
+// =========================================================================
+// OWNER LIVE PAYMENT TEST PAGE (/kjboavhpoieabpraegnaln — ₹5 INR / $1 USD)
+// =========================================================================
+function syncTestSandboxToggleUI() {
+  if (!state.isTestSandbox) return;
+  const isINR = state.currency === 'INR';
+  const btnInr = document.getElementById('test-btn-currency-inr');
+  const btnUsd = document.getElementById('test-btn-currency-usd');
+  const topLabel = document.getElementById('test-top-toggle-label');
+
+  if (btnInr && btnUsd) {
+    if (isINR) {
+      btnInr.className = 'rounded-lg py-2 px-2.5 text-xs font-extrabold flex items-center justify-center gap-1.5 bg-fuchsia-600 text-white shadow cursor-pointer transition-all';
+      btnUsd.className = 'rounded-lg py-2 px-2.5 text-xs font-extrabold flex items-center justify-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition-all';
+    } else {
+      btnUsd.className = 'rounded-lg py-2 px-2.5 text-xs font-extrabold flex items-center justify-center gap-1.5 bg-fuchsia-600 text-white shadow cursor-pointer transition-all';
+      btnInr.className = 'rounded-lg py-2 px-2.5 text-xs font-extrabold flex items-center justify-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition-all';
+    }
+  }
+
+  if (topLabel) {
+    topLabel.textContent = isINR ? '🧪 Test: 🇮🇳 ₹5 (Switch to $1)' : '🧪 Test: 🇺🇸 $1 (Switch to ₹5)';
+  }
+}
+
+function switchTestSandboxCurrency(targetCurr) {
+  if (!state.isTestSandbox) return;
+  triggerHaptic(20);
+  const isINR = String(targetCurr).toUpperCase() === 'INR';
+  state.manualCurrencyOverride = true;
+  applyVisitorRegion(isINR ? 'IN' : 'US', 'Test Mode Toggle');
+  if (!isINR) {
+    mountPayPalSdkButtonsIfConfigured();
+  }
+  syncTestSandboxToggleUI();
+  triggerPayoutToast(
+    isINR
+      ? '🇮🇳 Switched to Rupees (₹5 per item) — Live Razorpay UPI/Card Checkout Ready'
+      : '🇺🇸 Switched to Dollars ($1 per item) — Live PayPal USD Checkout Ready'
+  );
+}
+
+function toggleTestSandboxCurrency() {
+  if (!state.isTestSandbox) return;
+  switchTestSandboxCurrency(state.currency === 'INR' ? 'USD' : 'INR');
+}
+
+function initTestSandboxPageIfMatched() {
+  const cfg = PAYMENT_GATEWAY_CONFIG.testSandboxPage || {};
+  const slug = (cfg.slug || 'kjboavhpoieabpraegnaln').toLowerCase();
+  const cleanPath = (window.location.pathname || '').replace(/^\/+|\/+$/g, '').toLowerCase();
+  let queryMatch = false;
+  try {
+    const params = new URLSearchParams(window.location.search);
+    queryMatch = (params.get('test') || '').toLowerCase() === slug;
+  } catch (e) {}
+
+  if (cleanPath !== slug && !queryMatch) return;
+
+  // If disabled in backend config, immediately redirect to main storefront
+  if (!cfg.enabled) {
+    window.location.replace('/');
+    return;
+  }
+
+  state.isTestSandbox = true;
+  const inrPrice = Number(cfg.inrUnitPrice) || 5;
+  const usdPrice = Number(cfg.usdUnitPrice) || 1;
+
+  state.prices.INR = {
+    base: inrPrice,
+    expiredBase: inrPrice,
+    strike: 1999,
+    bump1: inrPrice,
+    expiredBump1: inrPrice,
+    bump2: inrPrice,
+    expiredBump2: inrPrice,
+    symbol: '₹'
+  };
+
+  state.prices.USD = {
+    base: usdPrice,
+    expiredBase: usdPrice,
+    strike: 79,
+    bump1: usdPrice,
+    expiredBump1: usdPrice,
+    bump2: usdPrice,
+    expiredBump2: usdPrice,
+    symbol: '$'
+  };
+
+  const checkoutBar = document.getElementById('test-sandbox-checkout-bar');
+  if (checkoutBar) checkoutBar.classList.remove('hidden');
+
+  const topToggle = document.getElementById('test-sandbox-top-toggle');
+  if (topToggle) {
+    topToggle.classList.remove('hidden');
+    topToggle.classList.add('inline-flex');
+  }
+
+  // Optional remote kill-switch check via Google Sheets Apps Script backend
+  const webhookUrl = (PAYMENT_GATEWAY_CONFIG.googleSheetWebhookUrl || '').trim();
+  if (webhookUrl && !webhookUrl.includes('YOUR_')) {
+    fetch(`${webhookUrl}?action=getTestPageStatus`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data && data.testPageEnabled === false) {
+          window.location.replace('/');
+        }
+      })
+      .catch(() => {});
+  }
+}
+
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
+  initTestSandboxPageIfMatched();
   const day1 = document.getElementById('curr-body-0');
   if (day1) {
     day1.style.maxHeight = day1.scrollHeight + 32 + 'px';

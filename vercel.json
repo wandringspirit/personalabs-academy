@@ -3,6 +3,19 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/kjboavhpoieabpraegnaln",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/kjboavhpoieabpraegnaln/",
+      "destination": "/kjboavhpoieabpraegnaln",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(index\\.html|app\\.js|styles\\.css)",
@@ -10,6 +23,19 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/kjboavhpoieabpraegnaln",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, must-revalidate"
         }
       ]
     },
