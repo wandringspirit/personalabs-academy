@@ -1,6 +1,11 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.5.0 — 2026-10-11 (Latest Release)
+## v2.5.1 — 2026-10-11 (Latest Release)
+- **Website Avatar & Order Bump #1 Thumbnail Updated to Approved AI Character:**
+  - Replaced [`assets/images/creator_avatar.jpg`](../assets/images/creator_avatar.jpg) (`Created by PersonaLabs Academy` header avatar & checkout modal avatar) and [`assets/images/uncensored_hack_cover.jpg`](../assets/images/uncensored_hack_cover.jpg) (Order Bump #1 `Uncensored Content Hack` thumbnail) with the spotless, mole-free square portrait of the approved blonde emerald-top cafe AI Influencer persona.
+  - Bumped cache-busting query strings to `?v=11` in [`index.html`](../index.html).
+
+## v2.5.0 — 2026-10-11
 - **Automatic Google Drive Email Whitelisting (`DriveApp.addViewer` — Option 2):**
   - Updated [`app.js`](../app.js) (`logOrderToGoogleSheet` & `completePaymentSuccess`) to transmit explicit Google Drive permission flags (`grantCoreDrive`, `grantNsfwDrive`, `grantHooksDrive`) after merging initial and post-purchase add-on upgrades.
   - Updated the Google Apps Script backend in [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md) so all 3 Google Drive deliverable folders (`01-Core-Course-Videos`, `02-Uncensored-NSFW-Addon-Videos`, `03-500-Viral-Hooks-And-Prompts-Pack`) remain **Restricted (Private)** and automatically grant Viewer permission to each verified buyer's Gmail address (`DriveApp.getFolderById(...).addViewer(buyerEmail)`), logging the granted folders in Column 20 (`Google Drive Access Granted`).
