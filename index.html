@@ -39,7 +39,7 @@
 
   <!-- High-Urgency Sticky Top Flash Offer Banner (10-Min Flash Offer + Right-Aligned Live Viewers & Theme Toggle) -->
   <header class="sticky top-0 z-40 urgency-top-bar">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-3 py-2 sm:px-6 gap-2 flex-nowrap">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6 gap-2 flex-nowrap">
       <!-- Left: High-Urgency 10-Minute Flash Offer & Countdown (Strictly Single-Line Inline) -->
       <div class="flex flex-nowrap items-center gap-1.5 sm:gap-2.5 text-xs whitespace-nowrap overflow-x-auto no-scrollbar min-w-0">
         <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-400 text-slate-950 px-2.5 py-0.5 text-[10px] sm:text-[11px] font-black uppercase tracking-wider shadow-sm shrink-0">
@@ -272,7 +272,253 @@
             </div>
           </section>
 
-          <!-- 2. INTERACTIVE LIVE AI PERSONA & PROMPT SANDBOX (TOUCH-OPTIMIZED) -->
+          <!-- 2. VERIFIED REVENUE ANALYTICS & INTERACTIVE EARNINGS CALCULATOR -->
+          <section id="sec-analytics" class="surface-card rounded-2xl p-4 sm:p-7 space-y-6 scroll-mt-28">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Real Creator Analytics</span>
+                <h2 class="font-display text-lg sm:text-xl font-bold mt-0.5">Verified Gross Revenue, MRR & ARR</h2>
+              </div>
+              <div class="inline-flex rounded-lg surface-elevated p-1 text-xs font-semibold">
+                <button type="button" onclick="switchAnalyticsTab('all')" id="tab-rev-all" class="rounded-md bg-brand-500 px-3 py-1 text-white transition-all">All-Time</button>
+                <button type="button" onclick="switchAnalyticsTab('90d')" id="tab-rev-90d" class="rounded-md px-3 py-1 opacity-70 hover:opacity-100 transition-all">90 Days</button>
+                <button type="button" onclick="switchAnalyticsTab('30d')" id="tab-rev-30d" class="rounded-md px-3 py-1 opacity-70 hover:opacity-100 transition-all">Last 30D</button>
+              </div>
+            </div>
+
+            <!-- EXACT REFERENCE GROSS REVENUE / MRR / ARR DUAL-LINE CHART CARD (Interactive & Watermark-Free) -->
+            <div class="rounded-2xl bg-white text-slate-900 p-4 sm:p-6 shadow-xl border border-slate-200 space-y-5">
+              <!-- Top Headline Row -->
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div id="ref-chart-top-label" class="text-sm sm:text-base font-medium text-slate-500">Gross revenue</div>
+                  <div class="mt-1 flex flex-wrap items-center gap-2.5">
+                    <span id="metric-gross" class="font-sans text-2xl sm:text-4xl font-bold tracking-tight text-slate-900">$213,593.25</span>
+                    <span id="metric-gross-delta" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-1 text-xs sm:text-sm font-semibold text-[#15803d]">
+                      +$119,138.20 ↑
+                    </span>
+                  </div>
+                </div>
+                <!-- Top-Right Circular Share Button -->
+                <button
+                  type="button"
+                  onclick="copyChartSnapshotLink()"
+                  id="btn-share-chart"
+                  class="touch-scale flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+                  title="Copy Verified Revenue Report Link"
+                >
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Interactive Dual-Line Graph (Blue Primary Curve + Grey Baseline Curve + Vertical Dotted Grid) -->
+              <div class="relative pt-2 select-none">
+                <!-- Interactive Hover/Touch Tooltip -->
+                <div id="chart-scrub-tooltip" class="hidden absolute -top-2 left-1/2 -translate-x-1/2 z-20 rounded-lg bg-slate-900 text-white px-3 py-1.5 text-[11px] font-semibold shadow-lg pointer-events-none whitespace-nowrap">
+                  <span id="scrub-date">Peak Day</span>: <span id="scrub-val-blue" class="text-blue-400 font-bold">$14,820</span> <span class="opacity-60">vs</span> <span id="scrub-val-grey" class="text-slate-300">$2,140</span>
+                </div>
+
+                <svg
+                  id="ref-dual-chart-svg"
+                  viewBox="0 0 700 210"
+                  class="w-full h-44 sm:h-52 overflow-visible cursor-crosshair"
+                  onmousemove="handleChartScrub(event)"
+                  ontouchmove="handleChartScrub(event)"
+                  onmouseleave="hideChartScrub()"
+                >
+                  <defs>
+                    <!-- Vertical Dotted Grid Pattern (Matches Reference Image) -->
+                    <pattern id="refVerticalGrid" width="14" height="210" patternUnits="userSpaceOnUse">
+                      <line x1="7" y1="0" x2="7" y2="195" stroke="#e2e8f0" stroke-width="1.2" stroke-dasharray="2 3" />
+                    </pattern>
+                    <linearGradient id="refBlueFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#1d63dc" stop-opacity="0.12" />
+                      <stop offset="100%" stop-color="#1d63dc" stop-opacity="0.0" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Dotted Vertical Grid Background -->
+                  <rect x="0" y="0" width="700" height="195" fill="url(#refVerticalGrid)" />
+
+                  <!-- Grey Baseline Comparison Curve -->
+                  <path
+                    id="chart-grey-path"
+                    d="M 0,192 L 95,192 C 102,192 105,172 110,172 C 115,172 118,191 123,191 C 128,191 138,145 148,145 C 158,145 162,190 172,190 C 178,190 182,175 186,175 C 190,175 193,191 198,191 C 203,191 206,172 211,172 C 216,172 220,191 230,191 C 242,191 255,184 265,184 C 272,184 276,172 282,172 C 288,172 292,180 298,180 C 304,180 308,164 314,164 C 320,164 324,182 330,182 C 336,182 340,154 345,154 C 350,154 354,181 360,181 C 365,181 369,154 374,154 C 379,154 383,178 390,178 C 397,178 403,164 410,164 C 417,164 425,176 435,176 C 445,176 455,166 465,166 C 472,166 480,152 488,152 C 495,152 502,160 510,160 C 516,160 522,135 528,135 C 534,135 540,168 546,168 C 552,168 558,138 564,138 C 570,138 576,166 582,166 C 588,166 594,138 600,138 C 606,138 612,172 618,172 C 624,172 630,136 636,136 C 642,136 648,176 654,176 C 660,176 666,156 672,156 C 678,156 684,182 690,182 L 700,178"
+                    fill="none"
+                    stroke="#8c939e"
+                    stroke-width="2.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+
+                  <!-- Blue Primary Curve Subtle Fill -->
+                  <path
+                    id="chart-area-path"
+                    d="M 0,182 C 8,165 16,142 22,142 C 28,142 28,180 34,180 C 42,180 50,176 58,176 C 64,176 68,166 75,166 C 82,166 88,170 94,170 C 99,170 102,148 110,148 C 118,148 120,162 125,162 C 130,162 132,156 135,156 C 138,156 140,178 146,178 C 152,178 158,145 164,145 C 170,145 173,160 178,160 C 183,160 186,150 192,150 C 198,150 200,172 204,172 C 208,172 211,158 214,158 C 217,158 219,184 224,184 C 232,184 242,168 250,168 C 256,168 260,176 265,176 C 270,176 274,158 280,158 C 286,158 290,170 296,170 C 302,170 305,126 309,126 C 313,126 315,154 319,154 C 323,154 325,130 329,130 C 333,130 335,160 340,160 C 344,160 348,8 355,8 C 364,8 375,96 380,96 C 385,96 388,62 396,62 C 406,62 418,132 426,132 C 432,132 436,132 440,132 C 444,132 447,108 451,108 C 455,108 457,136 461,136 C 465,136 468,125 472,125 C 476,125 482,166 488,166 C 494,166 502,148 508,148 C 514,148 517,156 521,156 C 525,156 528,140 532,140 C 536,140 540,158 546,158 C 552,158 564,166 572,166 C 578,166 584,154 590,154 C 596,154 604,164 612,164 C 618,164 620,132 628,132 C 636,132 638,168 644,168 C 650,168 654,154 658,154 C 662,154 666,176 674,176 C 682,176 686,140 690,140 C 694,140 696,182 700,182 L 700,195 L 0,195 Z"
+                    fill="url(#refBlueFill)"
+                  />
+
+                  <!-- Vibrant Royal Blue Primary Revenue Curve (Exact Match to desc2.png / desc3.png) -->
+                  <path
+                    id="chart-line-path"
+                    d="M 0,182 C 8,165 16,142 22,142 C 28,142 28,180 34,180 C 42,180 50,176 58,176 C 64,176 68,166 75,166 C 82,166 88,170 94,170 C 99,170 102,148 110,148 C 118,148 120,162 125,162 C 130,162 132,156 135,156 C 138,156 140,178 146,178 C 152,178 158,145 164,145 C 170,145 173,160 178,160 C 183,160 186,150 192,150 C 198,150 200,172 204,172 C 208,172 211,158 214,158 C 217,158 219,184 224,184 C 232,184 242,168 250,168 C 256,168 260,176 265,176 C 270,176 274,158 280,158 C 286,158 290,170 296,170 C 302,170 305,126 309,126 C 313,126 315,154 319,154 C 323,154 325,130 329,130 C 333,130 335,160 340,160 C 344,160 348,8 355,8 C 364,8 375,96 380,96 C 385,96 388,62 396,62 C 406,62 418,132 426,132 C 432,132 436,132 440,132 C 444,132 447,108 451,108 C 455,108 457,136 461,136 C 465,136 468,125 472,125 C 476,125 482,166 488,166 C 494,166 502,148 508,148 C 514,148 517,156 521,156 C 525,156 528,140 532,140 C 536,140 540,158 546,158 C 552,158 564,166 572,166 C 578,166 584,154 590,154 C 596,154 604,164 612,164 C 618,164 620,132 628,132 C 636,132 638,168 644,168 C 650,168 654,154 658,154 C 662,154 666,176 674,176 C 682,176 686,140 690,140 C 694,140 696,182 700,182"
+                    fill="none"
+                    stroke="#0b57d0"
+                    stroke-width="3.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+
+                  <!-- Interactive Vertical Scrubber Line & Dot -->
+                  <line id="chart-scrub-line" x1="355" y1="0" x2="355" y2="195" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="3 3" class="hidden" />
+                  <circle id="chart-scrub-dot" cx="355" cy="8" r="5" fill="#0b57d0" stroke="#ffffff" stroke-width="2" class="hidden" />
+                </svg>
+
+                <!-- Bottom X-Axis Bar (Grey pill on left + "Today" on right, matching desc3.png) -->
+                <div class="mt-2 flex items-center justify-between">
+                  <div class="flex items-center">
+                    <span class="inline-block h-6 w-14 rounded-l-full bg-slate-300"></span>
+                    <span class="inline-block h-6 w-12 rounded-r-full bg-slate-100"></span>
+                  </div>
+                  <span class="text-sm font-medium text-slate-500">Today</span>
+                </div>
+              </div>
+
+              <!-- Bottom 3 Selectable Metric Cards (Gross revenue, MRR, ARR - matching desc3.png) -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <!-- Card 1: Gross revenue -->
+                <div
+                  id="ref-card-gross"
+                  onclick="selectRefMetricCard('gross')"
+                  class="touch-scale cursor-pointer rounded-2xl border-2 border-[#0b57d0] bg-white p-4 transition-all"
+                >
+                  <div class="flex items-center justify-between text-slate-700">
+                    <span class="text-sm sm:text-base font-medium">Gross revenue</span>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-400 text-[11px] font-bold text-slate-500">i</span>
+                  </div>
+                  <div id="card-val-gross" class="mt-1 text-xl sm:text-2xl font-bold text-slate-900">$213,593.25</div>
+                  <div class="mt-2">
+                    <span id="card-delta-gross" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-0.5 text-xs font-semibold text-[#15803d]">
+                      +$119,138.20 ↑
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Card 2: MRR -->
+                <div
+                  id="ref-card-mrr"
+                  onclick="selectRefMetricCard('mrr')"
+                  class="touch-scale cursor-pointer rounded-2xl border border-slate-200 hover:border-slate-300 bg-white p-4 transition-all"
+                >
+                  <div class="flex items-center justify-between text-slate-700">
+                    <span class="text-sm sm:text-base font-medium">MRR</span>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-400 text-[11px] font-bold text-slate-500">i</span>
+                  </div>
+                  <div id="card-val-mrr" class="mt-1 text-xl sm:text-2xl font-bold text-slate-900">$4,576.00</div>
+                  <div class="mt-2">
+                    <span id="card-delta-mrr" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-0.5 text-xs font-semibold text-[#15803d]">
+                      +$2,376.00 ↑
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Card 3: ARR -->
+                <div
+                  id="ref-card-arr"
+                  onclick="selectRefMetricCard('arr')"
+                  class="touch-scale cursor-pointer rounded-2xl border border-slate-200 hover:border-slate-300 bg-white p-4 transition-all"
+                >
+                  <div class="flex items-center justify-between text-slate-700">
+                    <span class="text-sm sm:text-base font-medium">ARR</span>
+                    <span class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-400 text-[11px] font-bold text-slate-500">i</span>
+                  </div>
+                  <div id="card-val-arr" class="mt-1 text-xl sm:text-2xl font-bold text-slate-900">$54,912.00</div>
+                  <div class="mt-2">
+                    <span id="card-delta-arr" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-0.5 text-xs font-semibold text-[#15803d]">
+                      +$28,512.00 ↑
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive AI Creator Income Estimator + Stacked Distribution Bar -->
+            <div class="rounded-xl bg-gradient-to-br from-brand-500/10 via-purple-500/5 to-pink-500/10 border border-brand-500/30 p-4 sm:p-5 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h3 class="font-display text-sm sm:text-base font-bold">⚡ Interactive AI Creator Earnings Calculator</h3>
+                  <p class="text-xs opacity-75">Slide to customize your posting frequency, monetization streams, and niche CPM:</p>
+                </div>
+                <div class="text-right">
+                  <div class="text-[11px] uppercase tracking-wider opacity-70">Estimated Monthly Income</div>
+                  <div id="calc-output" class="font-mono-num text-xl sm:text-2xl font-extrabold text-emerald-400">₹1,45,000 / mo</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1.5">
+                    <span>AI Reels / Week</span>
+                    <span id="calc-reels-val" class="text-brand-400 font-mono-num">5 Reels / wk</span>
+                  </div>
+                  <input id="calc-reels" type="range" min="2" max="14" value="5" oninput="updateEarningsCalc()" class="creator-slider" />
+                </div>
+                <div>
+                  <div class="flex justify-between text-xs font-semibold mb-1.5">
+                    <span>Income Streams</span>
+                    <span id="calc-streams-val" class="text-brand-400 font-mono-num">3 Streams</span>
+                  </div>
+                  <input id="calc-streams" type="range" min="1" max="4" value="3" oninput="updateEarningsCalc()" class="creator-slider" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold mb-1">Niche CPM Multiplier</label>
+                  <select id="calc-niche-tier" onchange="updateEarningsCalc()" class="custom-input w-full rounded-lg px-2.5 py-1.5 text-xs font-semibold">
+                    <option value="1.25">💎 Luxury & Fashion (1.25x)</option>
+                    <option value="1.0" selected>🔥 Lifestyle & Reels (1.0x)</option>
+                    <option value="1.15">🏋️‍♂️ Fitness & Supplements (1.15x)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Live Visual 4-Stream Stacked Bar Chart -->
+              <div class="space-y-1.5 pt-1">
+                <div class="flex justify-between text-[11px] opacity-75">
+                  <span>Monthly Revenue Mix Breakdown</span>
+                  <span id="calc-bar-caption" class="font-mono-num font-semibold text-emerald-400">100% Automated Funnel</span>
+                </div>
+                <div class="h-3 w-full rounded-full overflow-hidden flex bg-black/40 p-0.5 gap-0.5">
+                  <div id="bar-seg-brand" class="h-full bg-brand-500 rounded-l-full transition-all duration-300" style="width: 35%"></div>
+                  <div id="bar-seg-fan" class="h-full bg-pink-500 transition-all duration-300" style="width: 30%"></div>
+                  <div id="bar-seg-aff" class="h-full bg-emerald-500 transition-all duration-300" style="width: 20%"></div>
+                  <div id="bar-seg-dm" class="h-full bg-amber-400 rounded-r-full transition-all duration-300" style="width: 15%"></div>
+                </div>
+              </div>
+
+              <!-- Live 4-Stream Income Split Pills -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-brand-500">
+                  <div class="opacity-65">Brand Deals (35%)</div>
+                  <div id="split-brand" class="font-mono-num font-bold text-brand-300 mt-0.5">₹50,750</div>
+                </div>
+                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-pink-500">
+                  <div class="opacity-65">Fan Club / VIP (30%)</div>
+                  <div id="split-fan" class="font-mono-num font-bold text-pink-300 mt-0.5">₹43,500</div>
+                </div>
+                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-emerald-500">
+                  <div class="opacity-65">Affiliate Funnels (20%)</div>
+                  <div id="split-aff" class="font-mono-num font-bold text-emerald-300 mt-0.5">₹29,000</div>
+                </div>
+                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-amber-400">
+                  <div class="opacity-65">Auto-DM Guides (15%)</div>
+                  <div id="split-dm" class="font-mono-num font-bold text-amber-300 mt-0.5">₹21,750</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. INTERACTIVE LIVE AI PERSONA & PROMPT SANDBOX (TOUCH-OPTIMIZED) -->
           <section id="sec-ai-lab" class="surface-card rounded-2xl p-4 sm:p-7 space-y-5 border border-brand-500/35 scroll-mt-28">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div>
@@ -737,252 +983,6 @@
             </div>
           </section>
 
-          <!-- 6. VERIFIED REVENUE ANALYTICS & INTERACTIVE EARNINGS CALCULATOR -->
-          <section id="sec-analytics" class="surface-card rounded-2xl p-4 sm:p-7 space-y-6 scroll-mt-28">
-            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Real Creator Analytics</span>
-                <h2 class="font-display text-lg sm:text-xl font-bold mt-0.5">Verified Gross Revenue, MRR & ARR</h2>
-              </div>
-              <div class="inline-flex rounded-lg surface-elevated p-1 text-xs font-semibold">
-                <button type="button" onclick="switchAnalyticsTab('all')" id="tab-rev-all" class="rounded-md bg-brand-500 px-3 py-1 text-white transition-all">All-Time</button>
-                <button type="button" onclick="switchAnalyticsTab('90d')" id="tab-rev-90d" class="rounded-md px-3 py-1 opacity-70 hover:opacity-100 transition-all">90 Days</button>
-                <button type="button" onclick="switchAnalyticsTab('30d')" id="tab-rev-30d" class="rounded-md px-3 py-1 opacity-70 hover:opacity-100 transition-all">Last 30D</button>
-              </div>
-            </div>
-
-            <!-- EXACT REFERENCE GROSS REVENUE / MRR / ARR DUAL-LINE CHART CARD (Interactive & Watermark-Free) -->
-            <div class="rounded-2xl bg-white text-slate-900 p-4 sm:p-6 shadow-xl border border-slate-200 space-y-5">
-              <!-- Top Headline Row -->
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <div id="ref-chart-top-label" class="text-sm sm:text-base font-medium text-slate-500">Gross revenue</div>
-                  <div class="mt-1 flex flex-wrap items-center gap-2.5">
-                    <span id="metric-gross" class="font-sans text-2xl sm:text-4xl font-bold tracking-tight text-slate-900">$213,593.25</span>
-                    <span id="metric-gross-delta" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-1 text-xs sm:text-sm font-semibold text-[#15803d]">
-                      +$119,138.20 ↑
-                    </span>
-                  </div>
-                </div>
-                <!-- Top-Right Circular Share Button -->
-                <button
-                  type="button"
-                  onclick="copyChartSnapshotLink()"
-                  id="btn-share-chart"
-                  class="touch-scale flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
-                  title="Copy Verified Revenue Report Link"
-                >
-                  <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
-                  </svg>
-                </button>
-              </div>
-
-              <!-- Interactive Dual-Line Graph (Blue Primary Curve + Grey Baseline Curve + Vertical Dotted Grid) -->
-              <div class="relative pt-2 select-none">
-                <!-- Interactive Hover/Touch Tooltip -->
-                <div id="chart-scrub-tooltip" class="hidden absolute -top-2 left-1/2 -translate-x-1/2 z-20 rounded-lg bg-slate-900 text-white px-3 py-1.5 text-[11px] font-semibold shadow-lg pointer-events-none whitespace-nowrap">
-                  <span id="scrub-date">Peak Day</span>: <span id="scrub-val-blue" class="text-blue-400 font-bold">$14,820</span> <span class="opacity-60">vs</span> <span id="scrub-val-grey" class="text-slate-300">$2,140</span>
-                </div>
-
-                <svg
-                  id="ref-dual-chart-svg"
-                  viewBox="0 0 700 210"
-                  class="w-full h-44 sm:h-52 overflow-visible cursor-crosshair"
-                  onmousemove="handleChartScrub(event)"
-                  ontouchmove="handleChartScrub(event)"
-                  onmouseleave="hideChartScrub()"
-                >
-                  <defs>
-                    <!-- Vertical Dotted Grid Pattern (Matches Reference Image) -->
-                    <pattern id="refVerticalGrid" width="14" height="210" patternUnits="userSpaceOnUse">
-                      <line x1="7" y1="0" x2="7" y2="195" stroke="#e2e8f0" stroke-width="1.2" stroke-dasharray="2 3" />
-                    </pattern>
-                    <linearGradient id="refBlueFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#1d63dc" stop-opacity="0.12" />
-                      <stop offset="100%" stop-color="#1d63dc" stop-opacity="0.0" />
-                    </linearGradient>
-                  </defs>
-
-                  <!-- Dotted Vertical Grid Background -->
-                  <rect x="0" y="0" width="700" height="195" fill="url(#refVerticalGrid)" />
-
-                  <!-- Grey Baseline Comparison Curve -->
-                  <path
-                    id="chart-grey-path"
-                    d="M 0,192 L 95,192 C 102,192 105,172 110,172 C 115,172 118,191 123,191 C 128,191 138,145 148,145 C 158,145 162,190 172,190 C 178,190 182,175 186,175 C 190,175 193,191 198,191 C 203,191 206,172 211,172 C 216,172 220,191 230,191 C 242,191 255,184 265,184 C 272,184 276,172 282,172 C 288,172 292,180 298,180 C 304,180 308,164 314,164 C 320,164 324,182 330,182 C 336,182 340,154 345,154 C 350,154 354,181 360,181 C 365,181 369,154 374,154 C 379,154 383,178 390,178 C 397,178 403,164 410,164 C 417,164 425,176 435,176 C 445,176 455,166 465,166 C 472,166 480,152 488,152 C 495,152 502,160 510,160 C 516,160 522,135 528,135 C 534,135 540,168 546,168 C 552,168 558,138 564,138 C 570,138 576,166 582,166 C 588,166 594,138 600,138 C 606,138 612,172 618,172 C 624,172 630,136 636,136 C 642,136 648,176 654,176 C 660,176 666,156 672,156 C 678,156 684,182 690,182 L 700,178"
-                    fill="none"
-                    stroke="#8c939e"
-                    stroke-width="2.6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-
-                  <!-- Blue Primary Curve Subtle Fill -->
-                  <path
-                    id="chart-area-path"
-                    d="M 0,182 C 8,165 16,142 22,142 C 28,142 28,180 34,180 C 42,180 50,176 58,176 C 64,176 68,166 75,166 C 82,166 88,170 94,170 C 99,170 102,148 110,148 C 118,148 120,162 125,162 C 130,162 132,156 135,156 C 138,156 140,178 146,178 C 152,178 158,145 164,145 C 170,145 173,160 178,160 C 183,160 186,150 192,150 C 198,150 200,172 204,172 C 208,172 211,158 214,158 C 217,158 219,184 224,184 C 232,184 242,168 250,168 C 256,168 260,176 265,176 C 270,176 274,158 280,158 C 286,158 290,170 296,170 C 302,170 305,126 309,126 C 313,126 315,154 319,154 C 323,154 325,130 329,130 C 333,130 335,160 340,160 C 344,160 348,8 355,8 C 364,8 375,96 380,96 C 385,96 388,62 396,62 C 406,62 418,132 426,132 C 432,132 436,132 440,132 C 444,132 447,108 451,108 C 455,108 457,136 461,136 C 465,136 468,125 472,125 C 476,125 482,166 488,166 C 494,166 502,148 508,148 C 514,148 517,156 521,156 C 525,156 528,140 532,140 C 536,140 540,158 546,158 C 552,158 564,166 572,166 C 578,166 584,154 590,154 C 596,154 604,164 612,164 C 618,164 620,132 628,132 C 636,132 638,168 644,168 C 650,168 654,154 658,154 C 662,154 666,176 674,176 C 682,176 686,140 690,140 C 694,140 696,182 700,182 L 700,195 L 0,195 Z"
-                    fill="url(#refBlueFill)"
-                  />
-
-                  <!-- Vibrant Royal Blue Primary Revenue Curve (Exact Match to desc2.png / desc3.png) -->
-                  <path
-                    id="chart-line-path"
-                    d="M 0,182 C 8,165 16,142 22,142 C 28,142 28,180 34,180 C 42,180 50,176 58,176 C 64,176 68,166 75,166 C 82,166 88,170 94,170 C 99,170 102,148 110,148 C 118,148 120,162 125,162 C 130,162 132,156 135,156 C 138,156 140,178 146,178 C 152,178 158,145 164,145 C 170,145 173,160 178,160 C 183,160 186,150 192,150 C 198,150 200,172 204,172 C 208,172 211,158 214,158 C 217,158 219,184 224,184 C 232,184 242,168 250,168 C 256,168 260,176 265,176 C 270,176 274,158 280,158 C 286,158 290,170 296,170 C 302,170 305,126 309,126 C 313,126 315,154 319,154 C 323,154 325,130 329,130 C 333,130 335,160 340,160 C 344,160 348,8 355,8 C 364,8 375,96 380,96 C 385,96 388,62 396,62 C 406,62 418,132 426,132 C 432,132 436,132 440,132 C 444,132 447,108 451,108 C 455,108 457,136 461,136 C 465,136 468,125 472,125 C 476,125 482,166 488,166 C 494,166 502,148 508,148 C 514,148 517,156 521,156 C 525,156 528,140 532,140 C 536,140 540,158 546,158 C 552,158 564,166 572,166 C 578,166 584,154 590,154 C 596,154 604,164 612,164 C 618,164 620,132 628,132 C 636,132 638,168 644,168 C 650,168 654,154 658,154 C 662,154 666,176 674,176 C 682,176 686,140 690,140 C 694,140 696,182 700,182"
-                    fill="none"
-                    stroke="#0b57d0"
-                    stroke-width="3.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-
-                  <!-- Interactive Vertical Scrubber Line & Dot -->
-                  <line id="chart-scrub-line" x1="355" y1="0" x2="355" y2="195" stroke="#0b57d0" stroke-width="1.5" stroke-dasharray="3 3" class="hidden" />
-                  <circle id="chart-scrub-dot" cx="355" cy="8" r="5" fill="#0b57d0" stroke="#ffffff" stroke-width="2" class="hidden" />
-                </svg>
-
-                <!-- Bottom X-Axis Bar (Grey pill on left + "Today" on right, matching desc3.png) -->
-                <div class="mt-2 flex items-center justify-between">
-                  <div class="flex items-center">
-                    <span class="inline-block h-6 w-14 rounded-l-full bg-slate-300"></span>
-                    <span class="inline-block h-6 w-12 rounded-r-full bg-slate-100"></span>
-                  </div>
-                  <span class="text-sm font-medium text-slate-500">Today</span>
-                </div>
-              </div>
-
-              <!-- Bottom 3 Selectable Metric Cards (Gross revenue, MRR, ARR - matching desc3.png) -->
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-                <!-- Card 1: Gross revenue -->
-                <div
-                  id="ref-card-gross"
-                  onclick="selectRefMetricCard('gross')"
-                  class="touch-scale cursor-pointer rounded-2xl border-2 border-[#0b57d0] bg-white p-4 transition-all"
-                >
-                  <div class="flex items-center justify-between text-slate-700">
-                    <span class="text-sm sm:text-base font-medium">Gross revenue</span>
-                    <span class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-400 text-[11px] font-bold text-slate-500">i</span>
-                  </div>
-                  <div id="card-val-gross" class="mt-1 text-xl sm:text-2xl font-bold text-slate-900">$213,593.25</div>
-                  <div class="mt-2">
-                    <span id="card-delta-gross" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-0.5 text-xs font-semibold text-[#15803d]">
-                      +$119,138.20 ↑
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Card 2: MRR -->
-                <div
-                  id="ref-card-mrr"
-                  onclick="selectRefMetricCard('mrr')"
-                  class="touch-scale cursor-pointer rounded-2xl border border-slate-200 hover:border-slate-300 bg-white p-4 transition-all"
-                >
-                  <div class="flex items-center justify-between text-slate-700">
-                    <span class="text-sm sm:text-base font-medium">MRR</span>
-                    <span class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-400 text-[11px] font-bold text-slate-500">i</span>
-                  </div>
-                  <div id="card-val-mrr" class="mt-1 text-xl sm:text-2xl font-bold text-slate-900">$4,576.00</div>
-                  <div class="mt-2">
-                    <span id="card-delta-mrr" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-0.5 text-xs font-semibold text-[#15803d]">
-                      +$2,376.00 ↑
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Card 3: ARR -->
-                <div
-                  id="ref-card-arr"
-                  onclick="selectRefMetricCard('arr')"
-                  class="touch-scale cursor-pointer rounded-2xl border border-slate-200 hover:border-slate-300 bg-white p-4 transition-all"
-                >
-                  <div class="flex items-center justify-between text-slate-700">
-                    <span class="text-sm sm:text-base font-medium">ARR</span>
-                    <span class="flex h-5 w-5 items-center justify-center rounded-full border border-slate-400 text-[11px] font-bold text-slate-500">i</span>
-                  </div>
-                  <div id="card-val-arr" class="mt-1 text-xl sm:text-2xl font-bold text-slate-900">$54,912.00</div>
-                  <div class="mt-2">
-                    <span id="card-delta-arr" class="inline-flex items-center rounded-md bg-[#dcfce7] px-2.5 py-0.5 text-xs font-semibold text-[#15803d]">
-                      +$28,512.00 ↑
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Interactive AI Creator Income Estimator + Stacked Distribution Bar -->
-            <div class="rounded-xl bg-gradient-to-br from-brand-500/10 via-purple-500/5 to-pink-500/10 border border-brand-500/30 p-4 sm:p-5 space-y-4">
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <div>
-                  <h3 class="font-display text-sm sm:text-base font-bold">⚡ Interactive AI Creator Earnings Calculator</h3>
-                  <p class="text-xs opacity-75">Slide to customize your posting frequency, monetization streams, and niche CPM:</p>
-                </div>
-                <div class="text-right">
-                  <div class="text-[11px] uppercase tracking-wider opacity-70">Estimated Monthly Income</div>
-                  <div id="calc-output" class="font-mono-num text-xl sm:text-2xl font-extrabold text-emerald-400">₹1,45,000 / mo</div>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-                <div>
-                  <div class="flex justify-between text-xs font-semibold mb-1.5">
-                    <span>AI Reels / Week</span>
-                    <span id="calc-reels-val" class="text-brand-400 font-mono-num">5 Reels / wk</span>
-                  </div>
-                  <input id="calc-reels" type="range" min="2" max="14" value="5" oninput="updateEarningsCalc()" class="creator-slider" />
-                </div>
-                <div>
-                  <div class="flex justify-between text-xs font-semibold mb-1.5">
-                    <span>Income Streams</span>
-                    <span id="calc-streams-val" class="text-brand-400 font-mono-num">3 Streams</span>
-                  </div>
-                  <input id="calc-streams" type="range" min="1" max="4" value="3" oninput="updateEarningsCalc()" class="creator-slider" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold mb-1">Niche CPM Multiplier</label>
-                  <select id="calc-niche-tier" onchange="updateEarningsCalc()" class="custom-input w-full rounded-lg px-2.5 py-1.5 text-xs font-semibold">
-                    <option value="1.25">💎 Luxury & Fashion (1.25x)</option>
-                    <option value="1.0" selected>🔥 Lifestyle & Reels (1.0x)</option>
-                    <option value="1.15">🏋️‍♂️ Fitness & Supplements (1.15x)</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Live Visual 4-Stream Stacked Bar Chart -->
-              <div class="space-y-1.5 pt-1">
-                <div class="flex justify-between text-[11px] opacity-75">
-                  <span>Monthly Revenue Mix Breakdown</span>
-                  <span id="calc-bar-caption" class="font-mono-num font-semibold text-emerald-400">100% Automated Funnel</span>
-                </div>
-                <div class="h-3 w-full rounded-full overflow-hidden flex bg-black/40 p-0.5 gap-0.5">
-                  <div id="bar-seg-brand" class="h-full bg-brand-500 rounded-l-full transition-all duration-300" style="width: 35%"></div>
-                  <div id="bar-seg-fan" class="h-full bg-pink-500 transition-all duration-300" style="width: 30%"></div>
-                  <div id="bar-seg-aff" class="h-full bg-emerald-500 transition-all duration-300" style="width: 20%"></div>
-                  <div id="bar-seg-dm" class="h-full bg-amber-400 rounded-r-full transition-all duration-300" style="width: 15%"></div>
-                </div>
-              </div>
-
-              <!-- Live 4-Stream Income Split Pills -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
-                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-brand-500">
-                  <div class="opacity-65">Brand Deals (35%)</div>
-                  <div id="split-brand" class="font-mono-num font-bold text-brand-300 mt-0.5">₹50,750</div>
-                </div>
-                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-pink-500">
-                  <div class="opacity-65">Fan Club / VIP (30%)</div>
-                  <div id="split-fan" class="font-mono-num font-bold text-pink-300 mt-0.5">₹43,500</div>
-                </div>
-                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-emerald-500">
-                  <div class="opacity-65">Affiliate Funnels (20%)</div>
-                  <div id="split-aff" class="font-mono-num font-bold text-emerald-300 mt-0.5">₹29,000</div>
-                </div>
-                <div class="surface-elevated rounded-lg p-2 border-l-2 border-l-amber-400">
-                  <div class="opacity-65">Auto-DM Guides (15%)</div>
-                  <div id="split-dm" class="font-mono-num font-bold text-amber-300 mt-0.5">₹21,750</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <!-- 7. VERIFIED STUDENT PAYOUTS & DM RESULTS (EXACT PAYOUT METHODS + IG DM + CALLOUT BANNERS) -->
           <section id="sec-proofs" class="surface-card rounded-2xl p-4 sm:p-7 space-y-5 scroll-mt-28">
             <div class="flex flex-wrap items-center justify-between gap-2">
@@ -1252,30 +1252,8 @@
             </div>
           </section>
 
-          <!-- 8. 100% MONEY-BACK GUARANTEE, INTERACTIVE AI ADVISOR & FAQS -->
+          <!-- 8. INTERACTIVE AI ADVISOR & FAQS -->
           <section id="sec-faq" class="surface-card rounded-2xl p-4 sm:p-7 space-y-6 scroll-mt-28">
-            <div class="text-center max-w-xl mx-auto">
-              <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Zero Risk Commitment</span>
-              <h2 class="font-display text-xl sm:text-2xl font-extrabold mt-1">
-                Nothing to Lose. <span class="underline decoration-amber-400 decoration-2 underline-offset-4 text-amber-400">Everything to Gain.</span>
-              </h2>
-            </div>
-
-            <!-- 100% Money-Back Guarantee Card -->
-            <div class="rounded-2xl bg-gradient-to-r from-amber-500/15 via-brand-500/10 to-emerald-500/15 border border-amber-400/35 p-5 flex flex-col sm:flex-row items-center gap-5">
-              <div class="flex h-20 w-20 shrink-0 flex-col items-center justify-center rounded-full bg-gradient-to-br from-amber-300 via-amber-500 to-amber-600 text-slate-950 shadow-xl ring-4 ring-amber-400/30">
-                <span class="text-[10px] font-extrabold uppercase tracking-tighter">Guarantee</span>
-                <span class="font-display text-xl font-black leading-none">100%</span>
-                <span class="text-[9px] font-extrabold uppercase tracking-tighter">7-Day Shield</span>
-              </div>
-              <div class="text-center sm:text-left space-y-1.5">
-                <h3 class="font-display text-lg font-extrabold text-amber-400">100% No-Questions-Asked Money-Back Guarantee</h3>
-                <p class="text-xs sm:text-sm opacity-90 leading-relaxed">
-                  Join the <strong>AI Influencer Accelerator</strong> 100% Risk-Free for 7 days. Go through the video training, test the mobile AI workflows, and if you don't feel this is the clearest path to launching your AI creator page, simply message us within 7 days and we'll approve your full refund.
-                </p>
-              </div>
-            </div>
-
             <!-- Interactive "Ask PersonaLabs AI Course Assistant" Widget -->
             <div class="surface-elevated rounded-2xl p-4 sm:p-5 border border-brand-500/30 space-y-3">
               <div class="flex items-center justify-between">
