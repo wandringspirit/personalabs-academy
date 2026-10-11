@@ -1853,9 +1853,15 @@ async function openLiveRazorpayCheckout(explicitPayload = null) {
 }
 
 function simulatePaymentComplete(methodName, explicitTxId = null) {
+  // Block any simulated/cached PLA- preview completion in INR when live Razorpay is active
+  if (state.currency === 'INR' && (!explicitTxId || String(explicitTxId).startsWith('PLA-'))) {
+    openLiveRazorpayCheckout();
+    return;
+  }
+
   triggerHaptic(40);
   state.lastPaymentMethod = methodName;
-  const txId = explicitTxId || ('PLA-' + Math.floor(10000000 + Math.random() * 90000000));
+  const txId = explicitTxId || ('PP-' + Math.floor(10000000 + Math.random() * 90000000));
   state.lastTransactionId = txId;
 
   const nameVal = document.getElementById('customer-name').value.trim() || 'Creator';
@@ -1991,20 +1997,20 @@ function copyDirectVaultLink() {
   triggerPayoutToast('📋 Direct Course Vault link copied to clipboard!');
 }
 
-function openSignInModal() {
+async function openSignInModal() {
   triggerHaptic(20);
   try {
     const raw = localStorage.getItem('personalabs_unlocked_vault');
     if (raw) {
       const saved = JSON.parse(raw);
-      if (saved && saved.unlocked) {
+      if (saved && saved.unlocked && saved.transactionId && !String(saved.transactionId).startsWith('PLA-')) {
         state.bumpAdded = Boolean(saved.bumpAdded);
         state.bump2Added = Boolean(saved.bump2Added);
         state.lastPaymentMethod = saved.method || 'Verified Order';
         const modal = document.getElementById('payment-modal');
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-        simulatePaymentComplete(state.lastPaymentMethod, saved.transactionId || null);
+        simulatePaymentComplete(state.lastPaymentMethod, saved.transactionId);
         return;
       }
     }
@@ -2012,12 +2018,27 @@ function openSignInModal() {
 
   const email = window.prompt('Enter the email address used during your purchase to re-open your Instant Access Vault:');
   if (email && email.includes('@')) {
-    const emailInput = document.getElementById('customer-email');
-    if (emailInput) emailInput.value = email.trim();
-    const modal = document.getElementById('payment-modal');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    simulatePaymentComplete('Verified Order Lookup');
+    const cleanEmail = email.trim();
+    const webhookUrl = (PAYMENT_GATEWAY_CONFIG.googleSheetWebhookUrl || '').trim();
+    if (webhookUrl && !webhookUrl.includes('YOUR_')) {
+      try {
+        triggerPayoutToast('🔍 Verifying your purchase in PersonaLabs Orders DB...');
+        const res = await fetch(`${webhookUrl}?action=lookupOrder&email=${encodeURIComponent(cleanEmail)}`);
+        const data = await res.json();
+        if (data && data.found && data.transactionId && !String(data.transactionId).startsWith('PLA-')) {
+          const emailInput = document.getElementById('customer-email');
+          if (emailInput) emailInput.value = cleanEmail;
+          state.bumpAdded = Boolean(data.bump1);
+          state.bump2Added = Boolean(data.bump2);
+          const modal = document.getElementById('payment-modal');
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          simulatePaymentComplete('Verified Order Lookup', data.transactionId);
+          return;
+        }
+      } catch (e) {}
+    }
+    triggerPayoutToast('⚠️ No verified paid order found for that email. Please complete checkout first.');
   }
 }
 
