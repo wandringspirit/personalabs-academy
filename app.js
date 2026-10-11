@@ -83,54 +83,47 @@ function getTotals() {
 function renderPricing() {
   const { cfg, base, activeBump1Price, activeBump2Price, discount, finalTotal } = getTotals();
 
-  // Header & Anchor prices
+  // Header & Anchor prices (Always cross out the original retail price ₹1,999 / $79 so both tiers feel like a massive deal)
   const strikeEl = document.getElementById('anchor-strike-price');
   const baseEl = document.getElementById('header-base-price');
   if (strikeEl) {
-    if (state.offerExpired) {
-      // Show ₹249 crossed out in red right next to ₹499 so the price increase is 100% obvious
-      strikeEl.textContent = formatPrice(cfg.base);
-      strikeEl.className = 'text-xs sm:text-sm line-through text-rose-500 font-mono-num font-bold';
-    } else {
-      strikeEl.textContent = formatPrice(cfg.strike);
-      strikeEl.className = 'text-xs line-through text-slate-400 font-mono-num';
-    }
+    strikeEl.textContent = formatPrice(cfg.strike);
+    strikeEl.className = 'text-xs sm:text-sm line-through text-slate-400 font-mono-num font-semibold';
   }
   if (baseEl) {
     baseEl.textContent = formatPrice(base);
-    baseEl.className = state.offerExpired
-      ? 'font-mono-num text-xl font-extrabold text-rose-600'
-      : 'font-mono-num text-xl font-extrabold text-slate-900';
+    baseEl.className = 'font-mono-num text-xl font-extrabold text-slate-900';
   }
 
   document.getElementById('bump-price-display').textContent = `+${formatPrice(activeBump1Price)}`;
   const bump2PriceEl = document.getElementById('bump-2-price-display');
   if (bump2PriceEl) bump2PriceEl.textContent = `+${formatPrice(activeBump2Price)}`;
 
-  // Update 10-Minute Flash Offer vs Expired UI badges
+  // Update 10-Minute Flash Offer (Tier 1: 88% OFF) vs Launch Offer (Tier 2: 75% OFF) UI badges
   const saveBadge = document.getElementById('checkout-save-badge');
   const banner10m = document.getElementById('checkout-10m-banner');
   const text10m = document.getElementById('checkout-10m-text');
   const topDiscountLabel = document.getElementById('offer-discount-label');
   const topEndsLabel = document.getElementById('offer-ends-label');
+  const savedAmount = cfg.strike - cfg.expiredBase;
 
   if (state.offerExpired) {
     if (saveBadge) {
-      saveBadge.textContent = `PRICE INCREASED (${formatPrice(cfg.base)} → ${formatPrice(cfg.expiredBase)})`;
-      saveBadge.className = 'inline-block rounded bg-rose-100 border border-rose-300 px-1.5 py-0.5 text-[10px] font-bold text-rose-700';
+      saveBadge.textContent = `SAVE 75% OFF ${formatPrice(cfg.strike)} (LAUNCH OFFER)`;
+      saveBadge.className = 'inline-block rounded bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700';
     }
     if (banner10m) {
       banner10m.className = 'checkout-urgency-banner expired mb-3 rounded-lg px-3 py-1.5 flex items-center justify-between gap-2 text-[11px] font-semibold shadow-sm';
     }
     if (text10m) {
-      text10m.innerHTML = `10-Min Flash Offer Ended — Price jumped from <span class="line-through opacity-80">${formatPrice(cfg.base)}</span> to <strong>${formatPrice(cfg.expiredBase)}</strong>`;
+      text10m.innerHTML = `${formatPrice(cfg.base)} Fast-Action Bonus Ended — <strong>75% OFF Launch Offer Active:</strong> Only <strong>${formatPrice(cfg.expiredBase)}</strong> <span class="opacity-95">(Save ${formatPrice(savedAmount)} off ${formatPrice(cfg.strike)}!)</span>`;
     }
     if (topDiscountLabel) {
-      topDiscountLabel.textContent = 'FLASH OFFER ENDED';
-      topDiscountLabel.className = 'text-yellow-300 font-black';
+      topDiscountLabel.textContent = '75% OFF LAUNCH OFFER';
+      topDiscountLabel.className = 'text-amber-300 font-black';
     }
     if (topEndsLabel) {
-      topEndsLabel.textContent = ` — Price Jumped From ${formatPrice(cfg.base)} To ${formatPrice(cfg.expiredBase)}`;
+      topEndsLabel.textContent = ` — (${formatPrice(cfg.base)} Fast-Action Bonus Ended • Still Save ${formatPrice(savedAmount)} Off ${formatPrice(cfg.strike)}!):`;
     }
   } else {
     if (saveBadge) {
@@ -2089,15 +2082,15 @@ function renderOfferTimerDisplay() {
 
   if (state.offerExpired || state.offerRemainingSeconds <= 0) {
     if (timerEl) {
-      timerEl.textContent = '00:00 (EXPIRED)';
-      timerEl.className = 'font-mono-num rounded-md bg-rose-600 border border-rose-300 px-2.5 py-0.5 text-xs sm:text-sm font-black text-white shadow-sm transition-colors cursor-pointer';
+      timerEl.textContent = '🔥 75% OFF ACTIVE';
+      timerEl.className = 'font-mono-num rounded-md bg-amber-400 border border-amber-200 px-2.5 py-0.5 text-xs sm:text-sm font-black text-slate-950 shadow-sm transition-colors cursor-pointer';
     }
     if (miniTimerEl) {
-      miniTimerEl.textContent = 'EXPIRED';
-      miniTimerEl.className = 'font-mono-num font-black text-xs px-2 py-0.5 rounded bg-rose-700 text-white shrink-0';
+      miniTimerEl.textContent = 'SAVE 75%';
+      miniTimerEl.className = 'font-mono-num font-black text-xs px-2 py-0.5 rounded bg-yellow-300 text-red-950 shrink-0';
     }
-    if (pulseDot) pulseDot.className = 'relative flex h-2.5 w-2.5 items-center justify-center text-rose-400 pulse-dot';
-    if (pulseInner) pulseInner.className = 'h-2.5 w-2.5 rounded-full bg-rose-400';
+    if (pulseDot) pulseDot.className = 'relative flex h-2.5 w-2.5 items-center justify-center text-amber-400 pulse-dot';
+    if (pulseInner) pulseInner.className = 'h-2.5 w-2.5 rounded-full bg-amber-400';
     return;
   }
 
@@ -2130,8 +2123,9 @@ function handleOfferExpiredTransition() {
   renderPricing();
 
   const cfg = state.prices[state.currency];
+  const savedAmount = cfg.strike - cfg.expiredBase;
   triggerPayoutToast(
-    `⏰ 10-Min Flash Offer Ended! Price increased from ${formatPrice(cfg.base)} to ${formatPrice(cfg.expiredBase)}.`
+    `⚡ ${formatPrice(cfg.base)} Fast-Action Bonus ended! 75% OFF Launch Offer still active: ${formatPrice(cfg.expiredBase)} (Save ${formatPrice(savedAmount)} off ${formatPrice(cfg.strike)}!)`
   );
 }
 

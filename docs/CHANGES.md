@@ -1,6 +1,15 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.6.0 — 2026-10-11 (Latest Release)
+## v2.6.1 — 2026-10-11 (Latest Release)
+- **2-Tier Discount Ladder When 10-Min Flash Offer Ends ([`app.js`](../app.js)):**
+  - Updated `renderPricing()`, `renderOfferTimerDisplay()`, and `handleOfferExpiredTransition()` so that after the 10-minute `₹249` (`$9`) fast-action bonus ends, `#anchor-strike-price` continues crossing out the original retail price **`₹1,999` (`$79`)** next to **`₹499` (`$19`)**, `#checkout-save-badge` displays **`SAVE 75% OFF ₹1,999 (LAUNCH OFFER)`** in emerald green, and the urgency banners highlight that the buyer still saves **`₹1,500` (`$60`)** off retail (`🔥 75% OFF ACTIVE` / `SAVE 75%`).
+- **"Nothing to lose. Everything to gain." Guarantee Banner Typography & Spacing Fix ([`index.html`](../index.html)):**
+  - Fixed side-edge fading on `"Everything to gain."` and `"100% Money-Back Guarantee"` by replacing Tailwind `via-*` gradient classes with explicit 100%-opaque CSS `linear-gradient(90deg, ...)` hex stops.
+  - Balanced the Left Guarantee Card (`100% Money-Back Guarantee` + Gold Seal SVG + 3 concise guarantee paragraphs) and Right 3 FAQ Cards so the gold badge and text align evenly with zero empty white space below the badge.
+- **Reverted Website Avatar & Order Bump #1 Thumbnail to Original Photo:**
+  - Restored [`assets/images/creator_avatar.jpg`](../assets/images/creator_avatar.jpg) and [`assets/images/uncensored_hack_cover.jpg`](../assets/images/uncensored_hack_cover.jpg) to the original website maroon saree back-portrait photo (`?v=12` in [`index.html`](../index.html)).
+
+## v2.6.0 — 2026-10-11
 - **"Nothing to lose. Everything to gain." — 100% Money-Back Guarantee Section & Graphic:**
   - Recreated the **"Nothing to lose. Everything to gain."** 2-column Guarantee + 3 Key Answers layout matched to the PersonaLabs Academy dark/amber/fuchsia theme right below the Hero & Description in [`index.html`](../index.html) (`lines 270–360`) so it is immediately visible at the top of the page.
   - Generated the standalone high-resolution `1600x900` banner graphic at [`assets/images/nothing_to_lose_guarantee.png`](../assets/images/nothing_to_lose_guarantee.png).
