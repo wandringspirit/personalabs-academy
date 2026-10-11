@@ -1778,7 +1778,7 @@ const PAYMENT_GATEWAY_CONFIG = {
   paypal: {
     // OPTION A (Recommended): Paste your PayPal Live Client ID from developer.paypal.com
     // Renders official PayPal + Debit/Credit Card buttons directly inside the popup and auto-unlocks on payment!
-    clientId: 'YOUR_PAYPAL_CLIENT_ID',
+    clientId: 'BAARfEN6AEZqn7tB4CWb08mUBhJqBYzxwPkmMnxJNkQ77mGxuYUiisrNiiYhtg75Gg12nHMXKAS38v_p1E',
 
     // OPTION B (Zero-Code Instant Setup): Paste your PayPal.me username (e.g. 'riyalabs')
     // Automatically sends US buyers to https://www.paypal.com/paypalme/YOUR_USERNAME/9USD (matches exact cart total!)
@@ -1952,6 +1952,7 @@ window.testGoogleSheetWebhook = function () {
 
 // Dynamically load and mount official PayPal Smart Buttons when PAYMENT_GATEWAY_CONFIG.paypal.clientId is configured
 let paypalSdkLoaded = false;
+let paypalSdkLoading = false;
 function mountPayPalSdkButtonsIfConfigured() {
   const clientId = PAYMENT_GATEWAY_CONFIG.paypal?.clientId;
   if (!clientId || clientId.includes('YOUR_')) return;
@@ -1992,7 +1993,8 @@ function mountPayPalSdkButtonsIfConfigured() {
         onApprove: function (data, actions) {
           return actions.order.capture().then(function (details) {
             const payerName = details?.payer?.name?.given_name || '';
-            const ppTxId = details?.id || 'PP-' + Math.floor(10000000 + Math.random() * 90000000);
+            const ppTxId = details?.id || data?.orderID;
+            if (!ppTxId) return;
             simulatePaymentComplete(`PayPal USD (${ppTxId || payerName || 'Verified'})`, ppTxId);
           });
         }
@@ -2004,12 +2006,18 @@ function mountPayPalSdkButtonsIfConfigured() {
     renderButtons();
     return;
   }
+  if (paypalSdkLoading) return;
 
+  paypalSdkLoading = true;
   const script = document.createElement('script');
   script.src = `https://www.paypal.com/sdk/js?client-id=${encodeURIComponent(clientId)}&currency=USD`;
   script.onload = () => {
     paypalSdkLoaded = true;
+    paypalSdkLoading = false;
     renderButtons();
+  };
+  script.onerror = () => {
+    paypalSdkLoading = false;
   };
   document.head.appendChild(script);
 }
@@ -2019,7 +2027,14 @@ function triggerPayPalCheckout(methodLabel = 'PayPal Express (USD)') {
   const orderPayload = window.lastCheckoutOrderPayload || buildCheckoutOrderPayload();
   const ppCfg = PAYMENT_GATEWAY_CONFIG.paypal || {};
 
-  // 1. Check if PayPal No-Code Payment Link is configured
+  // 1. If PayPal Live Client ID is configured, mount the official PayPal Smart Buttons
+  if (ppCfg.clientId && !ppCfg.clientId.includes('YOUR_')) {
+    mountPayPalSdkButtonsIfConfigured();
+    triggerPayoutToast('🔒 Loading official PayPal USD checkout buttons...');
+    return;
+  }
+
+  // 2. Check if PayPal No-Code Payment Link is configured
   const linkKey = state.bumpAdded
     ? 'bundle_flash'
     : state.offerExpired
@@ -2031,15 +2046,12 @@ function triggerPayPalCheckout(methodLabel = 'PayPal Express (USD)') {
     return;
   }
 
-  // 2. Check if PayPal.me username is configured (automatically passes exact dynamic USD total!)
+  // 3. Check if PayPal.me username is configured (automatically passes exact dynamic USD total!)
   if (ppCfg.paypalMeUsername && !ppCfg.paypalMeUsername.includes('YOUR_')) {
     const cleanUser = ppCfg.paypalMeUsername.replace(/^@/, '').trim();
     window.location.href = `https://www.paypal.com/paypalme/${encodeURIComponent(cleanUser)}/${orderPayload.amount}USD`;
     return;
   }
-
-  // 3. Fallback: Interactive preview completion when testing before keys are added
-  simulatePaymentComplete(methodLabel);
 }
 
 async function handleCheckoutSubmit(event) {
@@ -2083,7 +2095,7 @@ async function handleCheckoutSubmit(event) {
 
   // 1. Auto-Region Live Routing:
   //    - India (INR) -> Opens live Razorpay Checkout popup immediately
-  //    - US/Global (USD) -> Opens PayPal Checkout modal (or redirects to PayPal link if configured)
+  //    - US/Global (USD) -> Opens PayPal Checkout modal with Live Smart Buttons
   if (PAYMENT_GATEWAY_CONFIG.mode === 'auto_region') {
     const rzpKey = PAYMENT_GATEWAY_CONFIG.razorpay?.keyId || '';
     if (orderPayload.currency === 'INR' && rzpKey && !rzpKey.includes('YOUR_')) {
@@ -2170,15 +2182,19 @@ async function openLiveRazorpayCheckout(explicitPayload = null) {
 }
 
 function simulatePaymentComplete(methodName, explicitTxId = null) {
-  // Block any simulated/cached PLA- preview completion in INR when live Razorpay is active
-  if (state.currency === 'INR' && (!explicitTxId || String(explicitTxId).startsWith('PLA-'))) {
-    openLiveRazorpayCheckout();
+  // Strictly require a real verified transaction ID from Razorpay (pay_...) or PayPal
+  if (!explicitTxId || String(explicitTxId).startsWith('PLA-')) {
+    if (state.currency === 'INR') {
+      openLiveRazorpayCheckout();
+    } else {
+      mountPayPalSdkButtonsIfConfigured();
+    }
     return;
   }
 
   triggerHaptic(40);
   state.lastPaymentMethod = methodName;
-  const txId = explicitTxId || ('PP-' + Math.floor(10000000 + Math.random() * 90000000));
+  const txId = String(explicitTxId);
   state.lastTransactionId = txId;
 
   const nameVal = document.getElementById('customer-name').value.trim() || 'Creator';

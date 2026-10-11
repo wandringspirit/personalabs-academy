@@ -1,6 +1,14 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.7.2 — 2026-10-11 (Latest Release)
+## v2.8.0 — 2026-10-11 (Latest Release)
+- **Live PayPal Smart Buttons Checkout Activated for International (`USD`) ([`app.js`](../app.js), [`index.html`](../index.html)):**
+  - Configured the live PayPal Business Client ID (`BAARfEN6AEZqn7tB4CWb08mUBhJqBYzxwPkmMnxJNkQ77mGxuYUiisrNiiYhtg75Gg12nHMXKAS38v_p1E`) in `PAYMENT_GATEWAY_CONFIG.paypal.clientId` ([`app.js`](../app.js)).
+  - Verified live PayPal JS SDK loading (`https://www.paypal.com/sdk/js?client-id=...&currency=USD`, `HTTP 200 OK`) and automatic mounting of the official Gold **PayPal** button + Dark **Debit or Credit Card** button for all international (`USD`) visitors.
+  - Configured `application_context` (`brand_name: 'PersonaLabs Academy'`, `shipping_preference: 'NO_SHIPPING'`, `user_action: 'PAY_NOW'`) and `soft_descriptor: 'PERSONALABS'` so international buyers get a digital-goods checkout with no shipping address prompts.
+  - Enforced strict live transaction ID verification across both **Razorpay (`INR`)** and **PayPal (`USD`)** (`?v=14`).
+  - Kept the PayPal `Secret key 1` strictly out of client-side code and GitHub commits.
+
+## v2.7.2 — 2026-10-11
 - **Country-Aware Phone Number & Strict Email Validation ([`app.js`](../app.js), [`index.html`](../index.html)):**
   - Added `<select id="phone-country-select">` (`+91 IN`, `+1 US/CA`, `+44 GB`, `+61 AU`, `+971 AE`, `+65 SG`, `+49 DE`, `+33 FR`, `+31 NL`, `+966 SA`, `+60 MY`, `+27 ZA`, `+55 BR`, `OTHER`) automatically synced to the visitor's IP country.
   - Added `PHONE_COUNTRY_RULES` in [`app.js`](../app.js) enforcing each country's exact subscriber digit length (`10` digits for `IN`/`US`/`CA`/`GB`, `9` digits for `AE`/`AU`/`FR`/`NL`/`SA`/`ZA`, `8` digits for `SG`, `10–11` for `DE`/`BR`), automatically stripping leading `0`s or pasted dial prefixes, validating starting digits (e.g. `6–9` for India `+91`), and rejecting repeated/dummy digits (`/(.)\1{5,}/`).
