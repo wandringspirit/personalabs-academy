@@ -1,11 +1,11 @@
 # 🚀 Deployment & Operations Guide (`DEPLOY.md`)
 
 ## 1. Live Production Architecture
-- **Live Domain:** `https://personalabs.store`
+- **Live Domain:** `https://personalabs.store` & `https://www.personalabs.store` (`https://ai-influencer-course-website.vercel.app`)
 - **GitHub Repository:** `https://github.com/wandringspirit/ai-influencer-course-website` (Branch: `main`, **Private** repository so `/course-vault/` VIP filenames and `/docs/` stay hidden from public search)
 - **Git Author Identity:** `PersonaLabs Academy <personalabsacademy@gmail.com>`
-- **Current CDN Host:** Netlify (`endearing-phoenix-5cc220`, serving `v2.8.0` live on `75.2.60.5`)
-- **Prepared Unlimited Free Host Config:** [`vercel.json`](../vercel.json) (Zero-build static deployment, instant cache invalidation on `index.html`/`app.js`/`styles.css`, and `X-Robots-Tag: noindex, nofollow` on `/course-vault/*`)
+- **Active CDN Host:** **Vercel Global Edge CDN** (`A @` → `216.198.79.1`, `CNAME www` → `847062401d7e0c68.vercel-dns-017.com`, 100 free production deploys/day)
+- **Host Config:** [`vercel.json`](../vercel.json) (Zero-build static deployment, instant cache invalidation on `index.html`/`app.js`/`styles.css`, and `X-Robots-Tag: noindex, nofollow` on `/course-vault/*`)
 
 ---
 
