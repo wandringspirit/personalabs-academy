@@ -18,7 +18,7 @@ Every past and upcoming action planned day-by-day (updated to reflect Day 2–4 
 
 | Day / Date | Phase & Focus | Who | Exact Tasks (✅ Completed vs. 🔄 In Progress vs. 🎯 Next) | Status / Goal |
 | :--- | :--- | :--- | :--- | :--- |
-| **Day 1 — Part A<br>(Today, Oct 11)** | **Storefront `v2.8.1`, Vault, Captioned Videos, 6 Ads & Live Gateways (`INR` + `USD`)** | Agent + You | 1. ✅ Register Udyam MSME (`UDYAM-UP-43-0208040` — `PersonaLabs Academy`)<br>2. ✅ Deploy `v2.8.1` (`₹199` India / `$9` Global Flash Offer) on `https://personalabs.store`<br>3. ✅ Activate **Live Razorpay (`rzp_live_TmX62nNGuBaTUc`)** for India (`INR`)<br>4. ✅ Activate **Live PayPal (`BAARfEN6...`)** for International (`USD`)<br>5. ✅ Add 14-country Phone Validation, Strict Email Typo Validation & 2-Tier Discount Ladder (`₹199 → ₹499` still `75% OFF ₹1,999`)<br>6. ✅ Remove watermarks & burn English captions across all **23 Course Videos** (`videos-captioned/`)<br>7. ✅ Render **6 Ready-to-Post 9:16 Video Ads** (`3` India `INR` + `3` Global `USD $9` in `ads-ready/`) | ✅ **100% Done & Live** |
+| **Day 1 — Part A<br>(Today, Oct 11)** | **Storefront `v2.8.1`, Vault, Captioned Videos, 6 Ads & Live Gateways (`INR` + `USD`)** | Agent + You | 1. ✅ Register Udyam MSME (`UDYAM-UP-43-0208040` — `PersonaLabs Academy`)<br>2. ✅ Deploy `v2.8.1` (`₹249` India / `$9` Global Flash Offer) on `https://personalabs.store`<br>3. ✅ Activate **Live Razorpay (`rzp_live_TmX62nNGuBaTUc`)** for India (`INR`)<br>4. ✅ Activate **Live PayPal (`BAARfEN6...`)** for International (`USD`)<br>5. ✅ Add 14-country Phone Validation, Strict Email Typo Validation & 2-Tier Discount Ladder (`₹249 → ₹499` still `75% OFF ₹1,999`)<br>6. ✅ Remove watermarks & burn English captions across all **23 Course Videos** (`videos-captioned/`)<br>7. ✅ Render **6 Ready-to-Post 9:16 Video Ads** (`3` India `INR ₹249` + `3` Global `USD $9` in `ads-ready/`) | ✅ **100% Done & Live** |
 | **Day 1 — Part B<br>(Today, Oct 11)** | **3 Private Drive Folders + Brand Orders DB + Vercel CDN + 107-Ad Competitor Spy + 8K Avatar** | **You + Agent** | 1. ✅ Upload 3 Restricted Drive folders under **`personalabsacademy@gmail.com`** (`01-Core`: `1QaLzv...`, `02-NSFW`: `10HGXW...`, `03-Hooks`: `1IId4d...`)<br>2. ✅ Create dedicated `PersonaLabs Academy — Orders DB` Sheet (`1Sy8fy...`) & deploy live Apps Script Web App (`AKfycbzxKG...`) with `DriveApp.addViewer` auto-whitelisting<br>3. ✅ Migrate `personalabs.store` & `www.personalabs.store` from Netlify Free to **Vercel Global CDN (`216.198.79.1`)** (`app.js?v=15` verified live)<br>4. ✅ Create `@personalabsacademy` IG Creator profile + generate **8K Exact-Face Saree Profile Picture** ([`insta_dp_exact_face_1080x1080.jpg`](../assets/insta_dp_exact_face_1080x1080.jpg))<br>5. ✅ *(Pulled forward from Day 3)* Automated **Meta Ad Library Competitor Spy Scan** across all 4 tabs (`107` ads scanned; extracted top 7 long-running winners + Headlines & Copy Options A/B/C below) | ✅ **100% Done & Verified** |
 | **Day 1 — Part C<br>(Today, Oct 11 — NOW)** | **Meta Ad Account + Meta Pixel (`1661173205598260`) + ManyChat + Launch Campaign #1 (`India INR`)** | **Agent + You** | 1. ✅ *(Pulled forward from Day 4)* Created **Ad Account (`PersonaLabs Academy Ads`, ID: `2218391099056783`, `Asia/Kolkata`, `INR`)** in Meta Business Suite (`1761523878300294`)<br>2. ✅ Created **Dataset / Meta Pixel (`PersonaLabs Academy Pixel`, ID: `1661173205598260`)**, linked to Ad Account `2218391099056783`, wired into [`app.js`](../app.js) & [`index.html`](../index.html) (`?v=16`), and deployed to Vercel<br>3. ✅ Cleaned `@personalabsacademy` IG bio + uploaded 8K exact-face saree DP + configured **ManyChat Auto-DM** flow<br>4. 🎯 Launch **Campaign #1 (India Only)** in Meta Ads Manager (`Sales → Purchase`, `₹500–₹800/day`, IG Reels/Stories/Feed) using [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) + Copy Options A/B/C | 🔄 **Ready to Launch Campaign #1** |
 | **Day 2<br>(Mon, Oct 12)** | **PayPal Post-Review Email Swap + First 24h Ad Monitoring & WhatsApp Cart Recovery** | **You** | 1. 🎯 **Once PayPal's yellow review banner clears (~24h):**<br>&nbsp;&nbsp;• Close the unused `personalabsacademy@gmail.com` PayPal account (*Settings → Close account*)<br>&nbsp;&nbsp;• On your verified PayPal Business account, add `personalabsacademy@gmail.com` as **Primary Email** & confirm **Business Name** = `PersonaLabs Academy`<br>2. 🎯 Check `PersonaLabs Academy — Orders DB` Sheet for yellow `INITIATED_CHECKOUT` leads from Day 1 ads and send WhatsApp recovery message ([`OUTREACH.md`](OUTREACH.md) §2)<br>3. 🎯 Post **Day 1 Reel** + **1 Trial Reel** | 🎯 **Up Next Tomorrow** |
@@ -110,39 +110,39 @@ While PayPal shows the yellow *"Feel free to explore your account while we revie
 > **GOLDEN RULE — Never Put India and US/UK/CA/AU in the Same Ad Set!**
 > Always run **Campaign #1 = India Only (`₹ INR`)** using [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) and **Campaign #2 = Tier-1 Countries (`US + UK + Canada + Australia` in `$ USD`)** using [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads).
 
-| Setting / Metric | 🇮🇳 Campaign #1: India Only (Launch Today / Day 4) | 🌎 Campaign #2: Tier-1 `US, UK, CA, AU` (Launch Day 8) |
+| Setting / Metric | 🇮🇳 Campaign #1: India Only (Launch Today / Day 1) | 🌎 Campaign #2: Tier-1 `US, UK, CA, AU` (Launch Day 5) |
 | :--- | :--- | :--- |
-| **Video Ad Creatives** | [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) (`₹199` Flash Offer) | [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9` Flash Offer) |
+| **Video Ad Creatives** | [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) (`₹249` Flash Offer) | [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9` Flash Offer) |
 | **Campaign Objective** | `Sales` → Website → Event: **`Purchase`** | `Sales` → Website → Event: **`Purchase`** |
 | **Locations & Age** | `India`, Age `18–36` | `United States, United Kingdom, Canada, Australia` (*Exclude India*), Age `18–40` |
 | **Placements** | Manual: **IG Reels, IG Stories, IG Feed, FB Reels** only | Manual: **IG Reels, IG Stories, IG Feed, FB Reels** only |
 | **Starting Daily Budget** | **`₹500 – ₹800 / day`** | **`₹1,200 – ₹2,000 / day`** |
-| **Checkout Price & Gateway** | `₹199` Base / `₹597` Full Bundle (**Razorpay Live**) | `$9` Base / `$20` Full Bundle (**PayPal Live**) |
-| **Target Cost Per Purchase** | `₹80 – ₹140` (`2.5x+ ROAS` with order bumps) | `$5 – $9` (`₹420 – ₹760`) |
+| **Checkout Price & Gateway** | `₹249` Base / `₹647` Full Bundle (**Razorpay Live**) | `$9` Base / `$20` Full Bundle (**PayPal Live**) |
+| **Target Cost Per Purchase** | `₹90 – ₹150` (`2.5x+ ROAS` with order bumps) | `$5 – $9` (`₹420 – ₹760`) |
 
 #### Ready-to-Post Video Ad Scripts (Already Rendered in `ads-ready/`):
 1. **🔥 Video Ad #1 (`Ad-01-Curiosity-Reveal-*-9x16.mp4`):**
    - **0:00–0:04:** *"Wait… she doesn't actually exist. Every single photo and Reel you're looking at is 100% AI-generated."*
    - **0:04–0:09:** *"While most people waste hours scrolling Instagram, smart creators are building faceless AI influencers with locked facial consistency."*
    - **0:09–0:14:** *"No camera, no studio, and no expensive models. Just copy-paste our exact prompts and free AI tools in 15 minutes a day."*
-   - **0:14–End:** *"Visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit!"*
+   - **0:14–End:** *"Visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit for just ₹249 [or $9]!"*
 2. **💰 Video Ad #2 (`Ad-02-Proof-Monetization-*-9x16.mp4`):**
    - **0:00–0:04:** *"Stop paying ₹15,000 [or $500] for product shoots or showing your own face on camera to grow on Instagram."*
    - **0:04–0:09:** *"Look at how our AI models keep the exact same face across luxury resorts, gym selfies, cafes, and viral evening Reels."*
    - **0:09–0:14:** *"Inside PersonaLabs Academy, you get 23 step-by-step video lessons, 250+ face-lock prompts, and automated DM funnels."*
-   - **0:14–End:** *"Unlock instant lifetime access today at PersonaLabs.store and launch your AI influencer tonight!"*
+   - **0:14–End:** *"Unlock instant lifetime access today for just ₹249 [or $9] at PersonaLabs.store and launch your AI influencer tonight!"*
 3. **⚡ Video Ad #3 (`Ad-03-No-Laptop-5Day-System-*-9x16.mp4`):**
    - **0:00–0:04:** *"Think you need an expensive gaming PC or coding skills to create an ultra-realistic AI influencer? Watch this."*
    - **0:04–0:09:** *"In just 5 days, we walk you click-by-click from generating her face to animating viral vertical Reels using free browser tools."*
    - **0:09–0:14:** *"Plus, you can unlock our private FaceFusion pro workflow and 500 viral Reel hooks that stop the scroll in seconds."*
-   - **0:14–End:** *"Don't miss the flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
+   - **0:14–End:** *"Don't miss the ₹249 [or $9] flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
 
 #### Copy-Paste Headlines & Primary Ad Text Options (Meta Ads Manager):
 
 * **3 Battle-Tested Headlines (Add all 3 using Meta's `+ Add Headline Option`):**
-  1. `This Girl Isn’t Real… Build Your Own AI Influencer (₹199 Instant Access) 😳` *(or `$9 Instant Access` for Global)*
+  1. `This Girl Isn’t Real… Build Your Own AI Influencer (₹249 Instant Access) 😳` *(or `$9 Instant Access` for Global)*
   2. `Build Your Own AI Influencer in 5 Days — Instant Vault Access 🚀`
-  3. `23 HD Videos + 250 Face-Lock Prompts (90% OFF Launch Offer)`
+  3. `23 HD Videos + 250 Face-Lock Prompts (88% OFF Launch Offer)`
 
 * **Primary Text Option A (Hybrid Competitor Winner — Best for India & Global):**
 ```text
@@ -156,7 +156,7 @@ Inside the PersonaLabs 5-Day AI Influencer Launch Kit, you’ll see the full sys
 
 📥 Instant Vault + Google Drive Access immediately after payment (No waiting, no camera, no coding needed).
 
-🔥 Launch Offer: Only ₹199 Today (or $9 Global — 90% OFF Regular Price)
+🔥 Launch Offer: Only ₹249 Today (or $9 Global — 88% OFF Regular Price)
 👇 Tap "Learn More" to unlock instant access now:
 https://personalabs.store
 ```
@@ -167,7 +167,7 @@ This is 100% AI.
 The pores, the eyes, the natural skin texture, the 4K Reels — all generated without a camera or studio.
 And faceless AI Influencer pages like this are pulling 100K–1M+ views on autopilot.
 
-Learn the exact 23-video Face-Lock & Viral Reel system today for just ₹199 (or $9) — instant access at personalabs.store 👇
+Learn the exact 23-video Face-Lock & Viral Reel system today for just ₹249 (or $9) — instant access at personalabs.store 👇
 ```
 
 * **Primary Text Option C (Skill & Authority Hook — Modeled on 6-Month `AI Video Skool` Winner):**
@@ -177,7 +177,7 @@ Creating realistic AI Influencers is turning into a real digital business skill.
 The opportunity is NOT in making random AI clips that change faces every time.
 It’s in locking 100% facial consistency across photos, outfits, and 9:16 Reels that look real enough for brand deals, digital products, and automated affiliate funnels.
 
-Inside PersonaLabs Academy (₹199 / $9 Instant Access), you get all 23 step-by-step HD video lessons + 250 copy-paste prompts.
+Inside PersonaLabs Academy (₹249 / $9 Instant Access), you get all 23 step-by-step HD video lessons + 250 copy-paste prompts.
 👇 Tap "Learn More" to start building tonight:
 https://personalabs.store
 ```
