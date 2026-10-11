@@ -99,8 +99,20 @@ While PayPal shows the yellow *"Feel free to explore your account while we revie
 2. **Connect Free ManyChat Auto-DM (`manychat.com`):**
    - Trigger when user comments on any Reel with: `AI`, `LAUNCH`, `MODEL`, `REEL`, `HACK`, `LINK`, `PROMPT`.
    - Use the exact Public Comment Auto-Replies and Automated DM scripts in [`docs/OUTREACH.md`](OUTREACH.md).
-3. **Spy on Competitor Ads Before Launching Paid Traffic (`facebook.com/ads/library`):**
-   - Set Location = `India`, Category = `All Ads`, search `earlycaves.com` and `AI Influencer`, and note the hooks running `2+ weeks`.
+3. **Verified Live Meta Ad Library Competitor Winners (`facebook.com/ads/library` — Oct 2026 Scan Across All 4 Tabs):**
+   - **Tab 1 (`India — earlycaves`):** No active AI Influencer ads currently running under `earlycaves`.
+   - **Tab 2 (`India — "AI Influencer"` Video Ads):**
+     - **`MindBrix EdTech Solution` (`₹249` — Running 26+ days since 15 Sep 2026 · `2 ads use this creative and text`):** *"You’ve probably seen AI influencers before. But what if you could actually build one yourself? 👀 AI Influencer Mastery 2.0 teaches you how to create a realistic AI character, maintain the same identity across content, generate images & videos, and build an AI creator brand from scratch... Lifetime access for ₹249."*
+     - **`Digitalvalut Media` (`₹199` — Running 67+ days nonstop since 5 Aug 2026):** *"🚀 AI Influencer banana ab pehle se bhi easy hai! ✅ AI Influencer Create Karna ✅ Viral AI Reels Banana ✅ Realistic AI Images Generate Karna ✅ Bina Face Reveal Content Banana... 📥 Payment ke turant baad Instant Course Access milega. Koi waiting nahi. 🔥 Launch Offer: ₹199 Only"*
+     - **`Varnexa Digital` (`₹199` — Running since 2 Oct 2026):** Headline: **`This Girl Isn’t Real… But Her AI Page Is Making Money 😳`** | Copy: *"People are creating AI Influencer pages, viral reels & faceless content using simple AI tools — and earning online without showing their face... No Camera. No Experience. No Team Needed 🚀 Limited Time Offer Only ₹199/-"*
+     - **`Shreya Xtrader` (`₹199` — Running 2 active video variations since 6 Oct 2026):** Headline: **`Build Your Own AI Influencer – ₹199 (30-min masterclass · Instant access)`** | Copy: *"She doesn't exist. Her face, her photos, her reels — all made with AI. In this 30-minute masterclass I show the full system on screen: how she's created, how her page grows, and the AI chat bot that replies to fans 24/7. No face. No camera."*
+     - **`FlyAds.ai` (Running ~6 months since 18 Apr 2026 · `This ad has multiple versions`):** 4-line Hinglish/English emoji bullets (`🚨 Flyads app se video ads banaao in 2 minutes 💸 Promote Your Business 👯‍♀️ 500+ Real Looking AI Influencers ✅ Increase Leads & Sales`).
+   - **Tab 3 (`India — "AI Model" Instagram` Video Ads):**
+     - **`Fame Sutra` (`3 ads use this creative and text`):** *"1 फोटो से बनाएं Trending Fashion Walk AI Video."* (Proves high Indian demand for 1-photo-to-video fashion walk workflows).
+   - **Tab 4 (`US / Global — "AI Influencer"` Video Ads):**
+     - **`AI Video Skool` (`$9` — Running ~6 months nonstop since 15 Apr 2026 across India & US · `2 ads use this creative and text` x 4 ad sets):** Headline: **`Create Your AI Influencer — Join Only for $9`** | Copy: *"AI video is turning into a real business skill. Not because it’s trendy, but because brands, creators, and businesses all need more content than ever before... The opportunity is not in making random AI clips. It’s in learning how to make AI videos that actually look good enough to use for ads, content, and client work."*
+     - **`russestudiosv with Makeugcai` (Running 51+ days since 21 Aug 2026):** *"This is AI. He was created inside MakeUGC. The pores, the eyes, the veins: all AI. And this AI influencer made $7K this month."*
+     - **`FanPro Management` (Running since 13 Aug 2026 · `3 ads use this creative and text`):** *"We build AI Influencers. You own them... We post their content on Instagram, TikTok, and Fanvue."*
 
 ---
 
@@ -110,48 +122,76 @@ While PayPal shows the yellow *"Feel free to explore your account while we revie
 > **GOLDEN RULE — Never Put India and US/UK/CA/AU in the Same Ad Set!**
 > Always run **Campaign #1 = India Only (`₹ INR`)** using [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) and **Campaign #2 = Tier-1 Countries (`US + UK + Canada + Australia` in `$ USD`)** using [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads).
 
-| Setting / Metric | 🇮🇳 Campaign #1: India Only (Launch Day 4) | 🌎 Campaign #2: Tier-1 `US, UK, CA, AU` (Launch Day 8) |
+| Setting / Metric | 🇮🇳 Campaign #1: India Only (Launch Today / Day 4) | 🌎 Campaign #2: Tier-1 `US, UK, CA, AU` (Launch Day 8) |
 | :--- | :--- | :--- |
-| **Video Ad Creatives** | [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) (`₹249` CTA) | [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9` CTA) |
+| **Video Ad Creatives** | [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) (`₹199` Flash Offer) | [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9` Flash Offer) |
 | **Campaign Objective** | `Sales` → Website → Event: **`Purchase`** | `Sales` → Website → Event: **`Purchase`** |
 | **Locations & Age** | `India`, Age `18–36` | `United States, United Kingdom, Canada, Australia` (*Exclude India*), Age `18–40` |
 | **Placements** | Manual: **IG Reels, IG Stories, IG Feed, FB Reels** only | Manual: **IG Reels, IG Stories, IG Feed, FB Reels** only |
 | **Starting Daily Budget** | **`₹500 – ₹800 / day`** | **`₹1,200 – ₹2,000 / day`** |
-| **Checkout Price & Gateway** | `₹249` Base / `₹647` Full Bundle (**Razorpay Live**) | `$9` Base / `$20` Full Bundle (**PayPal Live**) |
-| **Target Cost Per Purchase** | `₹90 – ₹160` (`2.5x+ ROAS` with order bumps) | `$5 – $9` (`₹420 – ₹760`) |
+| **Checkout Price & Gateway** | `₹199` Base / `₹597` Full Bundle (**Razorpay Live**) | `$9` Base / `$20` Full Bundle (**PayPal Live**) |
+| **Target Cost Per Purchase** | `₹80 – ₹140` (`2.5x+ ROAS` with order bumps) | `$5 – $9` (`₹420 – ₹760`) |
 
 #### Ready-to-Post Video Ad Scripts (Already Rendered in `ads-ready/`):
 1. **🔥 Video Ad #1 (`Ad-01-Curiosity-Reveal-*-9x16.mp4`):**
    - **0:00–0:04:** *"Wait… she doesn't actually exist. Every single photo and Reel you're looking at is 100% AI-generated."*
    - **0:04–0:09:** *"While most people waste hours scrolling Instagram, smart creators are building faceless AI influencers with locked facial consistency."*
    - **0:09–0:14:** *"No camera, no studio, and no expensive models. Just copy-paste our exact prompts and free AI tools in 15 minutes a day."*
-   - **0:14–End:** *"Visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit for just ₹249 [or $9]!"*
+   - **0:14–End:** *"Visit PersonaLabs.store right now to grab the 23-video AI Influencer Launch Kit!"*
 2. **💰 Video Ad #2 (`Ad-02-Proof-Monetization-*-9x16.mp4`):**
    - **0:00–0:04:** *"Stop paying ₹15,000 [or $500] for product shoots or showing your own face on camera to grow on Instagram."*
    - **0:04–0:09:** *"Look at how our AI models keep the exact same face across luxury resorts, gym selfies, cafes, and viral evening Reels."*
    - **0:09–0:14:** *"Inside PersonaLabs Academy, you get 23 step-by-step video lessons, 250+ face-lock prompts, and automated DM funnels."*
-   - **0:14–End:** *"Unlock instant lifetime access today for just ₹249 [or $9] at PersonaLabs.store and launch your AI influencer tonight!"*
+   - **0:14–End:** *"Unlock instant lifetime access today at PersonaLabs.store and launch your AI influencer tonight!"*
 3. **⚡ Video Ad #3 (`Ad-03-No-Laptop-5Day-System-*-9x16.mp4`):**
    - **0:00–0:04:** *"Think you need an expensive gaming PC or coding skills to create an ultra-realistic AI influencer? Watch this."*
    - **0:04–0:09:** *"In just 5 days, we walk you click-by-click from generating her face to animating viral vertical Reels using free browser tools."*
    - **0:09–0:14:** *"Plus, you can unlock our private FaceFusion pro workflow and 500 viral Reel hooks that stop the scroll in seconds."*
-   - **0:14–End:** *"Don't miss the ₹249 [or $9] flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
+   - **0:14–End:** *"Don't miss the flash sale. Tap below to get instant access to all 23 English-captioned videos right now!"*
 
-#### Copy-Paste Primary Ad Text (Meta Ads Manager):
+#### Copy-Paste Headlines & Primary Ad Text Options (Meta Ads Manager):
+
+* **3 Battle-Tested Headlines (Add all 3 using Meta's `+ Add Headline Option`):**
+  1. `This Girl Isn’t Real… Build Your Own AI Influencer (₹199 Instant Access) 😳` *(or `$9 Instant Access` for Global)*
+  2. `Build Your Own AI Influencer in 5 Days — Instant Vault Access 🚀`
+  3. `23 HD Videos + 250 Face-Lock Prompts (90% OFF Launch Offer)`
+
+* **Primary Text Option A (Hybrid Competitor Winner — Best for India & Global):**
 ```text
-Still filming Reels with your own camera in 2026? 🤖✨
+She doesn't exist. Her face, her skin texture, her 4K Reels — 100% made with free AI tools. 🤖✨
 
-Top virtual creator pages are pulling 100K–1M+ views and automated daily income using 100% AI-generated influencers — built entirely from a smartphone or browser with free AI tools.
+Inside the PersonaLabs 5-Day AI Influencer Launch Kit, you’ll see the full system on screen:
+✅ 100% Face-Lock DNA: Keep the exact same realistic face across every photo & outfit
+✅ 4K Viral AI Reels: Turn static images into ultra-real vertical videos on your phone or laptop
+✅ 24/7 Auto-DM Monetization: Automated DM funnels that convert views into sales without showing your face
+✅ Bonus Included: 250+ Character DNA Prompts & Lighting Bible
 
-Inside the 5-Day AI Influencer Launch Kit (88% OFF Flash Sale: ₹249 / $9), you get:
-✅ 23 Step-by-Step HD Video Lessons (With English Captions)
-✅ The 100% Face-Lock Workflow (Same exact face across every photo & outfit)
-✅ 250+ Copy-Paste Character DNA & Luxury Scene Prompts
-✅ Viral 9:16 AI Reels & Automated ManyChat DM Blueprint
-✅ Instant On-Screen Vault Access + 100% 7-Day Money-Back Guarantee
+📥 Instant Vault + Google Drive Access immediately after payment (No waiting, no camera, no coding needed).
 
-⚠️ 88% OFF Flash Offer expires when the timer hits 00:00.
-👇 Tap "Learn More" to unlock your Vault instantly at personalabs.store!
+🔥 Launch Offer: Only ₹199 Today (or $9 Global — 90% OFF Regular Price)
+👇 Tap "Learn More" to unlock instant access now:
+https://personalabs.store
+```
+
+* **Primary Text Option B (Ultra-Punchy 4-Line Hook — Modeled on 50+ Day US Winner):**
+```text
+This is 100% AI.
+The pores, the eyes, the natural skin texture, the 4K Reels — all generated without a camera or studio.
+And faceless AI Influencer pages like this are pulling 100K–1M+ views on autopilot.
+
+Learn the exact 23-video Face-Lock & Viral Reel system today for just ₹199 (or $9) — instant access at personalabs.store 👇
+```
+
+* **Primary Text Option C (Skill & Authority Hook — Modeled on 6-Month `AI Video Skool` Winner):**
+```text
+Creating realistic AI Influencers is turning into a real digital business skill.
+
+The opportunity is NOT in making random AI clips that change faces every time.
+It’s in locking 100% facial consistency across photos, outfits, and 9:16 Reels that look real enough for brand deals, digital products, and automated affiliate funnels.
+
+Inside PersonaLabs Academy (₹199 / $9 Instant Access), you get all 23 step-by-step HD video lessons + 250 copy-paste prompts.
+👇 Tap "Learn More" to start building tonight:
+https://personalabs.store
 ```
 
 ---
