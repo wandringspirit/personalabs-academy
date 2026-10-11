@@ -1,6 +1,20 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.8.1 — 2026-10-11 (Latest Release)
+## v2.8.2 — 2026-10-11 (Latest Release)
+- **Live Meta Pixel (`1661173205598260`) & Ad Account (`2218391099056783`) Connected ([`app.js`](../app.js), [`index.html`](../index.html), [`docs/ROADMAP.md`](ROADMAP.md)):**
+  - Created **`PersonaLabs Academy Ads`** (`ID: 2218391099056783`, `Currency: INR`, `Time Zone: Asia/Kolkata`) and **`PersonaLabs Academy Pixel`** (`ID: 1661173205598260`) in Meta Business Suite (`business_id=1761523878300294`) and linked them under *Connected Assets*.
+  - Wired `metaPixelId: '1661173205598260'` in [`app.js`](../app.js) (`?v=16`) and added the `<noscript>` beacon in [`index.html`](../index.html) to automatically track `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout`, and `Purchase` (with dynamic `INR`/`USD` values).
+  - Created Draft Sales Campaign **`IN - Sales - AI Influencer Launch Kit (INR)`** (`Campaign ID: 120251814625900152`) in Meta Ads Manager.
+- **Vercel Global Edge CDN Auto-Deploy & Privacy-Protected Git Author ([`docs/DEPLOY.md`](DEPLOY.md)):**
+  - Completed DNS migration of `personalabs.store` (`A @` → `216.198.79.1`) and `www.personalabs.store` (`CNAME www` → `847062401d7e0c68.vercel-dns-017.com`) to Vercel Global Edge CDN.
+  - Configured local Git author to GitHub's privacy-preserving `wandringspirit <209062033+wandringspirit@users.noreply.github.com>` address so every `git push origin main` triggers an instant automatic Vercel Hobby deployment without exposing any personal email.
+- **8K Exact-Face Saree Profile Portraits & ManyChat Auto-DM Flow ([`assets/`](../assets), [`docs/OUTREACH.md`](OUTREACH.md)):**
+  - Generated 8K DSLR-restored portraits from `demo.mp4` ([`assets/insta_dp_exact_face_1080x1080.jpg`](../assets/insta_dp_exact_face_1080x1080.jpg) & [`assets/insta_saree_full_portrait_hd.jpg`](../assets/insta_saree_full_portrait_hd.jpg)) with zero facial drift and uploaded to `@personalabsacademy`.
+  - Configured ManyChat Comment-to-DM automation (`AI, LAUNCH, MODEL, REEL, HACK, LINK, PROMPT, VIP`) with 2-step Opening DM (`🚀 Send me the link` → `🚀 Unlock Launch Kit` → `https://personalabs.store`).
+- **107-Ad Meta Ad Library Competitor Spy Scan ([`docs/ROADMAP.md`](ROADMAP.md), [`docs/COMPETITORS.md`](COMPETITORS.md)):**
+  - Scanned 107 active video ads across 4 Meta Ad Library tabs (`India "AI Influencer"`, `India "AI Model" Instagram`, `US "AI Influencer"`, `earlycaves`) and extracted the top 7 long-running winners (`MindBrix EdTech`, `Digitalvalut Media`, `Varnexa Digital`, `Shreya Xtrader`, `FlyAds.ai`, `AI Video Skool`, `russestudiosv`) + 3 Battle-Tested Headlines and Primary Text Options (`A`, `B`, `C`).
+
+## v2.8.1 — 2026-10-11
 - **Dedicated `personalabsacademy@gmail.com` 3-Folder Google Drive + New Orders DB Sheet Connected ([`app.js`](../app.js), [`index.html`](../index.html), [`course-vault/index.html`](../course-vault/index.html), [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)):**
   - Connected the new Google Sheets Order & Lead Database (`1Sy8fyVC84tfgognGzGbJl0cSuIq5WFGgL8HoPzjGElc`) and live Apps Script Web App (`AKfycbzxKGXLOy1g2TebrWch0aGHdvTp7iYffCULRApdjlEerdum6p2Sj4mAWa5awzM_JrOm`) owned 100% by **`personalabsacademy@gmail.com`**.
   - Wired all 3 Restricted Google Drive deliverable folders (`01-Core-Course-Videos`: `1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm`, `02-Uncensored-NSFW-Addon-Videos`: `10HGXWcRMR898lbQnTX41G--fPLKoBOvW`, `03-500-Viral-Hooks-And-Prompts-Pack`: `1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN`) across `DriveApp.addViewer` and the on-screen/receipt delivery links (`?v=15`).

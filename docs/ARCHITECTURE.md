@@ -3,10 +3,13 @@
 ## 1. High-Level Architecture Overview
 
 ```
-Visitor (Instagram Reel / Bio Link / ManyChat DM / Ad)
+Visitor (Instagram Reel / Bio Link / ManyChat DM / Meta Video Ad)
    │
    ▼
-https://personalabs.store/ (Static Edge CDN — Netlify / Vercel)
+https://personalabs.store/ (Vercel Global Edge CDN — 216.198.79.1, v2.8.2)
+   ├── Meta Pixel Conversion Tracking (`1661173205598260` — PersonaLabs Academy Pixel)
+   │     └── Auto-fires: PageView, ViewContent, AddToCart, InitiateCheckout & Purchase (INR/USD)
+   │
    ├── Geo-IP Detection & Currency Lock
    │     ├── 🇮🇳 India IPs ──► Locked to INR (₹249 Flash / ₹499 Launch Offer — 75% OFF ₹1,999)
    │     └── 🌎 Global IPs ──► Locked to USD ($9 Flash / $19 Launch Offer — 75% OFF $79)
@@ -23,16 +26,16 @@ https://personalabs.store/ (Static Edge CDN — Netlify / Vercel)
    │     ├── 🇮🇳 India (INR): Live Razorpay Standard Checkout (`rzp_live_TmX62nNGuBaTUc` — UPI/QR/Cards/NetBanking)
    │     └── 🌎 Global (USD): Live PayPal Smart Buttons SDK (`BAARfEN6...` — PayPal + International Cards, NO_SHIPPING)
    │
-   ├── Real-Time Google Sheets Order & Lead Database (Apps Script Webhook)
+   ├── Real-Time Google Sheets Order & Lead Database (`1Sy8fyVC84tfgognGzGbJl0cSuIq5WFGgL8HoPzjGElc`)
    │     ├── Event 1: INITIATED_CHECKOUT (Yellow Row — captures WhatsApp/Email before payment)
    │     └── Event 2: PAID_SUCCESS (Green Row — logs verified TxId + triggers DriveApp.addViewer)
    │
    └── Post-Purchase Delivery & Cryptographic Add-On Verification
          ├── 1. Interactive Member Vault: https://personalabs.store/course-vault/?email=...&tx=...&vt1=...&vt2=...
          └── 2. Private Google Drive 3-Folder Architecture (personalabsacademy@gmail.com + DriveApp.addViewer)
-               ├── Folder 01: 01-Core-Course-Videos (19 Core English-Captioned HD Videos)
-               ├── Folder 02: 02-Uncensored-NSFW-Addon-Videos (4 Exclusive NSFW Add-On Videos — Bump #1)
-               └── Folder 03: 03-500-Viral-Hooks-And-Prompts-Pack (500+ Hooks + 250+ Prompts — Bump #2)
+               ├── Folder 01: 01-Core-Course-Videos (`1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm`)
+               ├── Folder 02: 02-Uncensored-NSFW-Addon-Videos (`10HGXWcRMR898lbQnTX41G--fPLKoBOvW`)
+               └── Folder 03: 03-500-Viral-Hooks-And-Prompts-Pack (`1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN`)
 ```
 
 ---
@@ -41,16 +44,17 @@ https://personalabs.store/ (Static Edge CDN — Netlify / Vercel)
 
 | File / Folder | Purpose |
 | :--- | :--- |
-| [`index.html`](../index.html) | High-converting single-page storefront with 10-min flash timer, "Nothing to lose. Everything to gain." 100% Guarantee section, inline live viewer counter, dual order bumps, country-aware phone selector, live Razorpay (`INR`) & PayPal (`USD`) checkout, and Post-Purchase Upgrade Mode (`?upgrade=bump1` / `?upgrade=bump2`). |
+| [`index.html`](../index.html) | High-converting single-page storefront with 10-min flash timer, "Nothing to lose. Everything to gain." 100% Guarantee section, inline live viewer counter, dual order bumps, country-aware phone selector, live Razorpay (`INR`) & PayPal (`USD`) checkout, Meta Pixel (`1661173205598260`), and Post-Purchase Upgrade Mode (`?upgrade=bump1` / `?upgrade=bump2`). |
 | [`styles.css`](../styles.css) | Custom design system tokens, light/dark mode contrast enforcement, smooth pointer hover zoom (`hero-hover-zoom`), and mobile-first responsive utilities. |
-| [`app.js`](../app.js) | Pricing state machine (`Option A1` 2-tier discount ladder), Geo-IP currency detection, country-aware phone & email validator, live Razorpay & PayPal SDK orchestration, FNV-1a (`vt1`/`vt2`) signature verification, and Google Sheets webhook dispatcher. |
+| [`app.js`](../app.js) | Pricing state machine (`Option A1` 2-tier discount ladder), Geo-IP currency detection, country-aware phone & email validator, live Razorpay & PayPal SDK orchestration, Meta Pixel event dispatcher (`1661173205598260`), FNV-1a (`vt1`/`vt2`) signature verification, and Google Sheets webhook dispatcher. |
 | [`vercel.json`](../vercel.json) | Zero-build static hosting configuration with instant cache revalidation on `index.html`/`app.js`/`styles.css` and `X-Robots-Tag: noindex, nofollow` on `/course-vault/*`. |
 | [`favicon.svg`](../favicon.svg) | Official `PersonaLabs Academy` (`PL` + Gold AI Spark) vector brand mark. |
+| [`assets/insta_dp_exact_face_1080x1080.jpg`](../assets/insta_dp_exact_face_1080x1080.jpg) | 8K DSLR-restored 1:1 square Instagram & Facebook Page profile picture matching `demo.mp4` with zero facial drift. |
 | [`course-vault/index.html`](../course-vault/index.html) | Interactive Student Member Portal with 5-Day curriculum, progress tracking, cryptographic + server-side add-on access control (`vt1` & `vt2`), and 1-click post-purchase upgrade cards. |
 | [`course-vault/uncensored-vip-8f92a1c4.html`](../course-vault/uncensored-vip-8f92a1c4.html) | Order Bump #1 Unguessable VIP Guide: Uncensored Content Hack, FaceFusion workflow, and safe multi-platform funneling. |
 | [`course-vault/hooks-vip-3d7e91b2.html`](../course-vault/hooks-vip-3d7e91b2.html) | Order Bump #2 Unguessable VIP Guide: 500+ Viral Reel Hooks & ManyChat Comment-to-DM Automation Scripts. |
 | [`course-vault/character-dna-prompt-bible.html`](../course-vault/character-dna-prompt-bible.html) | Core Bonus: 250+ AI Character DNA & Face-Lock Master Prompts. |
-| [`docs/ROADMAP.md`](ROADMAP.md) | Prioritized **To do** action table (`Phase / To do / Who / When / Details`), completed phase logs, 3 Video Ad scripts, and 30-Day Content Calendar. |
+| [`docs/ROADMAP.md`](ROADMAP.md) | Single unified source of truth: Date-Wise & Task-Wise Master Execution Calendar, Meta Ads Campaign #1 & #2 step-by-step guide, Competitor Spy breakdown, and 30-Day Viral Reels Calendar. |
 | [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md) | Live Google Apps Script webhook documentation, `DriveApp.addViewer` auto-whitelisting, and 20-column schema reference. |
 
 ---
