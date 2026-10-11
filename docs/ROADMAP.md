@@ -4,71 +4,63 @@ Single source of truth combining our **Product Vision**, **Completed Engineering
 
 ```mermaid
 flowchart LR
-    A["Day 1 (Oct 11): Udyam + v2.8.0 Live + Razorpay & PayPal Live ✅"] --> B["Day 1–2 (Oct 11–12): 3 Drive Folders + PayPal Email Swap + IG Page"]
-    B --> C["Day 3 (Oct 13): ManyChat Auto-DM + Competitor Spy + Vercel DNS"]
-    C --> D["Day 4–7 (Oct 14–17): Launch ₹500/day India Meta Ads + WhatsApp Recovery"]
-    D --> E["Day 8–30 (Oct 18+): Scale India + Launch US/UK/CA/AU ($9 USD) Campaign"]
+    A["Day 1 Part A–B (Oct 11): Storefront v2.8.1 + Vercel CDN + 3 Drive Folders + 107-Ad Spy ✅"] --> B["Day 1 Part C (Tonight, Oct 11): Meta Ad Account + Pixel + Launch India Ads 🔄"]
+    B --> C["Day 2 (Oct 12): PayPal Email Swap + First 24h Ad & Cart Recovery"]
+    C --> D["Days 3–4 (Oct 13–14): Prune/Scale India Ads + 1-Click Add-On Upsells"]
+    D --> E["Days 5–30 (Oct 15+): Launch Tier-1 ($9 USD) Campaign + Lookalike Scale"]
 ```
 
 ---
 
 ## 🗓️ 1. Date-Wise & Task-Wise Master Execution Calendar (Done + Next)
 
-Every past and upcoming action planned day-by-day. **Who** indicates whether it is an owner action (**You** — your accounts/dashboards) or code/automation (**Agent**).
+Every past and upcoming action planned day-by-day (updated to reflect Day 2–4 tasks pulled forward into **Day 1 Today**). **Who** indicates whether it is an owner action (**You**) or code/browser automation (**Agent**).
 
-| Day / Date | Phase & Focus | Who | Exact Tasks (✅ Completed vs. 🎯 To Do Next) | Status / Goal |
+| Day / Date | Phase & Focus | Who | Exact Tasks (✅ Completed vs. 🔄 In Progress vs. 🎯 Next) | Status / Goal |
 | :--- | :--- | :--- | :--- | :--- |
-| **Day 1 — Part A<br>(Today, Oct 11)** | **Storefront, Vault, Captioned Videos, 6 Ads & Live Gateways (`INR` + `USD`)** | Agent + You | 1. ✅ Register Udyam MSME (`UDYAM-UP-43-0208040` — `PersonaLabs Academy`)<br>2. ✅ Deploy `v2.8.0` on `https://personalabs.store` (`app.js?v=14`)<br>3. ✅ Connect 20-column Google Sheets Orders & Leads DB + `DriveApp.addViewer` code<br>4. ✅ Activate **Live Razorpay (`rzp_live_TmX62nNGuBaTUc`)** for India (`INR`)<br>5. ✅ Activate **Live PayPal (`BAARfEN6...`)** for International (`USD`)<br>6. ✅ Add 14-country Phone Validation, Strict Email Typo Validation & 2-Tier Discount Ladder (`₹249 → ₹499` still `75% OFF ₹1,999`)<br>7. ✅ Remove watermarks & burn English captions across all **23 Course Videos** (`videos-captioned/`)<br>8. ✅ Render **6 Ready-to-Post 9:16 Video Ads** (`3` India `INR ₹249` + `3` Global `USD $9` in `ads-ready/`) | ✅ **100% Done & Live** |
-| **Day 1 — Part B<br>(Today, Oct 11)** | **Finish `@personalabsacademy` IG + 3 Private Drive Folders + Brand Orders DB + Vercel Live CDN** | **You + Agent** | 1. ✅ Create official Instagram account **`@personalabsacademy`** (`PersonaLabs Academy`) & use the clean 48h Warmup "Comment-to-DM" Bio<br>2. ✅ Upload the 3 Restricted folders under **`personalabsacademy@gmail.com`** (`01-Core`: `1QaLzv...`, `02-NSFW`: `10HGXW...`, `03-Hooks`: `1IId4d...`)<br>3. ✅ Create dedicated `PersonaLabs Academy — Orders DB` Sheet (`1Sy8fy...`) & deploy live Apps Script Web App (`AKfycbzxKG...`) under `personalabsacademy@gmail.com` with `DriveApp.addViewer` auto-whitelisting (`v2.8.1`)<br>4. ✅ Migrate `personalabs.store` & `www.personalabs.store` from Netlify Free (300-credit cap) to **Vercel Free (`216.198.79.1`)** connected to private GitHub repo (`100 deploys/day`, `app.js?v=15` verified live) | ✅ **100% Done & Verified** |
-| **Day 2<br>(Mon, Oct 12)** | **PayPal Post-Review Email Swap + ManyChat Auto-DM (`₹0` Ad Spend) + First 2 Reels** | **You** | 1. 🎯 **Once PayPal's yellow review banner clears (~24h):**<br>&nbsp;&nbsp;• Close the unused `personalabsacademy@gmail.com` PayPal account (*Settings → Close account*) to free the email<br>&nbsp;&nbsp;• On your verified PayPal Business account, add `personalabsacademy@gmail.com` as **Primary Email**<br>&nbsp;&nbsp;• In *Business Information*, confirm **Business Name** = `PersonaLabs Academy` & **Customer Service Email** = `personalabsacademy@gmail.com`<br>2. 🎯 Connect **ManyChat (Free)** to `@personalabsacademy` to auto-DM `https://personalabs.store` on keywords `AI`, `LAUNCH`, `MODEL`, `REEL`<br>3. 🎯 Post **Day 1 Reel** + **1 Trial Reel** from the 30-Day Calendar below | 🎯 **Up Next (35 Mins)** |
-| **Day 3<br>(Tue, Oct 13 — After 48h IG Warmup)** | **Add `https://personalabs.store` to IG Bio/Links + Competitor Ad Spy + Organic Reels** | **You** | 1. 🎯 **48h Instagram Warmup Complete — Add Website Link & Update Bio on `@personalabsacademy`:**<br>&nbsp;&nbsp;• On the Instagram mobile app → **Edit profile → Links → Add external link** → enter **`https://personalabs.store`**<br>&nbsp;&nbsp;• Update Bio last line to include `personalabs.store`<br>2. 🎯 Open [Meta Ad Library](https://www.facebook.com/ads/library) (`India`, `All Ads`) → search `earlycaves.com` & `AI Influencer` → note top 3 longest-running ads (2+ weeks)<br>3. 🎯 Post **Day 2 Reel** + **1 Trial Reel** | ⬜ **Scheduled (20 Mins)** |
-| **Day 4<br>(Wed, Oct 14)** | **Meta Pixel Setup + Launch Campaign #1 (India `₹500–₹800/day`)** | **You + Agent** | 1. 🎯 Create **Meta Pixel** in Meta Events Manager → send 15-digit Pixel ID to Agent to wire into `META_PIXEL_CONFIG.pixelId` in [`app.js`](../app.js)<br>2. 🎯 Launch **Campaign #1 (India Only)** in Meta Ads Manager (`Sales → Purchase`, `₹500–₹800/day`, IG Reels/Stories/Feed) uploading the 3 India `INR` videos from [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads)<br>3. 🎯 Post **Day 3 Reel** + **1 Trial Reel** | ⬜ **First Paid Traffic Live** |
-| **Days 5–6<br>(Thu–Fri, Oct 15–16)** | **48-Hour Ad Testing, CTR Pruning & 15-Min WhatsApp Cart Recovery** | **You** | 1. 🎯 Let India ads run 48 hours untouched; keep videos with **Outbound CTR `> 1.2%`**, pause any video `< 0.8%` after `₹250` spent<br>2. 🎯 Check `PersonaLabs Academy — Orders DB` Google Sheet daily for yellow `INITIATED_CHECKOUT` rows without a green `PAID_SUCCESS` row and send the WhatsApp recovery message ([`OUTREACH.md`](OUTREACH.md) §2) with code `RIYA10`<br>3. 🎯 Post **Day 4 & Day 5 Reels** | ⬜ **Identify #1 Winning Ad** |
-| **Day 7<br>(Sat, Oct 17)** | **Scale India Winning Ad Set + 48h Post-Purchase Add-On Upsells** | **You** | 1. 🎯 Increase daily budget on winning India Ad Set by **+25%** (`₹600` → `₹800/day`) when Cost Per Purchase is `< ₹160`<br>2. 🎯 Message Basic Pack buyers (`b1=0` or `b2=0`) 48h after purchase with their 1-click upgrade links (`https://personalabs.store/?upgrade=bump1` & `/?upgrade=bump2`, [`OUTREACH.md`](OUTREACH.md) §3)<br>3. 🎯 Post **Day 6 Reel** | ⬜ **Daily `₹ INR` Profit + Upsells** |
-| **Days 8–14<br>(Oct 18–24)** | **Launch Campaign #2: Tier-1 International (`US / UK / CA / AU` in `$ USD`)** | **You** | 1. 🎯 Create **separate Campaign #2** in Meta Ads Manager targeting **`United States, United Kingdom, Canada, Australia`** (`Exclude India`, `₹1,200–₹2,000/day`)<br>2. 🎯 Upload the 3 Global `USD` video ads from [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9` CTA)<br>3. 🎯 Collect **`$9–$20 USD` (`₹750–₹1,680 INR`)** per sale via Live PayPal while posting **Day 7–13 Reels** | ⬜ **Global `₹ INR` + `$ USD` Scale** |
-| **Days 15–30<br>(Oct 25 – Nov 9)** | **Remix Top Viral Reels, Lookalike Audiences & Scale to `₹1.5L–₹3L/mo`** | **You** | 1. 🎯 Follow **Day 14–30** of the Content Calendar below (2 Reels/day remixing top comment-velocity hooks)<br>2. 🎯 Scale winning India & Tier-1 Ad Sets by +25% every 48 hours and create a 1% Lookalike Audience once 100 `Purchase` events fire | ⬜ **Automated `₹1.5L–₹3L/mo` Run-Rate** |
+| **Day 1 — Part A<br>(Today, Oct 11)** | **Storefront `v2.8.1`, Vault, Captioned Videos, 6 Ads & Live Gateways (`INR` + `USD`)** | Agent + You | 1. ✅ Register Udyam MSME (`UDYAM-UP-43-0208040` — `PersonaLabs Academy`)<br>2. ✅ Deploy `v2.8.1` (`₹199` India / `$9` Global Flash Offer) on `https://personalabs.store`<br>3. ✅ Activate **Live Razorpay (`rzp_live_TmX62nNGuBaTUc`)** for India (`INR`)<br>4. ✅ Activate **Live PayPal (`BAARfEN6...`)** for International (`USD`)<br>5. ✅ Add 14-country Phone Validation, Strict Email Typo Validation & 2-Tier Discount Ladder (`₹199 → ₹499` still `75% OFF ₹1,999`)<br>6. ✅ Remove watermarks & burn English captions across all **23 Course Videos** (`videos-captioned/`)<br>7. ✅ Render **6 Ready-to-Post 9:16 Video Ads** (`3` India `INR` + `3` Global `USD $9` in `ads-ready/`) | ✅ **100% Done & Live** |
+| **Day 1 — Part B<br>(Today, Oct 11)** | **3 Private Drive Folders + Brand Orders DB + Vercel CDN + 107-Ad Competitor Spy + 8K Avatar** | **You + Agent** | 1. ✅ Upload 3 Restricted Drive folders under **`personalabsacademy@gmail.com`** (`01-Core`: `1QaLzv...`, `02-NSFW`: `10HGXW...`, `03-Hooks`: `1IId4d...`)<br>2. ✅ Create dedicated `PersonaLabs Academy — Orders DB` Sheet (`1Sy8fy...`) & deploy live Apps Script Web App (`AKfycbzxKG...`) with `DriveApp.addViewer` auto-whitelisting<br>3. ✅ Migrate `personalabs.store` & `www.personalabs.store` from Netlify Free to **Vercel Global CDN (`216.198.79.1`)** (`app.js?v=15` verified live)<br>4. ✅ Create `@personalabsacademy` IG Creator profile + generate **8K Exact-Face Saree Profile Picture** ([`insta_dp_exact_face_1080x1080.jpg`](../assets/insta_dp_exact_face_1080x1080.jpg))<br>5. ✅ *(Pulled forward from Day 3)* Automated **Meta Ad Library Competitor Spy Scan** across all 4 tabs (`107` ads scanned; extracted top 7 long-running winners + Headlines & Copy Options A/B/C below) | ✅ **100% Done & Verified** |
+| **Day 1 — Part C<br>(Today, Oct 11 — NOW)** | **Meta Ad Account + Meta Pixel (`PersonaLabs Academy Pixel`) + Launch Campaign #1 (`India INR`)** | **Agent + You** | 1. 🔄 *(Pulled forward from Day 4)* In Meta Business Suite (`business_id=1761523878300294`), create **Ad Account (`PersonaLabs Academy Ads`, Timezone: `Asia/Kolkata GMT+05:30`, Currency: `INR`)**<br>2. 🔄 Create **Dataset / Meta Pixel (`PersonaLabs Academy Pixel`)** → wire 15-digit Pixel ID into [`app.js`](../app.js) & [`index.html`](../index.html) and push to Vercel<br>3. 🎯 Clean `@personalabsacademy` IG bio (remove `"88% OFF"` / `"DM for link"`) & tap *Request Review* on the Day-1 link restriction<br>4. 🎯 Launch **Campaign #1 (India Only)** in Meta Ads Manager (`Sales → Purchase`, `₹500–₹800/day`, IG Reels/Stories/Feed) using [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) + Copy Options A/B/C | 🔄 **In Progress Right Now** |
+| **Day 2<br>(Mon, Oct 12)** | **PayPal Post-Review Email Swap + First 24h Ad Monitoring & WhatsApp Cart Recovery** | **You** | 1. 🎯 **Once PayPal's yellow review banner clears (~24h):**<br>&nbsp;&nbsp;• Close the unused `personalabsacademy@gmail.com` PayPal account (*Settings → Close account*)<br>&nbsp;&nbsp;• On your verified PayPal Business account, add `personalabsacademy@gmail.com` as **Primary Email** & confirm **Business Name** = `PersonaLabs Academy`<br>2. 🎯 Check `PersonaLabs Academy — Orders DB` Sheet for yellow `INITIATED_CHECKOUT` leads from Day 1 ads and send WhatsApp recovery message ([`OUTREACH.md`](OUTREACH.md) §2)<br>3. 🎯 Optional: If `@personalabsacademy` appeal is still pending, create clean organic IG `@personalabs.ai` on mobile 4G/5G data (no bio link/price for first 5 days) and post **Day 1 Reel** | 🎯 **Up Next Tomorrow** |
+| **Days 3–4<br>(Tue–Wed, Oct 13–14)** | **48-Hour Ad CTR Pruning, Budget Scaling (`+25%`) & 1-Click Add-On Upsells** | **You** | 1. 🎯 Let India ads run 48 hours untouched; keep videos with **Outbound CTR `> 1.2%`**, pause any video `< 0.8%` after `₹250` spent<br>2. 🎯 Increase daily budget on winning India Ad Set by **+25%** (`₹600` → `₹800/day`) when Cost Per Purchase is `< ₹140`<br>3. 🎯 Message Basic Pack buyers (`b1=0` or `b2=0`) 48h after purchase with their 1-click upgrade links (`https://personalabs.store/?upgrade=bump1` & `/?upgrade=bump2`) | ⬜ **Identify & Scale #1 Winner** |
+| **Days 5–7<br>(Thu–Sat, Oct 15–17)** | **Launch Campaign #2: Tier-1 International (`US / UK / CA / AU` in `$ USD`)** | **You + Agent** | 1. 🎯 *(Pulled forward from Day 8)* Create **separate Campaign #2** in Meta Ads Manager targeting **`United States, United Kingdom, Canada, Australia`** (`Exclude India`, `₹1,200–₹2,000/day`)<br>2. 🎯 Upload the 3 Global `USD` video ads from [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9` CTA)<br>3. 🎯 Collect **`$9–$20 USD` (`₹750–₹1,680 INR`)** per sale via Live PayPal | ⬜ **Global `₹ INR` + `$ USD` Scale** |
+| **Days 8–30<br>(Oct 18 – Nov 9)** | **ManyChat Auto-DM Engine, 1% Lookalike Audiences & Scale to `₹1.5L–₹3L/mo`** | **You** | 1. 🎯 Once organic IG account passes 5-day warmup, connect **ManyChat (Free)** to auto-DM `https://personalabs.store` on keywords `AI`, `LAUNCH`, `MODEL`, `REEL`<br>2. 🎯 Follow the **30-Day Viral Reels Calendar** below + scale winning India & Tier-1 Ad Sets by +25% every 48 hours + launch 1% Lookalike Audience at 100 `Purchase` events | ⬜ **Automated `₹1.5L–₹3L/mo` Run-Rate** |
 
 ---
 
-## ✅ 2. Everything Completed & Live So Far (`v2.8.0`)
+## ✅ 2. Everything Completed & Live So Far (`v2.8.1` — Updated Oct 11)
 
 - [x] **Legal & Brand Privacy:** Registered Udyam MSME Certificate (`UDYAM-UP-43-0208040`) under **`PersonaLabs Academy`**; updated all storefront, legal modal, AI assistant, and downloadable `.txt` receipt emails to **`personalabsacademy@gmail.com`**.
 - [x] **Storefront & Conversion UX ([`index.html`](../index.html), [`styles.css`](../styles.css), [`app.js`](../app.js)):**
-  - Geo-IP currency lock (`INR` for India / `USD` for Global).
+  - Geo-IP currency lock (`INR ₹199` for India / `USD $9` for Global).
   - **"Nothing to lose. Everything to gain."** 100% 7-Day Money-Back Guarantee banner right below the Hero description.
-  - **2-Tier Discount Ladder (`Option A1`):** When the 10-minute `₹249` (`$9`) flash timer hits `00:00`, the price transitions to `₹499` (`$19`) while keeping **`₹1,999` (`$79`)** crossed out (`SAVE 75% OFF ₹1,999 — LAUNCH OFFER`).
+  - **2-Tier Discount Ladder (`Option A1`):** When the 10-minute `₹199` (`$9`) flash timer hits `00:00`, the price transitions to `₹499` (`$19`) while keeping **`₹1,999` (`$79`)** crossed out (`SAVE 75% OFF ₹1,999 — LAUNCH OFFER`).
   - **Country-Aware Phone & Strict Email Validation:** `<select id="phone-country-select">` (`14` country rules synced to IP country) + RFC email validation with `@gamil.com` / `@gmial.com` typo warnings and disposable domain blocking.
 - [x] **Live Payment Gateways (Zero Bypass / Verified TxId Required):**
   - **India (`INR`):** Live Razorpay Standard Checkout (`rzp_live_TmX62nNGuBaTUc`) with UPI (`GPay / PhonePe / Paytm`), QR, Cards, and Netbanking + order `notes`.
   - **International (`USD`):** Live PayPal Smart Buttons SDK (`BAARfEN6AEZqn7tB4CWb08mUBhJqBYzxwPkmMnxJNkQ77mGxuYUiisrNiiYhtg75Gg12nHMXKAS38v_p1E`) with `NO_SHIPPING`, `brand_name: 'PersonaLabs Academy'`, and `soft_descriptor: 'PERSONALABS'`.
-- [x] **Real-Time Google Sheets DB & Private Drive Automation ([`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)):**
-  - Logs `INITIATED_CHECKOUT` (yellow lead row) and `PAID_SUCCESS` (green verified row) across 20 columns and triggers `DriveApp.addViewer(buyerEmail)` for purchased folders.
-- [x] **Member Vault & Cryptographic VIP Add-On Protection ([`course-vault/`](../course-vault)):**
-  - Interactive 5-Day / 18-Lesson Portal (`course-vault/index.html`), 250+ Prompt Bible (`character-dna-prompt-bible.html`), and unguessable VIP guides (`uncensored-vip-8f92a1c4.html` & `hooks-vip-3d7e91b2.html`) protected by FNV-1a (`vt1`/`vt2`) signatures + server-side Google Sheet verification + 4-combination 1-click upgrades (`?upgrade=bump1` & `?upgrade=bump2`).
-- [x] **23 Captioned Course Videos & 6 Regional Video Ads:**
+- [x] **100% Brand-Owned Google Drive Folders & Orders DB Sheet (`personalabsacademy@gmail.com`):**
+  - Uploaded all 3 Restricted folders (`01-Core`: `1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm`, `02-NSFW`: `10HGXWcRMR898lbQnTX41G--fPLKoBOvW`, `03-Hooks`: `1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN`).
+  - Connected `PersonaLabs Academy — Orders DB` (`1Sy8fyVC84tfgognGzGbJl0cSuIq5WFGgL8HoPzjGElc`) + live Apps Script Web App (`AKfycbzxKG...`) and verified end-to-end `DriveApp.addViewer` access granting.
+- [x] **Migrated to Unlimited Free Hosting on Vercel Global Edge CDN (`216.198.79.1`):**
+  - Connected private GitHub repository (`wandringspirit/ai-influencer-course-website`) to Vercel (`https://personalabs.store` & `https://www.personalabs.store` serving `v2.8.1` / `app.js?v=15` with zero credit limits).
+- [x] **23 Captioned Course Videos, 6 Regional Video Ads & 8K Saree Profile Pictures:**
   - Stripped `INVISION ACADEMY` watermarks and burned Style 1 English Captions across all 23 course videos (`videos-captioned/`).
-  - Rendered 3 India `INR ₹249` ads ([`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads)) and 3 Global `USD $9` ads ([`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads)).
-- [x] **Prepared Unlimited Free Hosting Config ([`vercel.json`](../vercel.json)):**
-  - Configured zero-build static headers + `X-Robots-Tag: noindex, nofollow` on `/course-vault/*` for 3-click migration from Netlify Free (300-credit cap) to Vercel Free (`100 deploys/day`, private GitHub repo preserved).
+  - Rendered 3 India `INR` ads ([`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads)) and 3 Global `USD $9` ads ([`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads)).
+  - Generated 8K exact-face saree profile pictures ([`insta_dp_exact_face_1080x1080.jpg`](../assets/insta_dp_exact_face_1080x1080.jpg) & [`insta_saree_full_portrait_hd.jpg`](../assets/insta_saree_full_portrait_hd.jpg)).
+- [x] **107-Ad Meta Ad Library Competitor Spy Scan Across All 4 Tabs:**
+  - Extracted top 7 long-running India (`₹199–₹249`) & US (`$9`) winners and crafted 3 battle-tested Headlines + Primary Text Options A, B, and C below.
 
 ---
 
-## 🎯 3. Step-by-Step Instructions for Your Next Actions
+## 🎯 3. Step-by-Step Instructions for Remaining Actions
 
-### Action A (Day 1 Tonight): Upload 3 Restricted Google Drive Folders under `personalabsacademy@gmail.com`
-> [!IMPORTANT]
-> **Privacy Rule:** Never share Google Drive folders from your personal Gmail account because Google Drive's *Details → Owner* panel shows the owner's email/name to viewers. Always use **`personalabsacademy@gmail.com`**.
-
-1. Log into Google Drive using **`personalabsacademy@gmail.com`** and upload these 3 folders from `C:\Projects\ai-influencer-course-website\videos-captioned\`:
-   - **Folder 1 (`01-Core-Course-Videos`)**: 19 Core Videos + `Bonus.docx` + `readme.docx` + `250-AI-Character-DNA-Prompt-Bible.html`.
-   - **Folder 2 (`02-Uncensored-NSFW-Addon-Videos`)**: 4 Exclusive NSFW FaceSwap Videos (`14, 15, 16, 17`) + `Uncensored-Content-Hack-VIP-Guide.html`.
-   - **Folder 3 (`03-500-Viral-Hooks-And-Prompts-Pack`)**: `500-Viral-Reel-Hooks-And-AutoDM-Pack.html` + `250-AI-Character-DNA-Prompt-Bible.html`.
-2. Keep all 3 folders set to **`Restricted (Only people added can open)`**.
-3. Copy the Folder ID from each folder's URL (`https://drive.google.com/drive/folders/FOLDER_ID_HERE`) and paste them into `CORE_FOLDER_ID`, `NSFW_FOLDER_ID`, and `HOOKS_FOLDER_ID` in your Google Sheet's **Extensions → Apps Script** ([`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)), then click **Deploy → Manage deployments → Edit (✏️) → Version: New version → Deploy**.
+### ✅ Action A (Completed Day 1): 3 Restricted Google Drive Folders + Brand Orders DB under `personalabsacademy@gmail.com`
+All 3 Restricted folders (`01-Core`, `02-NSFW`, `03-Hooks`) and the `PersonaLabs Academy — Orders DB` Google Sheet are live under `personalabsacademy@gmail.com` and connected to `https://personalabs.store` (`v2.8.1`).
 
 ---
 
-### Action B (Day 2): Set PayPal Business Name & `personalabsacademy@gmail.com` as Primary Email (Once 24h Udyam Review Finishes)
+### 🎯 Action B (Day 2): Set PayPal Business Name & `personalabsacademy@gmail.com` as Primary Email (Once 24h Udyam Review Finishes)
 While PayPal shows the yellow *"Feel free to explore your account while we review your info"* banner, profile/email edits are temporarily locked. As soon as PayPal emails you that the review is complete:
 1. **Free up `personalabsacademy@gmail.com`:** Log into the unused `personalabsacademy@gmail.com` PayPal account we started earlier → go to **Settings (⚙️) → Account Options → Close your account**.
 2. **Add to your verified PayPal Business account:** Log into your main verified PayPal Business account → **Account Settings → Account Owner Information → Email address → Add New** → add **`personalabsacademy@gmail.com`**, verify the link in Gmail, and make it **Primary**.
@@ -76,27 +68,21 @@ While PayPal shows the yellow *"Feel free to explore your account while we revie
 
 ---
 
-### Action C (Day 3 / Before Next Website Code Edit): Switch Static Hosting from Netlify Free to Vercel Free
-`v2.8.0` is already live on `https://personalabs.store` and kept online by Netlify's 30 operational credits. Before we push any new website code edits:
-1. Go to **[vercel.com](https://vercel.com)** → Sign in with **GitHub (`wandringspirit`)** → **Add New → Project** → Import private repository `wandringspirit/ai-influencer-course-website` → Click **Deploy** ([`vercel.json`](../vercel.json) configures everything automatically).
-2. In Vercel **Settings → Domains**, add **`personalabs.store`**.
-3. In **Namecheap → Domain List → `personalabs.store` → Manage → Advanced DNS**, update:
-   - **`A Record` (`@`):** `76.76.21.21` (replaces Netlify's `75.2.60.5`)
-   - **`CNAME Record` (`www`):** `cname.vercel-dns.com`
+### ✅ Action C (Completed Day 1): Migrated Static Hosting from Netlify Free to Vercel Global CDN
+`personalabs.store` (`A -> 216.198.79.1`) and `www.personalabs.store` (`CNAME -> 847062401d7e0c68.vercel-dns-017.com`) are live on Vercel with automatic GitHub deployments enabled.
 
 ---
 
-### Action D (Day 2–3): The "₹0 Ad Spend" AI Persona Instagram + ManyChat Auto-DM Engine
-1. **Create Your AI Persona IG Profile (15 Mins):**
-   - Switch to **Instagram Professional Account → Creator** (free, required for ManyChat).
-   - Bio:
+### 🎯 Action D: Organic AI Persona Instagram + ManyChat Auto-DM Engine + Competitor Spy Winners
+1. **Instagram Account Safety & Bio Rules (Preventing Day-1 Link Restrictions):**
+   - For the first **5 full days** of any new Instagram Creator account, **never** paste a `.store` URL or discount text (`"88% OFF"`, `"₹199"`, `"DM for link"`) in the bio. Use this clean creator bio first:
      ```text
-     ✨ Digital Girl Living in 4K • 100% AI-Created 🤖
-     📍 Mumbai • Bali • Monaco
-     👇 Build your own AI Influencer in 5 Days (88% OFF today):
-     🔗 personalabs.store
+     ✨ 4K AI Visuals & Virtual Creator Studio 🤖
+     🎬 Character DNA • Cinematic AI Reels
+     📍 Digital Art & Creator Lab
      ```
-2. **Connect Free ManyChat Auto-DM (`manychat.com`):**
+   - After 5 days of normal warmup, add `https://personalabs.store` via the mobile app (**Edit profile → Links → Add external link**).
+2. **Connect Free ManyChat Auto-DM (`manychat.com` — Once 5-Day Warmup Completes):**
    - Trigger when user comments on any Reel with: `AI`, `LAUNCH`, `MODEL`, `REEL`, `HACK`, `LINK`, `PROMPT`.
    - Use the exact Public Comment Auto-Replies and Automated DM scripts in [`docs/OUTREACH.md`](OUTREACH.md).
 3. **Verified Live Meta Ad Library Competitor Winners (`facebook.com/ads/library` — Oct 2026 Scan Across All 4 Tabs):**
