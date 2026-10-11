@@ -6,27 +6,30 @@
 Visitor (Instagram Reel / Bio Link / ManyChat DM / Ad)
    │
    ▼
-https://personalabs.store/ (Netlify Global Edge CDN)
+https://personalabs.store/ (Static Edge CDN — Netlify / Vercel)
    ├── Geo-IP Detection & Currency Lock
-   │     ├── 🇮🇳 India IPs ──► Locked to INR (₹249 Flash / ₹499 Post-Timer)
-   │     └── 🌎 Global IPs ──► Locked to USD ($9 Flash / $19 Post-Timer)
+   │     ├── 🇮🇳 India IPs ──► Locked to INR (₹249 Flash / ₹499 Launch Offer — 75% OFF ₹1,999)
+   │     └── 🌎 Global IPs ──► Locked to USD ($9 Flash / $19 Launch Offer — 75% OFF $79)
    │
-   ├── 10-Minute Persistent Flash Sale Engine (localStorage)
-   │     └── Automatically steps price from ₹249 → ₹499 ($9 → $19) at 00:00
+   ├── 10-Minute Persistent Flash Sale & 2-Tier Discount Ladder (localStorage)
+   │     ├── Tier 1 (00:01–10:00): 88% OFF Flash Offer (₹249 / $9 vs. ₹1,999 / $79)
+   │     └── Tier 2 (Post-Timer):  75% OFF Launch Offer (₹499 / $19 vs. ₹1,999 / $79 — saves ₹1,500 / $60)
    │
-   ├── Dual Order Bump & 4-Combination Upgrade Engine
-   │     ├── Base Course Only (b1=0, b2=0)
-   │     ├── Base + Bump #1: Uncensored Content Hack (+₹249 / +$9 -> b1=1, b2=0)
-   │     ├── Base + Bump #2: 500+ Viral Reel Hooks & Auto-DM Pack (+₹149 / +$5 -> b1=0, b2=1)
-   │     └── All-Access VIP Bundle (Base + Bump #1 + Bump #2 -> b1=1, b2=1)
+   ├── Country-Aware Checkout Input Validation (app.js)
+   │     ├── Strict Email Validation + Typo Detection (@gamil.com, @gmial.com, disposable blocklist)
+   │     └── 14-Country Phone Length & Prefix Validation (+91 IN 10-digit 6-9, +1 US/CA 10-digit, +971 AE 9-digit, etc.)
+   │
+   ├── Live Regional Payment Gateways (Zero Bypass / Verified TxId Required)
+   │     ├── 🇮🇳 India (INR): Live Razorpay Standard Checkout (`rzp_live_TmX62nNGuBaTUc` — UPI/QR/Cards/NetBanking)
+   │     └── 🌎 Global (USD): Live PayPal Smart Buttons SDK (`BAARfEN6...` — PayPal + International Cards, NO_SHIPPING)
    │
    ├── Real-Time Google Sheets Order & Lead Database (Apps Script Webhook)
-   │     ├── Event 1: INITIATED_CHECKOUT (Yellow Row — captures abandoned cart leads)
-   │     └── Event 2: PAID_SUCCESS (Green Row — records verified Transaction ID & Bumps)
+   │     ├── Event 1: INITIATED_CHECKOUT (Yellow Row — captures WhatsApp/Email before payment)
+   │     └── Event 2: PAID_SUCCESS (Green Row — logs verified TxId + triggers DriveApp.addViewer)
    │
-   └── Post-Purchase Delivery (Dual-Channel)
-         ├── 1. Interactive Member Vault: https://personalabs.store/course-vault/?b1=X&b2=Y
-         └── 2. Google Drive 3-Folder Architecture (Dedicated Brand Gmail Account)
+   └── Post-Purchase Delivery & Cryptographic Add-On Verification
+         ├── 1. Interactive Member Vault: https://personalabs.store/course-vault/?email=...&tx=...&vt1=...&vt2=...
+         └── 2. Private Google Drive 3-Folder Architecture (personalabsacademy@gmail.com + DriveApp.addViewer)
                ├── Folder 01: 01-Core-Course-Videos (19 Core English-Captioned HD Videos)
                ├── Folder 02: 02-Uncensored-NSFW-Addon-Videos (4 Exclusive NSFW Add-On Videos — Bump #1)
                └── Folder 03: 03-500-Viral-Hooks-And-Prompts-Pack (500+ Hooks + 250+ Prompts — Bump #2)
@@ -38,23 +41,25 @@ https://personalabs.store/ (Netlify Global Edge CDN)
 
 | File / Folder | Purpose |
 | :--- | :--- |
-| `index.html` | High-converting single-page storefront with 10-min flash timer, inline live viewer counter, dual order bumps, UPI QR / Razorpay / PayPal / Stripe checkout, and Post-Purchase Upgrade Mode (`?upgrade=bump1` / `?upgrade=bump2`). |
-| `styles.css` | Custom design system tokens, light/dark mode contrast enforcement, smooth pointer hover zoom (`hero-hover-zoom`), and mobile-first responsive utilities. |
-| `app.js` | Pricing state machine, Geo-IP currency detection, promo code engine, 4-combination add-on upgrade checkout logic, and Google Sheets webhook dispatcher. |
-| `favicon.svg` | Official `PersonaLabs Academy` (`PL` + Gold AI Spark) vector brand mark. |
-| `course-vault/index.html` | Interactive Student Member Portal with 5-Day curriculum, progress tracking, add-on access control (`b1` & `b2` locks), and 1-click post-purchase upgrade cards. |
-| `course-vault/uncensored-content-hack.html` | Order Bump #1 VIP Guide: Uncensored Content Hack, safe multi-platform funneling, and realism prompt modifiers. |
-| `course-vault/viral-hooks-and-autodm-pack.html` | Order Bump #2 VIP Guide: 500+ Viral Reel Hooks & ManyChat Comment-to-DM Automation Scripts. |
-| `course-vault/character-dna-prompt-bible.html` | Core Bonus: 250+ AI Character DNA & Face-Lock Master Prompts. |
-| `GOOGLE-SHEETS-DATABASE-SETUP.md` | Live Google Apps Script webhook documentation & 19-column schema reference. |
+| [`index.html`](../index.html) | High-converting single-page storefront with 10-min flash timer, "Nothing to lose. Everything to gain." 100% Guarantee section, inline live viewer counter, dual order bumps, country-aware phone selector, live Razorpay (`INR`) & PayPal (`USD`) checkout, and Post-Purchase Upgrade Mode (`?upgrade=bump1` / `?upgrade=bump2`). |
+| [`styles.css`](../styles.css) | Custom design system tokens, light/dark mode contrast enforcement, smooth pointer hover zoom (`hero-hover-zoom`), and mobile-first responsive utilities. |
+| [`app.js`](../app.js) | Pricing state machine (`Option A1` 2-tier discount ladder), Geo-IP currency detection, country-aware phone & email validator, live Razorpay & PayPal SDK orchestration, FNV-1a (`vt1`/`vt2`) signature verification, and Google Sheets webhook dispatcher. |
+| [`vercel.json`](../vercel.json) | Zero-build static hosting configuration with instant cache revalidation on `index.html`/`app.js`/`styles.css` and `X-Robots-Tag: noindex, nofollow` on `/course-vault/*`. |
+| [`favicon.svg`](../favicon.svg) | Official `PersonaLabs Academy` (`PL` + Gold AI Spark) vector brand mark. |
+| [`course-vault/index.html`](../course-vault/index.html) | Interactive Student Member Portal with 5-Day curriculum, progress tracking, cryptographic + server-side add-on access control (`vt1` & `vt2`), and 1-click post-purchase upgrade cards. |
+| [`course-vault/uncensored-vip-8f92a1c4.html`](../course-vault/uncensored-vip-8f92a1c4.html) | Order Bump #1 Unguessable VIP Guide: Uncensored Content Hack, FaceFusion workflow, and safe multi-platform funneling. |
+| [`course-vault/hooks-vip-3d7e91b2.html`](../course-vault/hooks-vip-3d7e91b2.html) | Order Bump #2 Unguessable VIP Guide: 500+ Viral Reel Hooks & ManyChat Comment-to-DM Automation Scripts. |
+| [`course-vault/character-dna-prompt-bible.html`](../course-vault/character-dna-prompt-bible.html) | Core Bonus: 250+ AI Character DNA & Face-Lock Master Prompts. |
+| [`docs/ROADMAP.md`](ROADMAP.md) | Prioritized **To do** action table (`Phase / To do / Who / When / Details`), completed phase logs, 3 Video Ad scripts, and 30-Day Content Calendar. |
+| [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md) | Live Google Apps Script webhook documentation, `DriveApp.addViewer` auto-whitelisting, and 20-column schema reference. |
 
 ---
 
 ## 3. 4-Combination Add-On Access & Post-Purchase Upgrade State Machine
 
-| Buyer State | URL / `localStorage` Flags | Unlocked in Vault & Google Drive | Locked Inside Vault (With 1-Click Upgrade) |
+| Buyer State | Verified Signature Flags (`vt1`, `vt2`) | Unlocked in Vault & Google Drive (`DriveApp.addViewer`) | Locked Inside Vault (With 1-Click Upgrade) |
 | :--- | :--- | :--- | :--- |
-| **Combo 1: Basic Pack Only** | `b1=0, b2=0` | 19 Core Videos + 5-Day Curriculum + 250+ Prompt Bible | 🔒 Bump #1 (`/?upgrade=bump1`, `+₹249`) & 🔒 Bump #2 (`/?upgrade=bump2`, `+₹149`) |
-| **Combo 2: Basic + Uncensored Hack** | `b1=1, b2=0` | Core + 🔓 Uncensored NSFW Add-On Videos & Guide | 🔒 Bump #2 (`/?upgrade=bump2`, `+₹149` — Bump #1 never charged again) |
-| **Combo 3: Basic + 500+ Viral Hooks** | `b1=0, b2=1` | Core + 🔓 500+ Viral Reel Hooks & Auto-DM Pack | 🔒 Bump #1 (`/?upgrade=bump1`, `+₹249` — Bump #2 never charged again) |
-| **Combo 4: Full VIP Bundle** | `b1=1, b2=1` | 🔓 Everything Unlocked (Core + Bump #1 + Bump #2) | None — Full VIP Access Badge displayed |
+| **Combo 1: Basic Pack Only** | `vt1=none, vt2=none` | 19 Core Videos + 5-Day Curriculum + 250+ Prompt Bible | 🔒 Bump #1 (`/?upgrade=bump1`, `+₹249 / +$6`) & 🔒 Bump #2 (`/?upgrade=bump2`, `+₹149 / +$5`) |
+| **Combo 2: Basic + Uncensored Hack** | `vt1=valid, vt2=none` | Core + 🔓 Uncensored NSFW Add-On Videos & Guide | 🔒 Bump #2 (`/?upgrade=bump2`, `+₹149 / +$5` — Bump #1 never charged again) |
+| **Combo 3: Basic + 500+ Viral Hooks** | `vt1=none, vt2=valid` | Core + 🔓 500+ Viral Reel Hooks & Auto-DM Pack | 🔒 Bump #1 (`/?upgrade=bump1`, `+₹249 / +$6` — Bump #2 never charged again) |
+| **Combo 4: Full VIP Bundle** | `vt1=valid, vt2=valid` | 🔓 Everything Unlocked (Core + Bump #1 + Bump #2) | None — Full VIP Access Badge displayed |

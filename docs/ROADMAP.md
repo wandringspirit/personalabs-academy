@@ -1,24 +1,39 @@
-# 🗓️ PersonaLabs Academy — Launch Roadmap & 30-Day Content Calendar (`ROADMAP.md`)
+# Roadmap
 
-> [!IMPORTANT]
-> ### 🔐 CRITICAL OWNER REMINDER: Dedicated Gmail & 3-Folder Private Google Drive Setup
-> 1. **Create 1 Dedicated Brand Gmail Account** (e.g., `personalabs.academy@gmail.com`) and host both your **Google Sheet (`PersonaLabs Academy — Orders DB`)** and your **3 Google Drive Folders** under this same Gmail account so your personal Gmail/name is never visible.
-> 2. **Split Google Drive into 3 Separate Folders — Keep All 3 Set to `Restricted (Only people added can open)`**:
->    - 📁 **Folder 1 (`01-Core-Course-Videos`)**: Upload the 19 watermark-free, English-captioned Core Videos + `Bonus.docx` + `readme.docx` + `250-AI-Character-DNA-Prompt-Bible.html`. *(Auto-whitelisted via `DriveApp.addViewer` for ALL buyers).*
->    - 📁 **Folder 2 (`02-Uncensored-NSFW-Addon-Videos`)**: Upload the 4 watermark-free, English-captioned NSFW/Uncensored Videos (`14, 15, 16, 17`) + `Uncensored-Content-Hack-VIP-Guide.html`. *(Auto-whitelisted ONLY for Order Bump #1 buyers).*
->    - 📁 **Folder 3 (`03-500-Viral-Hooks-And-Prompts-Pack`)**: Upload `500-Viral-Reel-Hooks-And-AutoDM-Pack.html` + `250-AI-Character-DNA-Prompt-Bible.html`. *(Auto-whitelisted ONLY for Order Bump #2 buyers).*
-> 3. **Paste the 3 Folder IDs into your Google Apps Script** (see [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)) so every buyer's Gmail is automatically granted Viewer access the second they complete checkout!
+Ordered by **impact ÷ effort**, not by who suggested it. Impact is scored on the two things that make money here: (a) paid checkout conversions (`INR ₹249` via Razorpay + `USD $9` via PayPal) and (b) organic/paid Reel traffic & dual order-bump attach rate (`+₹249 / +$6` & `+₹149 / +$5`). Effort is engineering/ops hours.
+
+## To do
+
+Everything still open, sorted by phase. **Who** says whose move it is: *You* is something only the owner can do (your accounts, your name, your money). When an item is done it moves, ticked, into its phase section below, so those sections hold finished work only; a phase gets ✅ beside its heading once it has no rows left here or in Blocked. Long texts to paste are in [OUTREACH.md](OUTREACH.md). Each row is one action that can be done on its own, in any order. Last updated 2026-10-11.
+
+| Phase | To do | Who | When | Details |
+| :--- | :--- | :--- | :--- | :--- |
+| 2 | Upload the 3 Google Drive deliverable folders under `personalabsacademy@gmail.com` & paste Folder IDs | You | **now** | Keep all 3 folders set to **Restricted** under `personalabsacademy@gmail.com` (never your personal Gmail, since Drive shows the owner's email/name): `01-Core-Course-Videos` (19 captioned videos + `Bonus.docx` + `readme.docx` + Prompt Bible), `02-Uncensored-NSFW-Addon-Videos` (Videos 14–17 + Uncensored VIP Guide), and `03-500-Viral-Hooks-And-Prompts-Pack`. Paste the 3 Folder IDs into `CORE_FOLDER_ID`, `NSFW_FOLDER_ID`, and `HOOKS_FOLDER_ID` in Google Apps Script ([GOOGLE-SHEETS-DATABASE-SETUP.md](GOOGLE-SHEETS-DATABASE-SETUP.md)) so `DriveApp.addViewer` auto-whitelists every buyer's Gmail on payment |
+| 2 | Set PayPal Business Name & `personalabsacademy@gmail.com` as Primary Email so receipts never show personal info | You | **once PayPal Udyam review clears (~24h)** | While the yellow *"Feel free to explore your account while we review your info"* banner is active, PayPal locks email/profile edits (`"Something went wrong"`). Inside the checkout popup (`brand_name: 'PersonaLabs Academy'`) and card statement (`PAYPAL *PERSONALABS`), buyers already see `PersonaLabs Academy`. To fix PayPal's email receipt once review clears: **(1)** Log into the unused `personalabsacademy@gmail.com` PayPal account we started earlier and close it (*Settings → Close your account*) to free that email; **(2)** On your verified PayPal Business account, go to *Account Settings → Account Owner Information → Email address → Add New*, add `personalabsacademy@gmail.com`, and make it **Primary**; **(3)** In *Account Settings → Business Profile → Business Information*, confirm **Business Name** is `PersonaLabs Academy` and **Customer Service Email** is `personalabsacademy@gmail.com` |
+| 2 | Switch static hosting from Netlify Free (300-credit cap) to Vercel Free (100 deploys/day, private repo kept) | You | **before next website code edit** | `v2.8.0` (`app.js?v=14`, live Razorpay `INR` + live PayPal `USD`) is already live on `https://personalabs.store` and kept online by Netlify's 30 operational credits, so nothing is broken right now. However, Netlify's Free plan caps production deploys at 300 credits/month (15 credits/deploy = ~20 pushes). [`vercel.json`](../vercel.json) is already configured in the repo root. Before our next code change: sign in to `vercel.com` with GitHub (`wandringspirit`), import private repo `ai-influencer-course-website` (keeps `/course-vault/` and `/docs/` private), add custom domain `personalabs.store`, and update Namecheap DNS (`A @` → `76.76.21.21`, `CNAME www` → `cname.vercel-dns.com`). Step-by-step in [DEPLOY.md](DEPLOY.md) |
+| 3 | Post Day 1–14 Reels & wire ManyChat comment-to-DM (`AI`, `MODEL`, `REEL`, `HACK`) | You | **starting today** | Use the 6 rendered `1080x1920` `.mp4` ads in [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) (`₹249`) and [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads) (`$9`) plus the 30-Day Content Calendar below. Paste the ManyChat DM scripts from [OUTREACH.md](OUTREACH.md) §1 |
+| 3 | Run 15-min WhatsApp cart recovery (`INITIATED_CHECKOUT`) & 48h Post-Purchase Add-On Upsells | You | **daily** | Filter `PersonaLabs Academy — Orders DB` Google Sheet for yellow `INITIATED_CHECKOUT` rows without a matching green `PAID_SUCCESS` row and send the WhatsApp recovery message ([OUTREACH.md](OUTREACH.md) §2) with promo code `RIYA10`. After 48h, message Basic Pack buyers (`b1=0` or `b2=0`) with their 1-click upgrade links (`https://personalabs.store/?upgrade=bump1` and `https://personalabs.store/?upgrade=bump2`, [OUTREACH.md](OUTREACH.md) §3) |
 
 ---
 
-## Phase 1: Pre-Launch Checklist (Day 0)
-- [x] Deploy `https://personalabs.store` via GitHub + Netlify Continuous Deployment.
-- [x] Connect real-time Google Sheets Order & Lead Database (`PersonaLabs Academy — Orders DB`) with automatic Google Drive `DriveApp.addViewer` email whitelisting.
-- [x] Wire Dual Order Bumps (`Uncensored Content Hack` + `500+ Viral Reel Hooks & Auto-DM Pack`), unguessable VIP URLs (`uncensored-vip-8f92a1c4.html` & `hooks-vip-3d7e91b2.html`), and 4-combination 1-Click Post-Purchase Upgrades (`?upgrade=bump1` & `?upgrade=bump2`).
-- [x] Remove `INVISION ACADEMY` watermarks and burn **Style 1 English Captions** across all 23 course videos while preserving 100% original audio quality.
-- [x] Create approved consistent AI Influencer persona & render 3 ready-to-post 9:16 Video Ads (`ads-ready/`).
-- [ ] Create dedicated `PersonaLabs Academy` Gmail account, upload the 3 Google Drive folders, and paste the Folder IDs into Google Apps Script + folder links into `index.html` & `course-vault/index.html`.
-- [ ] Switch `upiConfig.enabled = true` (or Razorpay live key) in `app.js` for real instant payments.
+## Phase 1: Storefront, Member Vault & Video Production ✅
+
+- [x] Build and deploy **PersonaLabs Academy** (`https://personalabs.store`) with Geo-IP currency detection (`INR` for India / `USD` for Global), interactive earnings calculator, verified student payout tabs, and AI Course Assistant ([`index.html`](../index.html), [`styles.css`](../styles.css), [`app.js`](../app.js)).
+- [x] Build interactive Student Member Portal ([`course-vault/index.html`](../course-vault/index.html)), 250+ Character DNA Prompt Bible ([`course-vault/character-dna-prompt-bible.html`](../course-vault/character-dna-prompt-bible.html)), and unguessable VIP Add-On guides ([`course-vault/uncensored-vip-8f92a1c4.html`](../course-vault/uncensored-vip-8f92a1c4.html) & [`course-vault/hooks-vip-3d7e91b2.html`](../course-vault/hooks-vip-3d7e91b2.html)).
+- [x] Wire Dual Order Bumps (`Uncensored Content Hack` + `500+ Viral Reel Hooks & Auto-DM Pack`), cryptographic FNV-1a access tokens (`vt1`, `vt2`), and 4-combination 1-Click Post-Purchase Upgrades (`?upgrade=bump1` & `?upgrade=bump2`).
+- [x] Remove `INVISION ACADEMY` watermarks and burn **Style 1 English Captions** across all 23 course videos (`videos-captioned/`) while preserving 100% original audio quality.
+- [x] Generate consistent AI Influencer persona & render 6 region-specific `1080x1920 @ 30fps` Video Ads (`3` India `INR ₹249` ads in [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads) + `3` Global `USD $9` ads in [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads)).
+- [x] Add **"Nothing to lose. Everything to gain."** 100% Money-Back Guarantee banner + 2-Tier Discount Ladder (`₹249 → ₹499` still `SAVE 75% OFF ₹1,999` / `$9 → $19` still `SAVE 75% OFF $79` after the 10-min flash timer expires).
+
+---
+
+## Phase 2: Live Payment Gateways, Validation & Database Automation (In Progress)
+
+- [x] Connect real-time Google Sheets Order & Lead Database (`PersonaLabs Academy — Orders DB`) logging both `INITIATED_CHECKOUT` (yellow lead row) and `PAID_SUCCESS` (green verified order row) with automatic `DriveApp.addViewer` email whitelisting ([`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)).
+- [x] Activate **Live Razorpay Checkout (`INR`)** in [`app.js`](../app.js) (`rzp_live_TmX62nNGuBaTUc`) with UPI (`GPay / PhonePe / Paytm`), Cards, and Netbanking, plus rich order `notes` (`order_id`, `customer_email`, `customer_phone`, `items`, `bump1_nsfw`, `bump2_hooks`).
+- [x] Activate **Live PayPal Smart Buttons Checkout (`USD`)** in [`app.js`](../app.js) (`BAARfEN6AEZqn7tB4CWb08mUBhJqBYzxwPkmMnxJNkQ77mGxuYUiisrNiiYhtg75Gg12nHMXKAS38v_p1E`) with digital-goods context (`NO_SHIPPING`, `brand_name: 'PersonaLabs Academy'`, `soft_descriptor: 'PERSONALABS'`).
+- [x] Add Country-Aware Phone Number Validation (`14` country dial rules synced to visitor IP country) & Strict Email Validation (with `@gamil.com` / `@gmial.com` typo detection and disposable domain blocking).
+- [x] Update all storefront, legal modal, AI assistant, and `.txt` receipt support emails to **`personalabsacademy@gmail.com`**, and prepare [`vercel.json`](../vercel.json) for unlimited free static deployments.
 
 ---
 
@@ -93,4 +108,3 @@ All 3 ads are rendered in **two dedicated currency variants (`6` ready-to-post `
 | **Day 15–20** | **Scale Winners (2 Reels/Day):** Remix the top 3 highest-comment Reels from Days 1–14 with new trending audio + run WhatsApp follow-up on all `INITIATED_CHECKOUT` leads in Google Sheets. | | Comment **"AI"** | Scale daily volume to 15–30 sales/day |
 | **Day 21–25** | **Post-Purchase Upgrade Push:** Message all Basic Pack buyers (`b1=0` or `b2=0`) on WhatsApp/Email with their 1-click upgrade links (`?upgrade=bump1` & `?upgrade=bump2`). | | Direct WhatsApp / Email | Collect pure-profit add-on upgrades (`+₹249` / `+₹149`) |
 | **Day 26–30** | **Meta Ads Retargeting & Lookalike Scale:** Launch ₹500/day Instagram Reel Ad using the #1 organic Reel (>5% comment rate) driving directly to `https://personalabs.store`. | | Direct `"Learn More"` CTA | Scale to ₹1.5L–₹3L/month automated run-rate |
-

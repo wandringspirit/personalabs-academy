@@ -7,6 +7,9 @@
   - Configured `application_context` (`brand_name: 'PersonaLabs Academy'`, `shipping_preference: 'NO_SHIPPING'`, `user_action: 'PAY_NOW'`) and `soft_descriptor: 'PERSONALABS'` so international buyers get a digital-goods checkout with no shipping address prompts.
   - Enforced strict live transaction ID verification across both **Razorpay (`INR`)** and **PayPal (`USD`)** (`?v=14`).
   - Kept the PayPal `Secret key 1` strictly out of client-side code and GitHub commits.
+- **Static Hosting Configuration & Roadmap Action Table ([`vercel.json`](../vercel.json), [`docs/ROADMAP.md`](ROADMAP.md), [`docs/DEPLOY.md`](DEPLOY.md), [`docs/ARCHITECTURE.md`](ARCHITECTURE.md)):**
+  - Added [`vercel.json`](../vercel.json) with zero-build static headers and `X-Robots-Tag: noindex, nofollow` protection on `/course-vault/*` so `personalabs.store` can switch from Netlify Free (300-credit cap) to Vercel Free (100 deploys/day from the private GitHub repo) in 3 clicks whenever needed.
+  - Restructured [`docs/ROADMAP.md`](ROADMAP.md) with a top-level **`## To do`** table (`Phase | To do | Who | When | Details`) tracking all open owner/ops tasks (Google Drive 3-folder upload, PayPal post-review Primary Email & Business Name verification, Vercel DNS switch, and daily Reel/WhatsApp ops).
 
 ## v2.7.2 — 2026-10-11
 - **Country-Aware Phone Number & Strict Email Validation ([`app.js`](../app.js), [`index.html`](../index.html)):**
