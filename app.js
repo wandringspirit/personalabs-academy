@@ -1192,13 +1192,13 @@ function switchPayoutCardTab(cardNum, tab) {
   if (!tabE || !tabP || !bodyE || !bodyP) return;
 
   if (tab === 'earnings') {
-    tabE.className = 'pb-2 text-xs font-semibold text-white border-b-2 border-[#22c55e] transition-all';
-    tabP.className = 'pb-2 text-xs font-medium text-white/50 hover:text-white/80 border-b-2 border-transparent transition-all';
+    tabE.className = 'pb-1 text-[11px] font-semibold text-slate-900 border-b-2 border-[#22c55e] transition-all';
+    tabP.className = 'pb-1 text-[11px] font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-all';
     bodyE.classList.remove('hidden');
     bodyP.classList.add('hidden');
   } else {
-    tabP.className = 'pb-2 text-xs font-semibold text-white border-b-2 border-[#22c55e] transition-all';
-    tabE.className = 'pb-2 text-xs font-medium text-white/50 hover:text-white/80 border-b-2 border-transparent transition-all';
+    tabP.className = 'pb-1 text-[11px] font-semibold text-slate-900 border-b-2 border-[#22c55e] transition-all';
+    tabE.className = 'pb-1 text-[11px] font-medium text-slate-500 hover:text-slate-800 border-b-2 border-transparent transition-all';
     bodyP.classList.remove('hidden');
     bodyE.classList.add('hidden');
   }

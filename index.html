@@ -160,11 +160,6 @@
                   Sign in to view details
                 </button>
               </div>
-              <div class="flex items-center gap-2 text-xs">
-                <button type="button" onclick="openReelFeedModal(0)" class="text-fuchsia-600 hover:underline font-semibold">
-                  ▶ Watch Sample AI Reels
-                </button>
-              </div>
             </div>
 
             <!-- Reference "Description" Section -->
@@ -518,7 +513,282 @@
             </div>
           </section>
 
-          <!-- 3. INTERACTIVE LIVE AI PERSONA & PROMPT SANDBOX (TOUCH-OPTIMIZED) -->
+          <!-- 3. VERIFIED STUDENT PAYOUTS & DM RESULTS (ZERO-OVERFLOW AUTHENTIC PAYOUT CARDS + IG DM THREADS) -->
+          <section id="sec-proofs" class="surface-card rounded-2xl p-4 sm:p-6 space-y-4 scroll-mt-28">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-400">Verified Student Results</span>
+                <h2 class="font-display text-lg sm:text-xl font-bold mt-0.5">Real Creator Payouts &amp; DM Wins</h2>
+              </div>
+              <span class="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1 text-[11px] font-bold text-emerald-400">
+                ✓ Tap "Payouts" to inspect transfers
+              </span>
+            </div>
+
+            <div class="md:hidden text-[11px] opacity-75 px-1">
+              👈 Swipe horizontally to inspect verified student payouts
+            </div>
+
+            <div class="flex md:grid md:grid-cols-3 gap-3.5 overflow-x-auto md:overflow-visible pb-3 md:pb-0 mobile-snap-carousel no-scrollbar">
+
+              <!-- ========================================================= -->
+              <!-- PROOF CARD 1: $40,914.22 ($40K In A Single Month)         -->
+              <!-- ========================================================= -->
+              <div class="mobile-snap-item shrink-0 w-[85%] sm:w-[64%] md:w-auto rounded-2xl bg-[#0b0d12] border border-slate-800 p-2.5 flex flex-col justify-between shadow-2xl overflow-hidden">
+                <div>
+                  <!-- White Payout Methods Widget -->
+                  <div class="rounded-xl bg-white text-slate-900 p-3 shadow-md overflow-hidden">
+                    <div class="flex items-center justify-between gap-1">
+                      <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">PAYOUT METHODS</span>
+                      <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">● ACTIVE</span>
+                    </div>
+                    <div class="text-center mt-1.5">
+                      <div class="text-[11px] font-medium text-slate-500">My earnings</div>
+                      <div class="font-sans text-xl font-extrabold text-slate-900 tracking-tight mt-0.5">$40,914.22</div>
+                    </div>
+
+                    <!-- Earnings View (Zero-Overflow Clean Rows) -->
+                    <div id="pcard-1-earnings">
+                      <div class="mt-2.5 border-t border-slate-100 pt-2 space-y-1.5 text-[11px]">
+                        <div class="flex items-center justify-between gap-1">
+                          <span class="text-slate-500 text-[10px]">Available payout</span>
+                          <span class="font-mono-num font-bold text-slate-900">$7,128.44</span>
+                        </div>
+                        <div class="flex items-center justify-between gap-1">
+                          <span class="text-slate-500 text-[10px]">Pending balance</span>
+                          <span class="font-mono-num font-bold text-slate-700">$12,251.03</span>
+                        </div>
+                      </div>
+                      <button type="button" onclick="triggerPayoutToast('$7,128.44')" class="touch-scale mt-2.5 w-full rounded-full bg-[#18191c] hover:bg-slate-800 py-1.5 text-[11px] font-bold text-white transition-colors">
+                        Request payout
+                      </button>
+                    </div>
+
+                    <!-- Payouts History View (Toggled when clicking Payouts tab) -->
+                    <div id="pcard-1-payouts" class="hidden mt-2.5 pt-2 border-t border-slate-100 space-y-1.5 text-[10.5px]">
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Oct 08 Wire</span><span class="font-mono-num font-bold text-emerald-600">+$11,420 ✓</span></div>
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 29 Wire</span><span class="font-mono-num font-bold text-emerald-600">+$10,114 ✓</span></div>
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 18 Wire</span><span class="font-mono-num font-bold text-emerald-600">+$9,265 ✓</span></div>
+                    </div>
+
+                    <!-- Earnings / Payouts Tabs -->
+                    <div class="mt-2.5 grid grid-cols-2 text-center text-[11px] font-semibold border-b border-slate-200">
+                      <button type="button" onclick="switchPayoutCardTab(1, 'earnings')" id="pcard-1-tab-e" class="pb-1 border-b-2 border-[#22c55e] text-slate-900">
+                        Earnings
+                      </button>
+                      <button type="button" onclick="switchPayoutCardTab(1, 'payouts')" id="pcard-1-tab-p" class="pb-1 text-slate-500 hover:text-slate-800">
+                        Payouts
+                      </button>
+                    </div>
+
+                    <button type="button" onclick="triggerPayoutToast('Report PDF')" class="mt-2 w-full rounded-full border border-slate-200 py-1 text-[10px] font-semibold text-slate-600 hover:bg-slate-50 truncate px-2">
+                      Download report (PDF)
+                    </button>
+                  </div>
+
+                  <!-- New Messages Divider -->
+                  <div class="my-2.5 flex items-center gap-1.5">
+                    <div class="h-px flex-1 bg-white/20"></div>
+                    <span class="text-[9.5px] text-white/75 font-medium shrink-0">Instagram Direct • Today</span>
+                    <div class="h-px flex-1 bg-white/20"></div>
+                  </div>
+
+                  <!-- Instagram DM Chat Area -->
+                  <div class="space-y-1.5 text-[11px]">
+                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3 py-2 leading-snug break-words">
+                      BROOO 40k THIS MONTH 💸💸 This shi is insaneee
+                    </div>
+                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3 py-1.5 w-fit max-w-full break-words">
+                      Let's fkn go gang 👌
+                    </div>
+                    <div class="rounded-2xl rounded-tr-sm bg-[#5851db] text-white px-3 py-1.5 ml-auto w-fit max-w-full font-medium break-words">
+                      Ayyy wtf no way, 🚀
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom White Speech-Bubble Callout -->
+                <div class="mt-3 pt-1">
+                  <div class="relative rounded-xl bg-gradient-to-b from-white to-slate-100 py-2 px-2.5 text-center text-slate-950 font-extrabold text-xs shadow-lg">
+                    $40K In A Single Month
+                  </div>
+                </div>
+              </div>
+
+              <!-- ========================================================= -->
+              <!-- PROOF CARD 2: $22,822.28 ($22K In His 3rd Month)          -->
+              <!-- ========================================================= -->
+              <div class="mobile-snap-item shrink-0 w-[85%] sm:w-[64%] md:w-auto rounded-2xl bg-[#0b0d12] border border-slate-800 p-2.5 flex flex-col justify-between shadow-2xl overflow-hidden">
+                <div>
+                  <!-- White Payout Methods Widget -->
+                  <div class="rounded-xl bg-white text-slate-900 p-3 shadow-md overflow-hidden">
+                    <div class="flex items-center justify-between gap-1">
+                      <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">PAYOUT METHODS</span>
+                      <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">● ACTIVE</span>
+                    </div>
+                    <div class="text-center mt-1.5">
+                      <div class="text-[11px] font-medium text-slate-500">My earnings</div>
+                      <div class="font-sans text-xl font-extrabold text-slate-900 tracking-tight mt-0.5">$22,822.28</div>
+                    </div>
+
+                    <div id="pcard-2-earnings">
+                      <div class="mt-2.5 border-t border-slate-100 pt-2 space-y-1.5 text-[11px]">
+                        <div class="flex items-center justify-between gap-1">
+                          <span class="text-slate-500 text-[10px]">Available payout</span>
+                          <span class="font-mono-num font-bold text-slate-900">$6,168.14</span>
+                        </div>
+                        <div class="flex items-center justify-between gap-1">
+                          <span class="text-slate-500 text-[10px]">Pending balance</span>
+                          <span class="font-mono-num font-bold text-slate-700">$6,751.07</span>
+                        </div>
+                      </div>
+                      <button type="button" onclick="triggerPayoutToast('$6,168.14')" class="touch-scale mt-2.5 w-full rounded-full bg-[#18191c] hover:bg-slate-800 py-1.5 text-[11px] font-bold text-white transition-colors">
+                        Request payout
+                      </button>
+                    </div>
+
+                    <div id="pcard-2-payouts" class="hidden mt-2.5 pt-2 border-t border-slate-100 space-y-1.5 text-[10.5px]">
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Oct 05 Transfer</span><span class="font-mono-num font-bold text-emerald-600">+$5,410 ✓</span></div>
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 21 Transfer</span><span class="font-mono-num font-bold text-emerald-600">+$4,493 ✓</span></div>
+                    </div>
+
+                    <div class="mt-2.5 grid grid-cols-2 text-center text-[11px] font-semibold border-b border-slate-200">
+                      <button type="button" onclick="switchPayoutCardTab(2, 'earnings')" id="pcard-2-tab-e" class="pb-1 border-b-2 border-[#22c55e] text-slate-900">
+                        Earnings
+                      </button>
+                      <button type="button" onclick="switchPayoutCardTab(2, 'payouts')" id="pcard-2-tab-p" class="pb-1 text-slate-500 hover:text-slate-800">
+                        Payouts
+                      </button>
+                    </div>
+
+                    <button type="button" onclick="triggerPayoutToast('Report PDF')" class="mt-2 w-full rounded-full border border-slate-200 py-1 text-[10px] font-semibold text-slate-600 hover:bg-slate-50 truncate px-2">
+                      Download report (PDF)
+                    </button>
+                  </div>
+
+                  <!-- New Messages Divider -->
+                  <div class="my-2.5 flex items-center gap-1.5">
+                    <div class="h-px flex-1 bg-white/20"></div>
+                    <span class="text-[9.5px] text-white/75 font-medium shrink-0">Instagram Direct • Yesterday</span>
+                    <div class="h-px flex-1 bg-white/20"></div>
+                  </div>
+
+                  <!-- Instagram DM Chat Area -->
+                  <div class="space-y-1.5 text-[11px]">
+                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3 py-2 leading-snug break-words">
+                      20k with this shi lets go🚀 appreciate the guide ma bro 👊
+                    </div>
+                    <div class="rounded-2xl rounded-tr-sm bg-[#5851db] text-white px-3 py-1.5 ml-auto w-fit max-w-full font-medium break-words">
+                      Too easy bro! 🚀
+                    </div>
+                    <!-- Clean Instagram Message Input Pill -->
+                    <div class="mt-1.5 flex items-center justify-between rounded-full bg-[#1e2028] border border-slate-800 px-2 py-1 text-white/75">
+                      <div class="flex items-center gap-1.5 min-w-0">
+                        <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#5851db] text-white text-[10px]">📷</span>
+                        <span class="text-[10.5px] truncate">Message...</span>
+                      </div>
+                      <span class="text-[10px] text-sky-400 font-semibold shrink-0 pr-1">Send</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom White Speech-Bubble Callout -->
+                <div class="mt-3 pt-1">
+                  <div class="relative rounded-xl bg-gradient-to-b from-white to-slate-100 py-2 px-2.5 text-center text-slate-950 font-extrabold text-xs shadow-lg">
+                    $22K In His 3rd Month
+                  </div>
+                </div>
+              </div>
+
+              <!-- ========================================================= -->
+              <!-- PROOF CARD 3: $5,673.44 ($5K A Month)                     -->
+              <!-- ========================================================= -->
+              <div class="mobile-snap-item shrink-0 w-[85%] sm:w-[64%] md:w-auto rounded-2xl bg-[#0b0d12] border border-slate-800 p-2.5 flex flex-col justify-between shadow-2xl overflow-hidden">
+                <div>
+                  <!-- White Payout Methods Widget -->
+                  <div class="rounded-xl bg-white text-slate-900 p-3 shadow-md overflow-hidden">
+                    <div class="flex items-center justify-between gap-1">
+                      <span class="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">PAYOUT METHODS</span>
+                      <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">● ACTIVE</span>
+                    </div>
+                    <div class="text-center mt-1.5">
+                      <div class="text-[11px] font-medium text-slate-500">My earnings</div>
+                      <div class="font-sans text-xl font-extrabold text-slate-900 tracking-tight mt-0.5">$5,673.44</div>
+                    </div>
+
+                    <div id="pcard-3-earnings">
+                      <div class="mt-2.5 border-t border-slate-100 pt-2 space-y-1.5 text-[11px]">
+                        <div class="flex items-center justify-between gap-1">
+                          <span class="text-slate-500 text-[10px]">Available payout</span>
+                          <span class="font-mono-num font-bold text-slate-900">$989.56</span>
+                        </div>
+                        <div class="flex items-center justify-between gap-1">
+                          <span class="text-slate-500 text-[10px]">Pending balance</span>
+                          <span class="font-mono-num font-bold text-slate-700">$2,312.06</span>
+                        </div>
+                      </div>
+                      <button type="button" onclick="triggerPayoutToast('$989.56')" class="touch-scale mt-2.5 w-full rounded-full bg-[#18191c] hover:bg-slate-800 py-1.5 text-[11px] font-bold text-white transition-colors">
+                        Request payout
+                      </button>
+                    </div>
+
+                    <div id="pcard-3-payouts" class="hidden mt-2.5 pt-2 border-t border-slate-100 space-y-1.5 text-[10.5px]">
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Oct 06 UPI/Wire</span><span class="font-mono-num font-bold text-emerald-600">+$1,420 ✓</span></div>
+                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 24 UPI/Wire</span><span class="font-mono-num font-bold text-emerald-600">+$951 ✓</span></div>
+                    </div>
+
+                    <div class="mt-2.5 grid grid-cols-2 text-center text-[11px] font-semibold border-b border-slate-200">
+                      <button type="button" onclick="switchPayoutCardTab(3, 'earnings')" id="pcard-3-tab-e" class="pb-1 border-b-2 border-[#22c55e] text-slate-900">
+                        Earnings
+                      </button>
+                      <button type="button" onclick="switchPayoutCardTab(3, 'payouts')" id="pcard-3-tab-p" class="pb-1 text-slate-500 hover:text-slate-800">
+                        Payouts
+                      </button>
+                    </div>
+
+                    <button type="button" onclick="triggerPayoutToast('Report PDF')" class="mt-2 w-full rounded-full border border-slate-200 py-1 text-[10px] font-semibold text-slate-600 hover:bg-slate-50 truncate px-2">
+                      Download report (PDF)
+                    </button>
+                  </div>
+
+                  <!-- New Messages Divider -->
+                  <div class="my-2.5 flex items-center gap-1.5">
+                    <div class="h-px flex-1 bg-white/20"></div>
+                    <span class="text-[9.5px] text-white/75 font-medium shrink-0">Instagram Direct • Today</span>
+                    <div class="h-px flex-1 bg-white/20"></div>
+                  </div>
+
+                  <!-- Instagram DM Chat Area -->
+                  <div class="space-y-1.5 text-[11px]">
+                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3 py-2 w-fit max-w-full leading-snug break-words">
+                      Made 5k using your strat ✌️
+                    </div>
+                    <div class="rounded-2xl rounded-tr-sm bg-[#5851db] text-white px-3 py-1.5 ml-auto w-fit max-w-full font-medium break-words">
+                      Told you, this shi works... 🤞
+                    </div>
+                    <!-- Clean Instagram Message Input Pill -->
+                    <div class="mt-1.5 flex items-center justify-between rounded-full bg-[#1e2028] border border-slate-800 px-2 py-1 text-white/75">
+                      <div class="flex items-center gap-1.5 min-w-0">
+                        <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#5851db] text-white text-[10px]">📷</span>
+                        <span class="text-[10.5px] truncate">Message...</span>
+                      </div>
+                      <span class="text-[10px] text-sky-400 font-semibold shrink-0 pr-1">Send</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bottom White Speech-Bubble Callout -->
+                <div class="mt-3 pt-1">
+                  <div class="relative rounded-xl bg-gradient-to-b from-white to-slate-100 py-2 px-2.5 text-center text-slate-950 font-extrabold text-xs shadow-lg">
+                    $5K A Month
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- 4. INTERACTIVE LIVE AI PERSONA & PROMPT SANDBOX (TOUCH-OPTIMIZED) -->
           <section id="sec-ai-lab" class="surface-card rounded-2xl p-4 sm:p-7 space-y-5 border border-brand-500/35 scroll-mt-28">
             <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
               <div>
@@ -980,275 +1250,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-
-          <!-- 7. VERIFIED STUDENT PAYOUTS & DM RESULTS (EXACT PAYOUT METHODS + IG DM + CALLOUT BANNERS) -->
-          <section id="sec-proofs" class="surface-card rounded-2xl p-4 sm:p-7 space-y-5 scroll-mt-28">
-            <div class="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-brand-400">Verified Student Results</span>
-                <h2 class="font-display text-lg sm:text-xl font-bold mt-0.5">Real Creator Payouts & DM Wins</h2>
-              </div>
-              <span class="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 text-xs font-bold text-emerald-400">
-                Tap "Payouts" tab on any card to inspect transfers
-              </span>
-            </div>
-
-            <div class="md:hidden text-[11px] opacity-75 px-1">
-              👈 Swipe horizontally to inspect verified student payouts
-            </div>
-
-            <div class="flex md:grid md:grid-cols-3 gap-5 overflow-x-auto md:overflow-visible pb-3 md:pb-0 mobile-snap-carousel no-scrollbar">
-
-              <!-- ========================================================= -->
-              <!-- PROOF CARD 1: $40,914.22 ($40K In A Single Month)         -->
-              <!-- ========================================================= -->
-              <div class="mobile-snap-item shrink-0 w-[88%] sm:w-[68%] md:w-auto rounded-3xl bg-[#0b0d12] border border-white/15 p-3.5 flex flex-col justify-between shadow-2xl">
-                <div>
-                  <!-- White Payout Methods Widget (Matches desc4.jpeg) -->
-                  <div class="rounded-2xl bg-white text-slate-900 p-4 shadow-md">
-                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">PAYOUT METHODS</div>
-                    <div class="text-center mt-1">
-                      <div class="text-xs font-medium text-slate-600">My earnings</div>
-                      <div class="font-sans text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-0.5">$40,914.22</div>
-                    </div>
-
-                    <!-- Earnings View -->
-                    <div id="pcard-1-earnings">
-                      <div class="mt-3 grid grid-cols-2 gap-2 text-center border-t border-slate-100 pt-2.5">
-                        <div>
-                          <div class="flex items-center justify-center gap-1">
-                            <span class="font-bold text-sm text-slate-900">$7,128.44</span>
-                            <span class="text-[10px] text-slate-400 border border-slate-300 rounded-full h-3.5 w-3.5 inline-flex items-center justify-center">?</span>
-                          </div>
-                          <div class="text-[10px] text-slate-500">Available for payout</div>
-                        </div>
-                        <div>
-                          <div class="flex items-center justify-center gap-1">
-                            <span class="font-bold text-sm text-slate-900">$12,251.03</span>
-                            <span class="text-[10px] text-slate-400 border border-slate-300 rounded-full h-3.5 w-3.5 inline-flex items-center justify-center">?</span>
-                          </div>
-                          <div class="text-[10px] text-slate-500">Pending Balance</div>
-                        </div>
-                      </div>
-                      <button type="button" onclick="triggerPayoutToast('$7,128.44')" class="touch-scale mt-3 w-full rounded-full bg-[#18191c] hover:bg-slate-800 py-2 text-xs font-bold text-white transition-colors">
-                        Request payout
-                      </button>
-                    </div>
-
-                    <!-- Payouts Mini Bar Chart View (Toggled when clicking Payouts tab) -->
-                    <div id="pcard-1-payouts" class="hidden mt-3 pt-2 border-t border-slate-100 space-y-1.5 text-[11px]">
-                      <div class="flex justify-between items-center"><span class="text-slate-500">Oct 08 Wire</span><span class="font-bold text-emerald-600">+$11,420.00 ✓</span></div>
-                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 29 Wire</span><span class="font-bold text-emerald-600">+$10,114.75 ✓</span></div>
-                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 18 Wire</span><span class="font-bold text-emerald-600">+$9,265.00 ✓</span></div>
-                    </div>
-
-                    <!-- Earnings / Payouts Tabs with Green Active Bar -->
-                    <div class="mt-3 grid grid-cols-2 text-center text-xs font-semibold border-b border-slate-200">
-                      <button type="button" onclick="switchPayoutCardTab(1, 'earnings')" id="pcard-1-tab-e" class="pb-1.5 border-b-2 border-[#22c55e] text-slate-900">
-                        Earnings
-                      </button>
-                      <button type="button" onclick="switchPayoutCardTab(1, 'payouts')" id="pcard-1-tab-p" class="pb-1.5 text-slate-500 hover:text-slate-800">
-                        Payouts
-                      </button>
-                    </div>
-
-                    <button type="button" onclick="triggerPayoutToast('Report PDF')" class="mt-2.5 w-full rounded-full border border-slate-300 py-1.5 text-[11px] font-semibold text-slate-700 hover:bg-slate-50">
-                      Download earnings report
-                    </button>
-                  </div>
-
-                  <!-- New Messages Divider -->
-                  <div class="my-3 flex items-center gap-2">
-                    <div class="h-px flex-1 bg-white/15"></div>
-                    <span class="text-[10px] text-white/60 font-medium">New messages</span>
-                    <div class="h-px flex-1 bg-white/15"></div>
-                  </div>
-
-                  <!-- Instagram DM Chat Area -->
-                  <div class="space-y-2 text-xs">
-                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3.5 py-2.5 leading-snug">
-                      BROOO 40k THIS MONTH 💸💸 This shi is insaneee
-                    </div>
-                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3.5 py-2 w-fit">
-                      Let's fkn go gang 👌
-                    </div>
-                    <div class="rounded-2xl rounded-tr-sm bg-[#5851db] text-white px-3.5 py-2 ml-auto w-fit font-medium">
-                      Ayyy wtf no way, 🚀
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom White Speech-Bubble Callout with Pointer Triangle -->
-                <div class="mt-4 pt-1">
-                  <div class="relative rounded-2xl bg-gradient-to-b from-white to-slate-100 py-3 px-4 text-center text-slate-950 font-bold text-sm shadow-lg">
-                    $40K In A Single Month
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0 w-0 border-x-8 border-x-transparent border-t-8 border-t-slate-100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ========================================================= -->
-              <!-- PROOF CARD 2: $22,822.28 ($22K In His 3rd Month)          -->
-              <!-- ========================================================= -->
-              <div class="mobile-snap-item shrink-0 w-[88%] sm:w-[68%] md:w-auto rounded-3xl bg-[#0b0d12] border border-white/15 p-3.5 flex flex-col justify-between shadow-2xl">
-                <div>
-                  <!-- White Payout Methods Widget (Matches desc5.jpeg) -->
-                  <div class="rounded-2xl bg-white text-slate-900 p-4 shadow-md">
-                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-slate-800">PAYOUT METHODS</div>
-                    <div class="text-center mt-1">
-                      <div class="text-xs font-medium text-slate-600">My earnings</div>
-                      <div class="font-sans text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-0.5">$22,822.28</div>
-                    </div>
-
-                    <div id="pcard-2-earnings">
-                      <div class="mt-3 grid grid-cols-2 gap-2 text-center border-t border-slate-100 pt-2.5">
-                        <div>
-                          <div class="flex items-center justify-center gap-1">
-                            <span class="font-bold text-sm text-slate-900">$6,168.14</span>
-                            <span class="text-[10px] text-slate-400 border border-slate-300 rounded-full h-3.5 w-3.5 inline-flex items-center justify-center">?</span>
-                          </div>
-                          <div class="text-[10px] text-slate-500">Available for payout</div>
-                        </div>
-                        <div>
-                          <div class="flex items-center justify-center gap-1">
-                            <span class="font-bold text-sm text-slate-900">$6,751.07</span>
-                            <span class="text-[10px] text-slate-400 border border-slate-300 rounded-full h-3.5 w-3.5 inline-flex items-center justify-center">?</span>
-                          </div>
-                          <div class="text-[10px] text-slate-500">Pending Balance</div>
-                        </div>
-                      </div>
-                      <button type="button" onclick="triggerPayoutToast('$6,168.14')" class="touch-scale mt-3 w-full rounded-full bg-[#18191c] hover:bg-slate-800 py-2 text-xs font-bold text-white transition-colors">
-                        Request payout
-                      </button>
-                    </div>
-
-                    <div id="pcard-2-payouts" class="hidden mt-3 pt-2 border-t border-slate-100 space-y-1.5 text-[11px]">
-                      <div class="flex justify-between items-center"><span class="text-slate-500">Oct 05 Transfer</span><span class="font-bold text-emerald-600">+$5,410.00 ✓</span></div>
-                      <div class="flex justify-between items-center"><span class="text-slate-500">Sep 21 Transfer</span><span class="font-bold text-emerald-600">+$4,493.07 ✓</span></div>
-                    </div>
-
-                    <div class="mt-3 grid grid-cols-2 text-center text-xs font-semibold border-b border-slate-200">
-                      <button type="button" onclick="switchPayoutCardTab(2, 'earnings')" id="pcard-2-tab-e" class="pb-1.5 border-b-2 border-[#22c55e] text-slate-900">
-                        Earnings
-                      </button>
-                      <button type="button" onclick="switchPayoutCardTab(2, 'payouts')" id="pcard-2-tab-p" class="pb-1.5 text-slate-500 hover:text-slate-800">
-                        Payouts
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Instagram DM Chat Area -->
-                  <div class="mt-3 space-y-2 text-xs">
-                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3.5 py-2.5 leading-snug">
-                      20k with this shi lets go🚀 appreciate the guide ma bro 👊
-                    </div>
-                    <div class="rounded-2xl rounded-tr-sm bg-[#5851db] text-white px-3.5 py-2 ml-auto w-fit font-medium">
-                      Too easy bro!🚀
-                    </div>
-                    <!-- Instagram Message Input Pill (Matches desc5.jpeg) -->
-                    <div class="mt-2 flex items-center justify-between rounded-full bg-[#262930] px-2.5 py-1.5 text-white/60">
-                      <div class="flex items-center gap-2">
-                        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#5851db] text-white text-xs">📷</span>
-                        <span class="text-xs">Message...</span>
-                      </div>
-                      <div class="flex items-center gap-2 text-xs">
-                        <span>🎙️</span><span>🖼️</span><span>⊕</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom White Speech-Bubble Callout with Pointer Triangle -->
-                <div class="mt-4 pt-1">
-                  <div class="relative rounded-2xl bg-gradient-to-b from-white to-slate-100 py-3 px-4 text-center text-slate-950 font-bold text-sm shadow-lg">
-                    $22K In His 3rd Month
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0 w-0 border-x-8 border-x-transparent border-t-8 border-t-slate-100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ========================================================= -->
-              <!-- PROOF CARD 3: $5,673.44 ($5K A Month - Dark Payout Mode)  -->
-              <!-- ========================================================= -->
-              <div class="mobile-snap-item shrink-0 w-[88%] sm:w-[68%] md:w-auto rounded-3xl bg-[#0b0d12] border border-white/15 p-3.5 flex flex-col justify-between shadow-2xl">
-                <div>
-                  <!-- Dark Payout Methods Widget (Matches desc6.jpeg dark mode card) -->
-                  <div class="rounded-2xl bg-[#14161c] border border-white/10 text-white p-4 shadow-md">
-                    <div class="text-[10px] font-extrabold uppercase tracking-wider text-white/80">PAYOUT METHODS</div>
-                    <div class="text-center mt-1">
-                      <div class="text-xs font-medium text-white/70">My earnings</div>
-                      <div class="font-sans text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-0.5">$5,673.44</div>
-                    </div>
-
-                    <div id="pcard-3-earnings">
-                      <div class="mt-3 grid grid-cols-2 gap-2 text-center border-t border-white/10 pt-2.5">
-                        <div>
-                          <div class="flex items-center justify-center gap-1">
-                            <span class="font-bold text-sm text-white">$989.56</span>
-                            <span class="text-[10px] text-white/50 border border-white/30 rounded-full h-3.5 w-3.5 inline-flex items-center justify-center">?</span>
-                          </div>
-                          <div class="text-[10px] text-white/60">Available for payout</div>
-                        </div>
-                        <div>
-                          <div class="flex items-center justify-center gap-1">
-                            <span class="font-bold text-sm text-white">$2,312.06</span>
-                            <span class="text-[10px] text-white/50 border border-white/30 rounded-full h-3.5 w-3.5 inline-flex items-center justify-center">?</span>
-                          </div>
-                          <div class="text-[10px] text-white/60">Pending Balance</div>
-                        </div>
-                      </div>
-                      <button type="button" onclick="triggerPayoutToast('$989.56')" class="touch-scale mt-3 w-full rounded-full bg-white hover:bg-slate-200 py-2 text-xs font-bold text-slate-950 transition-colors">
-                        Request payout
-                      </button>
-                    </div>
-
-                    <div id="pcard-3-payouts" class="hidden mt-3 pt-2 border-t border-white/10 space-y-1.5 text-[11px]">
-                      <div class="flex justify-between items-center"><span class="text-white/60">Oct 06 UPI/Wire</span><span class="font-bold text-emerald-400">+$1,420.00 ✓</span></div>
-                      <div class="flex justify-between items-center"><span class="text-white/60">Sep 24 UPI/Wire</span><span class="font-bold text-emerald-400">+$951.82 ✓</span></div>
-                    </div>
-
-                    <div class="mt-3 grid grid-cols-2 text-center text-xs font-semibold border-b border-white/10">
-                      <button type="button" onclick="switchPayoutCardTab(3, 'earnings')" id="pcard-3-tab-e" class="pb-1.5 border-b-2 border-[#22c55e] text-white">
-                        Earnings
-                      </button>
-                      <button type="button" onclick="switchPayoutCardTab(3, 'payouts')" id="pcard-3-tab-p" class="pb-1.5 text-white/50 hover:text-white">
-                        Payouts
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Instagram DM Chat Area -->
-                  <div class="mt-3 space-y-2 text-xs">
-                    <div class="rounded-2xl rounded-tl-sm bg-[#262930] text-white px-3.5 py-2.5 w-fit">
-                      Made 5k using your strat ✌️
-                    </div>
-                    <div class="rounded-2xl rounded-tr-sm bg-[#5851db] text-white px-3.5 py-2 ml-auto w-fit font-medium">
-                      Told you , this shi works... 🤞
-                    </div>
-                    <!-- Instagram Message Input Pill -->
-                    <div class="mt-2 flex items-center justify-between rounded-full bg-[#262930] px-2.5 py-1.5 text-white/60">
-                      <div class="flex items-center gap-2">
-                        <span class="flex h-6 w-6 items-center justify-center rounded-full bg-[#5851db] text-white text-xs">📷</span>
-                        <span class="text-xs">Message...</span>
-                      </div>
-                      <div class="flex items-center gap-2 text-xs">
-                        <span>🎙️</span><span>🖼️</span><span>⊕</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Bottom White Speech-Bubble Callout with Pointer Triangle -->
-                <div class="mt-4 pt-1">
-                  <div class="relative rounded-2xl bg-gradient-to-b from-white to-slate-100 py-3 px-4 text-center text-slate-950 font-bold text-sm shadow-lg">
-                    $5K A Month
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0 w-0 border-x-8 border-x-transparent border-t-8 border-t-slate-100"></div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </section>
 
