@@ -1759,7 +1759,7 @@ const PAYMENT_GATEWAY_CONFIG = {
   // 0b. META PIXEL ID (Facebook / Instagram Ads Conversion Tracking)
   // Paste your 15-digit Meta Pixel ID from business.facebook.com/events_manager
   // Automatically tracks: PageView, ViewContent, AddToCart, InitiateCheckout, and Purchase (with exact INR/USD value!)
-  metaPixelId: 'YOUR_META_PIXEL_ID',
+  metaPixelId: '1661173205598260',
 
   // 'auto_region' automatically routes:
   //   🇮🇳 Indian Visitors (INR)     -> Razorpay (UPI, GPay, PhonePe, Paytm, Indian Cards)
