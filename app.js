@@ -1435,7 +1435,7 @@ const PAYMENT_GATEWAY_CONFIG = {
 
   // 1. INDIA GATEWAY (INR) — Razorpay Standard Checkout (UPI / GPay / PhonePe / Cards)
   razorpay: {
-    keyId: 'rzp_live_YOUR_KEY_ID', // Paste your rzp_live_... or rzp_test_... Key ID from Razorpay Dashboard
+    keyId: 'rzp_live_TmX62nNGuBaTUc',
     businessName: 'PersonaLabs Academy',
     themeColor: '#e65ce4'
   },
@@ -1765,31 +1765,12 @@ async function handleCheckoutSubmit(event) {
   });
 
   // 1. Auto-Region Live Routing:
-  //    - India (INR) -> Opens live Razorpay Checkout popup immediately once keyId is set
+  //    - India (INR) -> Opens live Razorpay Checkout popup immediately
   //    - US/Global (USD) -> Opens PayPal Checkout modal (or redirects to PayPal link if configured)
   if (PAYMENT_GATEWAY_CONFIG.mode === 'auto_region') {
     const rzpKey = PAYMENT_GATEWAY_CONFIG.razorpay?.keyId || '';
-    if (orderPayload.currency === 'INR' && window.Razorpay && rzpKey && !rzpKey.includes('YOUR_')) {
-      const rzp = new window.Razorpay({
-        key: rzpKey,
-        amount: orderPayload.amountInSubunits,
-        currency: 'INR',
-        name: PAYMENT_GATEWAY_CONFIG.razorpay.businessName,
-        description: orderPayload.items.map((i) => i.name).join(' + '),
-        prefill: {
-          name: orderPayload.customer.name,
-          email: orderPayload.customer.email,
-          contact: orderPayload.customer.phone
-        },
-        theme: { color: PAYMENT_GATEWAY_CONFIG.razorpay.themeColor },
-        handler: function (response) {
-          document.getElementById('payment-modal').classList.remove('hidden');
-          document.getElementById('payment-modal').classList.add('flex');
-          const rzpTxId = response.razorpay_payment_id || 'rzp_verified_' + Date.now();
-          simulatePaymentComplete(`Razorpay UPI/Card (${rzpTxId})`, rzpTxId);
-        }
-      });
-      rzp.open();
+    if (orderPayload.currency === 'INR' && rzpKey && !rzpKey.includes('YOUR_')) {
+      await openLiveRazorpayCheckout(orderPayload);
       return;
     } else if (orderPayload.currency === 'USD') {
       mountPayPalSdkButtonsIfConfigured();
@@ -1818,6 +1799,57 @@ async function handleCheckoutSubmit(event) {
   const modal = document.getElementById('payment-modal');
   modal.classList.remove('hidden');
   modal.classList.add('flex');
+}
+
+function ensureRazorpaySdkLoaded() {
+  if (window.Razorpay) return Promise.resolve(true);
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => resolve(Boolean(window.Razorpay));
+    script.onerror = () => resolve(false);
+    document.head.appendChild(script);
+  });
+}
+
+async function openLiveRazorpayCheckout(explicitPayload = null) {
+  const orderPayload = explicitPayload || window.lastCheckoutOrderPayload || buildCheckoutOrderPayload();
+  const rzpKey = PAYMENT_GATEWAY_CONFIG.razorpay?.keyId || '';
+  const sdkReady = await ensureRazorpaySdkLoaded();
+  if (!sdkReady || !window.Razorpay || !rzpKey || rzpKey.includes('YOUR_')) {
+    triggerPayoutToast('⚠️ Razorpay gateway is loading — please tap Make Payment again in 2 seconds.');
+    return;
+  }
+
+  const rzp = new window.Razorpay({
+    key: rzpKey,
+    amount: orderPayload.amountInSubunits,
+    currency: 'INR',
+    name: PAYMENT_GATEWAY_CONFIG.razorpay.businessName,
+    description: orderPayload.items.map((i) => i.name).join(' + '),
+    prefill: {
+      name: orderPayload.customer.name,
+      email: orderPayload.customer.email,
+      contact: orderPayload.customer.phone
+    },
+    notes: {
+      order_id: orderPayload.orderId,
+      customer_email: orderPayload.customer.email,
+      customer_phone: orderPayload.customer.phone,
+      items: orderPayload.items.map((i) => i.name).join(' + '),
+      bump1_nsfw: state.bumpAdded ? 'YES' : 'NO',
+      bump2_hooks: state.bump2Added ? 'YES' : 'NO'
+    },
+    theme: { color: PAYMENT_GATEWAY_CONFIG.razorpay.themeColor },
+    handler: function (response) {
+      if (!response || !response.razorpay_payment_id) return;
+      document.getElementById('payment-modal').classList.remove('hidden');
+      document.getElementById('payment-modal').classList.add('flex');
+      const rzpTxId = response.razorpay_payment_id;
+      simulatePaymentComplete(`Razorpay Live (${rzpTxId})`, rzpTxId);
+    }
+  });
+  rzp.open();
 }
 
 function simulatePaymentComplete(methodName, explicitTxId = null) {

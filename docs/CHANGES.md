@@ -1,6 +1,13 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.6.1 — 2026-10-11 (Latest Release)
+## v2.7.0 — 2026-10-11 (Latest Release)
+- **Live Razorpay Checkout Activated for India (`INR`) ([`app.js`](../app.js), [`index.html`](../index.html)):**
+  - Configured `PAYMENT_GATEWAY_CONFIG.razorpay.keyId = 'rzp_live_TmX62nNGuBaTUc'` in [`app.js`](../app.js) (`?v=10` in [`index.html`](../index.html)).
+  - Added `ensureRazorpaySdkLoaded()` and `openLiveRazorpayCheckout()` so clicking **Make Payment** in `INR` always launches the live Razorpay Standard Checkout modal (`UPI / GPay / PhonePe / Paytm / Cards / Netbanking`) with rich order `notes` (`order_id`, `customer_email`, `customer_phone`, `items`, `bump1_nsfw`, `bump2_hooks`).
+  - Removed simulated preview bypasses from `#payment-gateway-in` in [`index.html`](../index.html) so only verified Razorpay transactions (`response.razorpay_payment_id`) unlock the member vault and trigger Google Drive email whitelisting.
+  - Kept the Razorpay `Live Key Secret` strictly out of client-side code and GitHub commits to protect account security.
+
+## v2.6.1 — 2026-10-11
 - **2-Tier Discount Ladder When 10-Min Flash Offer Ends ([`app.js`](../app.js)):**
   - Updated `renderPricing()`, `renderOfferTimerDisplay()`, and `handleOfferExpiredTransition()` so that after the 10-minute `₹249` (`$9`) fast-action bonus ends, `#anchor-strike-price` continues crossing out the original retail price **`₹1,999` (`$79`)** next to **`₹499` (`$19`)**, `#checkout-save-badge` displays **`SAVE 75% OFF ₹1,999 (LAUNCH OFFER)`** in emerald green, and the urgency banners highlight that the buyer still saves **`₹1,500` (`$60`)** off retail (`🔥 75% OFF ACTIVE` / `SAVE 75%`).
 - **"Nothing to lose. Everything to gain." Guarantee Banner Typography & Spacing Fix ([`index.html`](../index.html)):**
