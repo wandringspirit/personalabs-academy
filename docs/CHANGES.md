@@ -1,6 +1,11 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.8.0 — 2026-10-11 (Latest Release)
+## v2.8.1 — 2026-10-11 (Latest Release)
+- **Dedicated `personalabsacademy@gmail.com` 3-Folder Google Drive + New Orders DB Sheet Connected ([`app.js`](../app.js), [`index.html`](../index.html), [`course-vault/index.html`](../course-vault/index.html), [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)):**
+  - Connected the new Google Sheets Order & Lead Database (`1Sy8fyVC84tfgognGzGbJl0cSuIq5WFGgL8HoPzjGElc`) and live Apps Script Web App (`AKfycbzxKGXLOy1g2TebrWch0aGHdvTp7iYffCULRApdjlEerdum6p2Sj4mAWa5awzM_JrOm`) owned 100% by **`personalabsacademy@gmail.com`**.
+  - Wired all 3 Restricted Google Drive deliverable folders (`01-Core-Course-Videos`: `1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm`, `02-Uncensored-NSFW-Addon-Videos`: `10HGXWcRMR898lbQnTX41G--fPLKoBOvW`, `03-500-Viral-Hooks-And-Prompts-Pack`: `1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN`) across `DriveApp.addViewer` and the on-screen/receipt delivery links (`?v=15`).
+
+## v2.8.0 — 2026-10-11
 - **Live PayPal Smart Buttons Checkout Activated for International (`USD`) ([`app.js`](../app.js), [`index.html`](../index.html)):**
   - Configured the live PayPal Business Client ID (`BAARfEN6AEZqn7tB4CWb08mUBhJqBYzxwPkmMnxJNkQ77mGxuYUiisrNiiYhtg75Gg12nHMXKAS38v_p1E`) in `PAYMENT_GATEWAY_CONFIG.paypal.clientId` ([`app.js`](../app.js)).
   - Verified live PayPal JS SDK loading (`https://www.paypal.com/sdk/js?client-id=...&currency=USD`, `HTTP 200 OK`) and automatic mounting of the official Gold **PayPal** button + Dark **Debit or Credit Card** button for all international (`USD`) visitors.
@@ -9,7 +14,7 @@
   - Kept the PayPal `Secret key 1` strictly out of client-side code and GitHub commits.
 - **Static Hosting Configuration & Roadmap Action Table ([`vercel.json`](../vercel.json), [`docs/ROADMAP.md`](ROADMAP.md), [`docs/DEPLOY.md`](DEPLOY.md), [`docs/ARCHITECTURE.md`](ARCHITECTURE.md)):**
   - Added [`vercel.json`](../vercel.json) with zero-build static headers and `X-Robots-Tag: noindex, nofollow` protection on `/course-vault/*` so `personalabs.store` can switch from Netlify Free (300-credit cap) to Vercel Free (100 deploys/day from the private GitHub repo) in 3 clicks whenever needed.
-  - Restructured [`docs/ROADMAP.md`](ROADMAP.md) with a top-level **`## To do`** table (`Phase | To do | Who | When | Details`) tracking all open owner/ops tasks (Google Drive 3-folder upload, PayPal post-review Primary Email & Business Name verification, Vercel DNS switch, and daily Reel/WhatsApp ops).
+  - Restructured [`docs/ROADMAP.md`](ROADMAP.md) with a unified **`🗓️ Date-Wise & Task-Wise Master Execution Calendar`** tracking all completed milestones and upcoming daily actions.
 
 ## v2.7.2 — 2026-10-11
 - **Country-Aware Phone Number & Strict Email Validation ([`app.js`](../app.js), [`index.html`](../index.html)):**

@@ -1754,7 +1754,7 @@ const PAYMENT_GATEWAY_CONFIG = {
   // 0a. GOOGLE SHEETS REAL-TIME ORDER & LEAD DATABASE WEBHOOK URL
   // Paste your Google Apps Script Web App URL (https://script.google.com/macros/s/.../exec)
   // Automatically logs every Checkout Lead (INITIATED_CHECKOUT) and Paid Order (PAID_SUCCESS) with Txn ID, Price, Currency & Items!
-  googleSheetWebhookUrl: 'https://script.google.com/macros/s/AKfycbx5gW7QlFdzIzf_vGjmdnJlYZTHffP67kTj5pfc1cfVaVWt0QnKv5PsuQH_qwRrOvoSEA/exec',
+  googleSheetWebhookUrl: 'https://script.google.com/macros/s/AKfycbzxKGXLOy1g2TebrWch0aGHdvTp7iYffCULRApdjlEerdum6p2Sj4mAWa5awzM_JrOm/exec',
 
   // 0b. META PIXEL ID (Facebook / Instagram Ads Conversion Tracking)
   // Paste your 15-digit Meta Pixel ID from business.facebook.com/events_manager
@@ -2406,9 +2406,9 @@ function downloadOfficialReceipt() {
     'INSTANT ACCESS LINKS (BOOKMARK THESE — NO EMAIL NEEDED):',
     `1. Interactive 5-Day Course Portal : ${vaultOrigin}/course-vault/index.html`,
     `2. 250+ Character DNA Prompt Bible : ${vaultOrigin}/course-vault/character-dna-prompt-bible.html`,
-    '3. Google Drive Resource Vault     : https://drive.google.com/drive/folders/13prDNfskRSTJNdFlTsunhzY6Mu34YiMv?usp=sharing',
-    state.bumpAdded ? `4. Uncensored Content Hack Guide   : ${vaultOrigin}/course-vault/uncensored-content-hack.html` : '',
-    state.bump2Added ? `5. 500+ Viral Reel Hooks & Auto-DM : ${vaultOrigin}/course-vault/viral-hooks-and-autodm-pack.html` : '',
+    '3. Core Videos Google Drive Vault  : https://drive.google.com/drive/folders/1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm?usp=sharing',
+    state.bumpAdded ? '4. Uncensored NSFW Videos (Drive)  : https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing' : '',
+    state.bump2Added ? '5. 500+ Viral Hooks Pack (Drive)   : https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing' : '',
     '----------------------------------------------------------',
     'Support Email  : personalabsacademy@gmail.com',
     '=========================================================='
