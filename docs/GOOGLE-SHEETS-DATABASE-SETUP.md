@@ -47,7 +47,8 @@ const HEADERS = [
   'Items Purchased',
   'Source Page URL',
   'Google Drive Access Granted',
-  'Automated Recovery Email Status'
+  'Automated Recovery Email Status',
+  'Automated Add-On Upsell Status'
 ];
 
 function ensureSheetAndHeaders() {
@@ -66,21 +67,22 @@ function ensureSheetAndHeaders() {
     headerRange.setFontWeight('bold');
     sheet.setFrozenRows(1);
   } else if (sheet.getLastColumn() < HEADERS.length) {
-    // Auto-append 21st column if missing
-    sheet.getRange(1, HEADERS.length).setValue(HEADERS[HEADERS.length - 1]).setBackground('#4a044e').setFontColor('#ffffff').setFontWeight('bold');
+    for (let c = sheet.getLastColumn() + 1; c <= HEADERS.length; c++) {
+      sheet.getRange(1, c).setValue(HEADERS[c - 1]).setBackground('#4a044e').setFontColor('#ffffff').setFontWeight('bold');
+    }
   }
   return sheet;
 }
 
-// Run this once inside Apps Script to auto-create headers & authorize DriveApp and GmailApp!
+// Run this once inside Apps Script to auto-create headers & authorize DriveApp, GmailApp and Triggers!
 function setupDatabaseSheet() {
   ensureSheetAndHeaders();
   if (CORE_FOLDER_ID) DriveApp.getFolderById(CORE_FOLDER_ID).getName();
-  setupCartRecoveryTrigger();
+  setupAutomatedEmailTriggers();
 }
 
 // =========================================================================
-// AUTOMATED 30-MINUTE ABANDONED CHECKOUT RECOVERY EMAIL (via personalabsacademy@gmail.com)
+// 1. AUTOMATED 25-MIN ABANDONED CART RECOVERY (Safely skips anyone who buys within 25 mins)
 // =========================================================================
 function sendAbandonedCartRecoveryEmails() {
   const sheet = ensureSheetAndHeaders();
@@ -88,9 +90,9 @@ function sendAbandonedCartRecoveryEmails() {
   if (data.length <= 1) return;
 
   const now = new Date();
-  const MIN_DELAY_MINUTES = 25; // Send 25-30 minutes after abandonment so they have time to pay normally
+  const MIN_DELAY_MINUTES = 25; // Waits 25 mins: Anyone who buys 5, 10, or 15 mins later is 100% skipped!
 
-  // 1. Build set of emails that have already paid successfully (never email someone who bought!)
+  // Build list of all customer emails that have successfully paid
   const paidEmails = new Set();
   for (let i = 1; i < data.length; i++) {
     const status = String(data[i][1] || '').trim().toUpperCase();
@@ -100,29 +102,29 @@ function sendAbandonedCartRecoveryEmails() {
     }
   }
 
-  // 2. Scan initiated checkouts that haven't been emailed yet
   for (let i = 1; i < data.length; i++) {
     const rowNum = i + 1;
     const status = String(data[i][1] || '').trim().toUpperCase();
     const customerName = String(data[i][4] || 'Creator').trim();
     const buyerEmail = String(data[i][5] || '').trim().toLowerCase();
-    const rowIso = String(data[i][0] || ''); // Timestamp
-    const emailStatus = String(data[i][20] || '').trim(); // Column 21
+    const rowDateStr = String(data[i][0] || '');
+    const emailStatus = String(data[i][20] || '').trim();
 
     if (status !== 'INITIATED_CHECKOUT') continue;
     if (!buyerEmail || !buyerEmail.includes('@')) continue;
+
+    // If they bought later (even 15 mins later), skip them!
     if (paidEmails.has(buyerEmail)) {
-      if (!emailStatus) sheet.getRange(rowNum, 21).setValue('SKIPPED (Already Paid)');
+      if (!emailStatus) sheet.getRange(rowNum, 21).setValue('SKIPPED (Purchased Course)');
       continue;
     }
     if (emailStatus && emailStatus.startsWith('SENT')) continue;
 
-    // Check if at least 25 minutes have elapsed since checkout initiation
-    const rowTime = new Date(rowIso);
+    // Check if at least 25 minutes have passed
+    const rowTime = new Date(rowDateStr);
     const elapsedMinutes = !isNaN(rowTime.getTime()) ? (now.getTime() - rowTime.getTime()) / (1000 * 60) : 999;
     if (elapsedMinutes < MIN_DELAY_MINUTES) continue;
 
-    // 3. Send official recovery email from personalabsacademy@gmail.com
     try {
       const subject = `Your AI Influencer Launch Kit link (+ 88% Launch Discount Reserved)`;
       const htmlBody = `
@@ -152,31 +154,150 @@ function sendAbandonedCartRecoveryEmails() {
         </div>
       `;
 
-      GmailApp.sendEmail(buyerEmail, subject, `Hi ${customerName}, complete your AI Influencer Launch Kit enrollment at https://personalabs.store`, {
+      GmailApp.sendEmail(buyerEmail, subject, `Hi ${customerName}, complete your enrollment at https://personalabs.store`, {
         name: 'PersonaLabs Academy',
         htmlBody: htmlBody
       });
 
-      const sentTimestamp = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-      sheet.getRange(rowNum, 21).setValue(`SENT (${sentTimestamp})`).setBackground('#e0e7ff');
+      const sentTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      sheet.getRange(rowNum, 21).setValue(`SENT (${sentTime})`).setBackground('#e0e7ff');
     } catch (err) {
       sheet.getRange(rowNum, 21).setValue(`ERR (${err.message})`);
     }
   }
 }
 
-// Creates an automatic recurring trigger in Apps Script to check every 15 minutes
-function setupCartRecoveryTrigger() {
-  const triggers = ScriptApp.getProjectTriggers();
-  for (let i = 0; i < triggers.length; i++) {
-    if (triggers[i].getHandlerFunction() === 'sendAbandonedCartRecoveryEmails') {
-      return; // Already exists
+// =========================================================================
+// 2. AUTOMATED POST-PURCHASE ADD-ON UPGRADE (Emails buyers who missed the add-ons after 12h)
+// =========================================================================
+function sendPostPurchaseAddonUpsellEmails() {
+  const sheet = ensureSheetAndHeaders();
+  const data = sheet.getDataRange().getValues();
+  if (data.length <= 1) return;
+
+  const now = new Date();
+  const MIN_HOURS_AFTER_PURCHASE = 12; // Send 12 to 24 hours after they enroll in the core course
+
+  // Track what each email owns across all purchase rows
+  const ownedAddons = {};
+  for (let i = 1; i < data.length; i++) {
+    const status = String(data[i][1] || '').trim().toUpperCase();
+    const email = String(data[i][5] || '').trim().toLowerCase();
+    if (status === 'PAID_SUCCESS' && email) {
+      if (!ownedAddons[email]) ownedAddons[email] = { bump1: false, bump2: false };
+      if (String(data[i][11] || '').toUpperCase().startsWith('YES')) ownedAddons[email].bump1 = true;
+      if (String(data[i][12] || '').toUpperCase().startsWith('YES')) ownedAddons[email].bump2 = true;
     }
   }
-  ScriptApp.newTrigger('sendAbandonedCartRecoveryEmails')
-    .timeBased()
-    .everyMinutes(15)
-    .create();
+
+  for (let i = 1; i < data.length; i++) {
+    const rowNum = i + 1;
+    const status = String(data[i][1] || '').trim().toUpperCase();
+    const customerName = String(data[i][4] || 'Creator').trim();
+    const buyerEmail = String(data[i][5] || '').trim().toLowerCase();
+    const rowDateStr = String(data[i][0] || '');
+    const upsellStatus = String(data[i][21] || '').trim();
+
+    if (status !== 'PAID_SUCCESS') continue;
+    if (!buyerEmail || !buyerEmail.includes('@')) continue;
+    if (upsellStatus && upsellStatus.startsWith('SENT')) continue;
+
+    const userHas = ownedAddons[buyerEmail] || { bump1: false, bump2: false };
+    // If they already bought BOTH add-ons, nothing to upsell!
+    if (userHas.bump1 && userHas.bump2) {
+      if (!upsellStatus) sheet.getRange(rowNum, 22).setValue('SKIPPED (Owns All Add-Ons)');
+      continue;
+    }
+
+    // Wait at least 12 hours after initial course purchase
+    const rowTime = new Date(rowDateStr);
+    const elapsedHours = !isNaN(rowTime.getTime()) ? (now.getTime() - rowTime.getTime()) / (1000 * 60 * 60) : 999;
+    if (elapsedHours < MIN_HOURS_AFTER_PURCHASE) continue;
+
+    // Send 1-click upgrade email
+    try {
+      let upgradeHeadline = 'Exclusive Student VIP Upgrades for Your AI Influencer Kit';
+      let upgradeCardsHtml = '';
+
+      if (!userHas.bump1) {
+        upgradeCardsHtml += `
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: left;">
+            <div style="font-weight: 800; font-size: 14px; color: #0f172a;">1. Uncensored Content Hack (+4 Exclusive NSFW Videos)</div>
+            <p style="font-size: 12px; color: #475569; margin: 4px 0 10px 0;">How top creators structure high-curiosity content safely + 4 private NSFW video files on Google Drive.</p>
+            <a href="https://personalabs.store/?upgrade=bump1" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block;">
+              Unlock VIP Hack for +₹249 →
+            </a>
+          </div>
+        `;
+      }
+
+      if (!userHas.bump2) {
+        upgradeCardsHtml += `
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: left;">
+            <div style="font-weight: 800; font-size: 14px; color: #0f172a;">2. 500+ Viral Reel Hooks & ManyChat Auto-DM Pack</div>
+            <p style="font-size: 12px; color: #475569; margin: 4px 0 10px 0;">500+ copy-paste high-retention reel hooks and comment-to-DM automation scripts that sell 24/7.</p>
+            <a href="https://personalabs.store/?upgrade=bump2" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block;">
+              Unlock 500+ Hooks Pack for +₹149 →
+            </a>
+          </div>
+        `;
+      }
+
+      const htmlBody = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #1e293b;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <span style="background: linear-gradient(135deg, #e65ce4, #ec4899); color: #ffffff; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">PersonaLabs Academy • Student Perks</span>
+            <h2 style="font-size: 20px; font-weight: 800; margin-top: 14px; color: #0f172a; margin-bottom: 6px;">${upgradeHeadline}</h2>
+            <p style="font-size: 13px; color: #64748b; margin: 0;">Special add-on access reserved for enrolled students</p>
+          </div>
+          <p style="font-size: 14px; line-height: 1.6;">Hi <strong>${customerName}</strong>,</p>
+          <p style="font-size: 14px; line-height: 1.6;">Hope you are enjoying the AI Influencer Accelerator! We noticed you opted out of the optional add-ons during your enrollment.</p>
+          <p style="font-size: 14px; line-height: 1.6;">As an enrolled student, you can add them to your portal and Google Drive anytime at your original student discount:</p>
+          ${upgradeCardsHtml}
+          <p style="font-size: 12px; color: #64748b; line-height: 1.5; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: 20px;">
+            These upgrade links automatically connect to your existing account so your Google Drive access is updated immediately upon payment.
+          </p>
+        </div>
+      `;
+
+      GmailApp.sendEmail(buyerEmail, `Student Upgrade: Complete Your AI Influencer Toolkit`, `Hi ${customerName}, upgrade your student toolkits at https://personalabs.store`, {
+        name: 'PersonaLabs Academy',
+        htmlBody: htmlBody
+      });
+
+      const sentTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      sheet.getRange(rowNum, 22).setValue(`SENT (${sentTime})`).setBackground('#fef08a');
+    } catch (err) {
+      sheet.getRange(rowNum, 22).setValue(`ERR (${err.message})`);
+    }
+  }
+}
+
+// Creates the automatic recurring triggers in Apps Script (Cart Recovery every 15m + Addon Upsell every 2h)
+function setupAutomatedEmailTriggers() {
+  const triggers = ScriptApp.getProjectTriggers();
+  let hasCartTrigger = false;
+  let hasUpsellTrigger = false;
+
+  for (let i = 0; i < triggers.length; i++) {
+    const fn = triggers[i].getHandlerFunction();
+    if (fn === 'sendAbandonedCartRecoveryEmails') hasCartTrigger = true;
+    if (fn === 'sendPostPurchaseAddonUpsellEmails') hasUpsellTrigger = true;
+  }
+
+  if (!hasCartTrigger) {
+    ScriptApp.newTrigger('sendAbandonedCartRecoveryEmails')
+      .timeBased()
+      .everyMinutes(15)
+      .create();
+  }
+
+  if (!hasUpsellTrigger) {
+    ScriptApp.newTrigger('sendPostPurchaseAddonUpsellEmails')
+      .timeBased()
+      .everyHours(2)
+      .create();
+  }
 }
 
 function doPost(e) {
