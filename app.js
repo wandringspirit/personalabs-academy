@@ -2413,14 +2413,13 @@ function downloadOfficialReceipt() {
   qs.set('b1', state.bumpAdded ? '1' : '0');
   qs.set('b2', state.bump2Added ? '1' : '0');
   if (state.isTestSandbox) qs.set('test', '1');
-  qs.set('print', '1');
 
   const receiptUrl = `course-vault/receipt.html?${qs.toString()}`;
   const win = window.open(receiptUrl, '_blank');
   if (!win) {
     window.location.href = receiptUrl;
   }
-  triggerPayoutToast('📄 Opening official tax invoice & printable PDF receipt...');
+  triggerPayoutToast('📄 Official tax invoice & receipt opened!');
 }
 
 function downloadHooksPack() {
