@@ -15,6 +15,9 @@
 - **Storefront UI Polish & Campaign #1 Live Activation (`₹500/day` CBO) ([`index.html`](../index.html), [`docs/LAUNCH_OPERATIONS_MANUAL.md`](LAUNCH_OPERATIONS_MANUAL.md)):**
   - Updated Order Bump #1 (*Uncensored Content Hack*) thumbnail to [`assets/images/uncensored_hack_cover.png`](../assets/images/uncensored_hack_cover.png) and moved the `🌴 Bali Travel` persona pill to the first position in `#sec-ai-lab`.
   - Published **Campaign #1 (`IN - Sales - AI Influencer Launch Kit (INR)`)** live in Meta Ads Manager at **₹500.00/day** (Instagram Reels & Stories), achieving **`3.52% – 5.56%` Link CTR** and **78 engagements** on initial delivery.
+- **GitHub Repository Renamed to `wandringspirit/personalabs-academy` & 3-Agent Autonomous Instagram Studio ([`docs/DEPLOY.md`](DEPLOY.md), [`instagram-studio/`](../instagram-studio)):**
+  - Renamed the official GitHub repository from `wandringspirit/ai-influencer-course-website` to **[`wandringspirit/personalabs-academy`](https://github.com/wandringspirit/personalabs-academy)** and updated all documentation references.
+  - Created the **3-Agent Autonomous Instagram Team** (`ig-content-studio`, `ig-copy-and-funnel`, `instagram-creator-operator`) and generated Batch #1 (`01-Pinned-Carousel-5Slides/`, `02-Organic-Reels/`, and [`CONTENT-CALENDAR-AND-CAPTIONS.md`](../instagram-studio/CONTENT-CALENDAR-AND-CAPTIONS.md)) for `@personalabsacademy`.
 
 ## v2.8.2 — 2026-10-11
 - **Live Meta Pixel (`1661173205598260`) & Ad Account (`2218391099056783`) Connected ([`app.js`](../app.js), [`index.html`](../index.html), [`docs/ROADMAP.md`](ROADMAP.md)):**

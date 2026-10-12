@@ -23,6 +23,8 @@ Status: **🟢 Campaign #1 Active (`₹500/day` CBO • `3.52%–5.56%` Link CTR
 | **Google Sheets Orders DB** | `PersonaLabs Academy — Orders DB` (`1Sy8fy...`) | 🟢 **Connected (22 Cols)** | Real-time logging of leads (`INITIATED_CHECKOUT`) and paid orders (`PAID_SUCCESS`). |
 | **Google Drive Auto-Access** | Webhook App (`DriveApp.addViewer`, **Version 3**) | 🟢 **Connected** | Automatically whitelists customer's Gmail for purchased Drive folders (`01-Core`, `02-NSFW`, `03-Hooks`). |
 | **Automated Email Engine** | Apps Script Triggers (`GmailApp`, **Version 3**) | 🟢 **Running 24/7** | 1. **25-Min Cart Recovery** (`sendAbandonedCartRecoveryEmails` every 15m)<br>2. **12-Hr Add-On Upsell** (`sendPostPurchaseAddonUpsellEmails` every 2h) with plain-text parity & CAN-SPAM footer. |
+| **GitHub Repository** | [`wandringspirit/personalabs-academy`](https://github.com/wandringspirit/personalabs-academy) | 🟢 **Connected to Vercel** | Every `git push origin main` auto-deploys to `https://personalabs.store` in ~15 seconds. |
+| **3-Agent Instagram Studio** | [`instagram-studio/`](../instagram-studio) | 🟢 **Batch #1 Ready** | `ig-content-studio`, `ig-copy-and-funnel`, and `instagram-creator-operator` for `@personalabsacademy`. |
 
 ---
 
@@ -115,4 +117,17 @@ Instead of messaging leads from a personal WhatsApp number, your **Google Apps S
 * Once your campaign achieves profitable purchases at a Cost Per Purchase under ₹150:
   * Increase the daily budget by **+25%** every 48 hours using your course earnings to self-fund growth.
   * Never double the budget overnight as this resets Meta's learning phase.
+
+---
+
+## 📸 5. Autonomous 3-Agent Instagram Team (`@personalabsacademy`) & Queue Low-Refill Alerts
+
+1. **How the 3-Agent Instagram Team Works:**
+   * **`ig-content-studio` (Visual Producer):** Generates `9:16` (`1080x1920`) organic Reels, custom cover thumbnails, and `4:5` (`1080x1350`) 5-slide educational carousels inside [`instagram-studio/`](../instagram-studio).
+   * **`ig-copy-and-funnel` (Copy & ManyChat Strategist):** Writes high-retention captions, first-comment SEO hashtag blocks, and ManyChat comment-to-DM keyword triggers (`AI`, `LAUNCH`, `MODEL`, `REEL`, `HACK`, `LINK`, `PROMPT`) in [`instagram-studio/CONTENT-CALENDAR-AND-CAPTIONS.md`](../instagram-studio/CONTENT-CALENDAR-AND-CAPTIONS.md).
+   * **`instagram-creator-operator` (Browser Publisher & Scheduler):** Uploads posts right now and schedules upcoming Days 2–14 inside **Meta Business Suite Content Planner** (`business.facebook.com/latest/content_calendar`) so Meta's servers publish them on exact dates/times even when your laptop is off.
+2. **How We Know When a Scheduled Batch Runs Low (2 Automatic Safeguards):**
+   * **Safeguard A — Recurring Antigravity Cron Schedule (`/schedule`):** A standing background cron job wakes up the agent every 7 days (`0 10 * * 0`) to check [`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md) and Meta Business Suite Content Planner, and automatically prepares the next 7–14 day batch before the queue runs out.
+   * **Safeguard B — Automated Email Alert (`personalabsacademy@gmail.com`):** Your Google Apps Script can also send you a `"⚠️ Instagram Queue Running Low (48h Remaining)"` reminder email 48 hours before the last scheduled post date in your batch so you never miss a refill window.
+
 

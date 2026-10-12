@@ -59,7 +59,8 @@ https://personalabs.store/ (Vercel Global Edge CDN — 216.198.79.1, v2.9.0 / ap
 | [`course-vault/uncensored-vip-8f92a1c4.html`](../course-vault/uncensored-vip-8f92a1c4.html) | Order Bump #1 Unguessable VIP Guide: Uncensored Content Hack, FaceFusion workflow, and safe multi-platform funneling. |
 | [`course-vault/hooks-vip-3d7e91b2.html`](../course-vault/hooks-vip-3d7e91b2.html) | Order Bump #2 Unguessable VIP Guide: 500+ Viral Reel Hooks & ManyChat Comment-to-DM Automation Scripts. |
 | [`course-vault/character-dna-prompt-bible.html`](../course-vault/character-dna-prompt-bible.html) | Core Bonus: 250+ AI Character DNA & Face-Lock Master Prompts. |
-| [`docs/LAUNCH_OPERATIONS_MANUAL.md`](LAUNCH_OPERATIONS_MANUAL.md) | Master operational handbook for Campaign #1 (`₹500/day` CBO), live performance telemetry, `/kjboavhpoieabpraegnaln` test route, and automated email recovery/upsell triggers. |
+| [`instagram-studio/`](../instagram-studio) | Autonomous 3-Agent Instagram production assets (`01-Pinned-Carousel-5Slides/`, `02-Organic-Reels/`, and [`CONTENT-CALENDAR-AND-CAPTIONS.md`](../instagram-studio/CONTENT-CALENDAR-AND-CAPTIONS.md)) for `@personalabsacademy`. |
+| [`docs/LAUNCH_OPERATIONS_MANUAL.md`](LAUNCH_OPERATIONS_MANUAL.md) | Master operational handbook for Campaign #1 (`₹500/day` CBO), live performance telemetry, `/kjboavhpoieabpraegnaln` test route, automated email recovery/upsell triggers, and the 3-Agent Autonomous Instagram Team. |
 | [`docs/ROADMAP.md`](ROADMAP.md) | Single unified source of truth: Date-Wise & Task-Wise Master Execution Calendar, Meta Ads Campaign #1 & #2 step-by-step guide, Competitor Spy breakdown, and 30-Day Viral Reels Calendar. |
 | [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md) | Live Google Apps Script (`Version 3`) webhook documentation, `DriveApp.addViewer` auto-whitelisting, 25-min cart recovery & 12-hr add-on upsell `GmailApp` triggers, and 22-column schema reference. |
 
