@@ -17,10 +17,10 @@
 | **1** | **Carousel #01 (`01-Pinned-Carousel-5Slides/slide-01.jpg`–`slide-05.jpg`, `4:5`)** | 📌 **Published & Pinned to Top of Grid** | Mon, Oct 12, 2026 | [`https://www.instagram.com/p/DeZdiZ2EuBf/`](https://www.instagram.com/p/DeZdiZ2EuBf/) |
 | **2** | **Reel #02 (`Reel-02-Proof-Consistency-Organic.mp4` + `Cover-02.jpg`, `9:16`)** | 🟢 **Published Live** | Mon, Oct 12, 2026 | [`https://www.instagram.com/p/DeZd2Z6o-Be/`](https://www.instagram.com/p/DeZd2Z6o-Be/) |
 | **3** | **Reel #03 (`Reel-03-Mobile-Pipeline-Organic.mp4` + `Cover-03.jpg`, `9:16`)** | 🗓️ **Scheduled in Meta Business Suite** | **Tue, Oct 13, 2026 at 7:30 PM IST (`19:30`)** | Scheduled Reel ID: `1796375885019195` |
-| **4** | **Reel #04 (`Reel-04-Raw-iPhone-Realism-Secret-Organic.mp4` + `Cover-04.jpg`, `9:16`)** | ⏳ **Rendered & Ready to Schedule** | **Wed, Oct 14, 2026 at 7:30 PM IST (`19:30`)** | Trigger: `PROMPT` / `AI` |
-| **5** | **Carousel #02 (`03-Carousel-02-Smartphone-Realism-Prompts/slide-01.jpg`–`slide-05.jpg`, `4:5`)** | ⏳ **Rendered & Ready to Schedule** | **Thu, Oct 15, 2026 at 7:30 PM IST (`19:30`)** | Trigger: `PROMPT` / `AI` |
-| **6** | **Reel #05 (`Reel-05-Static-To-4K-Motion-Organic.mp4` + `Cover-05.jpg`, `9:16`)** | ⏳ **Rendered & Ready to Schedule** | **Fri, Oct 16, 2026 at 7:30 PM IST (`19:30`)** | Trigger: `REEL` / `AI` |
-| **7** | **Carousel #03 (`04-Carousel-03-5Day-Launch-Roadmap/slide-01.jpg`–`slide-05.jpg`, `4:5`)** | ⏳ **Rendered & Ready to Schedule** | **Sat, Oct 17, 2026 at 7:30 PM IST (`19:30`)** | Trigger: `LAUNCH` / `AI` |
-| **8** | **Reel #06 (`Reel-06-Faceless-Creator-Math-Organic.mp4` + `Cover-06.jpg`, `9:16`)** | ⏳ **Rendered & Ready to Schedule** | **Sun, Oct 18, 2026 at 7:30 PM IST (`19:30`)** | Trigger: `LAUNCH` / `AI` |
+| **4** | **Reel #04 (`Reel-04-Raw-iPhone-Realism-Secret-Organic.mp4` + `Cover-04.jpg`, `9:16`)** | 🗓️ **Scheduled in Meta Business Suite** | **Wed, Oct 14, 2026 at 7:30 PM IST (`19:30`)** | Scheduled Reel ID: `1517688583525114` (`PROMPT` / `AI`) |
+| **5** | **Carousel #02 (`03-Carousel-02-Smartphone-Realism-Prompts/slide-01.jpg`–`slide-05.jpg`, `4:5`)** | 🗓️ **Scheduled in Meta Business Suite** | **Thu, Oct 15, 2026 at 7:30 PM IST (`19:30`)** | Scheduled Post ID: `2220488025553695` (`PROMPT` / `AI`) |
+| **6** | **Reel #05 (`Reel-05-Static-To-4K-Motion-Organic.mp4` + `Cover-05.jpg`, `9:16`)** | 🗓️ **Scheduled in Meta Business Suite** | **Fri, Oct 16, 2026 at 7:30 PM IST (`19:30`)** | Scheduled Reel ID: `1099506249107288` (`REEL` / `AI`) |
+| **7** | **Carousel #03 (`04-Carousel-03-5Day-Launch-Roadmap/slide-01.jpg`–`slide-05.jpg`, `4:5`)** | 🗓️ **Scheduled in Meta Business Suite** | **Sat, Oct 17, 2026 at 7:30 PM IST (`19:30`)** | Scheduled Post ID: `908070545570409` (`LAUNCH` / `AI`) |
+| **8** | **Reel #06 (`Reel-06-Faceless-Creator-Math-Organic.mp4` + `Cover-06.jpg`, `9:16`)** | 🗓️ **Scheduled in Meta Business Suite** | **Sun, Oct 18, 2026 at 7:30 PM IST (`19:30`)** | Scheduled Reel ID: `1622233036055930` (`LAUNCH` / `AI`) |
 
 *(See [`CONTENT-CALENDAR-AND-CAPTIONS.md`](CONTENT-CALENDAR-AND-CAPTIONS.md) for Days 7–14 captions, first-comment SEO hashtags, and daily 3-Story sequences.)*
