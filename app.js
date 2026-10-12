@@ -1808,12 +1808,12 @@ const PAYMENT_GATEWAY_CONFIG = {
   },
 
   // 4. OWNER LIVE PAYMENT TEST PAGE (/kjboavhpoieabpraegnaln)
-  // Set enabled: true to test real live payments at ₹5 INR (Razorpay) / $1 USD (PayPal) per course/add-on.
+  // Set enabled: true to test real live payments at ₹1 INR (Razorpay) / $1 USD (PayPal) per course/add-on.
   // Set enabled: false after testing to disable /kjboavhpoieabpraegnaln (automatically redirects to '/') while keeping it for future use.
   testSandboxPage: {
     slug: 'kjboavhpoieabpraegnaln',
     enabled: true,
-    inrUnitPrice: 5, // ₹5 per course & order bump in INR
+    inrUnitPrice: 1, // ₹1 per course & order bump in INR
     usdUnitPrice: 1  // $1 per course & order bump in USD
   }
 };
@@ -2654,7 +2654,7 @@ function initDynamicLiveViewers() {
 }
 
 // =========================================================================
-// OWNER LIVE PAYMENT TEST PAGE (/kjboavhpoieabpraegnaln — ₹5 INR / $1 USD)
+// OWNER LIVE PAYMENT TEST PAGE (/kjboavhpoieabpraegnaln — ₹1 INR / $1 USD)
 // =========================================================================
 function syncTestSandboxToggleUI() {
   if (!state.isTestSandbox) return;
@@ -2674,7 +2674,7 @@ function syncTestSandboxToggleUI() {
   }
 
   if (topLabel) {
-    topLabel.textContent = isINR ? '🧪 Test: 🇮🇳 ₹5 (Switch to $1)' : '🧪 Test: 🇺🇸 $1 (Switch to ₹5)';
+    topLabel.textContent = isINR ? '🧪 Test: 🇮🇳 ₹1 (Switch to $1)' : '🧪 Test: 🇺🇸 $1 (Switch to ₹1)';
   }
 }
 
@@ -2690,7 +2690,7 @@ function switchTestSandboxCurrency(targetCurr) {
   syncTestSandboxToggleUI();
   triggerPayoutToast(
     isINR
-      ? '🇮🇳 Switched to Rupees (₹5 per item) — Live Razorpay UPI/Card Checkout Ready'
+      ? '🇮🇳 Switched to Rupees (₹1 per item) — Live Razorpay UPI/Card Checkout Ready'
       : '🇺🇸 Switched to Dollars ($1 per item) — Live PayPal USD Checkout Ready'
   );
 }
@@ -2719,7 +2719,7 @@ function initTestSandboxPageIfMatched() {
   }
 
   state.isTestSandbox = true;
-  const inrPrice = Number(cfg.inrUnitPrice) || 5;
+  const inrPrice = Number(cfg.inrUnitPrice) || 1;
   const usdPrice = Number(cfg.usdUnitPrice) || 1;
 
   state.prices.INR = {
