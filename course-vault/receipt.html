@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Official Payment Receipt — PersonaLabs Academy</title>
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #c026d3;
+      --primary-dark: #86198f;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --emerald-600: #059669;
+      --emerald-50: #ecfdf5;
+      --emerald-200: #a7f3d0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f3f4f6;
+      color: var(--slate-800);
+      line-height: 1.5;
+      padding: 24px 16px;
+    }
+
+    .top-action-bar {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #c026d3, #db2777);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(192, 38, 211, 0.25);
+    }
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--slate-700);
+      border: 1px solid var(--slate-200);
+    }
+    .btn-secondary:hover {
+      background: var(--slate-50);
+    }
+
+    .receipt-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      border: 1px solid var(--slate-200);
+      position: relative;
+    }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--slate-100);
+    }
+
+    .brand-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(192, 38, 211, 0.1);
+      color: var(--primary);
+      margin-top: 6px;
+    }
+
+    .invoice-title-block {
+      text-align: right;
+    }
+
+    .invoice-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--slate-900);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .invoice-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--emerald-600);
+      background: var(--emerald-50);
+      border: 1px solid var(--emerald-200);
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-top: 6px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .meta-card {
+      font-size: 12px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--slate-500);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-900);
+    }
+
+    .meta-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate-900);
+      word-break: break-all;
+    }
+
+    /* Items Table */
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+    }
+
+    .items-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--slate-500);
+      padding: 12px 14px;
+      background: var(--slate-50);
+      border-bottom: 1px solid var(--slate-200);
+    }
+
+    .items-table th:last-child {
+      text-align: right;
+    }
+
+    .items-table td {
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--slate-100);
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    .items-table td:last-child {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .item-desc {
+      font-size: 11.5px;
+      color: var(--slate-500);
+      margin-top: 3px;
+    }
+
+    /* Summary Totals */
+    .summary-section {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+
+    .summary-box {
+      width: 100%;
+      max-width: 320px;
+      space-y: 8px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      color: var(--slate-600);
+      padding: 4px 0;
+    }
+
+    .summary-row.total {
+      border-top: 2px solid var(--slate-900);
+      padding-top: 10px;
+      margin-top: 6px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--slate-900);
+    }
+
+    .summary-row.total .price {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--primary);
+    }
+
+    /* Access Links Section */
+    .access-vault-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    .access-vault-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--slate-900);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .access-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--slate-900);
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .access-link-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .access-link-item .badge {
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--emerald-50);
+      color: var(--emerald-600);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* Footer */
+    .receipt-footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--slate-100);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--slate-500);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .stamp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px dashed var(--emerald-600);
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: var(--emerald-600);
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .top-action-bar {
+        display: none !important;
+      }
+      .receipt-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar (Hidden when printed to PDF) -->
+  <div class="top-action-bar">
+    <div style="font-size: 12px; color: var(--slate-600); font-weight: 600;">
+      Official PersonaLabs Academy Payment Receipt
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="window.print()" class="btn btn-primary">
+        🖨️ Print / Save as PDF
+      </button>
+      <a href="index.html" class="btn btn-secondary" id="btn-back-vault">
+        🎓 Open Course Vault ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Invoice Sheet -->
+  <div class="receipt-container">
+    <!-- Header -->
+    <div class="header-row">
+      <div>
+        <div class="brand-title">
+          <span>⚡ PersonaLabs Academy</span>
+        </div>
+        <div class="brand-badge">UDYAM-UP-43-0208040 • Verified Digital Product</div>
+        <div style="font-size: 11.5px; color: var(--slate-500); margin-top: 6px;">
+          Support: <strong>personalabsacademy@gmail.com</strong> • Web: <strong>personalabs.store</strong>
+        </div>
+      </div>
+      <div class="invoice-title-block">
+        <div class="invoice-title">Tax Invoice</div>
+        <div class="invoice-tag">✔ 100% Verified Paid</div>
+      </div>
+    </div>
+
+    <!-- Meta Details Grid -->
+    <div class="meta-grid">
+      <div class="meta-card">
+        <div class="meta-label">Transaction / Order ID</div>
+        <div class="meta-mono" id="val-txid">pay_TmdJJC5sF5r4L4</div>
+        <div style="font-size: 10.5px; color: var(--slate-500); margin-top: 2px;" id="val-orderid">Order #ORD-2026-LIVE</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Date & Time</div>
+        <div class="meta-value" id="val-date">12 October 2026, 02:45 PM IST</div>
+        <div style="font-size: 10.5px; color: var(--slate-500); margin-top: 2px;" id="val-gateway">Razorpay Live UPI</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Billed To</div>
+        <div class="meta-value" id="val-name">Valued Creator</div>
+        <div style="font-size: 11px; color: var(--slate-600);" id="val-email">customer@gmail.com</div>
+        <div style="font-size: 11px; color: var(--slate-500);" id="val-phone">+91 98765 43210</div>
+      </div>
+    </div>
+
+    <!-- Items Table -->
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th>Description & Curriculum Deliverables</th>
+          <th>Qty</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="items-tbody">
+        <!-- Injected via JavaScript from Order Payload -->
+      </tbody>
+    </table>
+
+    <!-- Totals Summary -->
+    <div class="summary-section">
+      <div class="summary-box">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="sum-subtotal">₹249</span>
+        </div>
+        <div class="summary-row" id="row-discount" style="display: none; color: var(--emerald-600);">
+          <span id="label-discount">Promo Discount</span>
+          <span id="sum-discount">-₹25</span>
+        </div>
+        <div class="summary-row">
+          <span>Digital GST / Processing</span>
+          <span>Included (₹0.00)</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total Paid</span>
+          <span class="price" id="sum-total">₹249</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Access Vault Links Inside Receipt -->
+    <div class="access-vault-card">
+      <div class="access-vault-title">
+        <span>👇 Instant Access Deliverables (Bookmark This Page)</span>
+      </div>
+      <div id="access-links-container">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+
+    <!-- Footer Seal -->
+    <div class="receipt-footer">
+      <div>
+        <div><strong>PersonaLabs Academy</strong> • Registered Digital Enterprise</div>
+        <div style="margin-top: 2px;">Thank you for your purchase! Keep this invoice for your records.</div>
+      </div>
+      <div class="stamp-badge">
+        <span>✔ OFFICIAL PAYMENT RECEIPT</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Parse order data from URL parameters or localStorage
+    (function initReceipt() {
+      const params = new URLSearchParams(window.location.search);
+      let order = null;
+
+      try {
+        const raw = localStorage.getItem('personalabs_unlocked_vault');
+        if (raw) order = JSON.parse(raw);
+      } catch (e) {}
+
+      const name = params.get('name') || (order && order.name) || 'Valued Creator';
+      const email = params.get('email') || (order && order.email) || 'creator@example.com';
+      const phone = params.get('phone') || '';
+      const txId = params.get('tx') || (order && order.transactionId) || ('PLA-' + Math.floor(10000000 + Math.random() * 90000000));
+      const orderId = params.get('orderId') || ('ORD-' + txId.slice(-6).toUpperCase());
+      const currency = params.get('currency') || (params.get('curr') || 'INR');
+      const sym = currency === 'USD' ? '$' : '₹';
+
+      const hasBump1 = params.get('b1') === '1' || params.get('vt1') || (order && order.bumpAdded);
+      const hasBump2 = params.get('b2') === '1' || params.get('vt2') || (order && order.bump2Added);
+      const isTestPrice = params.get('test') === '1' || txId.includes('Tmd');
+
+      let basePrice = currency === 'USD' ? 9 : 249;
+      let bump1Price = currency === 'USD' ? 9 : 249;
+      let bump2Price = currency === 'USD' ? 5 : 149;
+
+      if (isTestPrice) {
+        basePrice = currency === 'USD' ? 1 : 5;
+        bump1Price = currency === 'USD' ? 1 : 5;
+        bump2Price = currency === 'USD' ? 1 : 5;
+      }
+
+      let total = basePrice;
+      if (hasBump1) total += bump1Price;
+      if (hasBump2) total += bump2Price;
+
+      // Populate Meta Fields
+      document.getElementById('val-txid').textContent = txId;
+      document.getElementById('val-orderid').textContent = 'Order #' + orderId;
+      document.getElementById('val-date').textContent = new Date().toLocaleString('en-IN', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+        timeZone: 'Asia/Kolkata'
+      }) + ' IST';
+      document.getElementById('val-name').textContent = name;
+      document.getElementById('val-email').textContent = email;
+      document.getElementById('val-phone').textContent = phone ? phone : (currency === 'INR' ? 'India (UPI / PhonePe / GPay)' : 'International (PayPal / Card)');
+      document.getElementById('val-gateway').textContent = currency === 'INR' ? 'Razorpay Live UPI / Card' : 'PayPal USD Live';
+
+      // Populate Items Table
+      const tbody = document.getElementById('items-tbody');
+      tbody.innerHTML = '';
+
+      let rows = [
+        {
+          title: 'AI Influencer Accelerator – 5-Day Launch Kit',
+          desc: '18 Step-by-Step HD Video Masterclass + 250+ Character DNA Prompts + Face-Lock Pipeline (Lifetime Access)',
+          qty: 1,
+          price: `${sym}${basePrice}`
+        }
+      ];
+
+      if (hasBump1) {
+        rows.push({
+          title: 'Uncensored Content Hack (VIP Add-On Guide)',
+          desc: 'High-curiosity editorial reel formulas + 4 Exclusive Private NSFW Videos on Google Drive',
+          qty: 1,
+          price: `+${sym}${bump1Price}`
+        });
+      }
+
+      if (hasBump2) {
+        rows.push({
+          title: '500+ Viral Reel Hooks & ManyChat Auto-DM Pack',
+          desc: 'Categorized 3-second hook scripts + Automated Comment-to-DM funnels for 24/7 monetization',
+          qty: 1,
+          price: `+${sym}${bump2Price}`
+        });
+      }
+
+      rows.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div class="item-title">${item.title}</div>
+            <div class="item-desc">${item.desc}</div>
+          </td>
+          <td style="color: var(--slate-600);">${item.qty}</td>
+          <td>${item.price}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('sum-subtotal').textContent = `${sym}${total}`;
+      document.getElementById('sum-total').textContent = `${sym}${total}`;
+
+      // Populate Links
+      const linksContainer = document.getElementById('access-links-container');
+      const vaultQs = `?email=${encodeURIComponent(email)}&tx=${encodeURIComponent(txId)}`;
+
+      let linkList = [
+        {
+          name: '🎓 Interactive 5-Day Course Vault Portal',
+          url: `index.html${vaultQs}`,
+          badge: 'Online Portal'
+        },
+        {
+          name: '📁 Core Course Videos Google Drive Folder (19 HD Videos)',
+          url: 'https://drive.google.com/drive/folders/1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm?usp=sharing',
+          badge: 'Google Drive'
+        },
+        {
+          name: '🧬 250+ Character DNA & Face-Lock Prompt Bible',
+          url: 'character-dna-prompt-bible.html',
+          badge: 'Prompt Bible'
+        }
+      ];
+
+      if (hasBump1) {
+        linkList.push({
+          name: '🔞 4 Exclusive Uncensored NSFW Videos (Google Drive)',
+          url: 'https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing',
+          badge: 'VIP Add-On #1'
+        });
+      }
+
+      if (hasBump2) {
+        linkList.push({
+          name: '⚡ 500+ Viral Hooks & ManyChat Scripts Folder (Drive)',
+          url: 'https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing',
+          badge: 'VIP Add-On #2'
+        });
+      }
+
+      linksContainer.innerHTML = linkList.map(l => `
+        <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="access-link-item">
+          <span>${l.name}</span>
+          <span class="badge">${l.badge} ↗</span>
+        </a>
+      `).join('');
+
+      // Auto trigger print dialog if requested in query (?print=1)
+      if (params.get('print') === '1') {
+        setTimeout(() => window.print(), 600);
+      }
+    })();
+  </script>
+</body>
+</html>

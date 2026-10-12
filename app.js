@@ -2395,49 +2395,33 @@ async function openSignInModal() {
 }
 
 function downloadOfficialReceipt() {
+  triggerHaptic(25);
   const { finalTotal } = getTotals();
-  const nameVal = document.getElementById('customer-name').value.trim() || 'Valued Creator';
-  const emailVal = document.getElementById('customer-email').value.trim() || 'creator@example.com';
-  const phoneVal = document.getElementById('customer-phone').value.trim() || '';
+  const nameVal = document.getElementById('customer-name')?.value.trim() || 'Valued Creator';
+  const emailVal = document.getElementById('customer-email')?.value.trim() || 'creator@example.com';
+  const phoneVal = document.getElementById('customer-phone')?.value.trim() || '';
   const txId = state.lastTransactionId || ('PLA-' + Math.floor(10000000 + Math.random() * 90000000));
-  const vaultOrigin = window.location.origin.startsWith('http') ? window.location.origin : 'https://personalabs.store';
+  const orderId = state.currentOrderId || ('ORD-' + txId.slice(-6).toUpperCase());
 
-  const items = ['1x AI Influencer Accelerator – 5-Day Launch Kit (Lifetime Access)'];
-  if (state.bumpAdded) items.push('1x Uncensored Content Hack (VIP Add-On Guide)');
-  if (state.bump2Added) items.push('1x 500+ Viral Reel Hooks & Auto-DM Templates Pack');
+  const qs = new URLSearchParams();
+  qs.set('name', nameVal);
+  qs.set('email', emailVal);
+  qs.set('phone', phoneVal);
+  qs.set('tx', txId);
+  qs.set('orderId', orderId);
+  qs.set('currency', state.currency);
+  qs.set('b1', state.bumpAdded ? '1' : '0');
+  qs.set('b2', state.bump2Added ? '1' : '0');
+  if (state.isTestSandbox) qs.set('test', '1');
+  qs.set('print', '1');
 
-  const receiptText = [
-    '==========================================================',
-    '     OFFICIAL PAYMENT RECEIPT — PERSONALABS ACADEMY       ',
-    '==========================================================',
-    `Transaction ID : ${txId}`,
-    `Date           : ${new Date().toLocaleString()}`,
-    `Customer Name  : ${nameVal}`,
-    `Email          : ${emailVal}`,
-    `Phone          : ${state.currency === 'INR' ? '+91' : '+1'} ${phoneVal}`,
-    `Payment Method : ${state.lastPaymentMethod}`,
-    '----------------------------------------------------------',
-    'ITEMS UNLOCKED:',
-    ...items.map((i) => `  - ${i}`),
-    '----------------------------------------------------------',
-    `TOTAL PAID     : ${formatPrice(finalTotal)} (${state.currency})`,
-    '----------------------------------------------------------',
-    'INSTANT ACCESS LINKS (BOOKMARK THESE — NO EMAIL NEEDED):',
-    `1. Interactive 5-Day Course Portal : ${vaultOrigin}/course-vault/index.html`,
-    `2. 250+ Character DNA Prompt Bible : ${vaultOrigin}/course-vault/character-dna-prompt-bible.html`,
-    '3. Core Videos Google Drive Vault  : https://drive.google.com/drive/folders/1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm?usp=sharing',
-    state.bumpAdded ? '4. Uncensored NSFW Videos (Drive)  : https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing' : '',
-    state.bump2Added ? '5. 500+ Viral Hooks Pack (Drive)   : https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing' : '',
-    '----------------------------------------------------------',
-    'Support Email  : personalabsacademy@gmail.com',
-    '=========================================================='
-  ].filter(Boolean).join('\n');
-
-  const blob = new Blob([receiptText], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `PersonaLabs-Academy-Receipt-${txId}.txt`;
+  const receiptUrl = `course-vault/receipt.html?${qs.toString()}`;
+  const win = window.open(receiptUrl, '_blank');
+  if (!win) {
+    window.location.href = receiptUrl;
+  }
+  triggerPayoutToast('📄 Opening official tax invoice & printable PDF receipt...');
+}
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

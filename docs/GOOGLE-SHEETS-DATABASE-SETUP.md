@@ -105,7 +105,7 @@ function sendAbandonedCartRecoveryEmails() {
   for (let i = 1; i < data.length; i++) {
     const rowNum = i + 1;
     const status = String(data[i][1] || '').trim().toUpperCase();
-    const customerName = String(data[i][4] || 'Creator').trim();
+    const customerName = String(data[i][4] || 'there').trim();
     const buyerEmail = String(data[i][5] || '').trim().toLowerCase();
     const rowDateStr = String(data[i][0] || '');
     const emailStatus = String(data[i][20] || '').trim();
@@ -126,37 +126,39 @@ function sendAbandonedCartRecoveryEmails() {
     if (elapsedMinutes < MIN_DELAY_MINUTES) continue;
 
     try {
-      const subject = `Your AI Influencer Launch Kit link (+ 88% Launch Discount Reserved)`;
+      const subject = `Regarding your PersonaLabs enrollment (${customerName})`;
+      const plainText = `Hi ${customerName},\n\nWe noticed you started setting up your access to the AI Influencer Accelerator (5-Day Launch Kit), but your checkout wasn't completed.\n\nYour enrollment details are reserved for you at: https://personalabs.store\n\nIncluded:\n- 18 Step-by-Step HD Video Lessons (Runs 100% on Android & iOS)\n- 250+ Character DNA & Face-Lock Prompts\n- ManyChat Auto-DM Funnel Templates\n- Instant Google Drive & Portal Access\n\nComplete enrollment here: https://personalabs.store\n\nIf you experienced any issues during checkout or have questions, simply reply to this email.\n\nPersonaLabs Academy\nRegistered MSME: UDYAM-UP-43-0208040\nUttar Pradesh, India\nTo manage email preferences, reply with "unsubscribe".`;
+
       const htmlBody = `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #1e293b;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <span style="background: linear-gradient(135deg, #e65ce4, #ec4899); color: #ffffff; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">PersonaLabs Academy</span>
-            <h2 style="font-size: 20px; font-weight: 800; margin-top: 14px; color: #0f172a; margin-bottom: 6px;">Did your payment go through okay?</h2>
-            <p style="font-size: 13px; color: #64748b; margin: 0;">We reserved your ₹249 Fast-Action Launch Offer</p>
-          </div>
-          <p style="font-size: 14px; line-height: 1.6;">Hi <strong>${customerName}</strong>,</p>
-          <p style="font-size: 14px; line-height: 1.6;">We noticed you started setting up your access to the <strong>AI Influencer Accelerator (5-Day Launch Kit)</strong>, but your checkout was not completed.</p>
-          <p style="font-size: 14px; line-height: 1.6;">Everything inside is waiting for you with zero waiting or subscription charges:</p>
-          <ul style="font-size: 13px; line-height: 1.7; padding-left: 20px; color: #334155;">
-            <li>✔ <strong>18 Step-by-Step HD Video Lessons</strong> (Runs 100% on Android & iOS mobile)</li>
-            <li>✔ <strong>250+ Character DNA & Face-Lock Prompts</strong> (Consistent face across all reels)</li>
-            <li>✔ <strong>Automated ManyChat Auto-DM Funnel Templates</strong></li>
-            <li>✔ <strong>Instant Google Drive & Portal Access</strong></li>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; color: #1e293b; background: #ffffff;">
+          <p style="font-size: 15px; line-height: 1.6;">Hi ${customerName},</p>
+          <p style="font-size: 15px; line-height: 1.6;">We noticed you started setting up your access to the <strong>AI Influencer Accelerator (5-Day Launch Kit)</strong>, but your checkout wasn't completed.</p>
+          <p style="font-size: 15px; line-height: 1.6;">Your reserved fast-action enrollment details are ready:</p>
+          <ul style="font-size: 14px; line-height: 1.7; color: #334155;">
+            <li><strong>18 Step-by-Step HD Video Lessons</strong> (Runs 100% on Android & iOS)</li>
+            <li><strong>250+ Character DNA & Face-Lock Prompts</strong></li>
+            <li><strong>ManyChat Auto-DM Funnel Templates</strong></li>
+            <li><strong>Instant Google Drive & Portal Access</strong></li>
           </ul>
-          <div style="text-align: center; margin: 26px 0;">
-            <a href="https://personalabs.store" style="background: linear-gradient(135deg, #e65ce4, #ec4899); color: #ffffff; padding: 14px 28px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 14px; display: inline-block; box-shadow: 0 4px 14px rgba(230, 92, 228, 0.35);">
-              Complete Enrollment for ₹249 →
+          <p style="margin: 24px 0;">
+            <a href="https://personalabs.store" style="background: #0f172a; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+              Complete Enrollment →
             </a>
-          </div>
-          <p style="font-size: 12px; color: #64748b; line-height: 1.5; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: 20px;">
-            If your UPI payment already went through or you need direct support, simply reply to this email and our team will assist you immediately.
+          </p>
+          <p style="font-size: 13px; color: #64748b; line-height: 1.6;">If your UPI payment already completed or you experienced any issues during checkout, simply reply directly to this email and we'll assist you immediately.</p>
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 28px 0 16px 0;" />
+          <p style="font-size: 11px; color: #94a3b8; line-height: 1.5; margin: 0;">
+            PersonaLabs Academy • MSME Registration: UDYAM-UP-43-0208040<br/>
+            Sector 62, Noida, Uttar Pradesh, India • You received this because an order was initiated on personalabs.store.<br/>
+            To unsubscribe or manage email preferences, reply with "unsubscribe".
           </p>
         </div>
       `;
 
-      GmailApp.sendEmail(buyerEmail, subject, `Hi ${customerName}, complete your enrollment at https://personalabs.store`, {
+      GmailApp.sendEmail(buyerEmail, subject, plainText, {
         name: 'PersonaLabs Academy',
-        htmlBody: htmlBody
+        htmlBody: htmlBody,
+        replyTo: 'personalabsacademy@gmail.com'
       });
 
       const sentTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
@@ -193,7 +195,7 @@ function sendPostPurchaseAddonUpsellEmails() {
   for (let i = 1; i < data.length; i++) {
     const rowNum = i + 1;
     const status = String(data[i][1] || '').trim().toUpperCase();
-    const customerName = String(data[i][4] || 'Creator').trim();
+    const customerName = String(data[i][4] || 'there').trim();
     const buyerEmail = String(data[i][5] || '').trim().toLowerCase();
     const rowDateStr = String(data[i][0] || '');
     const upsellStatus = String(data[i][21] || '').trim();
@@ -216,53 +218,58 @@ function sendPostPurchaseAddonUpsellEmails() {
 
     // Send 1-click upgrade email
     try {
-      let upgradeHeadline = 'Exclusive Student VIP Upgrades for Your AI Influencer Kit';
+      let subject = `[Student Resource] AI Influencer Toolkit Upgrades (${customerName})`;
+      let plainText = `Hi ${customerName},\n\nHope you're enjoying the AI Influencer Accelerator!\n\nAs an enrolled student, your original student discount for the add-on toolkits is still active for your account.\n\n`;
       let upgradeCardsHtml = '';
 
       if (!userHas.bump1) {
+        plainText += `- Uncensored Content Hack (+4 Private NSFW Videos): https://personalabs.store/?upgrade=bump1\n`;
         upgradeCardsHtml += `
-          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: left;">
-            <div style="font-weight: 800; font-size: 14px; color: #0f172a;">1. Uncensored Content Hack (+4 Exclusive NSFW Videos)</div>
-            <p style="font-size: 12px; color: #475569; margin: 4px 0 10px 0;">How top creators structure high-curiosity content safely + 4 private NSFW video files on Google Drive.</p>
-            <a href="https://personalabs.store/?upgrade=bump1" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block;">
-              Unlock VIP Hack for +₹249 →
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 12px; text-align: left;">
+            <div style="font-weight: 700; font-size: 14px; color: #0f172a;">1. Uncensored Content Hack (+4 Exclusive NSFW Videos)</div>
+            <p style="font-size: 13px; color: #475569; margin: 4px 0 12px 0;">Viral curiosity framing and multi-platform monetization + 4 exclusive NSFW video masterclasses.</p>
+            <a href="https://personalabs.store/?upgrade=bump1" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 13px; display: inline-block;">
+              Unlock VIP Hack (+₹249) →
             </a>
           </div>
         `;
       }
 
       if (!userHas.bump2) {
+        plainText += `- 500+ Viral Reel Hooks & Auto-DM Pack: https://personalabs.store/?upgrade=bump2\n`;
         upgradeCardsHtml += `
-          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 12px; text-align: left;">
-            <div style="font-weight: 800; font-size: 14px; color: #0f172a;">2. 500+ Viral Reel Hooks & ManyChat Auto-DM Pack</div>
-            <p style="font-size: 12px; color: #475569; margin: 4px 0 10px 0;">500+ copy-paste high-retention reel hooks and comment-to-DM automation scripts that sell 24/7.</p>
-            <a href="https://personalabs.store/?upgrade=bump2" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block;">
-              Unlock 500+ Hooks Pack for +₹149 →
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin-bottom: 12px; text-align: left;">
+            <div style="font-weight: 700; font-size: 14px; color: #0f172a;">2. 500+ Viral Reel Hooks & ManyChat Auto-DM Pack</div>
+            <p style="font-size: 13px; color: #475569; margin: 4px 0 12px 0;">500+ copy-paste hooks and comment-to-DM automation scripts to monetize followers 24/7.</p>
+            <a href="https://personalabs.store/?upgrade=bump2" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 13px; display: inline-block;">
+              Unlock 500+ Hooks Pack (+₹149) →
             </a>
           </div>
         `;
       }
 
+      plainText += `\nIf you have any questions or need student support, reply to this email.\n\nPersonaLabs Academy\nRegistered MSME: UDYAM-UP-43-0208040\nUttar Pradesh, India\nTo manage email preferences, reply with "unsubscribe".`;
+
       const htmlBody = `
-        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #1e293b;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <span style="background: linear-gradient(135deg, #e65ce4, #ec4899); color: #ffffff; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">PersonaLabs Academy • Student Perks</span>
-            <h2 style="font-size: 20px; font-weight: 800; margin-top: 14px; color: #0f172a; margin-bottom: 6px;">${upgradeHeadline}</h2>
-            <p style="font-size: 13px; color: #64748b; margin: 0;">Special add-on access reserved for enrolled students</p>
-          </div>
-          <p style="font-size: 14px; line-height: 1.6;">Hi <strong>${customerName}</strong>,</p>
-          <p style="font-size: 14px; line-height: 1.6;">Hope you are enjoying the AI Influencer Accelerator! We noticed you opted out of the optional add-ons during your enrollment.</p>
-          <p style="font-size: 14px; line-height: 1.6;">As an enrolled student, you can add them to your portal and Google Drive anytime at your original student discount:</p>
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; color: #1e293b; background: #ffffff;">
+          <p style="font-size: 15px; line-height: 1.6;">Hi ${customerName},</p>
+          <p style="font-size: 15px; line-height: 1.6;">Hope you are enjoying the AI Influencer Accelerator! We noticed you opted out of the optional add-ons during your enrollment.</p>
+          <p style="font-size: 15px; line-height: 1.6;">As an enrolled student, your original student discount remains reserved for your account:</p>
           ${upgradeCardsHtml}
-          <p style="font-size: 12px; color: #64748b; line-height: 1.5; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: 20px;">
-            These upgrade links automatically connect to your existing account so your Google Drive access is updated immediately upon payment.
+          <p style="font-size: 13px; color: #64748b; line-height: 1.6;">Upgrading automatically syncs with your registered email and unlocks the folders in your Google Drive immediately.</p>
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 28px 0 16px 0;" />
+          <p style="font-size: 11px; color: #94a3b8; line-height: 1.5; margin: 0;">
+            PersonaLabs Academy • MSME Registration: UDYAM-UP-43-0208040<br/>
+            Sector 62, Noida, Uttar Pradesh, India • You received this because you are an enrolled student at personalabs.store.<br/>
+            To unsubscribe or manage email preferences, reply with "unsubscribe".
           </p>
         </div>
       `;
 
-      GmailApp.sendEmail(buyerEmail, `Student Upgrade: Complete Your AI Influencer Toolkit`, `Hi ${customerName}, upgrade your student toolkits at https://personalabs.store`, {
+      GmailApp.sendEmail(buyerEmail, subject, plainText, {
         name: 'PersonaLabs Academy',
-        htmlBody: htmlBody
+        htmlBody: htmlBody,
+        replyTo: 'personalabsacademy@gmail.com'
       });
 
       const sentTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
