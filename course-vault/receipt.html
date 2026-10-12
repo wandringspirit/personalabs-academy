@@ -396,7 +396,7 @@
         </div>
       </div>
       <div class="invoice-title-block">
-        <div class="invoice-title">Tax Invoice</div>
+        <div class="invoice-title" id="val-doc-title">Payment Receipt</div>
         <div class="invoice-tag">✔ 100% Verified Paid</div>
       </div>
     </div>
@@ -447,8 +447,8 @@
           <span id="sum-discount">-₹25</span>
         </div>
         <div class="summary-row">
-          <span>Digital GST / Processing</span>
-          <span>Included (₹0.00)</span>
+          <span id="label-tax-processing">Digital GST / Processing</span>
+          <span id="sum-tax-processing">Included (₹0.00)</span>
         </div>
         <div class="summary-row total">
           <span>Total Paid</span>
@@ -575,6 +575,19 @@
 
       document.getElementById('sum-subtotal').textContent = `${sym}${total}`;
       document.getElementById('sum-total').textContent = `${sym}${total}`;
+
+      const docTitleEl = document.getElementById('val-doc-title');
+      if (docTitleEl) {
+        docTitleEl.textContent = currency === 'USD' ? 'Payment Receipt' : 'Tax Invoice';
+      }
+      const taxLabelEl = document.getElementById('label-tax-processing');
+      if (taxLabelEl) {
+        taxLabelEl.textContent = currency === 'USD' ? 'Digital Delivery & Processing' : 'Digital GST / Processing';
+      }
+      const taxValEl = document.getElementById('sum-tax-processing');
+      if (taxValEl) {
+        taxValEl.textContent = `Included (${sym}0.00)`;
+      }
 
       // Populate Links
       const linksContainer = document.getElementById('access-links-container');
