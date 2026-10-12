@@ -1,7 +1,7 @@
 # 📖 PersonaLabs Academy — Complete Launch & Operations Manual
 
-Last Updated: **October 12, 2026**  
-Status: **🟢 Campaign #1 Active (`₹500/day` CBO • `3.52%–5.56%` Link CTR) • Storefront `v2.9.0` (`app.js?v=21`) Live on Vercel CDN**
+Last Updated: **October 13, 2026**  
+Status: **🟢 Campaign #1 Active (`₹500/day` CBO • Opportunity Score `100/100`) • 6-Day IG Queue Scheduled (`Oct 13–18`) • Storefront `v2.9.1` Live on Vercel CDN**
 
 ---
 
@@ -13,10 +13,10 @@ Status: **🟢 Campaign #1 Active (`₹500/day` CBO • `3.52%–5.56%` Link CTR
 | **Secret Testing Route** | [https://www.personalabs.store/kjboavhpoieabpraegnaln](https://www.personalabs.store/kjboavhpoieabpraegnaln) | 🟢 **Active for Testing** | **₹1 INR** (Razorpay) / **$1 USD** (PayPal) per item with 1-click currency toggle. Can be disabled anytime in `app.js`. |
 | **Official Printable PDF Receipt** | [`https://personalabs.store/course-vault/receipt.html`](../course-vault/receipt.html) | 🟢 **100% Live** | Instant (`<50ms`) A4 printable invoice/receipt. Shows `Tax Invoice` + `Included (₹0.00)` for India (`INR`) and `Payment Receipt` + `Included ($0.00)` (no GST) for International (`USD`). |
 | **Member Vault Portal** | `https://personalabs.store/course-vault/` | 🟢 **100% Live** | 18 HD lessons, 250+ prompts, and authenticated add-on downloads. |
-| **Meta Ad Campaign #1** | `IN - Sales - AI Influencer Launch Kit (INR)` | 🟢 **Active (Opportunity Score 100)** | Budget: **₹500.00/day** (CBO). Placements: IG Reels & Stories. Early CTR: **`3.52% – 5.56%`**. |
+| **Meta Ad Campaign #1** | `IN - Sales - AI Influencer Launch Kit (INR)` | 🟢 **Active (Opportunity Score 100)** | Budget: **₹500.00/day** (CBO). Advantage+ Creative `Video touch-ups` enabled. Early CTR: **`3.52% – 5.56%`**. |
 | **Meta Ad Account** | `PersonaLabs Academy Ads` (`2218391099056783`) | 🟢 **Active** | Currency: INR (`₹`). Timezone: Asia/Kolkata. |
 | **Meta Dataset / Pixel** | `PersonaLabs Academy Pixel` (`1661173205598260`) | 🟢 **Tracking Live** | Events: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout`, `Purchase`. |
-| **Instagram Creator Identity** | `@personalabsacademy` | 🟢 **Active** | 8K Exact-Face Saree Profile Picture. |
+| **Instagram Creator Identity** | [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/) | 🟢 **Active + Pinned Grid** | Pinned 5-Slide Carousel (`DeZdiZ2EuBf`) + 2 Live Reels (`DeWdJplElw6`, `DeZd2Z6o-Be`). |
 | **Facebook Page Identity** | `PersonaLabs Academy` (`ID: 61595148306909`) | 🟢 **Connected** | Linked to Ad Account and Campaign Identity. |
 | **India Payment Gateway** | Razorpay Live (`rzp_live_TmX62nNGuBaTUc`) | 🟢 **Live** | Instant UPI (GPay, PhonePe, Paytm, QR) + RuPay/Visa Cards. |
 | **Global Payment Gateway** | PayPal Live (`BAARfEN6...`) | 🟢 **Live** | PayPal 1-Click + International Cards in USD ($). |
@@ -24,7 +24,7 @@ Status: **🟢 Campaign #1 Active (`₹500/day` CBO • `3.52%–5.56%` Link CTR
 | **Google Drive Auto-Access** | Webhook App (`DriveApp.addViewer`, **Version 3**) | 🟢 **Connected** | Automatically whitelists customer's Gmail for purchased Drive folders (`01-Core`, `02-NSFW`, `03-Hooks`). |
 | **Automated Email Engine** | Apps Script Triggers (`GmailApp`, **Version 3**) | 🟢 **Running 24/7** | 1. **25-Min Cart Recovery** (`sendAbandonedCartRecoveryEmails` every 15m)<br>2. **12-Hr Add-On Upsell** (`sendPostPurchaseAddonUpsellEmails` every 2h) with plain-text parity & CAN-SPAM footer. |
 | **GitHub Repository** | [`wandringspirit/personalabs-academy`](https://github.com/wandringspirit/personalabs-academy) | 🟢 **Connected to Vercel** | Every `git push origin main` auto-deploys to `https://personalabs.store` in ~15 seconds. |
-| **3-Agent Instagram Studio** | [`instagram-studio/`](../instagram-studio) | 🟢 **Batch #1 Ready** | `ig-content-studio`, `ig-copy-and-funnel`, and `instagram-creator-operator` for `@personalabsacademy`. |
+| **3-Agent Instagram Studio** | [`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md) | 🟢 **6 Days Scheduled (`Oct 13–18`)** | 6 daily posts/Reels scheduled at `7:30 PM IST` (`19:30`) in Meta Business Suite + Weekly Sunday `10:00 AM IST` auto-refill. |
 
 ---
 

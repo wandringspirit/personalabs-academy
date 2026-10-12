@@ -1,6 +1,23 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.9.0 — 2026-10-12 (Latest Release)
+## v2.9.1 — 2026-10-13 (Latest Release)
+- **Live & 6-Day Scheduled Instagram Queue (`@personalabsacademy`) ([`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md)):**
+  - Published and pinned **Carousel #01** (`5 Slides, 4:5` — [`https://www.instagram.com/p/DeZdiZ2EuBf/`](https://www.instagram.com/p/DeZdiZ2EuBf/)) to the top of `@personalabsacademy` alongside live **Reel #01** ([`DeWdJplElw6`](https://www.instagram.com/personalabsacademy/reel/DeWdJplElw6/)) and **Reel #02** ([`DeZd2Z6o-Be`](https://www.instagram.com/p/DeZd2Z6o-Be/)).
+  - Rendered and scheduled **6 consecutive daily posts/Reels (`Tue Oct 13 – Sun Oct 18, 2026 at 7:30 PM IST / 19:30`)** in Meta Business Suite Content Planner:
+    1. **Tue, Oct 13 (`19:30 IST`):** `Reel #03 (Mobile Creator Pipeline)` — Scheduled ID: `1796375885019195`
+    2. **Wed, Oct 14 (`19:30 IST`):** `Reel #04 (Raw iPhone Realism Secret)` — Scheduled ID: `1517688583525114`
+    3. **Thu, Oct 15 (`19:30 IST`):** `Carousel #02 (Smartphone Realism Prompts — 5 Slides)` — Scheduled ID: `2220488025553695`
+    4. **Fri, Oct 16 (`19:30 IST`):** `Reel #05 (1 Static Photo to 4K Viral Reel)` — Scheduled ID: `1099506249107288`
+    5. **Sat, Oct 17 (`19:30 IST`):** `Carousel #03 (5-Day AI Influencer Roadmap — 5 Slides)` — Scheduled ID: `908070545570409`
+    6. **Sun, Oct 18 (`19:30 IST`):** `Reel #06 (₹50,000 Studio Shoot vs. 20-Min AI Creator Page)` — Scheduled ID: `1622233036055930`
+  - Added reusable studio asset builder ([`instagram-studio/scripts/build_batch_1b_5days.py`](../instagram-studio/scripts/build_batch_1b_5days.py)) and local file bridge ([`instagram-studio/scripts/ig_bridge.js`](../instagram-studio/scripts/ig_bridge.js)).
+- **Weekly Sunday 10:00 AM IST Instagram Batch Refill Automation (`/schedule`):**
+  - Activated recurring cron automation **`Weekly Instagram Batch Refill (@personalabsacademy)`** (`CRON_TZ=Asia/Kolkata 0 10 * * 0`) to automatically generate the next 7-day Reel/Carousel batch every Sunday morning before Sunday night's scheduled Reel goes live.
+- **Meta Ads Campaign #1 (`100/100` Opportunity Score) & Root `README.md`:**
+  - Applied Meta Advantage+ Creative `Video touch-ups` on **`IN - Sales - AI Influencer Launch Kit (INR)`**, reaching a **`100/100` Opportunity Score** (`₹302.29` spent, `273` impressions, `236` reach).
+  - Added root [`README.md`](../README.md) indexing all architecture, operations, and Instagram Studio files.
+
+## v2.9.0 — 2026-10-12
 - **Official Printable PDF Tax Invoice / Payment Receipt ([`course-vault/receipt.html`](../course-vault/receipt.html), [`app.js`](../app.js), [`index.html`](../index.html)):**
   - Replaced the plain-text `.txt` download with a printable A4 invoice/receipt ([`course-vault/receipt.html`](../course-vault/receipt.html)) displaying Udyam MSME Registration (`UDYAM-UP-43-0208040`), itemized deliverables, Razorpay/PayPal Transaction ID, Order ID, and direct lifetime portal & Google Drive links.
   - Added currency-aware tax/processing logic: displays **`Tax Invoice`** + **`Digital GST / Processing: Included (₹0.00)`** for Indian (`INR`) orders, and **`Payment Receipt`** + **`Digital Delivery & Processing: Included ($0.00)`** (zero mention of GST) for International (`USD`) orders.
