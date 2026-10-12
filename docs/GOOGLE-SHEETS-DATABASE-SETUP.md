@@ -46,7 +46,8 @@ const HEADERS = [
   'Country',
   'Items Purchased',
   'Source Page URL',
-  'Google Drive Access Granted'
+  'Google Drive Access Granted',
+  'Automated Recovery Email Status'
 ];
 
 function ensureSheetAndHeaders() {
@@ -64,14 +65,118 @@ function ensureSheetAndHeaders() {
     headerRange.setFontColor('#ffffff');
     headerRange.setFontWeight('bold');
     sheet.setFrozenRows(1);
+  } else if (sheet.getLastColumn() < HEADERS.length) {
+    // Auto-append 21st column if missing
+    sheet.getRange(1, HEADERS.length).setValue(HEADERS[HEADERS.length - 1]).setBackground('#4a044e').setFontColor('#ffffff').setFontWeight('bold');
   }
   return sheet;
 }
 
-// Run this once inside Apps Script to auto-create the styled headers & authorize DriveApp!
+// Run this once inside Apps Script to auto-create headers & authorize DriveApp and GmailApp!
 function setupDatabaseSheet() {
   ensureSheetAndHeaders();
   if (CORE_FOLDER_ID) DriveApp.getFolderById(CORE_FOLDER_ID).getName();
+  setupCartRecoveryTrigger();
+}
+
+// =========================================================================
+// AUTOMATED 30-MINUTE ABANDONED CHECKOUT RECOVERY EMAIL (via personalabsacademy@gmail.com)
+// =========================================================================
+function sendAbandonedCartRecoveryEmails() {
+  const sheet = ensureSheetAndHeaders();
+  const data = sheet.getDataRange().getValues();
+  if (data.length <= 1) return;
+
+  const now = new Date();
+  const MIN_DELAY_MINUTES = 25; // Send 25-30 minutes after abandonment so they have time to pay normally
+
+  // 1. Build set of emails that have already paid successfully (never email someone who bought!)
+  const paidEmails = new Set();
+  for (let i = 1; i < data.length; i++) {
+    const status = String(data[i][1] || '').trim().toUpperCase();
+    const email = String(data[i][5] || '').trim().toLowerCase();
+    if (status === 'PAID_SUCCESS' && email) {
+      paidEmails.add(email);
+    }
+  }
+
+  // 2. Scan initiated checkouts that haven't been emailed yet
+  for (let i = 1; i < data.length; i++) {
+    const rowNum = i + 1;
+    const status = String(data[i][1] || '').trim().toUpperCase();
+    const customerName = String(data[i][4] || 'Creator').trim();
+    const buyerEmail = String(data[i][5] || '').trim().toLowerCase();
+    const rowIso = String(data[i][0] || ''); // Timestamp
+    const emailStatus = String(data[i][20] || '').trim(); // Column 21
+
+    if (status !== 'INITIATED_CHECKOUT') continue;
+    if (!buyerEmail || !buyerEmail.includes('@')) continue;
+    if (paidEmails.has(buyerEmail)) {
+      if (!emailStatus) sheet.getRange(rowNum, 21).setValue('SKIPPED (Already Paid)');
+      continue;
+    }
+    if (emailStatus && emailStatus.startsWith('SENT')) continue;
+
+    // Check if at least 25 minutes have elapsed since checkout initiation
+    const rowTime = new Date(rowIso);
+    const elapsedMinutes = !isNaN(rowTime.getTime()) ? (now.getTime() - rowTime.getTime()) / (1000 * 60) : 999;
+    if (elapsedMinutes < MIN_DELAY_MINUTES) continue;
+
+    // 3. Send official recovery email from personalabsacademy@gmail.com
+    try {
+      const subject = `Your AI Influencer Launch Kit link (+ 88% Launch Discount Reserved)`;
+      const htmlBody = `
+        <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 580px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; color: #1e293b;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <span style="background: linear-gradient(135deg, #e65ce4, #ec4899); color: #ffffff; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; display: inline-block;">PersonaLabs Academy</span>
+            <h2 style="font-size: 20px; font-weight: 800; margin-top: 14px; color: #0f172a; margin-bottom: 6px;">Did your payment go through okay?</h2>
+            <p style="font-size: 13px; color: #64748b; margin: 0;">We reserved your ₹249 Fast-Action Launch Offer</p>
+          </div>
+          <p style="font-size: 14px; line-height: 1.6;">Hi <strong>${customerName}</strong>,</p>
+          <p style="font-size: 14px; line-height: 1.6;">We noticed you started setting up your access to the <strong>AI Influencer Accelerator (5-Day Launch Kit)</strong>, but your checkout was not completed.</p>
+          <p style="font-size: 14px; line-height: 1.6;">Everything inside is waiting for you with zero waiting or subscription charges:</p>
+          <ul style="font-size: 13px; line-height: 1.7; padding-left: 20px; color: #334155;">
+            <li>✔ <strong>18 Step-by-Step HD Video Lessons</strong> (Runs 100% on Android & iOS mobile)</li>
+            <li>✔ <strong>250+ Character DNA & Face-Lock Prompts</strong> (Consistent face across all reels)</li>
+            <li>✔ <strong>Automated ManyChat Auto-DM Funnel Templates</strong></li>
+            <li>✔ <strong>Instant Google Drive & Portal Access</strong></li>
+          </ul>
+          <div style="text-align: center; margin: 26px 0;">
+            <a href="https://personalabs.store" style="background: linear-gradient(135deg, #e65ce4, #ec4899); color: #ffffff; padding: 14px 28px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 14px; display: inline-block; box-shadow: 0 4px 14px rgba(230, 92, 228, 0.35);">
+              Complete Enrollment for ₹249 →
+            </a>
+          </div>
+          <p style="font-size: 12px; color: #64748b; line-height: 1.5; text-align: center; border-top: 1px solid #f1f5f9; padding-top: 16px; margin-top: 20px;">
+            If your UPI payment already went through or you need direct support, simply reply to this email and our team will assist you immediately.
+          </p>
+        </div>
+      `;
+
+      GmailApp.sendEmail(buyerEmail, subject, `Hi ${customerName}, complete your AI Influencer Launch Kit enrollment at https://personalabs.store`, {
+        name: 'PersonaLabs Academy',
+        htmlBody: htmlBody
+      });
+
+      const sentTimestamp = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      sheet.getRange(rowNum, 21).setValue(`SENT (${sentTimestamp})`).setBackground('#e0e7ff');
+    } catch (err) {
+      sheet.getRange(rowNum, 21).setValue(`ERR (${err.message})`);
+    }
+  }
+}
+
+// Creates an automatic recurring trigger in Apps Script to check every 15 minutes
+function setupCartRecoveryTrigger() {
+  const triggers = ScriptApp.getProjectTriggers();
+  for (let i = 0; i < triggers.length; i++) {
+    if (triggers[i].getHandlerFunction() === 'sendAbandonedCartRecoveryEmails') {
+      return; // Already exists
+    }
+  }
+  ScriptApp.newTrigger('sendAbandonedCartRecoveryEmails')
+    .timeBased()
+    .everyMinutes(15)
+    .create();
 }
 
 function doPost(e) {
