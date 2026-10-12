@@ -1,6 +1,22 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.8.2 — 2026-10-11 (Latest Release)
+## v2.9.0 — 2026-10-12 (Latest Release)
+- **Official Printable PDF Tax Invoice / Payment Receipt ([`course-vault/receipt.html`](../course-vault/receipt.html), [`app.js`](../app.js), [`index.html`](../index.html)):**
+  - Replaced the plain-text `.txt` download with a printable A4 invoice/receipt ([`course-vault/receipt.html`](../course-vault/receipt.html)) displaying Udyam MSME Registration (`UDYAM-UP-43-0208040`), itemized deliverables, Razorpay/PayPal Transaction ID, Order ID, and direct lifetime portal & Google Drive links.
+  - Added currency-aware tax/processing logic: displays **`Tax Invoice`** + **`Digital GST / Processing: Included (₹0.00)`** for Indian (`INR`) orders, and **`Payment Receipt`** + **`Digital Delivery & Processing: Included ($0.00)`** (zero mention of GST) for International (`USD`) orders.
+  - Optimized for **`<50ms` instant tab opening** by removing the blocking automatic `window.print()` spooler call on tab load, making Google Fonts non-render-blocking (`media="print" onload="this.media='all'"`), and prefetching `course-vault/receipt.html` in [`index.html`](../index.html).
+- **Secret Live Payment Test Route (`/kjboavhpoieabpraegnaln` — `₹1 INR / $1 USD` per item) ([`app.js`](../app.js), [`index.html`](../index.html), [`vercel.json`](../vercel.json)):**
+  - Configured [`https://www.personalabs.store/kjboavhpoieabpraegnaln`](https://www.personalabs.store/kjboavhpoieabpraegnaln) (`PAYMENT_GATEWAY_CONFIG.testSandboxPage`) to charge **₹1 INR** (Razorpay) or **$1 USD** (PayPal) per item (`Base Kit`, `Bump #1`, `Bump #2`) with an on-screen 1-click currency switcher (`?v=21`).
+- **Automated 25-Min Cart Recovery & 12-Hour Post-Purchase Add-On Upsell Email Engine ([`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md)):**
+  - Deployed **Version 3** of the Google Apps Script Web App (`AKfycbzxKG...`) with two time-driven `GmailApp` triggers under `personalabsacademy@gmail.com`:
+    1. `sendAbandonedCartRecoveryEmails` (every 15 mins): Sends recovery emails to `INITIATED_CHECKOUT` leads after 25 minutes while automatically skipping anyone who subsequently completed a `PAID_SUCCESS` order.
+    2. `sendPostPurchaseAddonUpsellEmails` (every 2 hours): Sends 1-click upgrade links (`/?upgrade=bump1` and `/?upgrade=bump2`) 12 hours after purchase to students who did not buy both add-ons.
+  - Added full plain-text parity (`plainText`), `replyTo: 'personalabsacademy@gmail.com'`, and a CAN-SPAM compliant MSME footer to ensure Primary Inbox deliverability.
+- **Storefront UI Polish & Campaign #1 Live Activation (`₹500/day` CBO) ([`index.html`](../index.html), [`docs/LAUNCH_OPERATIONS_MANUAL.md`](LAUNCH_OPERATIONS_MANUAL.md)):**
+  - Updated Order Bump #1 (*Uncensored Content Hack*) thumbnail to [`assets/images/uncensored_hack_cover.png`](../assets/images/uncensored_hack_cover.png) and moved the `🌴 Bali Travel` persona pill to the first position in `#sec-ai-lab`.
+  - Published **Campaign #1 (`IN - Sales - AI Influencer Launch Kit (INR)`)** live in Meta Ads Manager at **₹500.00/day** (Instagram Reels & Stories), achieving **`3.52% – 5.56%` Link CTR** and **78 engagements** on initial delivery.
+
+## v2.8.2 — 2026-10-11
 - **Live Meta Pixel (`1661173205598260`) & Ad Account (`2218391099056783`) Connected ([`app.js`](../app.js), [`index.html`](../index.html), [`docs/ROADMAP.md`](ROADMAP.md)):**
   - Created **`PersonaLabs Academy Ads`** (`ID: 2218391099056783`, `Currency: INR`, `Time Zone: Asia/Kolkata`) and **`PersonaLabs Academy Pixel`** (`ID: 1661173205598260`) in Meta Business Suite (`business_id=1761523878300294`) and linked them under *Connected Assets*.
   - Wired `metaPixelId: '1661173205598260'` in [`app.js`](../app.js) (`?v=16`) and added the `<noscript>` beacon in [`index.html`](../index.html) to automatically track `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout`, and `Purchase` (with dynamic `INR`/`USD` values).
