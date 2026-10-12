@@ -814,6 +814,9 @@
 
             <!-- Mobile-Friendly 1-Tap Niche Pills -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <button type="button" onclick="selectLabNichePill('bali')" id="pill-niche-bali" class="touch-scale rounded-xl bg-brand-500 text-white px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
+                <span>🌴</span> <span>Bali Travel</span>
+              </button>
               <button type="button" onclick="selectLabNichePill('monaco')" id="pill-niche-monaco" class="touch-scale rounded-xl surface-elevated px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-brand-500 transition-all">
                 <span>💎</span> <span>Monaco Luxury</span>
               </button>
@@ -823,9 +826,6 @@
               <button type="button" onclick="selectLabNichePill('dubai')" id="pill-niche-dubai" class="touch-scale rounded-xl surface-elevated px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 hover:border-brand-500 transition-all">
                 <span>🏋️‍♂️</span> <span>Dubai Fitness</span>
               </button>
-              <button type="button" onclick="selectLabNichePill('bali')" id="pill-niche-bali" class="touch-scale rounded-xl bg-brand-500 text-white px-3 py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-all">
-                <span>🌴</span> <span>Bali Travel</span>
-              </button>
             </div>
 
             <!-- Controls Grid -->
@@ -833,10 +833,10 @@
               <div class="hidden sm:block">
                 <label class="block text-[11px] font-bold uppercase tracking-wider opacity-75 mb-1">1. Creator Niche</label>
                 <select id="lab-niche" onchange="runPersonaLab()" class="custom-input w-full rounded-xl px-3 py-2 text-xs font-semibold">
+                  <option value="bali" selected>🌴 Bali Tropical Resort Travel</option>
                   <option value="monaco">💎 Monaco Luxury & High Fashion</option>
                   <option value="seoul">⚡ Neo-Seoul Cyber Streetwear</option>
                   <option value="dubai">🏋️‍♂️ Dubai Penthouse Fitness</option>
-                  <option value="bali" selected>🌴 Bali Tropical Resort Travel</option>
                 </select>
               </div>
               <div>
