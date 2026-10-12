@@ -2422,11 +2422,6 @@ function downloadOfficialReceipt() {
   }
   triggerPayoutToast('📄 Opening official tax invoice & printable PDF receipt...');
 }
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
 
 function downloadHooksPack() {
   const content = [
