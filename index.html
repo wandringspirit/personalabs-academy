@@ -164,8 +164,62 @@
               />
             </div>
 
+            <!-- ============================================================ -->
+            <!-- MOBILE ABOVE-THE-FOLD INSTANT ACCESS & PRICE ANCHOR CARD     -->
+            <!-- ============================================================ -->
+            <div class="lg:hidden mt-4 rounded-2xl bg-white border-2 border-fuchsia-500/30 p-4 shadow-lg space-y-3">
+              <div class="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+                <div>
+                  <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[10px] font-extrabold text-emerald-700 uppercase tracking-wide">
+                    ⚡ 88% OFF Flash Launch Offer
+                  </span>
+                  <div class="text-xs font-bold text-slate-800 mt-1">5-Day AI Influencer Launch Kit</div>
+                </div>
+                <div class="text-right shrink-0">
+                  <div class="flex items-baseline justify-end gap-1.5">
+                    <span id="hero-mobile-strike-price" class="text-xs line-through text-slate-400 font-mono-num font-semibold">₹1,999</span>
+                    <span id="hero-mobile-base-price" class="font-mono-num text-2xl font-extrabold text-slate-900">₹249</span>
+                  </div>
+                  <div class="text-[10px] font-semibold text-teal-700">One-Time • Lifetime Access</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-1.5 text-[11px] font-semibold text-slate-700">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>23 HD Video Lessons</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>250+ Face-Lock Prompts</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>100% Mobile Workflow</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-emerald-600 font-bold">✓</span>
+                  <span>7-Day Refund Shield</span>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onclick="scrollToCheckout('Hero Above-Fold CTA')"
+                class="btn-primary-cta w-full rounded-xl py-3.5 px-4 text-sm font-extrabold text-white shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <span id="hero-mobile-cta-label">⚡ Unlock Instant Access — ₹249 →</span>
+              </button>
+
+              <div class="flex items-center justify-center gap-2 text-[10px] text-slate-500 font-medium pt-0.5">
+                <span>🔒 Instant Delivery via Google Drive &amp; Portal</span>
+                <span>•</span>
+                <span class="font-bold text-slate-700">UPI / GPay / PhonePe / Cards</span>
+              </div>
+            </div>
+
             <!-- Reference "Already made a payment on this page?" Callout Strip -->
-            <div class="mt-6 border-l-2 border-fuchsia-300 pl-3.5 py-1 text-xs sm:text-sm text-slate-500 flex flex-wrap items-center justify-between gap-2">
+            <div class="mt-5 border-l-2 border-fuchsia-300 pl-3.5 py-1 text-xs sm:text-sm text-slate-500 flex flex-wrap items-center justify-between gap-2">
               <div>
                 Already made a payment on this page?
                 <button type="button" onclick="openPreviewModal()" class="text-sky-500 hover:underline font-medium ml-1">
@@ -275,6 +329,17 @@
                     </p>
                   </div>
                 </div>
+              </div>
+
+              <!-- Mobile Direct Checkout Jump CTA Inside Guarantee Card -->
+              <div class="mt-4 pt-3 border-t border-white/10">
+                <button
+                  type="button"
+                  onclick="scrollToCheckout('Guarantee Section CTA')"
+                  class="btn-primary-cta w-full rounded-xl py-3.5 px-5 text-sm font-extrabold text-white shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span id="guarantee-mobile-cta-label">🚀 Join Risk-Free Now — ₹249 →</span>
+                </button>
               </div>
             </div>
           </section>
@@ -1669,7 +1734,7 @@
 
       <button
         type="button"
-        onclick="scrollToCheckout()"
+        onclick="scrollToCheckout('Mobile Sticky Bottom Bar CTA')"
         class="btn-primary-cta flex-1 rounded-xl py-3 px-4 text-xs sm:text-sm font-extrabold text-white shadow-lg text-center"
       >
         <span id="mobile-cta-label">Make Payment ₹249 →</span>
@@ -2223,7 +2288,7 @@
 
   <!-- Official Razorpay Standard Checkout SDK (for India INR payments) -->
   <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
-  <script src="app.js?v=21"></script>
+  <script src="app.js?v=22"></script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1661173205598260&ev=PageView&noscript=1" alt="" /></noscript>
 </body>
 </html>

@@ -95,6 +95,11 @@ function renderPricing() {
     baseEl.className = 'font-mono-num text-xl font-extrabold text-slate-900';
   }
 
+  const heroMobStrikeEl = document.getElementById('hero-mobile-strike-price');
+  const heroMobBaseEl = document.getElementById('hero-mobile-base-price');
+  if (heroMobStrikeEl) heroMobStrikeEl.textContent = formatPrice(cfg.strike);
+  if (heroMobBaseEl) heroMobBaseEl.textContent = formatPrice(base);
+
   document.getElementById('bump-price-display').textContent = `+${formatPrice(activeBump1Price)}`;
   const bump2PriceEl = document.getElementById('bump-2-price-display');
   if (bump2PriceEl) bump2PriceEl.textContent = `+${formatPrice(activeBump2Price)}`;
@@ -199,6 +204,15 @@ function renderPricing() {
   document.getElementById('mobile-sticky-price').textContent = formattedTotal;
   document.getElementById('mobile-cta-label').textContent = `Make Payment ${formattedTotal} →`;
   document.getElementById('modal-payable-amount').textContent = formattedTotal;
+
+  const heroMobCtaEl = document.getElementById('hero-mobile-cta-label');
+  if (heroMobCtaEl) {
+    heroMobCtaEl.textContent = `⚡ Unlock Instant Access — ${formattedTotal} →`;
+  }
+  const guarMobCtaEl = document.getElementById('guarantee-mobile-cta-label');
+  if (guarMobCtaEl) {
+    guarMobCtaEl.textContent = `🚀 Join Risk-Free Now — ${formattedTotal} →`;
+  }
 
   const reelCtaBtn = document.getElementById('reel-cta-price-btn');
   if (reelCtaBtn) {
@@ -1525,6 +1539,10 @@ function handlePhoneInput(inputEl) {
   if (errPhone && !errPhone.classList.contains('hidden')) {
     validatePhoneField(true);
   }
+  // Automatically capture partial lead as soon as a full valid phone number is entered on mobile
+  if (cleaned.length >= rule.minDigits && validatePhoneField(false)) {
+    capturePartialLeadIfValid('Phone Input Complete');
+  }
 }
 
 function validatePhoneField(showErrorUI = true) {
@@ -1554,6 +1572,7 @@ function validatePhoneField(showErrorUI = true) {
     } else {
       errPhone.classList.add('hidden');
       phoneEl.classList.remove('border-rose-500');
+      capturePartialLeadIfValid('Phone Field Blur');
     }
   }
   return !errorText;
@@ -1628,9 +1647,32 @@ function validateEmailField(showErrorUI = true) {
     } else {
       errEmail.classList.add('hidden');
       emailEl.classList.remove('border-rose-500');
+      capturePartialLeadIfValid('Email Field Blur');
     }
   }
   return !errorText;
+}
+
+// Automatically captures partial leads (valid Email or valid Phone) to Orders DB even before full form submission
+function capturePartialLeadIfValid(triggerSource = 'Partial Form Input') {
+  try {
+    const emailValid = validateEmailField(false);
+    const phoneValid = validatePhoneField(false);
+    if (!emailValid && !phoneValid) return;
+
+    const emailVal = emailValid ? (document.getElementById('customer-email')?.value.trim().toLowerCase() || '') : '';
+    const phoneVal = phoneValid ? (document.getElementById('customer-phone')?.value.replace(/\D/g, '') || '') : '';
+    const leadKey = `${emailVal}|${phoneVal}`;
+    if (state.lastPartialLeadKey === leadKey) return;
+    state.lastPartialLeadKey = leadKey;
+
+    if (typeof logOrderToGoogleSheet === 'function') {
+      logOrderToGoogleSheet('PARTIAL_LEAD_CAPTURED', {
+        transactionId: 'DRAFT_LEAD',
+        paymentMethod: triggerSource
+      });
+    }
+  } catch (e) {}
 }
 
 function handleNameInput(inputEl) {
@@ -1695,7 +1737,7 @@ function loadCheckoutDraft() {
   } catch (e) {}
 }
 
-function scrollToCheckout() {
+function scrollToCheckout(sourceLabel = 'Page CTA Button') {
   triggerHaptic(18);
   const el = document.getElementById('checkout-section');
   if (el) {
@@ -1704,6 +1746,26 @@ function scrollToCheckout() {
       const emailInput = document.getElementById('customer-email');
       if (emailInput) emailInput.focus();
     }, 600);
+  }
+
+  // Log CTA button click intent once per session to Orders DB & Meta Pixel AddToCart
+  if (!state.ctaScrollLogged) {
+    state.ctaScrollLogged = true;
+    try {
+      const { finalTotal } = getTotals();
+      trackMetaPixelEvent('AddToCart', {
+        content_name: 'AI Influencer Accelerator – 5-Day Launch Kit',
+        content_category: 'CTA Scroll Click',
+        value: finalTotal,
+        currency: state.currency
+      });
+      if (typeof logOrderToGoogleSheet === 'function') {
+        logOrderToGoogleSheet('CTA_CLICKED_SCROLL', {
+          transactionId: 'CTA_CLICK',
+          paymentMethod: sourceLabel
+        });
+      }
+    } catch (e) {}
   }
 }
 

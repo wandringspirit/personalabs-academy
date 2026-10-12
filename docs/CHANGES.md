@@ -1,6 +1,14 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.9.1 — 2026-10-13 (Latest Release)
+## v2.9.2 — 2026-10-13 (Latest Release)
+- **Mobile Above-the-Fold Instant Access & Price Anchor Card ([`index.html`](../index.html), [`app.js`](../app.js)):**
+  - Added a dedicated mobile-first (`lg:hidden`) **Above-the-Fold Instant Access & Price Anchor Card** directly below the 3-Panel Viral AI Reels Hero image (`#sec-overview`) with live dynamic pricing (`₹1,999` → `₹249` / `$79` → `$9`), 4-bullet deliverable summary, pulsing **`⚡ Unlock Instant Access — ₹249 →`** button (`scrollToCheckout('Hero Above-Fold CTA')`), and UPI/GPay/PhonePe trust strip so mobile Instagram Reels visitors don't have to scroll 5,000px to find the offer.
+  - Added a direct checkout jump CTA button (`🚀 Join Risk-Free Now — ₹249 →`) inside the **100% Money-Back Guarantee** card (`scrollToCheckout('Guarantee Section CTA')`).
+- **Full-Funnel CTA Click (`CTA_CLICKED_SCROLL`) & Early Partial Lead (`PARTIAL_LEAD_CAPTURED`) Telemetry (`?v=22`):**
+  - Upgraded [`scrollToCheckout()`](../app.js) to log `CTA_CLICKED_SCROLL` (with the exact CTA button source label) to the Google Sheets `Orders DB` and fire Meta Pixel `AddToCart` once per session when a visitor taps any CTA button.
+  - Added [`capturePartialLeadIfValid()`](../app.js) to automatically capture and log `PARTIAL_LEAD_CAPTURED` to `Orders DB` as soon as a visitor enters a valid Email address (`onblur`) or completes a valid 10-digit mobile number (`oninput`/`onblur`), even if they drop off before submitting the full checkout form.
+
+## v2.9.1 — 2026-10-13
 - **Live & 6-Day Scheduled Instagram Queue (`@personalabsacademy`) ([`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md)):**
   - Published and pinned **Carousel #01** (`5 Slides, 4:5` — [`https://www.instagram.com/p/DeZdiZ2EuBf/`](https://www.instagram.com/p/DeZdiZ2EuBf/)) to the top of `@personalabsacademy` alongside live **Reel #01** ([`DeWdJplElw6`](https://www.instagram.com/personalabsacademy/reel/DeWdJplElw6/)) and **Reel #02** ([`DeZd2Z6o-Be`](https://www.instagram.com/p/DeZd2Z6o-Be/)).
   - Rendered and scheduled **6 consecutive daily posts/Reels (`Tue Oct 13 – Sun Oct 18, 2026 at 7:30 PM IST / 19:30`)** in Meta Business Suite Content Planner:
