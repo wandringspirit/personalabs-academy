@@ -2758,6 +2758,9 @@ function initTestSandboxPageIfMatched() {
     topToggle.classList.add('inline-flex');
   }
 
+  syncTestSandboxToggleUI();
+  renderPricing();
+
   // Optional remote kill-switch check via Google Sheets Apps Script backend
   const webhookUrl = (PAYMENT_GATEWAY_CONFIG.googleSheetWebhookUrl || '').trim();
   if (webhookUrl && !webhookUrl.includes('YOUR_')) {
