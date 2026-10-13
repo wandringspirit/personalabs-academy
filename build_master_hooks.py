@@ -178,6 +178,40 @@ while len(ALL_HOOKS) < 505:
     })
     idx += 1
 
+def generate_detailed_ai_prompt(cat, visual, text, keyword):
+    optics_list = [
+        "shot on 35mm f/1.8 prime lens, natural depth of field, warm cinematic lighting, authentic skin micro-texture, fine facial pores, subtle motion blur, 8k resolution --ar 9:16",
+        "24mm smartphone camera optics, unedited candid look, natural daylight, photorealistic eye catchlights, soft flyaway hairs, realistic fabric folds, 4k ultra-detailed --ar 9:16",
+        "shot on 50mm f/1.4 portrait lens, dreamy soft bokeh background, golden hour warm rim lighting, lifelike skin tone, micro-expressions, 8k cinematic realism --ar 9:16",
+        "cinematic anamorphic lens, subtle film grain, soft diffused studio softbox, hyper-detailed textile weave, natural candid gaze, photorealistic render --ar 9:16"
+    ]
+    h = abs(hash(text)) % len(optics_list)
+    optics = optics_list[h]
+    
+    cat_context = {
+        "curiosity": "Cinematic vertical 9:16 video of an alluring 22yo Indian creator, authentic warm olive complexion, subtle mysterious expression. Action: {action}. Environment: {env}. {optics}",
+        "luxury": "Ultra-luxury 9:16 vertical video of an elegant 23yo Indian influencer, old-money minimalist styling, poised posture. Action: {action}. Environment: {env}. {optics}",
+        "desi": "Hyper-realistic 9:16 vertical video of a breathtaking Indian woman in regal ethnic drape, delicate gold jhumkas and glass bangles. Action: {action}. Environment: {env}. {optics}",
+        "pov": "Intimate candid 9:16 smartphone video of a charming 22yo Indian creator, direct eye contact with camera, authentic warm smile. Action: {action}. Environment: {env}. {optics}",
+        "debate": "High-contrast 9:16 vertical editorial clip of a confident 22yo Indian woman, sophisticated styling, sharp expressive body language. Action: {action}. Environment: {env}. {optics}",
+        "aireveal": "Hyper-photorealistic 9:16 vertical clip of an ethereal 21yo Indian virtual influencer, lifelike facial bone structure and natural hair flyaways. Action: {action}. Environment: {env}. {optics}",
+        "fashion": "Runway-inspired 9:16 vertical fashion reel of a chic 22yo Indian creator, impeccably styled wardrobe, smooth fabric flow. Action: {action}. Environment: {env}. {optics}",
+        "income": "Modern lifestyle 9:16 vertical video of a successful 23yo Indian digital creator, relaxed confident energy, smartphone in hand. Action: {action}. Environment: {env}. {optics}"
+    }
+
+    tmpl = cat_context.get(cat, cat_context["curiosity"])
+    action_clean = visual
+    env_clean = "modern aesthetic urban setting"
+    if " in " in visual:
+        parts = visual.split(" in ")
+        action_clean = parts[0]
+        env_clean = parts[1]
+        
+    return tmpl.format(action=action_clean.strip(), env=env_clean.strip(), optics=optics)
+
+for h in ALL_HOOKS:
+    h["prompt"] = generate_detailed_ai_prompt(h["cat"], h["visual"], h["text"], h["keyword"])
+
 print(f"Total compiled hooks: {len(ALL_HOOKS)}")
 
 html_content = """<!DOCTYPE html>
@@ -788,6 +822,59 @@ html_content = """<!DOCTYPE html>
     }
     .btn-copy-hook:hover { background: rgba(255, 255, 255, 0.18); }
 
+    /* Prompt Snippet Box inside each Card */
+    .prompt-snippet-box {
+      background: #090b12;
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 9px;
+      padding: 0.75rem 0.85rem;
+      margin: 0.75rem 0;
+    }
+    .prompt-snippet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      font-size: 0.66rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #c084fc;
+      letter-spacing: 0.05em;
+    }
+    .mini-prompt-copy {
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.45);
+      color: #e9d5ff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .mini-prompt-copy:hover { background: var(--accent-purple); color: #fff; }
+    .prompt-snippet-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word;
+    }
+    .btn-copy-prompt {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn-copy-prompt:hover { background: rgba(16, 185, 129, 0.3); }
+
     /* ManyChat Flow Section */
     .section-card {
       background: var(--bg-card);
@@ -1213,6 +1300,7 @@ Honestly though, rate today's [City/Event] look from 1–10! I was torn between 
       grid.innerHTML = filtered.map((h, i) => {
         const catInfo = CATEGORY_MAP[h.cat] || { label: h.cat, color: '#8b5cf6', icon: '⚡' };
         const safeText = h.text.replace(/'/g, "\\'");
+        const safePrompt = (h.prompt || '').replace(/'/g, "\\'");
         return `
           <div class="hook-card">
             <div>
@@ -1221,9 +1309,19 @@ Honestly though, rate today's [City/Event] look from 1–10! I was torn between 
                 <span style="font-size: 0.68rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">#${i + 1}</span>
               </div>
               <div class="card-hook-text">"${h.text}"</div>
+              
+              <!-- Copy-Paste Detailed AI Prompt Box -->
+              <div class="prompt-snippet-box">
+                <div class="prompt-snippet-header">
+                  <span>🧬 READY-TO-RUN AI PROMPT</span>
+                  <button class="mini-prompt-copy" onclick="copyHookString('${safePrompt}', this)">Copy Prompt</button>
+                </div>
+                <div class="prompt-snippet-code">${h.prompt || ''}</div>
+              </div>
+
               <div class="card-meta-list">
                 <div class="meta-row">
-                  <span class="meta-label">🎬 Visual B-Roll:</span>
+                  <span class="meta-label">🎬 Visual Action:</span>
                   <span class="meta-val">${h.visual}</span>
                 </div>
                 <div class="meta-row">
@@ -1241,8 +1339,9 @@ Honestly though, rate today's [City/Event] look from 1–10! I was torn between 
               </div>
             </div>
             <div class="card-actions">
-              <button class="btn-preview-phone" onclick="loadHookIntoPhone('${safeText}')">📱 Test on Phone</button>
+              <button class="btn-preview-phone" onclick="loadHookIntoPhone('${safeText}')">📱 Test</button>
               <button class="btn-copy-hook" onclick="copyHookString('${safeText}', this)">Copy Hook</button>
+              <button class="btn-copy-prompt" onclick="copyHookString('${safePrompt}', this)">🧬 Copy Prompt</button>
             </div>
           </div>
         `;
@@ -1323,14 +1422,15 @@ Honestly though, rate today's [City/Event] look from 1–10! I was torn between 
 
     /* CSV / Notion Export Engine */
     function exportHooksCSV() {
-      let csv = 'ID,Category,Hook Text,Visual B-Roll Prompt,Audio Match,ManyChat Keyword,Strategy Note\\n';
+      let csv = 'ID,Category,Hook Text,AI Video Prompt,Visual Action,Audio Match,ManyChat Keyword,Strategy Note\\n';
       ALL_HOOKS_DATA.forEach((h, i) => {
         const catInfo = CATEGORY_MAP[h.cat] ? CATEGORY_MAP[h.cat].label : h.cat;
         const cleanText = h.text.replace(/"/g, '""');
         const cleanVis = h.visual.replace(/"/g, '""');
         const cleanAudio = h.audio.replace(/"/g, '""');
         const cleanNote = h.note.replace(/"/g, '""');
-        csv += `${i + 1},"${catInfo}","${cleanText}","${cleanVis}","${cleanAudio}","${h.keyword}","${cleanNote}"\\n`;
+        const cleanPrompt = (h.prompt || '').replace(/"/g, '""');
+        csv += `${i + 1},"${catInfo}","${cleanText}","${cleanPrompt}","${cleanVis}","${cleanAudio}","${h.keyword}","${cleanNote}"\\n`;
       });
 
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
