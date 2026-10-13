@@ -22,7 +22,7 @@
 | **Cost Per Click (CPC - all)** | **`₹14.64`** | ₹25.00 – ₹45.00 | 🟢 High-intent cheap clicks |
 | **Landing Page View Rate** | **`80.36%`** (45/56) | 70.0% – 75.0% | 🟢 Fast mobile loading (< 1.2s) |
 | **Front-End Purchase Conversion Rate** | **`6.67%`** (3/45 LPV) | 2.0% – 3.5% | 🚀 2x industry standard |
-| **Available Prepaid Billing Balance** | **`₹803.44`** | — | Funded via manual recharge |
+| **Available Prepaid Billing Balance** | **`₹1,433.22`** | — | Fully funded (+₹1,000 added 14-Oct 01:10 IST) |
 | **Daily Spending Limit (Account)** | **`₹4,154.44`** | — | Raised by Meta after first billing |
 
 ---
@@ -75,6 +75,7 @@
 | **13-Oct 22:15** | Ad Set | Toggled `Ad 02 - Proof & Monetization` OFF | Cuts underperforming creative (`₹34.22 CPC`, 0 sales) to concentrate budget on Ad 01 & 03. |
 | **13-Oct 23:42** | Ads Manager | Clicked `Review and publish (1)` to commit draft | Finalized Ad 02 deactivation on live Meta servers; cleared draft badges. |
 | **14-Oct 00:01** | Budget | **Scale #1: Increased daily budget from `₹500` ➔ `₹650`** | +30% controlled scaling at midnight reset to fund full 24h delivery into evening window. |
+| **14-Oct 01:10** | Billing | **Manual Deposit: Added `₹1,000.00`** | Prepaid balance reached **`₹1,433.22`**; fully funds next ~48 hours of ad delivery with zero pause risk. |
 
 ---
 
