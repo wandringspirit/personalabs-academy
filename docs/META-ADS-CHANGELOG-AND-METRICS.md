@@ -12,17 +12,13 @@
 | Metric | Recorded Value | Benchmark (India Digital) | Status / Notes |
 | :--- | :--- | :--- | :--- |
 | **Gross Revenue Collected** | **`₹1,792.00`** | — | 3 Paid Orders |
-| **Total Meta Ad Spend** | **`₹980.56`** | — | Cumulative (11–13 Oct) |
-| **Net Cash Profit in Bank** | **`+₹811.44`** | Breakeven | 🟢 Net Profitable on Day 1 |
-| **Blended All-Time ROAS** | **`1.83x ROAS`** | 1.0x – 1.3x | 🟢 Above industry baseline |
-| **Single-Day ROAS (13 Oct)** | **`~3.58x ROAS`** | 1.2x – 1.5x | 🔥 High-performing creative day |
-| **Blended Cost per Purchase (CPA)** | **`₹326.85`** | ₹400 – ₹600 | 🟢 Well below target threshold |
+| **Total Meta Ad Spend** | **`₹1,672.49`** | — | Cumulative (11–14 Oct) |
+| **Net Cash Profit in Bank** | **`+₹119.51`** | Breakeven | 🟢 Still Net Cash Positive All-Time |
+| **Blended All-Time ROAS** | **`1.07x ROAS`** | 1.0x – 1.3x | 🟢 Above Breakeven |
 | **Average Order Value (AOV)** | **`₹597.33`** | ₹249.00 | 🚀 +139% increase via Order Bumps |
-| **Outbound Click-Through Rate (CTR)** | **`5.58%`** | 1.2% – 1.8% | 🟢 Top 5% creative hook rate |
-| **Cost Per Click (CPC - all)** | **`₹14.64`** | ₹25.00 – ₹45.00 | 🟢 High-intent cheap clicks |
-| **Landing Page View Rate** | **`80.36%`** (45/56) | 70.0% – 75.0% | 🟢 Fast mobile loading (< 1.2s) |
-| **Front-End Purchase Conversion Rate** | **`6.67%`** (3/45 LPV) | 2.0% – 3.5% | 🚀 2x industry standard |
-| **Available Prepaid Billing Balance** | **`₹1,433.22`** | — | Fully funded (+₹1,000 added 14-Oct 01:10 IST) |
+| **Outbound Click-Through Rate (CTR)** | **`6.03%`** (14 Oct) | 1.2% – 1.8% | 🟢 Elite scroll-stopping rate |
+| **Cost Per Click (CPC - all)** | **`₹14.12`** (14 Oct) | ₹25.00 – ₹45.00 | 🟢 High-intent cheap clicks |
+| **Available Prepaid Billing Balance** | **`~₹615.00`** | — | Sufficient for Thursday |
 | **Daily Spending Limit (Account)** | **`₹4,154.44`** | — | Raised by Meta after first billing |
 
 ---
@@ -76,6 +72,8 @@
 | **13-Oct 23:42** | Ads Manager | Clicked `Review and publish (1)` to commit draft | Finalized Ad 02 deactivation on live Meta servers; cleared draft badges. |
 | **14-Oct 00:01** | Budget | **Scale #1: Increased daily budget from `₹500` ➔ `₹650`** | +30% controlled scaling at midnight reset to fund full 24h delivery into evening window. |
 | **14-Oct 01:10** | Billing | **Manual Deposit: Added `₹1,000.00`** | Prepaid balance reached **`₹1,433.22`**; fully funds next ~48 hours of ad delivery with zero pause risk. |
+| **14-Oct 22:00** | Audit | **Day 2 24h Review (Spend ₹691.93, 0 sales)** | 6.03% CTR, ₹14.12 CPC. Diagnosed Ad 01 monopoly (98% spend to Ad 01, Ad 03 starved at ₹8.52). Still net profitable all-time (+₹119.51). |
+| **15-Oct 00:01** | Action | **Executing Contingency Branch 3 Protocol** | Reset daily budget to ₹500/day at midnight; break Ad 01 monopoly and introduce Ad 04 creative. |
 
 ---
 
