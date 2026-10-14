@@ -512,12 +512,20 @@ function initReelSwipeGestures() {
 // =========================================================================
 state.visitorCountry = 'IN';
 state.detectedIpLabel = 'Auto IP';
+state.visitorIP = '';
+state.visitorCity = '';
+state.visitorRegion = '';
+state.visitorOrg = '';
 
-function applyVisitorRegion(countryCode, ipSourceLabel = '') {
+function applyVisitorRegion(countryCode, ipSourceLabel = '', ipDetails = {}) {
   const isIndia = String(countryCode || '').toUpperCase() === 'IN';
   state.visitorCountry = isIndia ? 'IN' : 'US';
   state.currency = isIndia ? 'INR' : 'USD';
   if (ipSourceLabel) state.detectedIpLabel = ipSourceLabel;
+  if (ipDetails.ip) state.visitorIP = ipDetails.ip;
+  if (ipDetails.city) state.visitorCity = ipDetails.city;
+  if (ipDetails.region) state.visitorRegion = ipDetails.region;
+  if (ipDetails.org) state.visitorOrg = ipDetails.org;
 
   // 1. Update Locked Geo-IP Header Badge (shows only the visitor's currency)
   const flagEl = document.getElementById('geo-flag-icon');
@@ -639,7 +647,7 @@ async function detectCurrencyByIP() {
     }
   }
 
-  // 3. Live IP Geolocation lookup (Primary: ipapi.co, Fallback: ipwho.is)
+  // 3. Live IP Geolocation lookup (Primary: ipapi.co, Fallback: ipwho.is, Fallback 2: ipify)
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 3500);
@@ -650,7 +658,12 @@ async function detectCurrencyByIP() {
       if (data && data.country_code && !state.manualCurrencyOverride) {
         const cc = String(data.country_code).toUpperCase();
         const ipShort = data.ip ? `${cc} IP (${data.ip})` : `${cc} IP`;
-        applyVisitorRegion(cc === 'IN' ? 'IN' : 'US', ipShort);
+        applyVisitorRegion(cc === 'IN' ? 'IN' : 'US', ipShort, {
+          ip: data.ip || '',
+          city: data.city || '',
+          region: data.region || '',
+          org: data.org || ''
+        });
         return;
       }
     }
@@ -666,10 +679,27 @@ async function detectCurrencyByIP() {
       if (data2 && data2.country_code && !state.manualCurrencyOverride) {
         const cc2 = String(data2.country_code).toUpperCase();
         const ipShort2 = data2.ip ? `${cc2} IP (${data2.ip})` : `${cc2} IP`;
-        applyVisitorRegion(cc2 === 'IN' ? 'IN' : 'US', ipShort2);
+        applyVisitorRegion(cc2 === 'IN' ? 'IN' : 'US', ipShort2, {
+          ip: data2.ip || '',
+          city: data2.city || '',
+          region: data2.region || '',
+          org: data2.connection?.isp || data2.connection?.org || ''
+        });
+        return;
       }
     }
   } catch (e) {}
+
+  // Fallback 3: Dedicated IP query if IP still empty
+  if (!state.visitorIP) {
+    try {
+      const res3 = await fetch('https://api.ipify.org?format=json');
+      if (res3.ok) {
+        const d3 = await res3.json();
+        if (d3 && d3.ip) state.visitorIP = d3.ip;
+      }
+    } catch (e) {}
+  }
 }
 
 // Promo Code Application
@@ -1971,6 +2001,10 @@ async function logOrderToGoogleSheet(eventStatus = 'PAID_SUCCESS', extra = {}) {
     const now = new Date();
     const istTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'medium' });
 
+    const ipLocationTag = state.visitorIP
+      ? `${state.visitorCountry || 'IN'} • ${state.visitorIP}${state.visitorCity ? ' (' + state.visitorCity + (state.visitorOrg ? ' - ' + state.visitorOrg : '') + ')' : ''}`
+      : (state.visitorCountry || 'IN');
+
     const sheetRow = {
       timestampIST: istTime,
       timestampISO: now.toISOString(),
@@ -1989,7 +2023,10 @@ async function logOrderToGoogleSheet(eventStatus = 'PAID_SUCCESS', extra = {}) {
       promoCode: payload.breakdown.promoCode !== 'NONE' ? `${payload.breakdown.promoCode} (-${formatPrice(payload.breakdown.discountAmount)})` : 'NONE',
       paymentMethod: extra.paymentMethod || state.lastPaymentMethod || payload.gateway.toUpperCase(),
       offerTier: state.offerExpired ? 'Expired Standard Price' : '10-Min Flash Sale',
-      visitorCountry: payload.visitorCountry || 'IN',
+      visitorCountry: ipLocationTag,
+      visitorIP: state.visitorIP || 'N/A',
+      visitorCity: state.visitorCity || '',
+      visitorOrg: state.visitorOrg || '',
       itemsSummary: payload.items.map((i) => i.name).join(' + '),
       pageUrl: window.location.href,
       grantCoreDrive: eventStatus === 'PAID_SUCCESS',
