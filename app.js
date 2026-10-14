@@ -647,59 +647,60 @@ async function detectCurrencyByIP() {
     }
   }
 
-  // 3. Live IP Geolocation lookup (Primary: ipapi.co, Fallback: ipwho.is, Fallback 2: ipify)
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 3500);
-    const res = await fetch('https://ipapi.co/json/', { signal: controller.signal });
-    clearTimeout(timeout);
-    if (res.ok) {
-      const data = await res.json();
-      if (data && data.country_code && !state.manualCurrencyOverride) {
-        const cc = String(data.country_code).toUpperCase();
-        const ipShort = data.ip ? `${cc} IP (${data.ip})` : `${cc} IP`;
-        applyVisitorRegion(cc === 'IN' ? 'IN' : 'US', ipShort, {
-          ip: data.ip || '',
-          city: data.city || '',
-          region: data.region || '',
-          org: data.org || ''
-        });
-        return;
-      }
-    }
-  } catch (e) {}
-
-  try {
-    const controller2 = new AbortController();
-    const timeout2 = setTimeout(() => controller2.abort(), 3500);
-    const res2 = await fetch('https://ipwho.is/', { signal: controller2.signal });
-    clearTimeout(timeout2);
-    if (res2.ok) {
-      const data2 = await res2.json();
-      if (data2 && data2.country_code && !state.manualCurrencyOverride) {
-        const cc2 = String(data2.country_code).toUpperCase();
-        const ipShort2 = data2.ip ? `${cc2} IP (${data2.ip})` : `${cc2} IP`;
-        applyVisitorRegion(cc2 === 'IN' ? 'IN' : 'US', ipShort2, {
-          ip: data2.ip || '',
-          city: data2.city || '',
-          region: data2.region || '',
-          org: data2.connection?.isp || data2.connection?.org || ''
-        });
-        return;
-      }
-    }
-  } catch (e) {}
-
-  // Fallback 3: Dedicated IP query if IP still empty
-  if (!state.visitorIP) {
+  // 3. Live IP Geolocation lookup (Primary: ipwho.is - fast, unmetered, accurate city & ISP)
+  window.__ipDetectionPromise = (async () => {
     try {
-      const res3 = await fetch('https://api.ipify.org?format=json');
-      if (res3.ok) {
-        const d3 = await res3.json();
-        if (d3 && d3.ip) state.visitorIP = d3.ip;
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 2500);
+      const res = await fetch('https://ipwho.is/', { signal: controller.signal });
+      clearTimeout(timeout);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.success !== false && data.country_code) {
+          const cc = String(data.country_code).toUpperCase();
+          const ipShort = data.ip ? `${cc} IP (${data.ip})` : `${cc} IP`;
+          applyVisitorRegion(cc === 'IN' ? 'IN' : 'US', ipShort, {
+            ip: data.ip || '',
+            city: data.city || '',
+            region: data.region || '',
+            org: data.connection?.isp || data.connection?.org || ''
+          });
+          return;
+        }
       }
     } catch (e) {}
-  }
+
+    // Fallback A: ipify (ultra-fast IP only)
+    try {
+      const res2 = await fetch('https://api.ipify.org?format=json');
+      if (res2.ok) {
+        const d2 = await res2.json();
+        if (d2 && d2.ip) {
+          state.visitorIP = d2.ip;
+          return;
+        }
+      }
+    } catch (e) {}
+
+    // Fallback B: ipapi.co
+    try {
+      const res3 = await fetch('https://ipapi.co/json/');
+      if (res3.ok) {
+        const d3 = await res3.json();
+        if (d3 && d3.country_code) {
+          const cc3 = String(d3.country_code).toUpperCase();
+          applyVisitorRegion(cc3 === 'IN' ? 'IN' : 'US', `${cc3} IP (${d3.ip})`, {
+            ip: d3.ip || '',
+            city: d3.city || '',
+            region: d3.region || '',
+            org: d3.org || ''
+          });
+        }
+      }
+    } catch (e) {}
+  })();
+
+  return window.__ipDetectionPromise;
 }
 
 // Promo Code Application
@@ -1997,6 +1998,32 @@ function buildCheckoutOrderPayload() {
 // to your Google Sheet via Google Apps Script Webhook (plus local backup in localStorage)
 async function logOrderToGoogleSheet(eventStatus = 'PAID_SUCCESS', extra = {}) {
   try {
+    // If visitor IP is not yet loaded, wait up to 1.5s for resolution
+    if (!state.visitorIP && window.__ipDetectionPromise) {
+      try {
+        await Promise.race([
+          window.__ipDetectionPromise,
+          new Promise((r) => setTimeout(r, 1500))
+        ]);
+      } catch (e) {}
+    }
+
+    // Direct fast fallback if still empty
+    if (!state.visitorIP) {
+      try {
+        const fastRes = await fetch('https://ipwho.is/');
+        if (fastRes.ok) {
+          const fastData = await fastRes.json();
+          if (fastData && fastData.ip) {
+            state.visitorIP = fastData.ip;
+            state.visitorCity = fastData.city || '';
+            state.visitorOrg = fastData.connection?.isp || fastData.connection?.org || '';
+            state.visitorCountry = String(fastData.country_code || 'IN').toUpperCase();
+          }
+        }
+      } catch (e) {}
+    }
+
     const payload = window.lastCheckoutOrderPayload || buildCheckoutOrderPayload();
     const now = new Date();
     const istTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'medium' });
