@@ -5,7 +5,7 @@ const state = {
   offerRemainingSeconds: 600, // 10 minutes (600 seconds)
   prices: {
     INR: {
-      base: 249,
+      base: 199,
       expiredBase: 499,
       strike: 1999,
       bump1: 249,
@@ -132,7 +132,7 @@ function renderPricing() {
     }
   } else {
     if (saveBadge) {
-      saveBadge.textContent = 'SAVE 88% (10-MIN OFFER)';
+      saveBadge.textContent = 'SAVE 90% (10-MIN OFFER)';
       saveBadge.className = 'inline-block rounded bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700';
     }
     if (banner10m) {
@@ -142,7 +142,7 @@ function renderPricing() {
       text10m.innerHTML = `10-Min Flash Offer: Only <strong>${formatPrice(cfg.base)}</strong> now (jumps to <strong>${formatPrice(cfg.expiredBase)}</strong> at 00:00!)`;
     }
     if (topDiscountLabel) {
-      topDiscountLabel.textContent = '88% OFF FLASH SALE';
+      topDiscountLabel.textContent = '90% OFF FLASH SALE';
       topDiscountLabel.className = 'text-amber-300 font-black';
     }
     if (topEndsLabel) {
@@ -2664,7 +2664,7 @@ function resetOfferTimer() {
   renderOfferTimerDisplay();
   renderPricing();
   const cfg = state.prices[state.currency];
-  triggerPayoutToast(`🔄 10:00 Flash Offer Reset! 88% OFF (${formatPrice(cfg.base)}) restored.`);
+  triggerPayoutToast(`🔄 10:00 Flash Offer Reset! 90% OFF (${formatPrice(cfg.base)}) restored.`);
 }
 
 // Countdown Timer & Live Social Proof Notifications (Region-Matched by IP)
@@ -2701,11 +2701,11 @@ function initTimersAndSocialProof() {
   }, 1000);
 
   const buyersIN = [
-    { name: 'Aarav S. from Mumbai', action: 'Unlocked AI Influencer Kit + Uncensored Hack (₹498)', time: 'Just now • Verified UPI' },
-    { name: 'Priya K. from Bengaluru', action: 'Enrolled in AI Influencer Accelerator (₹249)', time: '2 mins ago • Verified GPay' },
-    { name: 'Rohan M. from Delhi', action: 'Unlocked Full VIP Bundle (₹647)', time: '4 mins ago • Verified PhonePe' },
-    { name: 'Sneha T. from Jaipur', action: 'Enrolled in AI Influencer Accelerator (₹249)', time: '6 mins ago • Verified Paytm' },
-    { name: 'Vikram D. from Pune', action: 'Unlocked AI Influencer Kit + Uncensored Hack (₹498)', time: '9 mins ago • Verified Card' }
+    { name: 'Aarav S. from Mumbai', action: 'Unlocked AI Influencer Kit + Uncensored Hack (₹448)', time: 'Just now • Verified UPI' },
+    { name: 'Priya K. from Bengaluru', action: 'Enrolled in AI Influencer Accelerator (₹199)', time: '2 mins ago • Verified GPay' },
+    { name: 'Rohan M. from Delhi', action: 'Unlocked Full VIP Bundle (₹597)', time: '4 mins ago • Verified PhonePe' },
+    { name: 'Sneha T. from Jaipur', action: 'Enrolled in AI Influencer Accelerator (₹199)', time: '6 mins ago • Verified Paytm' },
+    { name: 'Vikram D. from Pune', action: 'Unlocked AI Influencer Kit + Uncensored Hack (₹448)', time: '9 mins ago • Verified Card' }
   ];
 
   const buyersUS = [
