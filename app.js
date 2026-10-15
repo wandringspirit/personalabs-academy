@@ -2699,50 +2699,6 @@ function initTimersAndSocialProof() {
       }
     }
   }, 1000);
-
-  const buyersIN = [
-    { name: 'Aarav S. from Mumbai', action: 'Unlocked AI Influencer Kit + Uncensored Hack (₹448)', time: 'Just now • Verified UPI' },
-    { name: 'Priya K. from Bengaluru', action: 'Enrolled in AI Influencer Accelerator (₹199)', time: '2 mins ago • Verified GPay' },
-    { name: 'Rohan M. from Delhi', action: 'Unlocked Full VIP Bundle (₹597)', time: '4 mins ago • Verified PhonePe' },
-    { name: 'Sneha T. from Jaipur', action: 'Enrolled in AI Influencer Accelerator (₹199)', time: '6 mins ago • Verified Paytm' },
-    { name: 'Vikram D. from Pune', action: 'Unlocked AI Influencer Kit + Uncensored Hack (₹448)', time: '9 mins ago • Verified Card' }
-  ];
-
-  const buyersUS = [
-    { name: 'Tyler M. from Austin, TX', action: 'Unlocked AI Influencer Kit + Uncensored Hack ($18)', time: 'Just now • Verified Apple Pay' },
-    { name: 'Sophia L. from Miami, FL', action: 'Enrolled in AI Influencer Accelerator ($9)', time: '2 mins ago • Verified Stripe' },
-    { name: 'Marcus R. from Los Angeles, CA', action: 'Unlocked Full VIP Bundle ($23)', time: '4 mins ago • Verified Apple Pay' },
-    { name: 'Chloe W. from New York, NY', action: 'Enrolled in AI Influencer Accelerator ($9)', time: '6 mins ago • Verified PayPal' },
-    { name: 'Brandon K. from Seattle, WA', action: 'Unlocked AI Influencer Kit + Uncensored Hack ($18)', time: '8 mins ago • Verified Stripe' }
-  ];
-
-  let idx = 0;
-  const toastEl = document.getElementById('social-proof-toast');
-  const avatarEl = document.getElementById('toast-avatar');
-  const titleEl = document.getElementById('toast-title');
-  const descEl = document.getElementById('toast-desc');
-  const timeEl = document.getElementById('toast-time');
-
-  function triggerToast() {
-    const activeList = state.currency === 'INR' ? buyersIN : buyersUS;
-    const item = activeList[idx % activeList.length];
-    idx++;
-    avatarEl.textContent = item.name.charAt(0);
-    titleEl.textContent = item.name;
-    descEl.textContent = item.action;
-    timeEl.textContent = item.time;
-
-    toastEl.classList.remove('translate-y-24', 'opacity-0');
-    toastEl.classList.add('translate-y-0', 'opacity-100');
-
-    setTimeout(() => {
-      toastEl.classList.add('translate-y-24', 'opacity-0');
-      toastEl.classList.remove('translate-y-0', 'opacity-100');
-    }, 4500);
-  }
-
-  setTimeout(triggerToast, 4000);
-  setInterval(triggerToast, 14000);
 }
 
 // =========================================================================
