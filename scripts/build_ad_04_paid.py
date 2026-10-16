@@ -16,6 +16,9 @@ HOOK_03_PATH = os.path.join(PROJECT_DIR, "instagram-studio", "05-Dancing-Hook-Op
 REEL_04_RAW = os.path.join(PROJECT_DIR, "instagram-studio", "02-Organic-Reels", "Reel-04-Raw-iPhone-Realism-Secret-Organic.mp4")
 AD_01_RAW = os.path.join(PROJECT_DIR, "ads-ready", "01-India-INR-Ads", "Ad-01-Curiosity-Reveal-INR-9x16.mp4")
 
+# Character Assets (Saree + Lifestyle)
+ASSET_CLOSEUP = os.path.join(PROJECT_DIR, "assets", "insta_profile_saree_square_hd.jpg")
+ASSET_SAREE = os.path.join(PROJECT_DIR, "assets", "insta_saree_full_portrait_hd.jpg")
 ASSET_CAFE = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "03-demo-girl-emerald-cafe.jpg")
 ASSET_DUBAI = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "04-demo-girl-dubai-rooftop.jpg")
 ASSET_GYM = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "02-demo-girl-gym-activewear.jpg")
@@ -45,7 +48,14 @@ FONT_EMOJI_HEAD = get_font("seguiemj.ttf", 48)
 FONT_EMOJI_BTN = get_font("seguiemj.ttf", 32)
 FONT_EMOJI_SM = get_font("seguiemj.ttf", 24)
 
-def crop_fill(img, target_w, target_h, align_y=0.22):
+def grade_image(img_pil, brightness=0.87, contrast=1.20, color=1.06, sharpness=1.30):
+    b = ImageEnhance.Brightness(img_pil).enhance(brightness)
+    c = ImageEnhance.Contrast(b).enhance(contrast)
+    col = ImageEnhance.Color(c).enhance(color)
+    s = ImageEnhance.Sharpness(col).enhance(sharpness)
+    return s
+
+def crop_fill(img, target_w, target_h, align_y=0.18):
     iw, ih = img.size
     target_ratio = target_w / target_h
     src_ratio = iw / ih
@@ -217,14 +227,14 @@ def decorate_ad_frame(pil_img, top_hook, sub_hook, caption, width=1080, height=1
 def apply_subtle_ken_burns(pil_img, prog, mode="zoom_in"):
     w, h = pil_img.size
     if mode == "zoom_in":
-        scale = 1.0 + 0.05 * prog
+        scale = 1.0 + 0.04 * prog
         cx, cy = w * 0.5, h * (0.46 - 0.02 * prog)
     elif mode == "zoom_out":
-        scale = 1.05 - 0.05 * prog
+        scale = 1.04 - 0.04 * prog
         cx, cy = w * 0.5, h * (0.44 + 0.02 * prog)
     else:
-        scale = 1.03
-        cx, cy = w * (0.48 + 0.04 * prog), h * 0.46
+        scale = 1.02
+        cx, cy = w * (0.48 + 0.03 * prog), h * 0.46
     
     cw, ch = w / scale, h / scale
     x1 = max(0, min(w - cw, cx - cw / 2))
@@ -270,22 +280,40 @@ def render_body_video(out_path, width, height, fps=30):
     total_sec = 18.5  # 4.0s to 22.5s
     total_frames = int(round(total_sec * fps))
 
-    # Pre-render base assets
+    # 1. Graded Saree Closeup (Rich contrast, warm tone, non-blown highlights)
+    im_close_raw = Image.open(ASSET_CLOSEUP).convert("RGB")
+    img_closeup = crop_fill(grade_image(im_close_raw, 0.86, 1.20, 1.06, 1.35), width, height, align_y=0.14)
+
+    # 2. Graded Full Saree Portrait (Deep crimson silk, balanced exposure)
+    im_saree_raw = Image.open(ASSET_SAREE).convert("RGB")
+    img_saree = crop_fill(grade_image(im_saree_raw, 0.87, 1.22, 1.08, 1.30), width, height, align_y=0.12)
+
+    # 3. Emerald Cafe Portrait (Outdoor natural daylight)
     img_cafe = crop_fill(Image.open(ASSET_CAFE).convert("RGB"), width, height, align_y=0.22)
+
+    # 4. Dubai Rooftop Evening (Twilight skyline contrast)
     img_dubai = crop_fill(Image.open(ASSET_DUBAI).convert("RGB"), width, height, align_y=0.22)
+
+    # 5. Gym Activewear (iPhone mirror selfie)
     img_gym = crop_fill(Image.open(ASSET_GYM).convert("RGB"), width, height, align_y=0.22)
+
+    # 6. Hero 3-Persona Consistency Proof
     img_hero = build_hero_consistency_slide(width, height)
 
-    # Shots definition: (start_s, end_s, base_img, kb_mode, caption)
+    # Sequence of 6 Shots over 18.5s:
+    # Shot 1: Saree Closeup (0.0 to 2.5s | 2.5s)
+    # Shot 2: Full Saree Portrait (2.5 to 5.0s | 2.5s)
+    # Shot 3: Emerald Cafe (5.0 to 8.5s | 3.5s)
+    # Shot 4: Dubai Rooftop (8.5 to 12.0s | 3.5s)
+    # Shot 5: Gym Activewear (12.0 to 15.0s | 3.0s)
+    # Shot 6: 100% Face Consistency Proof (15.0 to 18.5s | 3.5s)
     shots = [
-        # Shot 1: Cafe (4.0s to 7.0s | 3.0s)
-        (0.0, 3.0, img_cafe, "zoom_in", "...immediately scream 'FAKE PLASTIC'?"),
-        # Shot 2: Dubai Rooftop (7.0s to 11.0s | 4.0s)
-        (3.0, 7.0, img_dubai, "zoom_out", "Beginners type '8K render' which forces fake CGI plastic skin..."),
-        # Shot 3: Gym Activewear (11.0s to 15.0s | 4.0s)
-        (7.0, 11.0, img_gym, "zoom_in", "Use our Raw Smartphone Optics formula: 24mm lens + natural pores"),
-        # Shot 4: Consistency Proof (15.0s to 18.5s | 3.5s)
-        (11.0, 18.5, img_hero, "static", "No camera, no studio, and no expensive models.")
+        (0.0, 2.5, img_closeup, "zoom_in", "...immediately scream 'FAKE PLASTIC'?"),
+        (2.5, 5.0, img_saree, "zoom_out", "Beginners type '8K render' which forces fake CGI plastic skin..."),
+        (5.0, 8.5, img_cafe, "zoom_in", "Use our Raw Smartphone Optics formula: 24mm lens + natural pores"),
+        (8.5, 12.0, img_dubai, "zoom_out", "24mm iPhone lens + natural pores + candid light"),
+        (12.0, 15.0, img_gym, "zoom_in", "100% Face Consistency across Sarees, Cafes & Rooftops"),
+        (15.0, 18.5, img_hero, "static", "No camera, no studio, and no expensive models.")
     ]
 
     cmd = [
@@ -318,7 +346,7 @@ def render_body_video(out_path, width, height, fps=30):
 
     proc.stdin.close()
     proc.wait()
-    print(f"[OK] Rendered pristine body video: {out_path} ({os.path.getsize(out_path):,} bytes)")
+    print(f"[OK] Rendered pristine body video (both saree + lifestyle): {out_path} ({os.path.getsize(out_path):,} bytes)")
 
 def build_ad(aspect="9x16"):
     is_9x16 = (aspect == "9x16")
@@ -427,7 +455,7 @@ def build_ad(aspect="9x16"):
     print(f"[SUCCESS] Finished Creative #04 [{aspect}]: {out_file} ({os.path.getsize(out_file):,} bytes)")
 
 def main():
-    print("=== BUILDING MASTER CREATIVE #04 (DANCING HOOK #03 + PRISTINE RAW IPHONE REALISM) ===")
+    print("=== BUILDING MASTER CREATIVE #04 (DANCING HOOK #03 + BOTH SAREE & LIFESTYLE REALISM) ===")
     build_ad("9x16")
     build_ad("4x5")
     print("=== ALL MASTER ASSETS GENERATED SUCCESSFULLY ===")
