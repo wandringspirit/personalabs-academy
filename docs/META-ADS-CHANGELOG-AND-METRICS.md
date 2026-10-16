@@ -47,6 +47,7 @@
 | **`Ad 01 - Curiosity Reveal`** | 9:16 + 4:5 | `🟢 Active` | `₹769.52` | **2** | `₹384.76` | `5.69%` | `₹13.50` | 46 | 36 | 1,001 | 872 |
 | **`Ad 03 - No Laptop 5Day`** | 9:16 + 4:5 | `🟢 Active` | `₹142.60` | **1** | **`₹142.60`** | `5.26%` | `₹17.83` | 8 | 8 | 152 | 124 |
 | **`Ad 02 - Proof & Monetization`** | 9:16 + 4:5 | `⚪ Paused` | `₹68.44` | 0 | — | `4.17%` | `₹34.22` | 2 | 1 | 48 | 46 |
+| **`Ad 04 - Raw iPhone Realism`** | 9:16 + 4:5 | `⚡ Ready to Launch` | `₹0.00` | 0 | — | — | — | — | — | — | — |
 | **CAMPAIGN TOTAL** | — | `🟢 Active` | **`₹980.56`** | **3** | **`₹326.85`** | **`5.58%`** | **`₹14.64`** | **56** | **45** | **1,201** | **979** |
 
 ---
@@ -75,6 +76,7 @@
 | **15-Oct 13:30** | Offer & Creatives | **Deployed ₹199 Launch Price (90% OFF) & Updated Ad Headlines** | 1) Ran 100% passing automated audit across storefront. 2) Updated Base Kit price to `₹199` (bumps intact at `+₹249` & `+₹149`; VIP bundle `₹597`). 3) Updated `Ad 01` & `Ad 03` Headlines to `(Only ₹199 Today)`. 4) Published live with 0 drafts remaining. |
 | **15-Oct 23:45** | Positioning | **Hero Pivoted to Instant Prompt Vault & 1-Click Launch Kit** | Re-anchored hero from "5-Day Course" to "Instant AI Influencer Prompt Vault & 1-Click Character Launch Kit (Only ₹199 Today)". Highlights 250+ Character DNA Prompts, 1-click Face-Lock files, and 100% mobile workflow to eliminate study friction and match impulse buying psychology. Bumped `app.js?v=25`. Live on Vercel. |
 | **16-Oct 08:08** | Revenue | **4th Paid Order: Ritesh Kuanr (`₹597.00`)** on `Ad 01` after Hero Pivot | Immediate validation of the Instant Prompt Vault pivot! Customer entered via Hero Above-Fold CTA, selected BOTH order bumps (`+₹249` & `+₹149`), and paid `₹597`. Total revenue reached `₹2,389.00`. Net out-of-pocket deficit shrinks to `-₹261.00` (virtually 100% breakeven all-time). |
+| **16-Oct 13:10** | Creative Production | **Produced Creative #04: Raw iPhone Realism (9:16 + 4:5)** | Generated both `Ad-04-Raw-iPhone-Realism-INR-9x16.mp4` (11.7 MB) and `Ad-04-Raw-iPhone-Realism-INR-4x5.mp4` (9.9 MB). Features 3-word realism hook ("Raw Smartphone Optics"), skin micro-texture vs plastic CGI comparison, and a direct-response paid offer endcard anchored on Only Rs. 199 Today. |
 
 ---
 
