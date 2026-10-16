@@ -11,10 +11,15 @@ OUT_4X5_DIR = os.path.join(PROJECT_DIR, "ads-ready", "02-India-INR-Feed-4x5")
 SCRATCH_DIR = os.path.join(PROJECT_DIR, "instagram-studio", ".tmp_ad04")
 FFMPEG_EXE = imageio_ffmpeg.get_ffmpeg_exe()
 
-# Hook Option 03 (User Approved: Over-the-Shoulder Teasing Twirl)
+# Assets
 HOOK_03_PATH = os.path.join(PROJECT_DIR, "instagram-studio", "05-Dancing-Hook-Options", "Hook-Option-03-Over-Shoulder-Twirl.mp4")
 REEL_04_RAW = os.path.join(PROJECT_DIR, "instagram-studio", "02-Organic-Reels", "Reel-04-Raw-iPhone-Realism-Secret-Organic.mp4")
 AD_01_RAW = os.path.join(PROJECT_DIR, "ads-ready", "01-India-INR-Ads", "Ad-01-Curiosity-Reveal-INR-9x16.mp4")
+
+ASSET_CAFE = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "03-demo-girl-emerald-cafe.jpg")
+ASSET_DUBAI = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "04-demo-girl-dubai-rooftop.jpg")
+ASSET_GYM = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "02-demo-girl-gym-activewear.jpg")
+ASSET_HERO = os.path.join(PROJECT_DIR, "assets", "images", "hero_showcase.jpg")
 BG_ASSET = os.path.join(PROJECT_DIR, "ads-ready", "character-assets", "05-blonde-char-emerald-cafe.jpg")
 
 os.makedirs(OUT_9X16_DIR, exist_ok=True)
@@ -40,7 +45,7 @@ FONT_EMOJI_HEAD = get_font("seguiemj.ttf", 48)
 FONT_EMOJI_BTN = get_font("seguiemj.ttf", 32)
 FONT_EMOJI_SM = get_font("seguiemj.ttf", 24)
 
-def crop_fill(img, target_w, target_h, align_y=0.28):
+def crop_fill(img, target_w, target_h, align_y=0.22):
     iw, ih = img.size
     target_ratio = target_w / target_h
     src_ratio = iw / ih
@@ -152,15 +157,180 @@ def create_paid_endcard_image(width, height):
 
     return base_pil.convert("RGB")
 
+def decorate_ad_frame(pil_img, top_hook, sub_hook, caption, width=1080, height=1920):
+    d = ImageDraw.Draw(pil_img, "RGBA")
+    is_9x16 = (height > 1500)
+    
+    f_hook = get_font("arialbd.ttf", 38 if is_9x16 else 32)
+    f_sub = get_font("segoeuib.ttf", 38 if is_9x16 else 32)
+    f_pill = get_font("segoeuib.ttf", 22 if is_9x16 else 19)
+
+    # 1. Top Hook Pill
+    if top_hook:
+        y1, y2 = (95, 205) if is_9x16 else (45, 135)
+        d.rounded_rectangle((55, y1, width - 55, y2), radius=28, fill=(15, 23, 42, 235), outline=(168, 85, 247, 255), width=3)
+        d.text((width // 2, (y1 + y2) // 2), top_hook, font=f_hook, fill=(255, 255, 255, 255), anchor="mm")
+
+    # 2. Sub Hook Pills
+    py1, py2 = (222, 286) if is_9x16 else (148, 206)
+    d.rounded_rectangle((width - 415, py1, width - 50, py2), radius=20, fill=(14, 17, 30, 245), outline=(168, 85, 247, 220), width=2)
+    d.ellipse((width - 392, py1 + 23, width - 374, py1 + 41), fill=(56, 189, 248, 255))
+    d.text((width - 362, py1 + 16), "@personalabsacademy", font=f_pill, fill=(240, 248, 255))
+
+    if sub_hook:
+        d.rounded_rectangle((50, py1, width - 435, py2), radius=20, fill=(14, 17, 30, 248), outline=(56, 189, 248, 225), width=2)
+        d.text(((50 + width - 435) // 2, (py1 + py2) // 2), sub_hook, font=f_pill, fill=(56, 189, 248), anchor="mm")
+
+    # 3. Caption Box (Pure clean typography, zero broken emojis)
+    if caption:
+        words = caption.split()
+        lines, cur = [], ""
+        max_line_w = int(width * 0.80)
+        for w in words:
+            test = (cur + " " + w).strip()
+            bb = d.textbbox((0, 0), test, font=f_sub)
+            if bb[2] - bb[0] > max_line_w and cur:
+                lines.append(cur)
+                cur = w
+            else:
+                cur = test
+        if cur:
+            lines.append(cur)
+        
+        line_h = 52 if is_9x16 else 46
+        total_h = len(lines) * line_h + 36
+        max_w = max((d.textbbox((0, 0), ln, font=f_sub)[2] for ln in lines), default=400)
+        box_w = min(width - 100, max_w + 64)
+        x0 = (width - box_w) // 2
+        y_center = int(height * 0.83) if is_9x16 else int(height * 0.82)
+        y0 = y_center - total_h // 2
+        
+        d.rounded_rectangle((x0, y0, x0 + box_w, y0 + total_h), radius=24, fill=(12, 16, 28, 235), outline=(56, 189, 248, 180), width=2)
+        ty = y0 + 18 + line_h // 2
+        for ln in lines:
+            d.text((width // 2 + 2, ty + 2), ln, font=f_sub, fill=(0, 0, 0, 220), anchor="mm")
+            d.text((width // 2, ty), ln, font=f_sub, fill=(255, 255, 255, 255), anchor="mm")
+            ty += line_h
+
+    return pil_img
+
+def apply_subtle_ken_burns(pil_img, prog, mode="zoom_in"):
+    w, h = pil_img.size
+    if mode == "zoom_in":
+        scale = 1.0 + 0.05 * prog
+        cx, cy = w * 0.5, h * (0.46 - 0.02 * prog)
+    elif mode == "zoom_out":
+        scale = 1.05 - 0.05 * prog
+        cx, cy = w * 0.5, h * (0.44 + 0.02 * prog)
+    else:
+        scale = 1.03
+        cx, cy = w * (0.48 + 0.04 * prog), h * 0.46
+    
+    cw, ch = w / scale, h / scale
+    x1 = max(0, min(w - cw, cx - cw / 2))
+    y1 = max(0, min(h - ch, cy - ch / 2))
+    cropped = pil_img.crop((int(x1), int(y1), int(x1 + cw), int(y1 + ch)))
+    return cropped.resize((w, h), Image.Resampling.LANCZOS)
+
+def build_hero_consistency_slide(width, height):
+    base = crop_fill(Image.open(ASSET_CAFE).convert("RGB"), width, height, align_y=0.20).filter(ImageFilter.GaussianBlur(16))
+    base = ImageEnhance.Brightness(base).enhance(0.28).convert("RGBA")
+    d = ImageDraw.Draw(base, "RGBA")
+
+    is_9x16 = (height > 1500)
+    card_x1, card_x2 = 36, width - 36
+    card_y1 = int(height * 0.22) if is_9x16 else int(height * 0.16)
+    card_y2 = int(height * 0.86) if is_9x16 else int(height * 0.90)
+
+    d.rounded_rectangle((card_x1, card_y1, card_x2, card_y2), radius=32, fill=(12, 16, 30, 248), outline=(168, 85, 247, 240), width=3)
+
+    # Top Tag
+    f_tag = get_font("arialbd.ttf", 26 if is_9x16 else 22)
+    d.text((width // 2, card_y1 + 36), "100% FACE-LOCK ACROSS ALL SCENES", font=f_tag, fill=(56, 189, 248), anchor="mm")
+
+    # Center Hero Graphic
+    hero_raw = Image.open(ASSET_HERO).convert("RGB")
+    hero_w = width - 110
+    hero_h = int(hero_w * (hero_raw.height / hero_raw.width))
+    hero_resized = hero_raw.resize((hero_w, hero_h), Image.Resampling.LANCZOS)
+    hero_y = card_y1 + 75
+    base.paste(hero_resized, ((width - hero_w) // 2, hero_y))
+
+    # Bottom Proof Badge
+    f_badge = get_font("arialbd.ttf", 32 if is_9x16 else 26)
+    f_sub_badge = get_font("segoeuib.ttf", 24 if is_9x16 else 20)
+    b_box_y = hero_y + hero_h + 24
+    d.rounded_rectangle((card_x1 + 30, b_box_y, card_x2 - 30, b_box_y + 115), radius=20, fill=(20, 26, 48, 255), outline=(56, 189, 248, 180), width=2)
+    d.text((width // 2, b_box_y + 36), "23 HD STEP-BY-STEP VIDEO LESSONS", font=f_badge, fill=(255, 255, 255), anchor="mm")
+    d.text((width // 2, b_box_y + 78), "[+] 100% Face-Lock  [+] 7-Day Guarantee  [+] Zero PC Needed", font=f_sub_badge, fill=(56, 189, 248), anchor="mm")
+
+    return base.convert("RGB")
+
+def render_body_video(out_path, width, height, fps=30):
+    total_sec = 18.5  # 4.0s to 22.5s
+    total_frames = int(round(total_sec * fps))
+
+    # Pre-render base assets
+    img_cafe = crop_fill(Image.open(ASSET_CAFE).convert("RGB"), width, height, align_y=0.22)
+    img_dubai = crop_fill(Image.open(ASSET_DUBAI).convert("RGB"), width, height, align_y=0.22)
+    img_gym = crop_fill(Image.open(ASSET_GYM).convert("RGB"), width, height, align_y=0.22)
+    img_hero = build_hero_consistency_slide(width, height)
+
+    # Shots definition: (start_s, end_s, base_img, kb_mode, caption)
+    shots = [
+        # Shot 1: Cafe (4.0s to 7.0s | 3.0s)
+        (0.0, 3.0, img_cafe, "zoom_in", "...immediately scream 'FAKE PLASTIC'?"),
+        # Shot 2: Dubai Rooftop (7.0s to 11.0s | 4.0s)
+        (3.0, 7.0, img_dubai, "zoom_out", "Beginners type '8K render' which forces fake CGI plastic skin..."),
+        # Shot 3: Gym Activewear (11.0s to 15.0s | 4.0s)
+        (7.0, 11.0, img_gym, "zoom_in", "Use our Raw Smartphone Optics formula: 24mm lens + natural pores"),
+        # Shot 4: Consistency Proof (15.0s to 18.5s | 3.5s)
+        (11.0, 18.5, img_hero, "static", "No camera, no studio, and no expensive models.")
+    ]
+
+    cmd = [
+        FFMPEG_EXE, "-y",
+        "-f", "rawvideo", "-vcodec", "rawvideo",
+        "-s", f"{width}x{height}", "-pix_fmt", "bgr24", "-r", str(fps), "-i", "-",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "18", "-pix_fmt", "yuv420p",
+        "-r", str(fps), "-an", out_path
+    ]
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    top_hook = "WHY 99% OF AI PHOTOS LOOK FAKE (3-WORD FIX)"
+    sub_hook = "RAW IPHONE OPTICS • ZERO CGI GLOW"
+
+    for f_idx in range(total_frames):
+        t_sec = f_idx / fps
+        active_shot = next(s for s in shots if s[0] <= t_sec <= s[1] or s == shots[-1])
+        s_start, s_end, base_img, kb_mode, caption = active_shot
+        s_dur = max(0.1, s_end - s_start)
+        prog = min(1.0, max(0.0, (t_sec - s_start) / s_dur))
+
+        if kb_mode == "static":
+            frame_pil = base_img.copy()
+        else:
+            frame_pil = apply_subtle_ken_burns(base_img, prog, mode=kb_mode)
+
+        decorated = decorate_ad_frame(frame_pil, top_hook, sub_hook, caption, width=width, height=height)
+        bgr = cv2.cvtColor(np.array(decorated), cv2.COLOR_RGB2BGR)
+        proc.stdin.write(bgr.tobytes())
+
+    proc.stdin.close()
+    proc.wait()
+    print(f"[OK] Rendered pristine body video: {out_path} ({os.path.getsize(out_path):,} bytes)")
+
 def build_ad(aspect="9x16"):
     is_9x16 = (aspect == "9x16")
     w, h = (1080, 1920) if is_9x16 else (1080, 1350)
     out_dir = OUT_9X16_DIR if is_9x16 else OUT_4X5_DIR
     out_file = os.path.join(out_dir, f"Ad-04-Raw-iPhone-Realism-INR-{aspect}.mp4")
 
-    print(f"\n>>> Assembling Master Creative #04 [{aspect}] ({w}x{h}) with Dancing Hook #03")
+    print(f"\n=======================================================")
+    print(f">>> Assembling Master Creative #04 [{aspect}] ({w}x{h})")
+    print(f"=======================================================")
 
-    # 1. Save crisp endcard image
+    # 1. Endcard Image
     endcard_img = os.path.join(SCRATCH_DIR, f"endcard_{aspect}.png")
     create_paid_endcard_image(w, h).save(endcard_img, quality=98)
 
@@ -175,7 +345,6 @@ def build_ad(aspect="9x16"):
             "-r", "30", "-an", tmp_v_hook
         ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     else:
-        # 4x5 uses blurred background padding
         filter_pad = "split[a][b];[a]scale=1080:1350:force_original_aspect_ratio=increase,crop=1080:1350,boxblur=25:5[bg];[b]scale=759:1350[fg];[bg][fg]overlay=(W-w)/2:0"
         subprocess.run([
             FFMPEG_EXE, "-y",
@@ -186,28 +355,11 @@ def build_ad(aspect="9x16"):
             "-r", "30", "-an", tmp_v_hook
         ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    # 3. Extract Body (4.0s to 22.5s) from Reel 04
-    tmp_v_body = os.path.join(SCRATCH_DIR, f"v_body_{aspect}.mp4")
-    if is_9x16:
-        subprocess.run([
-            FFMPEG_EXE, "-y",
-            "-ss", "4.0", "-to", "22.5",
-            "-i", REEL_04_RAW,
-            "-c:v", "libx264", "-preset", "fast", "-crf", "18", "-pix_fmt", "yuv420p",
-            "-r", "30", "-an", tmp_v_body
-        ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    else:
-        filter_pad = "split[a][b];[a]scale=1080:1350:force_original_aspect_ratio=increase,crop=1080:1350,boxblur=25:5[bg];[b]scale=759:1350[fg];[bg][fg]overlay=(W-w)/2:0"
-        subprocess.run([
-            FFMPEG_EXE, "-y",
-            "-ss", "4.0", "-to", "22.5",
-            "-i", REEL_04_RAW,
-            "-filter_complex", filter_pad,
-            "-c:v", "libx264", "-preset", "fast", "-crf", "18", "-pix_fmt", "yuv420p",
-            "-r", "30", "-an", tmp_v_body
-        ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # 3. Render Pristine Body (4.0s to 22.5s = 18.5s)
+    tmp_v_body = os.path.join(SCRATCH_DIR, f"v_body_pristine_{aspect}.mp4")
+    render_body_video(tmp_v_body, w, h, fps=30)
 
-    # 4. Extract 7.5s Endcard Video Loop
+    # 4. Endcard Video Loop (7.5s)
     tmp_v_end = os.path.join(SCRATCH_DIR, f"v_end_{aspect}.mp4")
     subprocess.run([
         FFMPEG_EXE, "-y",
@@ -275,7 +427,7 @@ def build_ad(aspect="9x16"):
     print(f"[SUCCESS] Finished Creative #04 [{aspect}]: {out_file} ({os.path.getsize(out_file):,} bytes)")
 
 def main():
-    print("=== PRODUCING MASTER CREATIVE #04 (DANCING HOOK #03 + RAW IPHONE REALISM) ===")
+    print("=== BUILDING MASTER CREATIVE #04 (DANCING HOOK #03 + PRISTINE RAW IPHONE REALISM) ===")
     build_ad("9x16")
     build_ad("4x5")
     print("=== ALL MASTER ASSETS GENERATED SUCCESSFULLY ===")
