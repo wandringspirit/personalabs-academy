@@ -334,6 +334,7 @@
     .day-panel {
       display: none;
       animation: fadeIn 0.25s ease;
+      scroll-margin-top: 85px;
     }
 
     .day-panel.active {
@@ -1429,7 +1430,14 @@ Open to me sending over 2 free sample renders wearing one of your products today
       const target = document.getElementById(dayId);
       if (target) target.classList.add('active');
       if (btnEl) btnEl.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (window.innerWidth <= 960 && target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 40);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
     function switchDayById(dayId) {
