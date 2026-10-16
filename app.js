@@ -2326,6 +2326,18 @@ async function openLiveRazorpayCheckout(explicitPayload = null) {
   rzp.open();
 }
 
+// Compute deterministic verification signature tied to (email, txId, addonKey)
+// Prevents manual URL (?b1=1) or localStorage (bumpAdded: true) tampering
+function computeAddonSig(email, tx, addonKey) {
+  const raw = `PL_VIP_2026::${String(email || '').trim().toLowerCase()}::${String(tx || '').trim()}::${addonKey}`;
+  let h1 = 0x811c9dc5;
+  for (let i = 0; i < raw.length; i++) {
+    h1 ^= raw.charCodeAt(i);
+    h1 = Math.imul(h1, 0x01000193);
+  }
+  return (h1 >>> 0).toString(16).padStart(8, '0');
+}
+
 function simulatePaymentComplete(methodName, explicitTxId = null) {
   // Strictly require a real verified transaction ID from Razorpay (pay_...) or PayPal
   if (!explicitTxId || String(explicitTxId).startsWith('PLA-')) {
@@ -2353,18 +2365,6 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
     content_name: 'AI Influencer Accelerator – 5-Day Launch Kit',
     content_type: 'product'
   });
-
-  // Compute deterministic verification signature tied to (email, txId, addonKey)
-  // Prevents manual URL (?b1=1) or localStorage (bumpAdded: true) tampering
-  function computeAddonSig(email, tx, addonKey) {
-    const raw = `PL_VIP_2026::${String(email || '').trim().toLowerCase()}::${String(tx || '').trim()}::${addonKey}`;
-    let h1 = 0x811c9dc5;
-    for (let i = 0; i < raw.length; i++) {
-      h1 ^= raw.charCodeAt(i);
-      h1 = Math.imul(h1, 0x01000193);
-    }
-    return (h1 >>> 0).toString(16).padStart(8, '0');
-  }
 
   let vt1 = '';
   let vt2 = '';
@@ -2538,6 +2538,12 @@ function downloadOfficialReceipt() {
   qs.set('currency', state.currency);
   qs.set('b1', state.bumpAdded ? '1' : '0');
   qs.set('b2', state.bump2Added ? '1' : '0');
+  if (state.bumpAdded) {
+    qs.set('vt1', computeAddonSig(emailVal, txId, 'BUMP1_NSFW_8f92a1c4'));
+  }
+  if (state.bump2Added) {
+    qs.set('vt2', computeAddonSig(emailVal, txId, 'BUMP2_HOOKS_3d7e91b2'));
+  }
   if (state.isTestSandbox) qs.set('test', '1');
 
   const receiptUrl = `course-vault/receipt.html?${qs.toString()}`;

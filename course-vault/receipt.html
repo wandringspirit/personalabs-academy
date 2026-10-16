@@ -348,6 +348,54 @@
       letter-spacing: 0.5px;
     }
 
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 28px 0;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px 10px;
+      }
+      .receipt-container {
+        padding: 20px 16px;
+        border-radius: 14px;
+      }
+      .header-row {
+        flex-direction: column;
+        gap: 14px;
+      }
+      .invoice-title-block {
+        text-align: left;
+      }
+      .meta-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 18px 0;
+      }
+      .top-action-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .top-action-bar > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .btn {
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 14px;
+        min-height: 44px;
+      }
+      .access-link-item {
+        padding: 12px 14px;
+        min-height: 44px;
+      }
+    }
+
     @media print {
       body {
         background: #ffffff;
@@ -422,18 +470,20 @@
     </div>
 
     <!-- Items Table -->
-    <table class="items-table">
-      <thead>
-        <tr>
-          <th>Description & Curriculum Deliverables</th>
-          <th>Qty</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody id="items-tbody">
-        <!-- Injected via JavaScript from Order Payload -->
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>Description & Curriculum Deliverables</th>
+            <th>Qty</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="items-tbody">
+          <!-- Injected via JavaScript from Order Payload -->
+        </tbody>
+      </table>
+    </div>
 
     <!-- Totals Summary -->
     <div class="summary-section">
@@ -589,14 +639,39 @@
         taxValEl.textContent = `Included (${sym}0.00)`;
       }
 
+      function computeAddonSig(email, tx, addonKey) {
+        const raw = `PL_VIP_2026::${String(email || '').trim().toLowerCase()}::${String(tx || '').trim()}::${addonKey}`;
+        let h1 = 0x811c9dc5;
+        for (let i = 0; i < raw.length; i++) {
+          h1 ^= raw.charCodeAt(i);
+          h1 = Math.imul(h1, 0x01000193);
+        }
+        return (h1 >>> 0).toString(16).padStart(8, '0');
+      }
+
+      const vt1 = params.get('vt1') || (hasBump1 ? computeAddonSig(email, txId, 'BUMP1_NSFW_8f92a1c4') : '');
+      const vt2 = params.get('vt2') || (hasBump2 ? computeAddonSig(email, txId, 'BUMP2_HOOKS_3d7e91b2') : '');
+
+      const fullVaultParams = new URLSearchParams();
+      fullVaultParams.set('email', email);
+      fullVaultParams.set('tx', txId);
+      if (hasBump1) { fullVaultParams.set('b1', '1'); fullVaultParams.set('vt1', vt1); }
+      if (hasBump2) { fullVaultParams.set('b2', '1'); fullVaultParams.set('vt2', vt2); }
+      const vaultUrlWithParams = `index.html?${fullVaultParams.toString()}`;
+
+      // Update Top Action Bar Button
+      const btnBackVault = document.getElementById('btn-back-vault');
+      if (btnBackVault) {
+        btnBackVault.href = vaultUrlWithParams;
+      }
+
       // Populate Links
       const linksContainer = document.getElementById('access-links-container');
-      const vaultQs = `?email=${encodeURIComponent(email)}&tx=${encodeURIComponent(txId)}`;
 
       let linkList = [
         {
           name: '🎓 Interactive 5-Day Course Vault Portal',
-          url: `index.html${vaultQs}`,
+          url: vaultUrlWithParams,
           badge: 'Online Portal'
         },
         {
@@ -606,24 +681,34 @@
         },
         {
           name: '🧬 250+ Character DNA & Face-Lock Prompt Bible',
-          url: 'character-dna-prompt-bible.html',
+          url: `character-dna-prompt-bible.html?${fullVaultParams.toString()}`,
           badge: 'Prompt Bible'
         }
       ];
 
       if (hasBump1) {
         linkList.push({
-          name: '🔞 4 Exclusive Uncensored NSFW Videos (Google Drive)',
+          name: '🔞 The "Uncensored Content Hack" VIP Guide (Web & PDF)',
+          url: `uncensored-vip-8f92a1c4.html?${fullVaultParams.toString()}`,
+          badge: 'VIP Guide #1'
+        });
+        linkList.push({
+          name: '📁 4 Exclusive Uncensored NSFW Videos (Google Drive)',
           url: 'https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing',
-          badge: 'VIP Add-On #1'
+          badge: 'Google Drive'
         });
       }
 
       if (hasBump2) {
         linkList.push({
-          name: '⚡ 500+ Viral Hooks & ManyChat Scripts Folder (Drive)',
+          name: '⚡ 500+ Viral Hooks & ManyChat Automation Studio (Web)',
+          url: `hooks-vip-3d7e91b2.html?${fullVaultParams.toString()}`,
+          badge: 'VIP Studio #2'
+        });
+        linkList.push({
+          name: '📁 500+ Viral Hooks & ManyChat Scripts Folder (Drive)',
           url: 'https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing',
-          badge: 'VIP Add-On #2'
+          badge: 'Google Drive'
         });
       }
 

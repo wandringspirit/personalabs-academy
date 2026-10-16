@@ -73,6 +73,27 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .drive-btn {
+      background: rgba(236, 72, 153, 0.2);
+      border: 1px solid rgba(236, 72, 153, 0.5);
+      color: #f472b6;
+      padding: 0.55rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .drive-btn:hover {
+      background: rgba(236, 72, 153, 0.35);
+      color: #fff;
+      transform: translateY(-1px);
     }
 
     .print-btn {
@@ -84,12 +105,58 @@
       font-weight: 700;
       font-size: 0.82rem;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .print-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1rem 0 1.25rem;
     }
 
     .container {
       max-width: 960px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem 5rem;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem 1rem 4rem;
+      }
+      .vip-hero {
+        padding: 1.5rem 1.25rem !important;
+      }
+      .vip-hero h1 {
+        font-size: 1.6rem !important;
+      }
+      .section-card {
+        padding: 1.35rem 1rem !important;
+      }
+      .top-bar {
+        padding: 0.8rem 1rem;
+      }
+      .top-actions {
+        width: 100%;
+      }
+      .drive-btn, .print-btn {
+        flex: 1;
+        justify-content: center;
+        min-height: 44px;
+        font-size: 0.85rem;
+      }
+      .back-link {
+        min-height: 44px;
+        align-items: center;
+      }
     }
 
     .vip-hero {
@@ -349,8 +416,11 @@
 <body>
 
   <header class="top-bar">
-    <a href="index.html" class="back-link">← Back to Student Portal Dashboard</a>
+    <a href="index.html" class="back-link">← Back to Course Vault</a>
     <div class="top-actions">
+      <a href="https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-btn">
+        📁 4 NSFW Videos (Drive) ↗
+      </a>
       <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
     </div>
   </header>
@@ -360,6 +430,21 @@
       <span class="vip-badge">Order Bump #1 • VIP Underground Playbook</span>
       <h1>The "Uncensored Content Hack" & Multi-Platform Funnel Guide</h1>
       <p>How top 1% AI creators bypass strict cloud prompt filters, render ultra-realistic skin & high-curiosity editorial glamour, and funnel millions of safe Instagram Reel views into $10k/month exclusive vaults without ever getting shadowbanned.</p>
+
+      <!-- Google Drive NSFW Video Vault Callout -->
+      <div style="margin-top: 1.5rem; background: rgba(236, 72, 153, 0.12); border: 1px solid rgba(236, 72, 153, 0.4); border-radius: 12px; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+        <div>
+          <div style="font-weight: 800; color: #fff; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🔞 4 Exclusive Private NSFW FaceFusion Video Masterclasses</span>
+          </div>
+          <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">
+            Watch Videos 14–17: Restrictions with NSFW Content, Bypassing NSFW in FaceFusion, NSFW FaceSwap Photos & Videos.
+          </div>
+        </div>
+        <a href="https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing" target="_blank" rel="noopener noreferrer" style="background: var(--gradient-vip); color: #fff; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; box-shadow: 0 4px 15px rgba(236, 72, 153, 0.35);">
+          📂 Open Videos on Drive ↗
+        </a>
+      </div>
     </div>
 
     <!-- SECTION 1 -->
@@ -369,37 +454,39 @@
       <p>Instagram's AI vision moderation (`Meta Shield`) automatically demotes accounts that post explicit nudity or overly sheer lingerie in Reels—restricting your account status to <em>"Not Eligible for Recommendation"</em>. The secret of 500k+ follower AI accounts is <strong>High-Curiosity Implied Glamour</strong>: 100% compliant resort/editorial visuals paired with psychological curiosity loops.</p>
 
       <h3>The 4 Highest-Converting "Safe Glamour" Visual Archetypes:</h3>
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th>Visual Archetype</th>
-            <th>Why It Passes IG Safe-Search 100%</th>
-            <th>Curiosity Hook Overlay (Text on Screen)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>1. Golden-Hour Infinity Pool / Yacht Editorial</strong></td>
-            <td>Instagram classifies ocean/poolside backgrounds as "Travel & Resort Wear," allowing designer swimwear & sarongs without restriction.</td>
-            <td><em>"My friends told me not to post the 3rd slide from Monaco... 🙈"</em></td>
-          </tr>
-          <tr>
-            <td><strong>2. Getting Ready / Backless Evening Gown Mirror POV</strong></td>
-            <td>High-fashion evening wear triggers "Luxury Fashion" categorization while keeping watch time above 130%.</td>
-            <td><em>"Helping me pick tonight's date dress: Red Silk or Black Velvet? 👇"</em></td>
-          </tr>
-          <tr>
-            <td><strong>3. Rainy Window / Oversized White Shirt Morning Coffee</strong></td>
-            <td>Cozy indoor lifestyle lighting feels intimate and personal ("parasocial girlfriend effect") while remaining PG-13.</td>
-            <td><em>"POV: You woke up late on a rainy Sunday in Mumbai ☕🌧️"</em></td>
-          </tr>
-          <tr>
-            <td><strong>4. Reformer Pilates / Gym Mirror Check-In</strong></td>
-            <td>Activewear in a gym context is 100% whitelisted by Meta's classifier and drives massive saves + male/female engagement.</td>
-            <td><em>"Wait until you realize I don't actually exist in real life 🤖✨"</em></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Visual Archetype</th>
+              <th>Why It Passes IG Safe-Search 100%</th>
+              <th>Curiosity Hook Overlay (Text on Screen)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Golden-Hour Infinity Pool / Yacht Editorial</strong></td>
+              <td>Instagram classifies ocean/poolside backgrounds as "Travel & Resort Wear," allowing designer swimwear & sarongs without restriction.</td>
+              <td><em>"My friends told me not to post the 3rd slide from Monaco... 🙈"</em></td>
+            </tr>
+            <tr>
+              <td><strong>2. Getting Ready / Backless Evening Gown Mirror POV</strong></td>
+              <td>High-fashion evening wear triggers "Luxury Fashion" categorization while keeping watch time above 130%.</td>
+              <td><em>"Helping me pick tonight's date dress: Red Silk or Black Velvet? 👇"</em></td>
+            </tr>
+            <tr>
+              <td><strong>3. Rainy Window / Oversized White Shirt Morning Coffee</strong></td>
+              <td>Cozy indoor lifestyle lighting feels intimate and personal ("parasocial girlfriend effect") while remaining PG-13.</td>
+              <td><em>"POV: You woke up late on a rainy Sunday in Mumbai ☕🌧️"</em></td>
+            </tr>
+            <tr>
+              <td><strong>4. Reformer Pilates / Gym Mirror Check-In</strong></td>
+              <td>Activewear in a gym context is 100% whitelisted by Meta's classifier and drives massive saves + male/female engagement.</td>
+              <td><em>"Wait until you realize I don't actually exist in real life 🤖✨"</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- SECTION 2 -->
@@ -408,37 +495,39 @@
       <h2>The Cloud Filter-Bypass Vocabulary Matrix & Skin Realism</h2>
       <p>Cloud generators (SeaArt, Tensor.art, Kling AI, Luma) use automated keyword blacklists. If you type amateur anatomical words, your prompt gets blocked or blurred. Replace blacklisted words with <strong>Vogue Editorial & Cinematography Tokens</strong> to unlock unrestricted photorealistic anatomy, collarbone lighting, and natural skin texture:</p>
 
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th>Blocked / Flagged Trigger Word ❌</th>
-            <th>Safe Editorial Replacement Token ✅ (Passes Filters)</th>
-            <th>Visual Effect Produced</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="bad-token">sexy, seductive, cleavage, curvy</span></td>
-            <td><span class="good-token">Vogue Italia editorial posture, hourglass athletic silhouette, structured couture neckline, confident gaze</span></td>
-            <td>Produces high-fashion alluring proportions without triggering NSFW word blocks.</td>
-          </tr>
-          <tr>
-            <td><span class="bad-token">bikini, underwear, lingerie</span></td>
-            <td><span class="good-token">two-piece Amalfi resort swimwear, silk lounge camisole set, Sports Illustrated Swimsuit coastal styling</span></td>
-            <td>Whitelisted by fashion/swimwear dataset tokens in Flux & SDXL.</td>
-          </tr>
-          <tr>
-            <td><span class="bad-token">wet skin, sweaty body, bare skin</span></td>
-            <td><span class="good-token">dewy sun-kissed epidermis, subsurface scattering, golden-hour specular highlights on collarbones, post-workout glow</span></td>
-            <td>Renders ultra-realistic lifelike skin sheen and micro-pores instead of plastic skin.</td>
-          </tr>
-          <tr>
-            <td><span class="bad-token">bedroom selfie, laying on bed</span></td>
-            <td><span class="good-token">luxury boutique hotel suite interior, candid over-the-shoulder portrait against linen pillows, warm tungsten lamp light</span></td>
-            <td>Creates cozy intimate atmosphere with rich cinematic shadows.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Blocked / Flagged Trigger Word ❌</th>
+              <th>Safe Editorial Replacement Token ✅ (Passes Filters)</th>
+              <th>Visual Effect Produced</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="bad-token">sexy, seductive, cleavage, curvy</span></td>
+              <td><span class="good-token">Vogue Italia editorial posture, hourglass athletic silhouette, structured couture neckline, confident gaze</span></td>
+              <td>Produces high-fashion alluring proportions without triggering NSFW word blocks.</td>
+            </tr>
+            <tr>
+              <td><span class="bad-token">bikini, underwear, lingerie</span></td>
+              <td><span class="good-token">two-piece Amalfi resort swimwear, silk lounge camisole set, Sports Illustrated Swimsuit coastal styling</span></td>
+              <td>Whitelisted by fashion/swimwear dataset tokens in Flux & SDXL.</td>
+            </tr>
+            <tr>
+              <td><span class="bad-token">wet skin, sweaty body, bare skin</span></td>
+              <td><span class="good-token">dewy sun-kissed epidermis, subsurface scattering, golden-hour specular highlights on collarbones, post-workout glow</span></td>
+              <td>Renders ultra-realistic lifelike skin sheen and micro-pores instead of plastic skin.</td>
+            </tr>
+            <tr>
+              <td><span class="bad-token">bedroom selfie, laying on bed</span></td>
+              <td><span class="good-token">luxury boutique hotel suite interior, candid over-the-shoulder portrait against linen pillows, warm tungsten lamp light</span></td>
+              <td>Creates cozy intimate atmosphere with rich cinematic shadows.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h3>Copy-Paste "Ultra-Real Skin & Resort Editorial" Master Prompt:</h3>
       <div class="prompt-box">
@@ -555,6 +644,13 @@ Here's what happens here:
           btn.innerText = orig;
           btn.style.background = '';
         }, 1800);
+      });
+    }
+
+    // Preserve student unlock query parameters on back navigation
+    if (window.location.search) {
+      document.querySelectorAll('.back-link, a[href="index.html"]').forEach(link => {
+        link.href = 'index.html' + window.location.search;
       });
     }
   </script>

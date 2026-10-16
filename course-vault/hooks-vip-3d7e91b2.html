@@ -357,7 +357,7 @@
       color: #fff;
       padding: 0.35rem 0.65rem;
       border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: 16px;
       outline: none;
     }
     .safe-toggle-btn {
@@ -490,7 +490,7 @@
       color: #fff;
       padding: 0.65rem 1rem 0.65rem 2.4rem;
       border-radius: 10px;
-      font-size: 0.88rem;
+      font-size: 16px;
       outline: none;
     }
     .search-input:focus { border-color: var(--accent-purple); }
@@ -748,6 +748,32 @@
       border-radius: 8px;
     }
 
+    @media (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+      .btn-action {
+        min-height: 44px;
+        padding: 0.6rem 0.9rem;
+      }
+      .top-bar a.back-btn {
+        min-height: 44px;
+      }
+      .container {
+        padding: 1.5rem 1rem 4rem;
+      }
+      .hero-banner {
+        padding: 1.5rem 1.25rem;
+      }
+      .hero-banner h1 {
+        font-size: 1.6rem;
+      }
+      .phone-mockup {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+
     /* Print Styles */
     @media print {
       .top-bar, .phone-container, .spin-btn, .btn-action, .search-row, .card-actions { display: none !important; }
@@ -763,8 +789,11 @@
 
   <!-- Top Action Bar -->
   <header class="top-bar">
-    <a href="index.html" class="back-btn">← Back to Student Portal Dashboard</a>
+    <a href="index.html" class="back-btn">← Back to Course Vault</a>
     <div class="top-actions">
+      <a href="https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action" style="background: rgba(245, 158, 11, 0.2); border-color: rgba(245, 158, 11, 0.5); color: #fbbf24;">
+        📁 500+ Hooks Pack (Drive) ↗
+      </a>
       <button class="btn-action primary" onclick="exportHooksCSV()">📥 Export 500+ Hooks (CSV / Notion)</button>
       <button class="btn-action" onclick="window.print()">🖨️ Print / Save PDF</button>
     </div>
@@ -777,6 +806,21 @@
       <span class="hero-badge">Order Bump #2 • VIP Conversion Engine</span>
       <h1>500+ Viral Reel Hooks, Live Simulator & ManyChat Studio</h1>
       <p>Test your hooks in real-time on our interactive 9:16 smartphone simulator, copy 500+ battle-tested viral frameworks across 8 creator niches, and install done-for-you ManyChat comment-to-DM funnels that convert viewers into paying customers 24/7.</p>
+
+      <!-- Google Drive Folder Callout -->
+      <div style="margin-top: 1.5rem; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 12px; padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+        <div>
+          <div style="font-weight: 800; color: #fff; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>⚡ 500+ Viral Hooks & ManyChat Auto-DM Pack on Google Drive</span>
+          </div>
+          <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">
+            Download raw hook scripts, viral audio pairings, and ManyChat comment-to-DM JSON templates.
+          </div>
+        </div>
+        <a href="https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing" target="_blank" rel="noopener noreferrer" style="background: var(--gradient-amber); color: #fff; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);">
+          📂 Open Hooks Folder on Drive ↗
+        </a>
+      </div>
     </section>
 
     <!-- Interactive Studio Grid -->
@@ -1230,6 +1274,13 @@ Honestly though, rate today's [City/Event] look from 1–10! I was torn between 
     // Initial render
     window.onload = function() {
       renderHooks();
+
+      // Preserve student unlock query parameters on back navigation
+      if (window.location.search) {
+        document.querySelectorAll('.back-btn, a[href="index.html"]').forEach(link => {
+          link.href = 'index.html' + window.location.search;
+        });
+      }
     };
   </script>
 </body>

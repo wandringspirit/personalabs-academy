@@ -162,7 +162,7 @@
       color: var(--text-primary);
       padding: 0.65rem 0.85rem;
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: 16px;
       font-family: inherit;
     }
 
@@ -281,9 +281,32 @@
       margin-bottom: 0.4rem;
     }
 
+    .prompt-code {
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+    }
+
     @media (max-width: 640px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
       .prompts-grid {
         grid-template-columns: 1fr;
+      }
+      .container {
+        padding: 1.5rem 1rem 4rem;
+      }
+      .hero-box {
+        padding: 1.5rem 1.25rem;
+      }
+      .hero-box h1 {
+        font-size: 1.6rem;
+      }
+      .back-link, .print-btn {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
       }
     }
 
@@ -301,7 +324,7 @@
 <body>
 
   <header class="top-bar">
-    <a href="index.html" class="back-link">← Back to Student Portal Dashboard</a>
+    <a href="index.html" class="back-link">← Back to Course Vault</a>
     <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
   </header>
 
@@ -577,6 +600,13 @@
     document.addEventListener('DOMContentLoaded', () => {
       buildCustomPrompt();
       renderMasterPrompts();
+
+      // Preserve student unlock query parameters on back navigation
+      if (window.location.search) {
+        document.querySelectorAll('.back-link, a[href="index.html"]').forEach(link => {
+          link.href = 'index.html' + window.location.search;
+        });
+      }
     });
   </script>
 </body>
