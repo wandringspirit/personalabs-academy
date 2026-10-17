@@ -18,8 +18,9 @@ Every time someone interacts with your checkout, it automatically logs a row int
 2. Delete any default `function myFunction() {}` code in `Code.gs` and paste the complete script below:
 
 ```javascript
-const SHEET_ID   = '1Sy8fyVC84tfgognGzGbJl0cSuIq5WFGgL8HoPzjGElc';
-const SHEET_NAME = 'Orders';
+const SHEET_ID          = '1Sy8fyVC84tfgognGzGbJl0cSuIq5WFGgL8HoPzjGElc';
+const LOGS_SHEET_NAME   = 'Logs';
+const ORDERS_SHEET_NAME = 'Orders';
 
 // Pre-configured with your 3 Google Drive Folder IDs under personalabsacademy@gmail.com:
 const CORE_FOLDER_ID  = '1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm'; // 01-Core-Course-Videos
@@ -51,14 +52,8 @@ const HEADERS = [
   'Automated Add-On Upsell Status'
 ];
 
-function ensureSheetAndHeaders() {
-  const ss = SpreadsheetApp.openById(SHEET_ID);
-  let sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.getSheets()[0];
-    sheet.setName(SHEET_NAME);
-  }
-
+function ensureHeadersOnSheet(sheet) {
+  if (!sheet) return;
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
     const headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
@@ -71,36 +66,105 @@ function ensureSheetAndHeaders() {
       sheet.getRange(1, c).setValue(HEADERS[c - 1]).setBackground('#4a044e').setFontColor('#ffffff').setFontWeight('bold');
     }
   }
-  return sheet;
 }
 
-// Run this once inside Apps Script to auto-create headers & authorize DriveApp, GmailApp and Triggers!
-function setupDatabaseSheet() {
-  ensureSheetAndHeaders();
-  if (CORE_FOLDER_ID) DriveApp.getFolderById(CORE_FOLDER_ID).getName();
+/**
+ * ONE-CLICK SETUP & BACKFILL FUNCTION
+ * Run this once inside Apps Script to:
+ * 1. Rename existing sheet to 'Logs'
+ * 2. Create clean 'Orders' tab
+ * 3. Backfill all 5 verified PAID_SUCCESS orders from Logs to Orders
+ */
+function setupAndBackfillOrders() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+
+  // 1. Ensure Logs sheet exists (rename existing sheet if needed)
+  let logsSheet = ss.getSheetByName(LOGS_SHEET_NAME);
+  if (!logsSheet) {
+    const existingOrders = ss.getSheetByName('Orders');
+    if (existingOrders) {
+      existingOrders.setName(LOGS_SHEET_NAME);
+      logsSheet = existingOrders;
+    } else {
+      logsSheet = ss.getSheets()[0];
+      logsSheet.setName(LOGS_SHEET_NAME);
+    }
+  }
+  ensureHeadersOnSheet(logsSheet);
+
+  // 2. Ensure Orders sheet exists
+  let ordersSheet = ss.getSheetByName(ORDERS_SHEET_NAME);
+  if (!ordersSheet) {
+    ordersSheet = ss.insertSheet(ORDERS_SHEET_NAME);
+  }
+  ensureHeadersOnSheet(ordersSheet);
+
+  // 3. Backfill all PAID_SUCCESS orders from Logs to Orders (preventing duplicates)
+  const logsData = logsSheet.getDataRange().getValues();
+  const existingOrdersData = ordersSheet.getDataRange().getValues();
+  const existingTxIds = new Set();
+
+  for (let j = 1; j < existingOrdersData.length; j++) {
+    const tx = String(existingOrdersData[j][3] || existingOrdersData[j][2] || '').trim();
+    if (tx) existingTxIds.add(tx);
+  }
+
+  let backfilledCount = 0;
+  for (let i = 1; i < logsData.length; i++) {
+    const row = logsData[i];
+    const status = String(row[1] || '').trim().toUpperCase();
+    const txId = String(row[3] || row[2] || '').trim();
+
+    if (status === 'PAID_SUCCESS' && txId && !existingTxIds.has(txId)) {
+      ordersSheet.appendRow(row);
+      const newRowIdx = ordersSheet.getLastRow();
+      ordersSheet.getRange(newRowIdx, 1, 1, HEADERS.length).setBackground('#dcfce7'); // Light green
+      existingTxIds.add(txId);
+      backfilledCount++;
+    }
+  }
+
+  // Authorize Drive & Triggers
+  if (CORE_FOLDER_ID) {
+    try { DriveApp.getFolderById(CORE_FOLDER_ID).getName(); } catch (e) {}
+  }
   setupAutomatedEmailTriggers();
+
+  Logger.log(`Setup complete! Backfilled ${backfilledCount} orders into Orders sheet.`);
+  return `Success! Logs and Orders sheets configured. Backfilled ${backfilledCount} paid orders into Orders tab.`;
+}
+
+// Legacy alias
+function setupDatabaseSheet() {
+  setupAndBackfillOrders();
 }
 
 // =========================================================================
 // 1. AUTOMATED 25-MIN ABANDONED CART RECOVERY (Safely skips anyone who buys within 25 mins)
 // =========================================================================
 function sendAbandonedCartRecoveryEmails() {
-  const sheet = ensureSheetAndHeaders();
-  const data = sheet.getDataRange().getValues();
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const logsSheet = ss.getSheetByName(LOGS_SHEET_NAME) || ss.getSheets()[0];
+  const ordersSheet = ss.getSheetByName(ORDERS_SHEET_NAME);
+  const data = logsSheet.getDataRange().getValues();
   if (data.length <= 1) return;
 
   const now = new Date();
-  const MIN_DELAY_MINUTES = 25; // Waits 25 mins: Anyone who buys 5, 10, or 15 mins later is 100% skipped!
+  const MIN_DELAY_MINUTES = 25; // Waits 25 mins
 
-  // Build list of all customer emails that have successfully paid
+  // Build list of all customer emails that have successfully paid (from both sheets)
   const paidEmails = new Set();
-  for (let i = 1; i < data.length; i++) {
-    const status = String(data[i][1] || '').trim().toUpperCase();
-    const email = String(data[i][5] || '').trim().toLowerCase();
-    if (status === 'PAID_SUCCESS' && email) {
-      paidEmails.add(email);
+  const collectPaid = (sheetObj) => {
+    if (!sheetObj) return;
+    const rows = sheetObj.getDataRange().getValues();
+    for (let i = 1; i < rows.length; i++) {
+      const status = String(rows[i][1] || '').trim().toUpperCase();
+      const email = String(rows[i][5] || '').trim().toLowerCase();
+      if (status === 'PAID_SUCCESS' && email) paidEmails.add(email);
     }
-  }
+  };
+  collectPaid(ordersSheet);
+  collectPaid(logsSheet);
 
   for (let i = 1; i < data.length; i++) {
     const rowNum = i + 1;
@@ -312,13 +376,18 @@ function doPost(e) {
   lock.tryLock(10000);
 
   try {
-    const sheet = ensureSheetAndHeaders();
+    const ss = SpreadsheetApp.openById(SHEET_ID);
+    let logsSheet = ss.getSheetByName(LOGS_SHEET_NAME) || ss.getSheetByName('Sheet1') || ss.getSheets()[0];
+    let ordersSheet = ss.getSheetByName(ORDERS_SHEET_NAME);
+
+    ensureHeadersOnSheet(logsSheet);
+    if (ordersSheet) ensureHeadersOnSheet(ordersSheet);
+
     const data = JSON.parse(e.postData.contents || '{}');
+    const isPaid = data.status === 'PAID_SUCCESS';
+    const buyerEmail = String(data.customerEmail || '').trim();
 
     let driveGrantedList = [];
-    const buyerEmail = String(data.customerEmail || '').trim();
-    const isPaid = data.status === 'PAID_SUCCESS';
-
     if (isPaid && buyerEmail && buyerEmail.includes('@')) {
       const wantCore  = data.grantCoreDrive !== false;
       const wantNsfw  = Boolean(data.grantNsfwDrive) || String(data.bump1_UncensoredHack || '').toUpperCase().startsWith('YES');
@@ -373,18 +442,36 @@ function doPost(e) {
       isPaid ? (driveGrantedList.join(', ') || 'None') : 'PENDING'
     ];
 
-    sheet.appendRow(row);
-    const lastRow = sheet.getLastRow();
-    const rowRange = sheet.getRange(lastRow, 1, 1, HEADERS.length);
+    // 1. Always append to Logs (Audit trail for CTA clicks, leads, abandoned checkouts)
+    logsSheet.appendRow(row);
+    const logsLastRow = logsSheet.getLastRow();
+    const logsRowRange = logsSheet.getRange(logsLastRow, 1, 1, HEADERS.length);
 
     if (isPaid) {
-      rowRange.setBackground('#dcfce7'); // Green for verified paid orders
+      logsRowRange.setBackground('#dcfce7'); // Green for verified paid orders
     } else if (data.status === 'INITIATED_CHECKOUT') {
-      rowRange.setBackground('#fef9c3'); // Yellow for initiated checkout leads
+      logsRowRange.setBackground('#fef9c3'); // Yellow for initiated checkout leads
+    }
+
+    // 2. If PAID_SUCCESS, ALSO append to the clean Orders sheet!
+    let ordersLastRow = null;
+    if (isPaid) {
+      if (!ordersSheet) {
+        ordersSheet = ss.insertSheet(ORDERS_SHEET_NAME);
+        ensureHeadersOnSheet(ordersSheet);
+      }
+      ordersSheet.appendRow(row);
+      ordersLastRow = ordersSheet.getLastRow();
+      ordersSheet.getRange(ordersLastRow, 1, 1, HEADERS.length).setBackground('#dcfce7');
     }
 
     return ContentService
-      .createTextOutput(JSON.stringify({ ok: true, row: lastRow, driveGranted: driveGrantedList }))
+      .createTextOutput(JSON.stringify({
+        ok: true,
+        logsRow: logsLastRow,
+        ordersRow: ordersLastRow,
+        driveGranted: driveGrantedList
+      }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService
@@ -403,36 +490,48 @@ function doGet(e) {
     const targetEmail = String(params.email || '').trim().toLowerCase();
 
     if ((action === 'verify' || action === 'lookupOrder') && targetEmail) {
-      const sheet = ensureSheetAndHeaders();
-      const rows = sheet.getDataRange().getValues();
-      let bump1 = false;
-      let bump2 = false;
-      let verified = false;
-      let lastTxId = '';
+      const ss = SpreadsheetApp.openById(SHEET_ID);
+      // Check Orders sheet first (fastest & cleanest!), fallback to Logs
+      const ordersSheet = ss.getSheetByName(ORDERS_SHEET_NAME);
+      const logsSheet   = ss.getSheetByName(LOGS_SHEET_NAME) || ss.getSheets()[0];
 
-      for (let i = 1; i < rows.length; i++) {
-        const status = String(rows[i][1] || '');
-        const txId   = String(rows[i][3] || '').trim();
-        const rowEmail = String(rows[i][5] || '').trim().toLowerCase();
-        if (status === 'PAID_SUCCESS' && rowEmail === targetEmail && txId && !txId.startsWith('PLA-')) {
-          verified = true;
-          lastTxId = txId;
-          if (String(rows[i][11] || '').toUpperCase().startsWith('YES')) bump1 = true;
-          if (String(rows[i][12] || '').toUpperCase().startsWith('YES')) bump2 = true;
+      let foundRow = null;
+
+      const searchSheet = (sheetObj) => {
+        if (!sheetObj) return null;
+        const rows = sheetObj.getDataRange().getValues();
+        for (let i = rows.length - 1; i >= 1; i--) { // search newest first
+          const status = String(rows[i][1] || '').trim().toUpperCase();
+          const txId   = String(rows[i][3] || '').trim();
+          const rowEmail = String(rows[i][5] || '').trim().toLowerCase();
+          if (status === 'PAID_SUCCESS' && rowEmail === targetEmail && txId && !txId.startsWith('PLA-')) {
+            return rows[i];
+          }
         }
-      }
+        return null;
+      };
 
-      return ContentService
-        .createTextOutput(JSON.stringify({
-          ok: verified,
-          found: verified,
-          transactionId: lastTxId,
-          bump1: bump1,
-          bump2: bump2,
-          nsfwDriveUrl: bump1 ? 'https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing' : '',
-          hooksDriveUrl: bump2 ? 'https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing' : ''
-        }))
-        .setMimeType(ContentService.MimeType.JSON);
+      foundRow = searchSheet(ordersSheet) || searchSheet(logsSheet);
+
+      if (foundRow) {
+        const bump1 = String(foundRow[11] || '').toUpperCase().startsWith('YES');
+        const bump2 = String(foundRow[12] || '').toUpperCase().startsWith('YES');
+        return ContentService
+          .createTextOutput(JSON.stringify({
+            ok: true,
+            found: true,
+            transactionId: String(foundRow[3] || '').trim(),
+            bump1: bump1,
+            bump2: bump2,
+            nsfwDriveUrl: bump1 ? 'https://drive.google.com/drive/folders/10HGXWcRMR898lbQnTX41G--fPLKoBOvW?usp=sharing' : '',
+            hooksDriveUrl: bump2 ? 'https://drive.google.com/drive/folders/1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN?usp=sharing' : ''
+          }))
+          .setMimeType(ContentService.MimeType.JSON);
+      } else {
+        return ContentService
+          .createTextOutput(JSON.stringify({ ok: false, found: false, error: 'No active paid enrollment found for this email' }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
     }
     return ContentService
       .createTextOutput(JSON.stringify({ ok: true, service: 'PersonaLabs Orders DB (personalabsacademy@gmail.com)' }))
