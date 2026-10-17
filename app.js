@@ -1946,9 +1946,21 @@ function initMetaPixel() {
   });
 }
 
-function trackMetaPixelEvent(eventName, params = {}) {
+function trackMetaPixelEvent(eventName, params = {}, customUserData = null) {
   try {
     if (typeof window.fbq === 'function') {
+      const pixelId = (PAYMENT_GATEWAY_CONFIG.metaPixelId || '').trim();
+      const emailVal = (customUserData?.email || document.getElementById('customer-email')?.value || '').trim().toLowerCase();
+      const phoneVal = (customUserData?.phone || document.getElementById('customer-phone')?.value || '').replace(/\D/g, '');
+      const nameVal = (customUserData?.name || document.getElementById('customer-name')?.value || '').trim();
+
+      // Advanced Matching: Pass user identifiers so Meta matches purchases to profiles with high EMQ
+      if (emailVal && emailVal.includes('@') && pixelId) {
+        const userData = { em: emailVal };
+        if (phoneVal && phoneVal.length >= 10) userData.ph = phoneVal;
+        if (nameVal) userData.fn = nameVal.split(' ')[0].toLowerCase();
+        window.fbq('init', pixelId, userData);
+      }
       window.fbq('track', eventName, params);
     }
   } catch (e) {}
@@ -2355,16 +2367,16 @@ function simulatePaymentComplete(methodName, explicitTxId = null) {
   state.lastTransactionId = txId;
 
   const nameVal = document.getElementById('customer-name').value.trim() || 'Creator';
-  const emailVal = document.getElementById('customer-email').value.trim();
+  const phoneVal = (document.getElementById('customer-phone')?.value || '').replace(/\D/g, '');
 
-  // Fire Meta Pixel Purchase Event with exact total paid & currency (INR or USD)
+  // Fire Meta Pixel Purchase Event with exact total paid & currency (INR or USD) + Advanced Matching
   const { finalTotal } = getTotals();
   trackMetaPixelEvent('Purchase', {
     value: finalTotal,
     currency: state.currency,
     content_name: 'AI Influencer Accelerator – 5-Day Launch Kit',
     content_type: 'product'
-  });
+  }, { email: emailVal, phone: phoneVal, name: nameVal });
 
   let vt1 = '';
   let vt2 = '';
