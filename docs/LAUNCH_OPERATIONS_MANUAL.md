@@ -1,7 +1,7 @@
 # 📖 PersonaLabs Academy — Complete Launch & Operations Manual
 
-Last Updated: **October 13, 2026**  
-Status: **🟢 Campaign #1 Active (`₹500/day` CBO • Opportunity Score `100/100`) • 6-Day IG Queue Scheduled (`Oct 13–18`) • Storefront `v2.9.1` Live on Vercel CDN**
+Last Updated: **October 30, 2026** (`v2.9.3`)  
+Status: **🟢 4 Sales Confirmed (₹2,389 • ₹597 AOV) • Creative Test Validated (6.45% CTR • ₹34.83 CPM • 4.6K Plays) • 5 Master Ad Hooks Ready • Storefront Live on Vercel CDN**
 
 ---
 
@@ -9,22 +9,22 @@ Status: **🟢 Campaign #1 Active (`₹500/day` CBO • Opportunity Score `100/1
 
 | Asset / Component | Live Identifier / URL | Current Status | Notes |
 | :--- | :--- | :--- | :--- |
-| **Official Website** | [https://personalabs.store](https://personalabs.store) & [https://www.personalabs.store](https://www.personalabs.store) | 🟢 **100% Live** | Hosted on Vercel Global Edge CDN (`216.198.79.1`, `app.js?v=21`). Zero server costs. |
+| **Official Website** | [https://personalabs.store](https://personalabs.store) & [https://www.personalabs.store](https://www.personalabs.store) | 🟢 **100% Live** | Hosted on Vercel Global Edge CDN (`216.198.79.1`). Zero server costs. Anchored on ₹199 Instant Prompt Vault. |
 | **Secret Testing Route** | [https://www.personalabs.store/kjboavhpoieabpraegnaln](https://www.personalabs.store/kjboavhpoieabpraegnaln) | 🟢 **Active for Testing** | **₹1 INR** (Razorpay) / **$1 USD** (PayPal) per item with 1-click currency toggle. Can be disabled anytime in `app.js`. |
 | **Official Printable PDF Receipt** | [`https://personalabs.store/course-vault/receipt.html`](../course-vault/receipt.html) | 🟢 **100% Live** | Instant (`<50ms`) A4 printable invoice/receipt. Shows `Tax Invoice` + `Included (₹0.00)` for India (`INR`) and `Payment Receipt` + `Included ($0.00)` (no GST) for International (`USD`). |
 | **Member Vault Portal** | `https://personalabs.store/course-vault/` | 🟢 **100% Live** | 18 HD lessons, 250+ prompts, and authenticated add-on downloads. |
-| **Meta Ad Campaign #1** | `IN - Sales - AI Influencer Launch Kit (INR)` | 🟢 **Active (Opportunity Score 100)** | Budget: **₹500.00/day** (CBO). Advantage+ Creative `Video touch-ups` enabled. Early CTR: **`3.52% – 5.56%`**. |
-| **Meta Ad Account** | `PersonaLabs Academy Ads` (`2218391099056783`) | 🟢 **Active** | Currency: INR (`₹`). Timezone: Asia/Kolkata. |
+| **5 Master Ad Hooks** | [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/) | 🟢 **Rendered & Ready** | 5 high-converting 1080×1920 video ads (`Hottest_Hook_01` to `05`) re-sequenced to open at `0:00` with the model's radiant eye-contact smile. Zero glyph box errors, `-movflags +faststart`. |
+| **Meta Ad Account** | `PersonaLabs Academy Ads` (`2218391099056783`) | 🟢 **Active** | Currency: INR (`₹`). Timezone: Asia/Kolkata. Paused on `Payment error` upon prepaid budget exhaustion; top up via UPI to resume. |
 | **Meta Dataset / Pixel** | `PersonaLabs Academy Pixel` (`1661173205598260`) | 🟢 **Tracking Live** | Events: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout`, `Purchase`. |
-| **Instagram Creator Identity** | [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/) | 🟢 **Active + Pinned Grid** | Pinned 5-Slide Carousel (`DeZdiZ2EuBf`) + 2 Live Reels (`DeWdJplElw6`, `DeZd2Z6o-Be`). |
+| **Instagram Creator Identity** | [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/) | 🟢 **Active (26 Followers)** | 19 posts, 4,625 plays on boosted Reel. External bio link unlocks after 10 Nov cooldown; direct sales run via Ads Manager website buttons. |
 | **Facebook Page Identity** | `PersonaLabs Academy` (`ID: 61595148306909`) | 🟢 **Connected** | Linked to Ad Account and Campaign Identity. |
 | **India Payment Gateway** | Razorpay Live (`rzp_live_TmX62nNGuBaTUc`) | 🟢 **Live** | Instant UPI (GPay, PhonePe, Paytm, QR) + RuPay/Visa Cards. |
 | **Global Payment Gateway** | PayPal Live (`BAARfEN6...`) | 🟢 **Live** | PayPal 1-Click + International Cards in USD ($). |
-| **Google Sheets Orders DB** | `PersonaLabs Academy — Orders DB` (`1Sy8fy...`) | 🟢 **Connected (22 Cols)** | Real-time logging of leads (`INITIATED_CHECKOUT`) and paid orders (`PAID_SUCCESS`). |
+| **Google Sheets Orders DB** | `PersonaLabs Academy — Orders DB` (`1Sy8fy...`) | 🟢 **Connected (22 Cols)** | Real-time logging of leads (`INITIATED_CHECKOUT`) and paid orders (`PAID_SUCCESS`). 4 confirmed orders (`₹2,389.00`). |
 | **Google Drive Auto-Access** | Webhook App (`DriveApp.addViewer`, **Version 3**) | 🟢 **Connected** | Automatically whitelists customer's Gmail for purchased Drive folders (`01-Core`, `02-NSFW`, `03-Hooks`). |
 | **Automated Email Engine** | Apps Script Triggers (`GmailApp`, **Version 3**) | 🟢 **Running 24/7** | 1. **25-Min Cart Recovery** (`sendAbandonedCartRecoveryEmails` every 15m)<br>2. **12-Hr Add-On Upsell** (`sendPostPurchaseAddonUpsellEmails` every 2h) with plain-text parity & CAN-SPAM footer. |
 | **GitHub Repository** | [`wandringspirit/personalabs-academy`](https://github.com/wandringspirit/personalabs-academy) | 🟢 **Connected to Vercel** | Every `git push origin main` auto-deploys to `https://personalabs.store` in ~15 seconds. |
-| **3-Agent Instagram Studio** | [`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md) | 🟢 **6 Days Scheduled (`Oct 13–18`)** | 6 daily posts/Reels scheduled at `7:30 PM IST` (`19:30`) in Meta Business Suite + Weekly Sunday `10:00 AM IST` auto-refill. |
+| **Local Folder Architecture** | `ai-influencer-course-website` & `personalabs-academy` | 🟢 **Linked via Junction** | `personalabs-academy` is a Windows Junction pointing to `ai-influencer-course-website` (0 MB duplication). |
 
 ---
 
@@ -129,5 +129,37 @@ Instead of messaging leads from a personal WhatsApp number, your **Google Apps S
 2. **How We Know When a Scheduled Batch Runs Low (2 Automatic Safeguards):**
    * **Safeguard A — Recurring Antigravity Cron Schedule (`/schedule`):** A standing background cron job wakes up the agent every 7 days (`0 10 * * 0`) to check [`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md) and Meta Business Suite Content Planner, and automatically prepares the next 7–14 day batch before the queue runs out.
    * **Safeguard B — Automated Email Alert (`personalabsacademy@gmail.com`):** Your Google Apps Script can also send you a `"⚠️ Instagram Queue Running Low (48h Remaining)"` reminder email 48 hours before the last scheduled post date in your batch so you never miss a refill window.
+
+---
+
+## 🚀 6. Immediate Next Operations: Billing Top-Up & Direct Sales Campaign Launch
+
+### A. Resolving the `Payment error` in Meta Ads Manager
+1. Visit **Ads Manager Billing**: `https://adsmanager.facebook.com/billing`
+2. Under **Payment Methods / Balance**, click **Pay Now** to settle the remaining balance (`₹253.57`).
+3. Add a prepaid deposit of **₹500.00 – ₹1,000.00** using UPI, NetBanking, or Debit Card.
+4. Once funded, ads resume delivery immediately without resetting account data.
+
+### B. Launching the Direct Website Sales Campaign (`OUTCOME_SALES`)
+While the Instagram profile external link is on security cooldown until **10 Nov 2026**, **do not use "Profile Visits"**. Instead, launch a **Website Sales Campaign**:
+* **Campaign Objective:** Sales (`OUTCOME_SALES`).
+* **Conversion Location:** Website (`https://personalabs.store`).
+* **Optimization Event:** `Purchase` (Meta Pixel `1661173205598260`).
+* **Budget Strategy:** Advantage Campaign Budget (CBO) at **₹500.00/day**.
+* **Placements:** Instagram Reels & Stories.
+* **Creatives:** The 5 newly re-sequenced master hook videos in [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/):
+  1. `Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`
+  2. `Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`
+  3. `Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`
+  4. `Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`
+  5. `Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`
+* **On-Screen CTA Button:** Set to **"Learn More"** or **"Shop Now"** with website destination `https://personalabs.store`.  
+  *Advantage:* When users tap the CTA button on the Reel, the storefront opens directly inside Instagram's in-app browser with the Razorpay checkout. This **100% bypasses the profile bio link restriction**!
+
+### C. Organic Reel Monetization (ManyChat Follow-Gated DM)
+On all organic Instagram posts before 10 Nov:
+* Use on-screen text & caption: *"Follow @personalabsacademy and comment **PROMPT** below — I'll DM you the link!"*
+* ManyChat verifies follower status and sends `https://personalabs.store` directly into their DMs with zero link restrictions.
+
 
 
