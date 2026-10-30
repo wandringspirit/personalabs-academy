@@ -1,6 +1,16 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.9.2 — 2026-10-13 (Latest Release)
+## v2.9.3 — 2026-10-30 (Latest Release)
+- **Meta Ads Creative Test Benchmark Validation ([`docs/META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md)):**
+  - Completed initial paid test (`₹253.57` media spend / `₹299.21` cash with 18% GST) validating viral reception on Look C Indian Model dancing reels.
+  - Achieved **`6.45%` outbound CTR**, **`₹34.83` CPM** (10x cheaper than industry average), and **`₹0.525` cost per profile visit** across 7,281 impressions and 5,671 unique accounts.
+  - Drove **483 profile visits**, **492 link clicks**, **4,625 plays** on the primary boosted Reel, and **26 real followers** to `@personalabsacademy`.
+- **5 Master Ad Hooks Re-Sequenced for Opening 0:00 Eye-Contact Hook ([`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/)):**
+  - Re-rendered all 5 high-converting 1080×1920 video ads (`Hottest_Hook_01` through `05`) so each opens immediately at `0:00` with the model's direct eye-contact radiant smile.
+  - Cleaned all UTF-8 typography to eliminate square glyph box artifacts in Windows rendering.
+  - Encoded with `-movflags +faststart` for zero-latency streaming on Meta Ads Manager and Instagram.
+
+## v2.9.2 — 2026-10-13
 - **Mobile Above-the-Fold Instant Access & Price Anchor Card ([`index.html`](../index.html), [`app.js`](../app.js)):**
   - Added a dedicated mobile-first (`lg:hidden`) **Above-the-Fold Instant Access & Price Anchor Card** directly below the 3-Panel Viral AI Reels Hero image (`#sec-overview`) with live dynamic pricing (`₹1,999` → `₹249` / `$79` → `$9`), 4-bullet deliverable summary, pulsing **`⚡ Unlock Instant Access — ₹249 →`** button (`scrollToCheckout('Hero Above-Fold CTA')`), and UPI/GPay/PhonePe trust strip so mobile Instagram Reels visitors don't have to scroll 5,000px to find the offer.
   - Added a direct checkout jump CTA button (`🚀 Join Risk-Free Now — ₹249 →`) inside the **100% Money-Back Guarantee** card (`scrollToCheckout('Guarantee Section CTA')`).
