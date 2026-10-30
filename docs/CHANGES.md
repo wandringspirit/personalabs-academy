@@ -1,6 +1,10 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
 ## v2.9.3 — 2026-10-30 (Latest Release)
+- **Financial Ledger Reconciled Against Meta Billing & Razorpay Settlements ([`docs/META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md)):**
+  - Real all-time figures: **`₹4,986.00`** paid to Meta Ads (8 UPI top-ups, GST-inclusive, balance now `₹0.00`) vs **`₹2,986.00`** settled from **5** customer orders, a **`-₹2,000.00`** net position. Replaces the earlier `-₹261` estimate, which stopped at 16 Oct.
+  - Added the missing 17–20 Oct campaign spend (`₹1,885.90`), Order #5 (`₹597`, settled 21 Oct), and the full reel-boost billing (`₹536.00`, not `₹299.21`).
+  - Added a breakeven rule (ad cash per sale must stay below `≈ ₹583`; all-time it is `₹890`) and fixed the ledger header Pixel ID to `1661173205598260`.
 - **Meta Ads Creative Test Benchmark Validation ([`docs/META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md)):**
   - Completed initial paid test (`₹253.57` media spend / `₹299.21` cash with 18% GST) validating viral reception on Look C Indian Model dancing reels.
   - Achieved **`6.45%` outbound CTR**, **`₹34.83` CPM** (10x cheaper than industry average), and **`₹0.525` cost per profile visit** across 7,281 impressions and 5,671 unique accounts.

@@ -1,7 +1,7 @@
 # 📖 PersonaLabs Academy — Complete Launch & Operations Manual
 
 Last Updated: **October 30, 2026** (`v2.9.3`)  
-Status: **🟢 4 Sales Confirmed (₹2,389 • ₹597 AOV) • Creative Test Validated (6.45% CTR • ₹34.83 CPM • 4.6K Plays) • 5 Master Ad Hooks Ready • Storefront Live on Vercel CDN**
+Status: **🔴 5 Sales (₹2,986 revenue vs ₹4,986 ad spend • −₹2,000 net • ₹597 AOV) • Creative Test Validated (6.45% CTR • ₹34.83 CPM • 4.6K Plays) • 5 Master Ad Hooks Ready • Storefront Live on Vercel CDN**
 
 ---
 
@@ -20,7 +20,7 @@ Status: **🟢 4 Sales Confirmed (₹2,389 • ₹597 AOV) • Creative Test Val
 | **Facebook Page Identity** | `PersonaLabs Academy` (`ID: 61595148306909`) | 🟢 **Connected** | Linked to Ad Account and Campaign Identity. |
 | **India Payment Gateway** | Razorpay Live (`rzp_live_TmX62nNGuBaTUc`) | 🟢 **Live** | Instant UPI (GPay, PhonePe, Paytm, QR) + RuPay/Visa Cards. |
 | **Global Payment Gateway** | PayPal Live (`BAARfEN6...`) | 🟢 **Live** | PayPal 1-Click + International Cards in USD ($). |
-| **Google Sheets Orders DB** | `PersonaLabs Academy — Orders DB` (`1Sy8fy...`) | 🟢 **Connected (22 Cols)** | Real-time logging of leads (`INITIATED_CHECKOUT`) and paid orders (`PAID_SUCCESS`). 4 confirmed orders (`₹2,389.00`). |
+| **Google Sheets Orders DB** | `PersonaLabs Academy — Orders DB` (`1Sy8fy...`) | 🟢 **Connected (22 Cols)** | Real-time logging of leads (`INITIATED_CHECKOUT`) and paid orders (`PAID_SUCCESS`). 5 orders settled by Razorpay (`₹2,986.00`); Order #5 not yet logged in the ledger registry. |
 | **Google Drive Auto-Access** | Webhook App (`DriveApp.addViewer`, **Version 3**) | 🟢 **Connected** | Automatically whitelists customer's Gmail for purchased Drive folders (`01-Core`, `02-NSFW`, `03-Hooks`). |
 | **Automated Email Engine** | Apps Script Triggers (`GmailApp`, **Version 3**) | 🟢 **Running 24/7** | 1. **25-Min Cart Recovery** (`sendAbandonedCartRecoveryEmails` every 15m)<br>2. **12-Hr Add-On Upsell** (`sendPostPurchaseAddonUpsellEmails` every 2h) with plain-text parity & CAN-SPAM footer. |
 | **GitHub Repository** | [`wandringspirit/personalabs-academy`](https://github.com/wandringspirit/personalabs-academy) | 🟢 **Connected to Vercel** | Every `git push origin main` auto-deploys to `https://personalabs.store` in ~15 seconds. |
@@ -136,8 +136,8 @@ Instead of messaging leads from a personal WhatsApp number, your **Google Apps S
 
 ### A. Resolving the `Payment error` in Meta Ads Manager
 1. Visit **Ads Manager Billing**: `https://adsmanager.facebook.com/billing`
-2. Under **Payment Methods / Balance**, click **Pay Now** to settle the remaining balance (`₹253.57`).
-3. Add a prepaid deposit of **₹500.00 – ₹1,000.00** using UPI, NetBanking, or Debit Card.
+2. Nothing is owed: the prepaid balance is `₹0.00` and every charge through 30 Oct is marked Paid.
+3. Add a prepaid deposit using UPI, NetBanking, or Debit Card. Size it to the breakeven test in [`META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md) §6 (ad cash per sale must stay below `≈ ₹583`).
 4. Once funded, ads resume delivery immediately without resetting account data.
 
 ### B. Launching the Direct Website Sales Campaign (`OUTCOME_SALES`)

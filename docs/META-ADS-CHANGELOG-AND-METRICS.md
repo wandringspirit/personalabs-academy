@@ -2,21 +2,74 @@
 
 > **Ad Account ID:** `2218391099056783` | **Business ID:** `1761523878300294`  
 > **Campaign:** `IN - Sales - AI Influencer Launch Kit (INR)` (`120251814625900152`)  
-> **Target Country:** India (Tier 1 & 2 Metro/Digital) | **Pixel ID:** `1607519126620573`  
+> **Target Country:** India (Tier 1 & 2 Metro/Digital) | **Pixel ID:** `1661173205598260`  
 > **Live Storefront:** `https://personalabs.store` | **Repository:** `wandringspirit/personalabs-academy`
 
 ---
 
-## 1. Cumulative Financial & Unit Economics Ledger (11 Oct – 16 Oct 2026)
+## 1. Cumulative Financial & Unit Economics Ledger (11 Oct – 30 Oct 2026, Reconciled)
 
-| Metric | Recorded Value | Benchmark (India Digital) | Status / Notes |
-| :--- | :--- | :--- | :--- |
-| **Gross Revenue Collected** | **`₹2,389.00`** | — | 4 Paid Orders (100% took Bumps) |
-| **Total Bank Cash Injected** | **`₹2,650.00`** | — | Cumulative bank top-ups |
-| **Current Net Out-of-Pocket Position** | **`-₹261.00`** | Breakeven | 🟢 Nearly 100% Breakeven All-Time! |
-| **Average Order Value (AOV)** | **`₹597.25`** | ₹199.00 – ₹249.00 | 🚀 +200% increase via Order Bumps |
-| **Outbound Click-Through Rate (CTR)** | **`5.24%`** | 1.2% – 1.8% | 🟢 Elite scroll-stopping rate |
-| **Order Bump Take Rate** | **`100.0%`** (4/4) | 25% – 35% | 🏆 3 of 4 took FULL VIP bundle |
+> **Source of truth:** Meta Ads Manager → Billing & payments → Payment activity (10–31 Oct 2026) and Razorpay Dashboard → Settlements, both checked on **30 Oct 2026, 07:32 IST**. These replace the earlier estimates in this file (`₹2,389` revenue / `₹2,650` cash / `-₹261` net), which stopped at 16 Oct and missed the 17–20 Oct spend, the full reel-boost spend, and Order #5.
+
+| Metric | Verified Value | Status / Notes |
+| :--- | :--- | :--- |
+| **Customer Revenue Settled to Bank** | **`₹2,986.00`** | 5 Paid Orders (Razorpay settlements, excl. `₹10` own test payments) |
+| **Total Bank Cash Paid to Meta Ads** | **`₹4,986.00`** | 8 successful UPI top-ups (GST-inclusive); prepaid balance now `₹0.00` |
+| **Net Out-of-Pocket Position** | **`-₹2,000.00`** | 🔴 Loss-making all-time |
+| **Average Order Value (AOV)** | **`₹597.20`** | ₹2,986 ÷ 5 orders |
+| **Ad Cash per Sale (Sales Campaign only)** | **`₹890.00`** | ₹4,449.99 ÷ 5 sales — above AOV, so each sale lost ~`₹293` |
+| **Breakeven Ad Cash per Sale** | **`≈ ₹583`** | AOV minus ~2.36% Razorpay fee (fee currently `₹0` during Razorpay free period) |
+| **Razorpay Fees Deducted** | **`₹0.00`** | Every settlement equals the gross order total |
+| **Order Bump Take Rate** | **`100.0%`** (4/4 verified) | Order #5 items not yet verified |
+
+### 1A. Profit & Loss by Phase
+
+| Phase | Dates | Ad Cash Charged (incl. GST) | Sales | Revenue | Net |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| Sales Campaign — launch | 11–16 Oct | `₹2,564.09` | 4 | `₹2,389.00` | `-₹175.09` |
+| Sales Campaign — continued | 17–20 Oct | `₹1,885.90` | 1 | `₹597.00` | `-₹1,288.90` |
+| Reel Boosts (Profile Visits) | 23–30 Oct | `₹536.00` | 0 | `₹0.00` | `-₹536.00` |
+| **Total** | **11–30 Oct** | **`₹4,985.99`** | **5** | **`₹2,986.00`** | **`-₹1,999.99`** |
+
+### 1B. Meta Ads Billing — Payment Activity (Ad Account `2218391099056783`)
+
+| Date | Type | Amount | Status |
+| :--- | :--- | ---: | :--- |
+| 11 Oct | UPI top-up | `₹1,000.00` | Funded |
+| 11 Oct | UPI top-up | `₹50.00` | Funded |
+| 13 Oct | UPI top-up | `₹4,130.00` | ❌ Failed (no money moved) |
+| 13 Oct | UPI top-up | `₹600.00` | Funded |
+| 13 Oct | Ad charge | `₹356.70` | Paid |
+| 14 Oct | UPI top-up | `₹1,000.00` | Funded |
+| 14 Oct | Ad charge | `₹811.58` | Paid |
+| 15 Oct | Ad charge | `₹895.31` | Paid |
+| 16 Oct | Ad charge | `₹500.50` | Paid |
+| 17 Oct | UPI top-up | `₹1,000.00` | Funded |
+| 17 Oct | Ad charge | `₹71.05` | Paid |
+| 18 Oct | Ad charge | `₹893.77` | Paid |
+| 18 Oct | UPI top-up | `₹800.00` | Funded |
+| 19 Oct | Ad charge | `₹885.15` | Paid |
+| 20 Oct | Ad charge | `₹35.93` | Paid |
+| 23 Oct | UPI top-up | `₹236.00` | Funded |
+| 25 Oct | Ad charge | `₹236.00` | Paid |
+| 25 Oct | UPI top-up | `₹200.00` | ❌ Failed (no money moved) |
+| 25 Oct | UPI top-up | `₹300.00` | Funded |
+| 26 Oct | Ad charge | `₹51.85` | Paid |
+| 27 Oct | Ad charge | `₹146.31` | Paid |
+| 28 Oct | Ad charge | `₹67.87` | Paid |
+| 29 Oct | Ad charge | `₹33.18` | Paid |
+| 30 Oct | Ad charge | `₹0.79` | Paid |
+| **Totals** | **Funded `₹4,986.00`** | **Charged `₹4,985.99`** | **Balance `₹0.00`** |
+
+### 1C. Razorpay Settlements
+
+| Settled On | UTR | Net Settled | Covers |
+| :--- | :--- | ---: | :--- |
+| 13 Oct, 01:13 PM | `AXISCN1497392937` | `₹10.00` | Likely own `₹1` test-route payments (not revenue) |
+| 15 Oct, 01:22 PM | `AXISCN1500227885` | `₹1,792.00` | Orders #1–#3 (₹647 + ₹498 + ₹647) |
+| 19 Oct, 01:15 PM | `AXISCN1505922986` | `₹597.00` | Order #4 (Ritesh Kuanr) |
+| 21 Oct, 01:10 PM | `AXISCN1507642556` | `₹597.00` | Order #5 (customer to be verified) |
+| **Total** | | **`₹2,996.00`** | **`₹2,986.00` from customers** |
 
 ---
 
@@ -28,6 +81,7 @@
 | **2** | **Sarang Bandodkar** | `sarang...` | 13-Oct-2026<br>02:19 PM | `pay_TnKf9cxx27...` | Base (₹249) + Bump #1 (₹249) | **`₹498.00`** | `Ad 01` | Row 18 |
 | **3** | **Ramey Scott** | `ramey...` | 13-Oct-2026<br>04:32 PM | `pay_TnMyFlM0...` | Base (₹249) + Bump #1 (₹249) + Bump #2 (₹149) | **`₹647.00`** | `Ad 03` | Row 28 |
 | **4** | **Ritesh Kuanr** | `riteshkuanr7@...`<br>`+91 832775617...` | 16-Oct-2026<br>08:08 AM | `pay_ToTwLegQ...` | Base (₹199) + Bump #1 (₹249) + Bump #2 (₹149) | **`₹597.00`** | `Ad 01` (Hero CTA) | Row 33 |
+| **5** | *To be verified* | — | ~17–19 Oct 2026 (settled 21 Oct) | *Check Razorpay → Transactions* | Likely Base (₹199) + Bump #1 (₹249) + Bump #2 (₹149) | **`₹597.00`** | — | — |
 
 ---
 
@@ -75,16 +129,21 @@
 | **15-Oct 00:55** | Structure | **Executed Solution 1: 2-Ad-Set Dedicated Split at `₹500/day`** | 1) Budget reset to `₹500.00/day`. 2) `AdSet 01 - Curiosity Reveal`: `Ad 01` ON (`₹250` daily min spend floor). 3) `AdSet 02 - No Laptop 5Day System`: `Ad 03` ON (`₹200` daily min spend floor). 4) Excluded Threads placement to bypass auth error. 5) Successfully published live; 0 drafts remaining. |
 | **15-Oct 13:30** | Offer & Creatives | **Deployed ₹199 Launch Price (90% OFF) & Updated Ad Headlines** | 1) Ran 100% passing automated audit across storefront. 2) Updated Base Kit price to `₹199` (bumps intact at `+₹249` & `+₹149`; VIP bundle `₹597`). 3) Updated `Ad 01` & `Ad 03` Headlines to `(Only ₹199 Today)`. 4) Published live with 0 drafts remaining. |
 | **15-Oct 23:45** | Positioning | **Hero Pivoted to Instant Prompt Vault & 1-Click Launch Kit** | Re-anchored hero from "5-Day Course" to "Instant AI Influencer Prompt Vault & 1-Click Character Launch Kit (Only ₹199 Today)". Highlights 250+ Character DNA Prompts, 1-click Face-Lock files, and 100% mobile workflow to eliminate study friction and match impulse buying psychology. Bumped `app.js?v=25`. Live on Vercel. |
-| **16-Oct 08:08** | Revenue | **4th Paid Order: Ritesh Kuanr (`₹597.00`)** on `Ad 01` after Hero Pivot | Immediate validation of the Instant Prompt Vault pivot! Customer entered via Hero Above-Fold CTA, selected BOTH order bumps (`+₹249` & `+₹149`), and paid `₹597`. Total revenue reached `₹2,389.00`. Net out-of-pocket deficit shrinks to `-₹261.00` (virtually 100% breakeven all-time). |
+| **16-Oct 08:08** | Revenue | **4th Paid Order: Ritesh Kuanr (`₹597.00`)** on `Ad 01` after Hero Pivot | Immediate validation of the Instant Prompt Vault pivot! Customer entered via Hero Above-Fold CTA, selected BOTH order bumps (`+₹249` & `+₹149`), and paid `₹597`. Total revenue reached `₹2,389.00` against `₹2,564.09` ad cash charged through 16 Oct (`-₹175.09`). |
 | **16-Oct 13:10** | Creative Production | **Produced Creative #04: Raw iPhone Realism (9:16 + 4:5)** | Generated both `Ad-04-Raw-iPhone-Realism-INR-9x16.mp4` (11.7 MB) and `Ad-04-Raw-iPhone-Realism-INR-4x5.mp4` (9.9 MB). Features 3-word realism hook ("Raw Smartphone Optics"), skin micro-texture vs plastic CGI comparison, and a direct-response paid offer endcard anchored on Only Rs. 199 Today. |
+| **17-Oct – 20-Oct** | Campaign & Billing | **Sales campaign kept running; topped up `₹1,000` (17 Oct) + `₹800` (18 Oct)** | `₹1,885.90` charged across 17–20 Oct for 1 sale (Order #5, `₹597`). Not logged at the time; reconstructed from Meta billing on 30 Oct. |
+| **21-Oct 13:10** | Revenue | **5th Paid Order settled (`₹597.00`)** | Razorpay settlement UTR `AXISCN1507642556`. Customer and items still to be verified in Razorpay Transactions. |
+| **23-Oct – 25-Oct** | Billing | **Topped up `₹236` (23 Oct) + `₹300` (25 Oct)** to fund reel boosts | Two other UPI attempts failed (`₹4,130` on 13 Oct, `₹200` on 25 Oct); no money moved on either. |
 | **28-Oct 23:59** | Paid Creative Test | **Look C Indian Model Dancing Reels Test Completed (`₹253.57` spent)** | Delivered **7,281 impressions** across 5,671 accounts at **6.45% CTR**, **`₹34.83` CPM**, and **`₹0.525` per profile visit**. Gained 483 profile visits, 492 link clicks, 4,625 plays on the primary Reel, and 26 real followers. Delivery paused on `Payment error` due to prepaid ad budget threshold. |
+| **30-Oct 07:32** | Ledger | **Reconciled ledger against Meta billing and Razorpay settlements** | Real all-time position: `₹4,986` paid to Meta, `₹2,986` received from 5 customers, **`-₹2,000` net**. Replaces the earlier `-₹261` estimate. Prepaid balance `₹0.00`; nothing is owed to Meta. |
 
 ---
 
 ## 6. Scaling Milestones & Future Roadmap
 
-* **Milestone 1 (Target: 10 Paid Sales):** Currently at **4 / 10** (40% complete). Expected completion by Oct 17–18.
-* **Scale #2 Threshold (+25% to `₹800/day`):** Review on Thursday, Oct 15 at 10:00 PM IST if Day 2/3 CPA remains `< ₹300`.
+* **Milestone 1 (Target: 10 Paid Sales):** Currently at **5 / 10** (50% complete). Missed the Oct 17–18 target.
+* **Breakeven Rule (added 30 Oct):** Ad cash per sale (incl. GST) must stay **below `≈ ₹583`** to make money at the current `₹597` AOV. All-time it is **`₹890`**. Do not scale until a test with a fixed cap shows it below `₹583` across at least 10 sales.
+* **Scale #2 Threshold (+25% to `₹800/day`):** Not met — CPA never held `< ₹300` past 13 Oct.
 * **Cash-Cow Stabilization Cap:** Stabilize India campaign at **`₹800 – ₹1,000/day`** once 15–20 sales are reached, generating steady `₹30,000+/month` net profit.
 * **International Expansion Trigger:** Once accumulated Indian bank profits reach **`₹15,000 – ₹25,000`**, launch Tier-1 Global Campaign (US, UK, UAE/GCC) priced at **`$27 Base` + `$19 Bump` + `$15 Bump`** funded 100% by Indian profits.
 
@@ -98,6 +157,7 @@
 * **Total Media Spend:** `₹253.57`
 * **Real Bank Cash Outflow (with 18% Indian GST):** `₹299.21` (~$3.60 USD)
 * **Delivery Status:** `Payment error` (Prepaid ad budget exhausted after ₹253.57 spend threshold)
+* **Billing Reconciliation (30 Oct):** Meta billing shows **`₹536.00`** charged for 23–30 Oct (GST-inclusive), not `₹299.21`. The telemetry below covers only the two ads reported on 28 Oct; charges continued through 30 Oct. Sales from this test: **0** (objective was profile visits, not purchases).
 
 ### B. Creative Telemetry & Benchmark Comparison
 

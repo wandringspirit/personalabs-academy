@@ -9,7 +9,7 @@
 
 | Document | Description |
 | :--- | :--- |
-| [**`docs/META-ADS-CHANGELOG-AND-METRICS.md`**](docs/META-ADS-CHANGELOG-AND-METRICS.md) | **Live Financial & Ad Telemetry Ledger:** ₹2,389 confirmed revenue (4 orders, 100% order bump take rate, ₹597.25 AOV), customer registry, unit economics, and 24–28 Oct Look C creative test results (**6.45% CTR**, **₹34.83 CPM**, **4,625 plays**, **26 followers**). |
+| [**`docs/META-ADS-CHANGELOG-AND-METRICS.md`**](docs/META-ADS-CHANGELOG-AND-METRICS.md) | **Live Financial & Ad Telemetry Ledger (reconciled 30 Oct):** ₹4,986 ad spend vs ₹2,986 revenue from 5 orders (−₹2,000 net, ₹597 AOV, ₹890 ad cash per sale), Meta billing & Razorpay settlement logs, customer registry, unit economics, and 24–28 Oct Look C creative test results (**6.45% CTR**, **₹34.83 CPM**, **4,625 plays**, **26 followers**). |
 | [**`docs/LAUNCH_OPERATIONS_MANUAL.md`**](docs/LAUNCH_OPERATIONS_MANUAL.md) | **Master Operational Handbook (`v2.9.3`):** Live Meta Ads Campaign architecture, 5 master re-sequenced dancing video hooks, automated email recovery/upsells, `/kjboavhpoieabpraegnaln` (`₹1 / $1`) test route, and ManyChat comment-to-DM strategy. |
 | [**`docs/ROADMAP.md`**](docs/ROADMAP.md) | Date-Wise & Task-Wise Master Execution Calendar, completed sales milestones, creative testing logs, and post-Nov 10 scaling roadmap. |
 | [**`docs/ARCHITECTURE.md`**](docs/ARCHITECTURE.md) | System & funnel architecture, Geo-IP pricing state machine, FNV-1a (`vt1`/`vt2`) add-on access signatures, and directory map. |
