@@ -1,5 +1,21 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
+## v2.9.4 — 2026-11-08 (Latest Release)
+- **Strategic Pivot to 100% Organic Growth & Viral Reels Acquisition:**
+  - Halted all paid Meta Ads campaigns, eliminating daily media spend (`₹500/day`) and 18% Indian GST cash outflows.
+  - Transitioned the primary customer acquisition funnel to 100% organic Instagram Reels paired with ManyChat automated Comment-to-DM conversion triggers (`PROMPT`, `MODEL`, `CREATOR`, `TRAVEL`, `LAUNCH`), overcoming caption link restrictions and delivering direct checkout links to `https://personalabs.store` with >90% message open rates.
+- **Master 11 Dancing Reels Portfolio ([`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/)):**
+  - Expanded the winning video reel library to **11 broadcast-ready 1080×1920 30fps MP4 Reels** (`Hottest_Hook_01` through `11`).
+  - Standardized all 11 reels with 100% generic AI model audio voiceovers (`AvaMultilingualNeural`), synchronized synthesized beat tracks, burned-in subtitles with zero square glyph errors, and opening eye-contact dance motion at `0:00`.
+- **Mandatory Creative Standard Codified ([`GEMINI.md`](../GEMINI.md)):**
+  - Established and committed a strict repository rule: Apart from multi-slide 4:5 carousels, every video Reel hook **must ALWAYS feature 100% genuine fluid video dance motion in the style of the winning reels (alluring, tasteful, rhythmic, high-energy movement)**. Strictly prohibited Ken Burns still-camera pans/zooms for video Reels.
+  - Auto-pushed the rule to the global `instagram-creator-operator` skill on GitHub (`wandringspirit/ai-skills-config@3a23b10`).
+- **Comprehensive Asset Hierarchy & Directory De-Cluttering:**
+  - Purged ~67 MB of duplicate files: deleted the unneeded root `new videos/` directory and removed 7 duplicate `gemini_generated_video_*.mp4` clones from `ads-ready/raw-gemini-videos/` (preserving the cleanly named `clip_01` to `clip_07`).
+  - Organized `ads-ready/character-assets/` into 4 clean subfolders (`new-thematic-sets`, `indian-model-angles`, `new-personas`, `demo-characters`) with zero loose image files.
+  - Isolated the 11 pristine master reels in `ads-ready/dancing-ad-hooks/` and moved earlier experimental drafts to `archive-drafts/`.
+  - Moved one-off scratch scripts to `scripts/archive/` and archived historical batch schedules to `instagram-studio/archive-calendars/`.
+
 ## v2.9.3 — 2026-10-30 (Latest Release)
 - **Financial Ledger Reconciled Against Meta Billing & Razorpay Settlements ([`docs/META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md)):**
   - Real all-time figures: **`₹4,986.00`** paid to Meta Ads (8 UPI top-ups, GST-inclusive, balance now `₹0.00`) vs **`₹2,986.00`** settled from **5** customer orders, a **`-₹2,000.00`** net position. Replaces the earlier `-₹261` estimate, which stopped at 16 Oct.

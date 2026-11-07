@@ -1,7 +1,7 @@
 # 📖 PersonaLabs Academy — Complete Launch & Operations Manual
 
-Last Updated: **October 30, 2026** (`v2.9.3`)  
-Status: **🔴 5 Sales (₹2,986 revenue vs ₹4,986 ad spend • −₹2,000 net • ₹597 AOV) • Creative Test Validated (6.45% CTR • ₹34.83 CPM • 4.6K Plays) • 5 Master Ad Hooks Ready • Storefront Live on Vercel CDN**
+Last Updated: **November 8, 2026** (`v2.9.4`)  
+Status: **🟢 100% Organic Growth & Viral Reels Funnel • 11 Master Dancing Video Reels Ready • ManyChat Comment-to-DM Engine Active • Zero Ad Spend / Zero GST Liability**
 
 ---
 
@@ -13,10 +13,10 @@ Status: **🔴 5 Sales (₹2,986 revenue vs ₹4,986 ad spend • −₹2,000 ne
 | **Secret Testing Route** | [https://www.personalabs.store/kjboavhpoieabpraegnaln](https://www.personalabs.store/kjboavhpoieabpraegnaln) | 🟢 **Active for Testing** | **₹1 INR** (Razorpay) / **$1 USD** (PayPal) per item with 1-click currency toggle. Can be disabled anytime in `app.js`. |
 | **Official Printable PDF Receipt** | [`https://personalabs.store/course-vault/receipt.html`](../course-vault/receipt.html) | 🟢 **100% Live** | Instant (`<50ms`) A4 printable invoice/receipt. Shows `Tax Invoice` + `Included (₹0.00)` for India (`INR`) and `Payment Receipt` + `Included ($0.00)` (no GST) for International (`USD`). |
 | **Member Vault Portal** | `https://personalabs.store/course-vault/` | 🟢 **100% Live** | 18 HD lessons, 250+ prompts, and authenticated add-on downloads. |
-| **5 Master Ad Hooks** | [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/) | 🟢 **Rendered & Ready** | 5 high-converting 1080×1920 video ads (`Hottest_Hook_01` to `05`) re-sequenced to open at `0:00` with the model's radiant eye-contact smile. Zero glyph box errors, `-movflags +faststart`. |
+| **11 Master Dancing Video Reels** | [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/) | 🟢 **100% Ready** | 11 broadcast-grade 1080×1920 video reels (`Hottest_Hook_01` to `11`) opening at `0:00` with real fluid dance motion, radiant smiles, 100% generic audio, and ManyChat comment CTAs. |
 | **Meta Ad Account** | `PersonaLabs Academy Ads` (`2218391099056783`) | 🟢 **Active** | Currency: INR (`₹`). Timezone: Asia/Kolkata. Paused on `Payment error` upon prepaid budget exhaustion; top up via UPI to resume. |
 | **Meta Dataset / Pixel** | `PersonaLabs Academy Pixel` (`1661173205598260`) | 🟢 **Tracking Live** | Events: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout`, `Purchase`. |
-| **Instagram Creator Identity** | [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/) | 🟢 **Active (26 Followers)** | 19 posts, 4,625 plays on boosted Reel. External bio link unlocks after 10 Nov cooldown; direct sales run via Ads Manager website buttons. |
+| **Instagram Organic Funnel** | [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/) | 🟢 **Active (26 Followers)** | 19 posts, active library of 11 dancing reels + 6 carousels. Operating on 100% organic reach via ManyChat Comment-to-DM triggers and Story Link Stickers (zero ad spend). External bio link unlock scheduled for 10 Nov 2026. |
 | **Facebook Page Identity** | `PersonaLabs Academy` (`ID: 61595148306909`) | 🟢 **Connected** | Linked to Ad Account and Campaign Identity. |
 | **India Payment Gateway** | Razorpay Live (`rzp_live_TmX62nNGuBaTUc`) | 🟢 **Live** | Instant UPI (GPay, PhonePe, Paytm, QR) + RuPay/Visa Cards. |
 | **Global Payment Gateway** | PayPal Live (`BAARfEN6...`) | 🟢 **Live** | PayPal 1-Click + International Cards in USD ($). |
@@ -132,34 +132,16 @@ Instead of messaging leads from a personal WhatsApp number, your **Google Apps S
 
 ---
 
-## 🚀 6. Immediate Next Operations: Billing Top-Up & Direct Sales Campaign Launch
+## 🚀 6. Immediate Next Operations: 100% Organic Reels Publishing & ManyChat Funnel
 
-### A. Resolving the `Payment error` in Meta Ads Manager
-1. Visit **Ads Manager Billing**: `https://adsmanager.facebook.com/billing`
-2. Nothing is owed: the prepaid balance is `₹0.00` and every charge through 30 Oct is marked Paid.
-3. Add a prepaid deposit using UPI, NetBanking, or Debit Card. Size it to the breakeven test in [`META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md) §6 (ad cash per sale must stay below `≈ ₹583`).
-4. Once funded, ads resume delivery immediately without resetting account data.
+### A. The Organic Reels Protocol (Zero Ad Spend)
+Per the mandatory creative rule codified in [`GEMINI.md`](../GEMINI.md), paid Meta Ads are completely halted, eliminating daily ad spend and 18% GST liabilities. Customer acquisition is driven entirely through high-retention organic Instagram Reels and ManyChat Comment-to-DM automation:
+1. **100% Fluid Dance Motion Mandate:** Every video Reel hook must open on real fluid dance movement (alluring, tasteful, rhythmic, high retention). Zero static photo pans or Ken Burns effects will ever be used for video Reels.
+2. **100% Generic AI Model Terminology:** All voiceovers, burned-in subtitles, and captions use generic terminology ("hyper-realistic AI model", "virtual creator", "AI influencer") with zero geographic, regional, or ethnic labels.
+3. **The 11 Master Dancing Reels Portfolio:** Ready to post in [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/) (`Hottest_Hook_01` to `11`).
 
-### B. Launching the Direct Website Sales Campaign (`OUTCOME_SALES`)
-While the Instagram profile external link is on security cooldown until **10 Nov 2026**, **do not use "Profile Visits"**. Instead, launch a **Website Sales Campaign**:
-* **Campaign Objective:** Sales (`OUTCOME_SALES`).
-* **Conversion Location:** Website (`https://personalabs.store`).
-* **Optimization Event:** `Purchase` (Meta Pixel `1661173205598260`).
-* **Budget Strategy:** Advantage Campaign Budget (CBO) at **₹500.00/day**.
-* **Placements:** Instagram Reels & Stories.
-* **Creatives:** The 5 newly re-sequenced master hook videos in [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/):
-  1. `Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`
-  2. `Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`
-  3. `Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`
-  4. `Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`
-  5. `Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`
-* **On-Screen CTA Button:** Set to **"Learn More"** or **"Shop Now"** with website destination `https://personalabs.store`.  
-  *Advantage:* When users tap the CTA button on the Reel, the storefront opens directly inside Instagram's in-app browser with the Razorpay checkout. This **100% bypasses the profile bio link restriction**!
-
-### C. Organic Reel Monetization (ManyChat Follow-Gated DM)
-On all organic Instagram posts before 10 Nov:
-* Use on-screen text & caption: *"Follow @personalabsacademy and comment **PROMPT** below — I'll DM you the link!"*
-* ManyChat verifies follower status and sends `https://personalabs.store` directly into their DMs with zero link restrictions.
-
-
-
+### B. Bypassing Caption Link Limitations (ManyChat + Story Stickers)
+While the Instagram profile external link is under security cooldown until **10 Nov 2026**:
+1. **ManyChat Comment-to-DM Funnel:** Every Reel caption directs viewers: *"Comment 'PROMPT' (or 'MODEL', 'CREATOR', 'TRAVEL', 'LAUNCH') and I'll DM you the exact 5-day kit!"* ManyChat automatically delivers the direct clickable link to `https://personalabs.store` into their Instagram DMs with >90% open rates.
+2. **Instagram Stories Link Stickers:** Immediately after publishing each Reel, share it to Stories with a native clickable **Link Sticker** pointing directly to `https://personalabs.store`. Stories have zero link restrictions.
+3. **Bio Link Unlock (10 Nov 2026):** In 2 days, the account cooldown finishes, allowing `https://personalabs.store` to sit permanently in the Instagram profile bio.
