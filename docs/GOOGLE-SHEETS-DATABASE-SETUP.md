@@ -2,7 +2,7 @@
 
 Your website ([`app.js`](../app.js)) has a built-in **Real-Time Google Sheets Order & Lead Logger** (`logOrderToGoogleSheet`) + **Automatic Private Google Drive Whitelisting** (`DriveApp.addViewer`).
 
-Every time someone interacts with your checkout, it automatically logs a row into your Google Sheet under **`personalabsacademy@gmail.com`** with **20 columns** and automatically grants **Google Drive Viewer access** to the buyer's Gmail for the exact folders they purchased!
+Every time someone interacts with your checkout, [`app.js`](../app.js) logs a **22-column** row into your Google Sheet under **`personalabsacademy@gmail.com`** using a dual-tab design (**`Logs`** for every funnel event — `CTA_CLICKED_SCROLL`, `PARTIAL_LEAD_CAPTURED`, `INITIATED_CHECKOUT`, `PAID_SUCCESS` — and **`Orders`** for clean verified `PAID_SUCCESS` purchases) and automatically grants **Google Drive Viewer access** to the buyer's Gmail for the exact folders they purchased!
 
 ---
 
@@ -26,6 +26,9 @@ const ORDERS_SHEET_NAME = 'Orders';
 const CORE_FOLDER_ID  = '1QaLzvcaA2QyJI9uqO1AoRqhKz6uTLHwm'; // 01-Core-Course-Videos
 const NSFW_FOLDER_ID  = '10HGXWcRMR898lbQnTX41G--fPLKoBOvW'; // 02-Uncensored-NSFW-Addon-Videos (Bump #1)
 const HOOKS_FOLDER_ID = '1IId4demuyfYX8g1jYVZpngoo6m-Sf1oN'; // 03-500-Viral-Hooks-And-Prompts-Pack (Bump #2)
+
+// Optional remote kill-switch for /kjboavhpoieabpraegnaln (evaluated alongside testSandboxPage.enabled in app.js)
+const REMOTE_TEST_PAGE_ENABLED = true;
 
 const HEADERS = [
   'Timestamp (IST)',
@@ -73,7 +76,7 @@ function ensureHeadersOnSheet(sheet) {
  * Run this once inside Apps Script to:
  * 1. Rename existing sheet to 'Logs'
  * 2. Create clean 'Orders' tab
- * 3. Backfill all 5 verified PAID_SUCCESS orders from Logs to Orders
+ * 3. Backfill all verified PAID_SUCCESS orders from Logs to Orders
  */
 function setupAndBackfillOrders() {
   const ss = SpreadsheetApp.openById(SHEET_ID);
@@ -136,7 +139,7 @@ function setupAndBackfillOrders() {
 
 // Legacy alias
 function setupDatabaseSheet() {
-  setupAndBackfillOrders();
+  return setupAndBackfillOrders();
 }
 
 // =========================================================================
@@ -146,6 +149,7 @@ function sendAbandonedCartRecoveryEmails() {
   const ss = SpreadsheetApp.openById(SHEET_ID);
   const logsSheet = ss.getSheetByName(LOGS_SHEET_NAME) || ss.getSheets()[0];
   const ordersSheet = ss.getSheetByName(ORDERS_SHEET_NAME);
+  ensureHeadersOnSheet(logsSheet);
   const data = logsSheet.getDataRange().getValues();
   if (data.length <= 1) return;
 
@@ -179,7 +183,7 @@ function sendAbandonedCartRecoveryEmails() {
 
     // If they bought later (even 15 mins later), skip them!
     if (paidEmails.has(buyerEmail)) {
-      if (!emailStatus) sheet.getRange(rowNum, 21).setValue('SKIPPED (Purchased Course)');
+      if (!emailStatus) logsSheet.getRange(rowNum, 21).setValue('SKIPPED (Purchased Course)');
       continue;
     }
     if (emailStatus && emailStatus.startsWith('SENT')) continue;
@@ -191,7 +195,7 @@ function sendAbandonedCartRecoveryEmails() {
 
     try {
       const subject = `Regarding your PersonaLabs enrollment (${customerName})`;
-      const plainText = `Hi ${customerName},\n\nWe noticed you started setting up your access to the AI Influencer Accelerator (5-Day Launch Kit), but your checkout wasn't completed.\n\nYour enrollment details are reserved for you at: https://personalabs.store\n\nIncluded:\n- 18 Step-by-Step HD Video Lessons (Runs 100% on Android & iOS)\n- 250+ Character DNA & Face-Lock Prompts\n- ManyChat Auto-DM Funnel Templates\n- Instant Google Drive & Portal Access\n\nComplete enrollment here: https://personalabs.store\n\nIf you experienced any issues during checkout or have questions, simply reply to this email.\n\nPersonaLabs Academy\nRegistered MSME: UDYAM-UP-43-0208040\nUttar Pradesh, India\nTo manage email preferences, reply with "unsubscribe".`;
+      const plainText = `Hi ${customerName},\n\nWe noticed you started setting up your access to the AI Influencer Accelerator (5-Day Launch Kit), but your checkout wasn't completed.\n\nYour enrollment details are reserved for you at: https://personalabs.store\n\nIncluded:\n- 18 Step-by-Step HD Video Lessons (Runs 100% on Android & iOS)\n- 250+ Character DNA & Face-Lock Prompts\n- Viral Hooks & Auto-DM Funnel Templates\n- Instant Google Drive & Portal Access\n\nComplete enrollment here: https://personalabs.store\n\nIf you experienced any issues during checkout or have questions, simply reply to this email.\n\nPersonaLabs Academy\nRegistered MSME: UDYAM-UP-43-0208040\nUttar Pradesh, India\nTo manage email preferences, reply with "unsubscribe".`;
 
       const htmlBody = `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; color: #1e293b; background: #ffffff;">
@@ -201,7 +205,7 @@ function sendAbandonedCartRecoveryEmails() {
           <ul style="font-size: 14px; line-height: 1.7; color: #334155;">
             <li><strong>18 Step-by-Step HD Video Lessons</strong> (Runs 100% on Android & iOS)</li>
             <li><strong>250+ Character DNA & Face-Lock Prompts</strong></li>
-            <li><strong>ManyChat Auto-DM Funnel Templates</strong></li>
+            <li><strong>Viral Hooks & Auto-DM Funnel Templates</strong></li>
             <li><strong>Instant Google Drive & Portal Access</strong></li>
           </ul>
           <p style="margin: 24px 0;">
@@ -226,9 +230,9 @@ function sendAbandonedCartRecoveryEmails() {
       });
 
       const sentTime = now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-      sheet.getRange(rowNum, 21).setValue(`SENT (${sentTime})`).setBackground('#e0e7ff');
+      logsSheet.getRange(rowNum, 21).setValue(`SENT (${sentTime})`).setBackground('#e0e7ff');
     } catch (err) {
-      sheet.getRange(rowNum, 21).setValue(`ERR (${err.message})`);
+      logsSheet.getRange(rowNum, 21).setValue(`ERR (${err.message})`);
     }
   }
 }
@@ -237,7 +241,9 @@ function sendAbandonedCartRecoveryEmails() {
 // 2. AUTOMATED POST-PURCHASE ADD-ON UPGRADE (Emails buyers who missed the add-ons after 12h)
 // =========================================================================
 function sendPostPurchaseAddonUpsellEmails() {
-  const sheet = ensureSheetAndHeaders();
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const sheet = ss.getSheetByName(ORDERS_SHEET_NAME) || ss.getSheetByName(LOGS_SHEET_NAME) || ss.getSheets()[0];
+  ensureHeadersOnSheet(sheet);
   const data = sheet.getDataRange().getValues();
   if (data.length <= 1) return;
 
@@ -261,6 +267,7 @@ function sendPostPurchaseAddonUpsellEmails() {
     const status = String(data[i][1] || '').trim().toUpperCase();
     const customerName = String(data[i][4] || 'there').trim();
     const buyerEmail = String(data[i][5] || '').trim().toLowerCase();
+    const rowCurrency = String(data[i][7] || 'INR').trim().toUpperCase();
     const rowDateStr = String(data[i][0] || '');
     const upsellStatus = String(data[i][21] || '').trim();
 
@@ -280,6 +287,9 @@ function sendPostPurchaseAddonUpsellEmails() {
     const elapsedHours = !isNaN(rowTime.getTime()) ? (now.getTime() - rowTime.getTime()) / (1000 * 60 * 60) : 999;
     if (elapsedHours < MIN_HOURS_AFTER_PURCHASE) continue;
 
+    const b1PriceLabel = rowCurrency === 'USD' ? '+$9' : '+₹249';
+    const b2PriceLabel = rowCurrency === 'USD' ? '+$5' : '+₹149';
+
     // Send 1-click upgrade email
     try {
       let subject = `[Student Resource] AI Influencer Toolkit Upgrades (${customerName})`;
@@ -293,7 +303,7 @@ function sendPostPurchaseAddonUpsellEmails() {
             <div style="font-weight: 700; font-size: 14px; color: #0f172a;">1. Uncensored Content Hack (+4 Exclusive NSFW Videos)</div>
             <p style="font-size: 13px; color: #475569; margin: 4px 0 12px 0;">Viral curiosity framing and multi-platform monetization + 4 exclusive NSFW video masterclasses.</p>
             <a href="https://personalabs.store/?upgrade=bump1" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 13px; display: inline-block;">
-              Unlock VIP Hack (+₹249) →
+              Unlock VIP Hack (${b1PriceLabel}) →
             </a>
           </div>
         `;
@@ -306,7 +316,7 @@ function sendPostPurchaseAddonUpsellEmails() {
             <div style="font-weight: 700; font-size: 14px; color: #0f172a;">2. 500+ Viral Reel Hooks & ManyChat Auto-DM Pack</div>
             <p style="font-size: 13px; color: #475569; margin: 4px 0 12px 0;">500+ copy-paste hooks and comment-to-DM automation scripts to monetize followers 24/7.</p>
             <a href="https://personalabs.store/?upgrade=bump2" style="background-color: #0f172a; color: #ffffff; padding: 8px 16px; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 13px; display: inline-block;">
-              Unlock 500+ Hooks Pack (+₹149) →
+              Unlock 500+ Hooks Pack (${b2PriceLabel}) →
             </a>
           </div>
         `;
@@ -442,7 +452,7 @@ function doPost(e) {
       isPaid ? (driveGrantedList.join(', ') || 'None') : 'PENDING'
     ];
 
-    // 1. Always append to Logs (Audit trail for CTA clicks, leads, abandoned checkouts)
+    // 1. Always append to Logs (Audit trail for CTA clicks, partial leads, abandoned checkouts, and paid orders)
     logsSheet.appendRow(row);
     const logsLastRow = logsSheet.getLastRow();
     const logsRowRange = logsSheet.getRange(logsLastRow, 1, 1, HEADERS.length);
@@ -482,12 +492,21 @@ function doPost(e) {
   }
 }
 
-// Server-side verification endpoint called by course-vault/index.html (?action=verify) & Sign-In modal (?action=lookupOrder)
+// Server-side verification & telemetry endpoints called by course-vault/index.html & app.js
 function doGet(e) {
   try {
     const params = (e && e.parameter) || {};
     const action = params.action || '';
     const targetEmail = String(params.email || '').trim().toLowerCase();
+
+    if (action === 'getTestPageStatus') {
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          ok: true,
+          testPageEnabled: REMOTE_TEST_PAGE_ENABLED
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
 
     if ((action === 'verify' || action === 'lookupOrder') && targetEmail) {
       const ss = SpreadsheetApp.openById(SHEET_ID);
@@ -544,11 +563,22 @@ function doGet(e) {
 }
 ```
 
-### Step 3: Run `setupDatabaseSheet` & Deploy as Web App
-1. At the top of Apps Script, select **`setupDatabaseSheet`** from the dropdown next to **Run**, and click **Run** once.
-2. When Google prompts for permission, click **Review permissions → Choose `personalabsacademy@gmail.com` → Advanced → Go to Untitled project (unsafe) → Allow** *(this authorizes both Google Sheets and Google Drive `addViewer`!)*.
-3. Click the blue **Deploy** button (top right) → **New deployment**:
-   - Click the gear icon ⚙️ next to *Select type* → choose **Web app**.
+### Step 3: Run `setupAndBackfillOrders` & Deploy as Web App
+1. At the top of Apps Script, select **`setupAndBackfillOrders`** *(or `setupDatabaseSheet` alias)* from the dropdown next to **Run**, and click **Run** once.
+2. When Google prompts for permission, click **Review permissions → Choose `personalabsacademy@gmail.com` → Advanced → Go to Untitled project (unsafe) → Allow** *(this authorizes Google Sheets, Google Drive `addViewer`, and `GmailApp` triggers)*.
+3. Click **Deploy → New deployment** (gear ⚙️ → **Web app**):
    - **Execute as:** `Me (personalabsacademy@gmail.com)`
    - **Who has access:** **`Anyone`**
-4. Click **Deploy**, copy the **`Web app URL`** (`https://script.google.com/macros/s/.../exec`), and paste it in chat so we update `googleSheetWebhookUrl` in [`app.js`](../app.js) and [`course-vault/index.html`](../course-vault/index.html)!
+4. Copy the deployed **`Web app URL`** (`https://script.google.com/macros/s/.../exec`) and verify it matches `PAYMENT_GATEWAY_CONFIG.googleSheetWebhookUrl` in [`app.js`](../app.js) and [`course-vault/index.html`](../course-vault/index.html).
+
+---
+
+## 🔎 Frontend Telemetry & Endpoint Reference (`app.js?v=25`)
+* **`POST` Funnel Events Logged to `Logs` Tab:**
+  1. `CTA_CLICKED_SCROLL` — Logged once per session when a user taps any CTA button (`scrollToCheckout()`).
+  2. `PARTIAL_LEAD_CAPTURED` — Logged when a visitor fills a valid email (`onblur`) or valid country-matched phone number (`capturePartialLeadIfValid()`).
+  3. `INITIATED_CHECKOUT` (Yellow row) — Logged when checkout payment is launched; picked up after `25m` by `sendAbandonedCartRecoveryEmails` unless compensated by a matching `PAID_SUCCESS` email.
+  4. `PAID_SUCCESS` (Green row across **both `Logs` and `Orders`**) — Triggers `DriveApp.addViewer` across purchased folders and qualifies for `12h` post-purchase missing-bump upsells (`sendPostPurchaseAddonUpsellEmails`).
+* **`GET` Endpoints:**
+  * `?action=verify&email=...` & `?action=lookupOrder&email=...` — Used by [`course-vault/index.html`](../course-vault/index.html) and `openSignInModal()` in [`app.js`](../app.js).
+  * `?action=getTestPageStatus` — Polled asynchronously by `/kjboavhpoieabpraegnaln` as an optional remote kill-switch alongside local `testSandboxPage.enabled`.

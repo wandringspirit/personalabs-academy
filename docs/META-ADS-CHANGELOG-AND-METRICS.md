@@ -3,7 +3,8 @@
 > **Ad Account ID:** `2218391099056783` | **Business ID:** `1761523878300294`  
 > **Campaign:** `IN - Sales - AI Influencer Launch Kit (INR)` (`120251814625900152`)  
 > **Target Country:** India (Tier 1 & 2 Metro/Digital) | **Pixel ID:** `1661173205598260`  
-> **Live Storefront:** `https://personalabs.store` | **Repository:** `wandringspirit/personalabs-academy`
+> **Live Storefront:** `https://personalabs.store` | **Repository:** `wandringspirit/personalabs-academy`  
+> **Current Status (as of 8–9 Nov 2026, `v2.9.5`):** ⏸️ **All Paid Meta Ads Halted (100% Organic Reels Pivot Active).** Daily paid spend is `₹0.00` (prepaid balance `₹0.00`). Winning Look C creative findings (`6.45% CTR • ₹34.83 CPM`) now power all **11 Master Dancing Reels** unified inside [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) and scheduled live for **`9–19 Nov 2026`**. `Pixel 1661173205598260` continues tracking organic checkout telemetry cleanly.
 
 ---
 
@@ -98,11 +99,11 @@
 
 | Ad Name | Aspect Ratios | Delivery Status | Spend | Purchases | CPA | CTR | CPC | Clicks | LPV | Impr. | Reach |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **`Ad 01 - Curiosity Reveal`** | 9:16 + 4:5 | `🟢 Active` | `₹769.52` | **2** | `₹384.76` | `5.69%` | `₹13.50` | 46 | 36 | 1,001 | 872 |
-| **`Ad 03 - No Laptop 5Day`** | 9:16 + 4:5 | `🟢 Active` | `₹142.60` | **1** | **`₹142.60`** | `5.26%` | `₹17.83` | 8 | 8 | 152 | 124 |
+| **`Ad 01 - Curiosity Reveal`** | 9:16 + 4:5 | `🟢 Active (Halted Nov 8)` | `₹769.52` | **2** | `₹384.76` | `5.69%` | `₹13.50` | 46 | 36 | 1,001 | 872 |
+| **`Ad 03 - No Laptop 5Day`** | 9:16 + 4:5 | `🟢 Active (Halted Nov 8)` | `₹142.60` | **1** | **`₹142.60`** | `5.26%` | `₹17.83` | 8 | 8 | 152 | 124 |
 | **`Ad 02 - Proof & Monetization`** | 9:16 + 4:5 | `⚪ Paused` | `₹68.44` | 0 | — | `4.17%` | `₹34.22` | 2 | 1 | 48 | 46 |
-| **`Ad 04 - Raw iPhone Realism`** | 9:16 + 4:5 | `⚡ Ready to Launch` | `₹0.00` | 0 | — | — | — | — | — | — | — |
-| **CAMPAIGN TOTAL** | — | `🟢 Active` | **`₹980.56`** | **3** | **`₹326.85`** | **`5.58%`** | **`₹14.64`** | **56** | **45** | **1,201** | **979** |
+| **`Ad 04 - Raw iPhone Realism`** | 9:16 + 4:5 | `⚡ Produced Oct 16` | `₹0.00` | 0 | — | — | — | — | — | — | — |
+| **CAMPAIGN TOTAL** | — | `⏸️ Halted Nov 8` | **`₹980.56`** | **3** | **`₹326.85`** | **`5.58%`** | **`₹14.64`** | **56** | **45** | **1,201** | **979** |
 
 ---
 
@@ -136,16 +137,16 @@
 | **23-Oct – 25-Oct** | Billing | **Topped up `₹236` (23 Oct) + `₹300` (25 Oct)** to fund reel boosts | Two other UPI attempts failed (`₹4,130` on 13 Oct, `₹200` on 25 Oct); no money moved on either. |
 | **28-Oct 23:59** | Paid Creative Test | **Look C Indian Model Dancing Reels Test Completed (`₹253.57` spent)** | Delivered **7,281 impressions** across 5,671 accounts at **6.45% CTR**, **`₹34.83` CPM**, and **`₹0.525` per profile visit**. Gained 483 profile visits, 492 link clicks, 4,625 plays on the primary Reel, and 26 real followers. Delivery paused on `Payment error` due to prepaid ad budget threshold. |
 | **30-Oct 07:32** | Ledger | **Reconciled ledger against Meta billing and Razorpay settlements** | Real all-time position: `₹4,986` paid to Meta, `₹2,986` received from 5 customers, **`-₹2,000` net**. Replaces the earlier `-₹261` estimate. Prepaid balance `₹0.00`; nothing is owed to Meta. |
+| **08-Nov – 09-Nov** | Strategic Pivot | **Halted Paid Ads & Scheduled 11 Master Organic Dancing Reels (`9–19 Nov`)** | Eliminated paid ad cash & 18% GST outflow. Unified top hooks into [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) (`Hottest_Hook_01`–`11`), retired `ads-ready/` in `v2.9.5`, and launched 100% organic acquisition with manual DM fulfillment. |
 
 ---
 
-## 6. Scaling Milestones & Future Roadmap
+## 6. Historical Scaling Guardrails & Organic Pivot Policy (`Nov 2026`)
 
-* **Milestone 1 (Target: 10 Paid Sales):** Currently at **5 / 10** (50% complete). Missed the Oct 17–18 target.
-* **Breakeven Rule (added 30 Oct):** Ad cash per sale (incl. GST) must stay **below `≈ ₹583`** to make money at the current `₹597` AOV. All-time it is **`₹890`**. Do not scale until a test with a fixed cap shows it below `₹583` across at least 10 sales.
-* **Scale #2 Threshold (+25% to `₹800/day`):** Not met — CPA never held `< ₹300` past 13 Oct.
-* **Cash-Cow Stabilization Cap:** Stabilize India campaign at **`₹800 – ₹1,000/day`** once 15–20 sales are reached, generating steady `₹30,000+/month` net profit.
-* **International Expansion Trigger:** Once accumulated Indian bank profits reach **`₹15,000 – ₹25,000`**, launch Tier-1 Global Campaign (US, UK, UAE/GCC) priced at **`$27 Base` + `$19 Bump` + `$15 Bump`** funded 100% by Indian profits.
+* **Paid Ads Status (as of `8 Nov 2026`):** **⏸️ Intentionally Halted (`₹0/day`).** Historical Oct paid scaling thresholds (`₹800–₹1,000/day` / Tier-1 `USD` paid campaigns) are deferred indefinitely until organic Reels generate cash profit.
+* **Milestone 1 (`10 Paid Sales`):** Reached **5 / 10** during Oct paid phase (50%; Oct 17–18 paid target missed).
+* **Strict Re-Entry Breakeven Rule (`added 30 Oct`):** Ad cash per sale (incl. 18% GST) must stay **below `≈ ₹583`** to turn a profit at `₹597` AOV. All-time Oct paid CPA was **`₹890`**. Never restart paid campaigns unless a fixed-cap retargeting or conversion test holds below `₹583` across at least `10` verified sales.
+* **Archived Paid Targets (`Inactive unless re-enabled`):** Scale #2 (`+25% to ₹800/day`), `₹800–₹1,000/day` India cap, and self-funded Tier-1 Global `USD` campaign (`₹15,000–₹25,000` cash reserve trigger).
 
 ---
 
@@ -176,9 +177,8 @@
 | **Reel Plays (Single Post)** | — | — | **4,625 plays** | — | High watch-time retention |
 | **Followers Gained** | — | — | **26 followers** | — | Real users converted to followers from ad stream |
 
-### C. Key Insights & Funnel Evolution
-1. **The Hook is a Proven Winner:** A 6.45% CTR and ₹34.83 CPM definitively confirms that the photorealistic Indian model dance + *"WAIT... SHE DOESN'T ACTUALLY EXIST"* hook captures immediate attention on Instagram.
-2. **Organic Account Lift:** The test grew `@personalabsacademy` to 26 followers and 4,625 plays on the primary Reel, establishing essential early social proof.
-3. **Delivery Pause (`Payment error`):** Delivery halted when the prepaid wallet balance hit ₹0. Requires manual top-up in Ads Manager Billing.
-4. **Next Phase (Direct Conversion):** Transition from profile visits to a direct **Advantage+ Sales Campaign (`OUTCOME_SALES`)** driving traffic to `https://personalabs.store` using the 5 newly re-sequenced master video hooks (`Hottest_Hook_01` to `05`).
-
+### C. Key Insights & Evolution Into `v2.9.5` Organic Reels Engine
+1. **The Hook is a Proven Winner:** A 6.45% CTR and ₹34.83 CPM definitively confirmed that the photorealistic fluid dance motion + *"WAIT... SHE DOESN'T ACTUALLY EXIST"* hook captures immediate attention on Instagram.
+2. **Organic Account Lift:** The test grew `@personalabsacademy` to 26+ followers and 4,625 plays on the primary Reel, establishing early social proof.
+3. **Delivery Pause (`Payment error`):** Delivery halted when the prepaid wallet balance hit ₹0 (now intentionally kept at `₹0`).
+4. **How Those Insights Were Applied (`Nov 8–9, 2026`):** Instead of funding another paid Meta ad cycle immediately (`-₹2,000` cash constraint), the winning Look C fluid-dance findings were scaled into **11 Master Dancing Video Reels** (`Hottest_Hook_01` through `11`) now unified inside [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) (`ads-ready/` retired in `v2.9.5`), scheduled organically in Meta Business Suite for **`9–19 Nov 2026`**, and paired with Story Link Stickers, Tomorrow's (`10 Nov`) Bio Link Unlock, and Manual Comment-to-DM replies.

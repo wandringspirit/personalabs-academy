@@ -2,28 +2,34 @@
 
 ## v2.9.5 — 2026-11-09 (Latest Release)
 - **Full Directory & Repository Consolidation Cleanup:**
-  - Recycled discontinued paid Meta Ads (`ads-ready/01-India-INR-Ads/`, `02-Global-USD-Ads/`, `02-India-INR-Feed-4x5/`), old pre-pivot reel drafts (`archive-drafts/`, `02-Organic-Reels/`, `05-Dancing-Hook-Options/`), 160 MB Playwright session cache (`.browser_session/`), 38 debug PNG screenshots (`schedule_logs/`), 8 temporary debug scripts, duplicate loose intro video (`videos-captioned/`), and exact duplicate/unused images in `assets/`.
-  - Eliminated the split `ads-ready/` root folder and unified all organic assets cleanly inside [`instagram-studio/`](../instagram-studio/): `reels-active-11/` (the 11 scheduled Master Reels + `thumbnails/`), `carousels/` (`01`–`06`), `source-assets/` (`character-assets/`, `raw-gemini-videos/`, `brand-dps/`, `bgm_master.mp3`), and `archive/`.
-  - Consolidated `instagram-studio/scripts/` into the single top-level [`scripts/`](../scripts/) folder (`scripts/archive/` for legacy builders) and moved `CREATOR-DELIVERY-README.md` from `course-vault/` to [`docs/`](../docs/).
+  - Recycled discontinued paid Meta Ads (`ads-ready/01-India-INR-Ads/`, `02-Global-USD-Ads/`, `02-India-INR-Feed-4x5/`), old pre-pivot reel drafts (`archive-drafts/`, `02-Organic-Reels/`, `05-Dancing-Hook-Options/`), 160 MB Playwright session cache (`.browser_session/`), 38 debug PNG screenshots (`schedule_logs/`), 8 temporary debug scripts, duplicate loose intro video (`videos-captioned/`), legacy root `videos/` directory, and exact duplicate/unused images in [`assets/`](../assets/).
+  - Eliminated the split `ads-ready/` root folder and unified all organic assets cleanly inside [`instagram-studio/`](../instagram-studio/): [`reels-active-11/`](../instagram-studio/reels-active-11/) (all 11 scheduled Master Reels + `thumbnails/`), [`carousels/`](../instagram-studio/carousels/) (`01`–`06`), `source-assets/` (`character-assets/`, `raw-gemini-videos/`, `brand-dps/`, `bgm_master.mp3`), and [`archive/`](../instagram-studio/archive/).
+  - Consolidated `instagram-studio/scripts/` into the single top-level [`scripts/`](../scripts/) folder ([`scripts/archive/`](../scripts/archive/) for legacy builders) and moved `CREATOR-DELIVERY-README.md` from `course-vault/` to [`docs/CREATOR-DELIVERY-README.md`](CREATOR-DELIVERY-README.md).
   - Added [`.vercelignore`](../.vercelignore) and updated [`.gitignore`](../.gitignore) + script/doc paths so public deploys and Git tracking stay clean.
+- **11 Master Dancing Video Reels Scheduled Live in Meta Business Suite (`9–19 Nov 2026`):**
+  - Scheduled all **11 Master Dancing Reels** (`Hottest_Hook_01` through `11`) with custom `1080×1920` front-facing cover thumbnails (`Cover_01` through `11`), `Public` privacy, full captions, and `CC` enabled across `19:30–19:43 IST` daily ([`instagram-studio/ORGANIC-MASTER-DANCING-REELS-CALENDAR.md`](../instagram-studio/ORGANIC-MASTER-DANCING-REELS-CALENDAR.md)).
+- **Phase-1 Manual Comment-to-DM Funnel (`Low Initial Volume`):**
+  - Codified owner's decision to handle initial Instagram comments and DMs **manually via Instagram Saved Replies** across all 11 Reel keywords (`PROMPT`, `MODEL`, `GLITCH`, `TRAVEL`, `DANCE`, `TWIRL`, `CREATOR`, `VACATION`, `SKIN`, `LAUNCH`, `VIP` + `AI`) while keeping ManyChat documented as the Phase-2 scale switch (`>10–15 comments/day`).
+- **Comprehensive 17-Document Synchronization:**
+  - Audited and updated [`README.md`](../README.md), [`GEMINI.md`](../GEMINI.md), all 13 files in [`docs/`](.), and both active studio calendars in [`instagram-studio/`](../instagram-studio/) against live codebase versions (`app.js?v=25`, `styles.css?v=9`), `₹199 / $9` flash pricing, `testSandboxPage.enabled = true`, dual `Logs`/`Orders` database tabs, corrected Apps Script `Code.gs` snippets, and clean `v2.9.5` paths.
 
 ## v2.9.4 — 2026-11-08
 - **Strategic Pivot to 100% Organic Growth & Viral Reels Acquisition:**
   - Halted all paid Meta Ads campaigns, eliminating daily media spend (`₹500/day`) and 18% Indian GST cash outflows.
-  - Transitioned the primary customer acquisition funnel to 100% organic Instagram Reels paired with ManyChat automated Comment-to-DM conversion triggers (`PROMPT`, `MODEL`, `CREATOR`, `TRAVEL`, `LAUNCH`), overcoming caption link restrictions and delivering direct checkout links to `https://personalabs.store` with >90% message open rates.
-- **Master 11 Dancing Reels Portfolio ([`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/)):**
+  - Transitioned the primary customer acquisition funnel to 100% organic Instagram Reels paired with Comment-to-DM conversion triggers (`PROMPT`, `MODEL`, `CREATOR`, `TRAVEL`, `LAUNCH`), overcoming caption link restrictions and delivering direct checkout links to `https://personalabs.store` with >90% message open rates.
+- **Master 11 Dancing Reels Portfolio (`ads-ready/dancing-ad-hooks/`, unified into [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) in `v2.9.5`):**
   - Expanded the winning video reel library to **11 broadcast-ready 1080×1920 30fps MP4 Reels** (`Hottest_Hook_01` through `11`).
   - Standardized all 11 reels with 100% generic AI model audio voiceovers (`AvaMultilingualNeural`), synchronized synthesized beat tracks, burned-in subtitles with zero square glyph errors, and opening eye-contact dance motion at `0:00`.
 - **Mandatory Creative Standard Codified ([`GEMINI.md`](../GEMINI.md)):**
   - Established and committed a strict repository rule: Apart from multi-slide 4:5 carousels, every video Reel hook **must ALWAYS feature 100% genuine fluid video dance motion in the style of the winning reels (alluring, tasteful, rhythmic, high-energy movement)**. Strictly prohibited Ken Burns still-camera pans/zooms for video Reels.
   - Auto-pushed the rule to the global `instagram-creator-operator` skill on GitHub (`wandringspirit/ai-skills-config@3a23b10`).
 - **Comprehensive Asset Hierarchy & Directory De-Cluttering:**
-  - Purged ~67 MB of duplicate files: deleted the unneeded root `new videos/` directory and removed 7 duplicate `gemini_generated_video_*.mp4` clones from `ads-ready/raw-gemini-videos/` (preserving the cleanly named `clip_01` to `clip_07`).
-  - Organized `ads-ready/character-assets/` into 4 clean subfolders (`new-thematic-sets`, `indian-model-angles`, `new-personas`, `demo-characters`) with zero loose image files.
-  - Isolated the 11 pristine master reels in `ads-ready/dancing-ad-hooks/` and moved earlier experimental drafts to `archive-drafts/`.
-  - Moved one-off scratch scripts to `scripts/archive/` and archived historical batch schedules to `instagram-studio/archive-calendars/`.
+  - Purged ~67 MB of duplicate files: deleted the unneeded `new videos/` directory and removed 7 duplicate `gemini_generated_video_*.mp4` clones from `ads-ready/raw-gemini-videos/` (preserving `clip_01` to `clip_07`).
+  - Organized `character-assets/` into 4 clean subfolders (`new-thematic-sets`, `indian-model-angles`, `new-personas`, `demo-characters`) with zero loose image files.
+  - Isolated the 11 pristine master reels in `dancing-ad-hooks/` and moved earlier experimental drafts to `archive-drafts/` (removed in `v2.9.5`).
+  - Moved one-off scratch scripts to [`scripts/archive/`](../scripts/archive/) and archived historical batch schedules to [`instagram-studio/archive/`](../instagram-studio/archive/).
 
-## v2.9.3 — 2026-10-30 (Latest Release)
+## v2.9.3 — 2026-10-30
 - **Financial Ledger Reconciled Against Meta Billing & Razorpay Settlements ([`docs/META-ADS-CHANGELOG-AND-METRICS.md`](META-ADS-CHANGELOG-AND-METRICS.md)):**
   - Real all-time figures: **`₹4,986.00`** paid to Meta Ads (8 UPI top-ups, GST-inclusive, balance now `₹0.00`) vs **`₹2,986.00`** settled from **5** customer orders, a **`-₹2,000.00`** net position. Replaces the earlier `-₹261` estimate, which stopped at 16 Oct.
   - Added the missing 17–20 Oct campaign spend (`₹1,885.90`), Order #5 (`₹597`, settled 21 Oct), and the full reel-boost billing (`₹536.00`, not `₹299.21`).
@@ -32,7 +38,7 @@
   - Completed initial paid test (`₹253.57` media spend / `₹299.21` cash with 18% GST) validating viral reception on Look C Indian Model dancing reels.
   - Achieved **`6.45%` outbound CTR**, **`₹34.83` CPM** (10x cheaper than industry average), and **`₹0.525` cost per profile visit** across 7,281 impressions and 5,671 unique accounts.
   - Drove **483 profile visits**, **492 link clicks**, **4,625 plays** on the primary boosted Reel, and **26 real followers** to `@personalabsacademy`.
-- **5 Master Ad Hooks Re-Sequenced for Opening 0:00 Eye-Contact Hook ([`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/)):**
+- **5 Master Ad Hooks Re-Sequenced for Opening 0:00 Eye-Contact Hook (`ads-ready/dancing-ad-hooks/`, unified into [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) in `v2.9.5`):**
   - Re-rendered all 5 high-converting 1080×1920 video ads (`Hottest_Hook_01` through `05`) so each opens immediately at `0:00` with the model's direct eye-contact radiant smile.
   - Cleaned all UTF-8 typography to eliminate square glyph box artifacts in Windows rendering.
   - Encoded with `-movflags +faststart` for zero-latency streaming on Meta Ads Manager and Instagram.
@@ -46,7 +52,7 @@
   - Added [`capturePartialLeadIfValid()`](../app.js) to automatically capture and log `PARTIAL_LEAD_CAPTURED` to `Orders DB` as soon as a visitor enters a valid Email address (`onblur`) or completes a valid 10-digit mobile number (`oninput`/`onblur`), even if they drop off before submitting the full checkout form.
 
 ## v2.9.1 — 2026-10-13
-- **Live & 6-Day Scheduled Instagram Queue (`@personalabsacademy`) ([`instagram-studio/CONTENT-CALENDAR.md`](../instagram-studio/CONTENT-CALENDAR.md)):**
+- **Live & 6-Day Scheduled Instagram Queue (`@personalabsacademy`) ([`instagram-studio/archive/CONTENT-CALENDAR.md`](../instagram-studio/archive/CONTENT-CALENDAR.md)):**
   - Published and pinned **Carousel #01** (`5 Slides, 4:5` — [`https://www.instagram.com/p/DeZdiZ2EuBf/`](https://www.instagram.com/p/DeZdiZ2EuBf/)) to the top of `@personalabsacademy` alongside live **Reel #01** ([`DeWdJplElw6`](https://www.instagram.com/personalabsacademy/reel/DeWdJplElw6/)) and **Reel #02** ([`DeZd2Z6o-Be`](https://www.instagram.com/p/DeZd2Z6o-Be/)).
   - Rendered and scheduled **6 consecutive daily posts/Reels (`Tue Oct 13 – Sun Oct 18, 2026 at 7:30 PM IST / 19:30`)** in Meta Business Suite Content Planner:
     1. **Tue, Oct 13 (`19:30 IST`):** `Reel #03 (Mobile Creator Pipeline)` — Scheduled ID: `1796375885019195`
@@ -55,7 +61,7 @@
     4. **Fri, Oct 16 (`19:30 IST`):** `Reel #05 (1 Static Photo to 4K Viral Reel)` — Scheduled ID: `1099506249107288`
     5. **Sat, Oct 17 (`19:30 IST`):** `Carousel #03 (5-Day AI Influencer Roadmap — 5 Slides)` — Scheduled ID: `908070545570409`
     6. **Sun, Oct 18 (`19:30 IST`):** `Reel #06 (₹50,000 Studio Shoot vs. 20-Min AI Creator Page)` — Scheduled ID: `1622233036055930`
-  - Added reusable studio asset builder ([`instagram-studio/scripts/build_batch_1b_5days.py`](../instagram-studio/scripts/build_batch_1b_5days.py)) and local file bridge ([`instagram-studio/scripts/ig_bridge.js`](../instagram-studio/scripts/ig_bridge.js)).
+  - Added reusable studio asset builder ([`scripts/archive/build_batch_1b_5days.py`](../scripts/archive/build_batch_1b_5days.py)) and local file bridge ([`scripts/archive/ig_bridge.js`](../scripts/archive/ig_bridge.js)).
 - **Weekly Sunday 10:00 AM IST Instagram Batch Refill Automation (`/schedule`):**
   - Activated recurring cron automation **`Weekly Instagram Batch Refill (@personalabsacademy)`** (`CRON_TZ=Asia/Kolkata 0 10 * * 0`) to automatically generate the next 7-day Reel/Carousel batch every Sunday morning before Sunday night's scheduled Reel goes live.
 - **Meta Ads Campaign #1 (`100/100` Opportunity Score) & Root `README.md`:**
@@ -77,9 +83,9 @@
 - **Storefront UI Polish & Campaign #1 Live Activation (`₹500/day` CBO) ([`index.html`](../index.html), [`docs/LAUNCH_OPERATIONS_MANUAL.md`](LAUNCH_OPERATIONS_MANUAL.md)):**
   - Updated Order Bump #1 (*Uncensored Content Hack*) thumbnail to [`assets/images/uncensored_hack_cover.png`](../assets/images/uncensored_hack_cover.png) and moved the `🌴 Bali Travel` persona pill to the first position in `#sec-ai-lab`.
   - Published **Campaign #1 (`IN - Sales - AI Influencer Launch Kit (INR)`)** live in Meta Ads Manager at **₹500.00/day** (Instagram Reels & Stories), achieving **`3.52% – 5.56%` Link CTR** and **78 engagements** on initial delivery.
-- **GitHub Repository Renamed to `wandringspirit/personalabs-academy` & 3-Agent Autonomous Instagram Studio ([`docs/DEPLOY.md`](DEPLOY.md), [`instagram-studio/`](../instagram-studio)):**
+- **GitHub Repository Renamed to `wandringspirit/personalabs-academy` & 3-Agent Autonomous Instagram Studio ([`docs/DEPLOY.md`](DEPLOY.md), [`instagram-studio/`](../instagram-studio/)):**
   - Renamed the official GitHub repository from `wandringspirit/ai-influencer-course-website` to **[`wandringspirit/personalabs-academy`](https://github.com/wandringspirit/personalabs-academy)** and updated all documentation references.
-  - Created the **3-Agent Autonomous Instagram Team** (`ig-content-studio`, `ig-copy-and-funnel`, `instagram-creator-operator`) and generated Batch #1 (`01-Pinned-Carousel-5Slides/`, `02-Organic-Reels/`, and [`CONTENT-CALENDAR-AND-CAPTIONS.md`](../instagram-studio/CONTENT-CALENDAR-AND-CAPTIONS.md)) for `@personalabsacademy`.
+  - Created the **3-Agent Autonomous Instagram Team** (`ig-content-studio`, `ig-copy-and-funnel`, `instagram-creator-operator`) and generated Batch #1 (`carousels/01-Pinned-Carousel-5Slides/` and [`CONTENT-CALENDAR-AND-CAPTIONS.md`](../instagram-studio/CONTENT-CALENDAR-AND-CAPTIONS.md)) for `@personalabsacademy`.
 
 ## v2.8.2 — 2026-10-11
 - **Live Meta Pixel (`1661173205598260`) & Ad Account (`2218391099056783`) Connected ([`app.js`](../app.js), [`index.html`](../index.html), [`docs/ROADMAP.md`](ROADMAP.md)):**
@@ -89,8 +95,8 @@
 - **Vercel Global Edge CDN Auto-Deploy & Privacy-Protected Git Author ([`docs/DEPLOY.md`](DEPLOY.md)):**
   - Completed DNS migration of `personalabs.store` (`A @` → `216.198.79.1`) and `www.personalabs.store` (`CNAME www` → `847062401d7e0c68.vercel-dns-017.com`) to Vercel Global Edge CDN.
   - Configured local Git author to GitHub's privacy-preserving `wandringspirit <209062033+wandringspirit@users.noreply.github.com>` address so every `git push origin main` triggers an instant automatic Vercel Hobby deployment without exposing any personal email.
-- **8K Exact-Face Saree Profile Portraits & ManyChat Auto-DM Flow ([`assets/`](../assets), [`docs/OUTREACH.md`](OUTREACH.md)):**
-  - Generated 8K DSLR-restored portraits from `demo.mp4` ([`assets/insta_dp_exact_face_1080x1080.jpg`](../assets/insta_dp_exact_face_1080x1080.jpg) & [`assets/insta_saree_full_portrait_hd.jpg`](../assets/insta_saree_full_portrait_hd.jpg)) with zero facial drift and uploaded to `@personalabsacademy`.
+- **8K Exact-Face Saree Profile Portraits & ManyChat Auto-DM Flow ([`brand-dps/`](../instagram-studio/source-assets/brand-dps/), [`docs/OUTREACH.md`](OUTREACH.md)):**
+  - Generated 8K DSLR-restored portraits from `demo.mp4` ([`insta_dp_exact_face_1080x1080.jpg`](../instagram-studio/source-assets/brand-dps/insta_dp_exact_face_1080x1080.jpg) & [`insta_saree_full_portrait_hd.jpg`](../instagram-studio/source-assets/brand-dps/insta_saree_full_portrait_hd.jpg)) with zero facial drift and uploaded to `@personalabsacademy`.
   - Configured ManyChat Comment-to-DM automation (`AI, LAUNCH, MODEL, REEL, HACK, LINK, PROMPT, VIP`) with 2-step Opening DM (`🚀 Send me the link` → `🚀 Unlock Launch Kit` → `https://personalabs.store`).
 - **107-Ad Meta Ad Library Competitor Spy Scan ([`docs/ROADMAP.md`](ROADMAP.md), [`docs/COMPETITORS.md`](COMPETITORS.md)):**
   - Scanned 107 active video ads across 4 Meta Ad Library tabs (`India "AI Influencer"`, `India "AI Model" Instagram`, `US "AI Influencer"`, `earlycaves`) and extracted the top 7 long-running winners (`MindBrix EdTech`, `Digitalvalut Media`, `Varnexa Digital`, `Shreya Xtrader`, `FlyAds.ai`, `AI Video Skool`, `russestudiosv`) + 3 Battle-Tested Headlines and Primary Text Options (`A`, `B`, `C`).
@@ -133,20 +139,20 @@
   - Fixed side-edge fading on `"Everything to gain."` and `"100% Money-Back Guarantee"` by replacing Tailwind `via-*` gradient classes with explicit 100%-opaque CSS `linear-gradient(90deg, ...)` hex stops.
   - Balanced the Left Guarantee Card (`100% Money-Back Guarantee` + Gold Seal SVG + 3 concise guarantee paragraphs) and Right 3 FAQ Cards so the gold badge and text align evenly with zero empty white space below the badge.
 - **Reverted Website Avatar & Order Bump #1 Thumbnail to Original Photo:**
-  - Restored [`assets/images/creator_avatar.jpg`](../assets/images/creator_avatar.jpg) and [`assets/images/uncensored_hack_cover.jpg`](../assets/images/uncensored_hack_cover.jpg) to the original website maroon saree back-portrait photo (`?v=12` in [`index.html`](../index.html)).
+  - Restored `assets/images/creator_avatar.jpg` *(later unified into [`assets/insta_profile_closeup_hd.jpg`](../assets/insta_profile_closeup_hd.jpg))* and `assets/images/uncensored_hack_cover.jpg` *(replaced by [`assets/images/uncensored_hack_cover.png`](../assets/images/uncensored_hack_cover.png))* to the original website maroon saree back-portrait photo (`?v=12` in [`index.html`](../index.html)).
 
 ## v2.6.0 — 2026-10-11
 - **"Nothing to lose. Everything to gain." — 100% Money-Back Guarantee Section & Graphic:**
   - Recreated the **"Nothing to lose. Everything to gain."** 2-column Guarantee + 3 Key Answers layout matched to the PersonaLabs Academy dark/amber/fuchsia theme right below the Hero & Description in [`index.html`](../index.html) (`lines 270–360`) so it is immediately visible at the top of the page.
-  - Generated the standalone high-resolution `1600x900` banner graphic at [`assets/images/nothing_to_lose_guarantee.png`](../assets/images/nothing_to_lose_guarantee.png).
+  - Generated the standalone high-resolution `1600x900` banner graphic (`assets/images/nothing_to_lose_guarantee.png`, retired cleanly in `v2.9.5`).
 - **Dual-Currency Video Ad Variants (India `INR ₹249` vs. Global `USD $9`):**
-  - Split all 3 promotional 9:16 Video Ads into two region-specific folders (`6` rendered `.mp4` ads in total) with dedicated voiceovers, captions, and CTA end-cards:
-    - [`ads-ready/01-India-INR-Ads/`](../ads-ready/01-India-INR-Ads): Shows **only `₹249` (`Reg. ₹1,999`)** and `₹15,000` in voiceover/captions (zero `$` symbols).
-    - [`ads-ready/02-Global-USD-Ads/`](../ads-ready/02-Global-USD-Ads): Shows **only `$9` (`Reg. $49`)** and `$500` in voiceover/captions (zero `₹` symbols).
+  - Split all 3 promotional 9:16 Video Ads into two region-specific folders (`6` rendered `.mp4` ads in total, retired in `v2.9.5` upon organic pivot) with dedicated voiceovers, captions, and CTA end-cards:
+    - `ads-ready/01-India-INR-Ads/`: Shows **only `₹249` (`Reg. ₹1,999`)** and `₹15,000` in voiceover/captions (zero `$` symbols).
+    - `ads-ready/02-Global-USD-Ads/`: Shows **only `$9` (`Reg. $49`)** and `$500` in voiceover/captions (zero `₹` symbols).
 
 ## v2.5.1 — 2026-10-11
 - **Website Avatar & Order Bump #1 Thumbnail Updated to Approved AI Character:**
-  - Replaced [`assets/images/creator_avatar.jpg`](../assets/images/creator_avatar.jpg) (`Created by PersonaLabs Academy` header avatar & checkout modal avatar) and [`assets/images/uncensored_hack_cover.jpg`](../assets/images/uncensored_hack_cover.jpg) (Order Bump #1 `Uncensored Content Hack` thumbnail) with the spotless, mole-free square portrait of the approved blonde emerald-top cafe AI Influencer persona.
+  - Replaced `assets/images/creator_avatar.jpg` (`Created by PersonaLabs Academy` header avatar & checkout modal avatar) and `assets/images/uncensored_hack_cover.jpg` (Order Bump #1 `Uncensored Content Hack` thumbnail) with the spotless, mole-free square portrait of the approved blonde emerald-top cafe AI Influencer persona.
   - Bumped cache-busting query strings to `?v=11` in [`index.html`](../index.html).
 
 ## v2.5.0 — 2026-10-11
@@ -155,15 +161,15 @@
   - Updated the Google Apps Script backend in [`docs/GOOGLE-SHEETS-DATABASE-SETUP.md`](GOOGLE-SHEETS-DATABASE-SETUP.md) so all 3 Google Drive deliverable folders (`01-Core-Course-Videos`, `02-Uncensored-NSFW-Addon-Videos`, `03-500-Viral-Hooks-And-Prompts-Pack`) remain **Restricted (Private)** and automatically grant Viewer permission to each verified buyer's Gmail address (`DriveApp.getFolderById(...).addViewer(buyerEmail)`), logging the granted folders in Column 20 (`Google Drive Access Granted`).
   - Updated checkout email field label in [`index.html`](../index.html) to `Email (Gmail for instant Google Drive access) *`.
 - **Unguessable VIP Guide URLs & Cryptographic Access Signatures (`vt1` / `vt2`):**
-  - Renamed `course-vault/uncensored-content-hack.html` $\rightarrow$ [`course-vault/uncensored-vip-8f92a1c4.html`](../course-vault/uncensored-vip-8f92a1c4.html) and `course-vault/viral-hooks-and-autodm-pack.html` $\rightarrow$ [`course-vault/hooks-vip-3d7e91b2.html`](../course-vault/hooks-vip-3d7e91b2.html).
+  - Renamed `course-vault/uncensored-content-hack.html` to [`course-vault/uncensored-vip-8f92a1c4.html`](../course-vault/uncensored-vip-8f92a1c4.html) and `course-vault/viral-hooks-and-autodm-pack.html` to [`course-vault/hooks-vip-3d7e91b2.html`](../course-vault/hooks-vip-3d7e91b2.html) (old paths convert to legacy verification redirects).
   - Removed all plain-text VIP guide filenames from HTML source code so *View Source* cannot leak them; URLs are now assembled dynamically in JS only after verifying deterministic signatures (`vt1`/`vt2`) or live Google Sheet `lookupOrder` responses.
 - **Documentation Migration to `/docs` & Phase 3 Video Ads:**
   - Moved all 10 project documentation files (`ARCHITECTURE.md`, `CHANGES.md`, `COMPETITORS.md`, `DEPLOY.md`, `DESIGN.md`, `GOOGLE-SHEETS-DATABASE-SETUP.md`, `OUTREACH.md`, `RESEARCH.md`, `ROADMAP.md`, `SEO.md`) into [`/docs`](.).
-  - Added complete word-for-word scripts for the **3 Promotional 9:16 Video Ads** to [`docs/ROADMAP.md`](ROADMAP.md) and generated the approved consistent AI Influencer persona (`ads-ready/character-assets/`) + 3 rendered `.mp4` Video Ads (`ads-ready/`).
+  - Added complete scripts for the **3 Promotional 9:16 Video Ads** and generated the approved consistent AI Influencer persona assets (`instagram-studio/source-assets/character-assets/`) + 3 rendered `.mp4` Video Ads.
 
 ## v2.4.0 — 2026-10-11
 - **Hero & Order Bump Visual Refresh:**
-  - Replaced `assets/images/hero_showcase.jpg` with the updated 3-panel high-contrast `CREATE VIRAL AI REELS / EARN LAKHS EVERY MONTH` showcase (`2.5M | 1.2M | 3.6M`).
+  - Replaced [`assets/images/hero_showcase.jpg`](../assets/images/hero_showcase.jpg) with the updated 3-panel high-contrast `CREATE VIRAL AI REELS / EARN LAKHS EVERY MONTH` showcase (`2.5M | 1.2M | 3.6M`).
   - Replaced `assets/images/uncensored_hack_cover.jpg` with the original maroon saree back-portrait thumbnail.
   - Added smooth pointer hover zoom (`scale(1.035)` on hero banner, `scale(1.10)` on order bump thumbnails).
 - **Single-Line Top Urgency Bar:**

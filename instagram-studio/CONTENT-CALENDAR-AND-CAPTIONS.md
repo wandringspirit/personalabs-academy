@@ -1,18 +1,24 @@
-# PersonaLabs Academy (`@personalabsacademy`) — Master Content Calendar, Viral Captions & ManyChat Funnel Architecture
+# PersonaLabs Academy (`@personalabsacademy`) — Reusable Carousels, Stories & Phase-2 ManyChat Funnel Blueprint
 
-> **Account:** `@personalabsacademy`  
-> **Publishing Engine:** Meta Business Suite Content Planner (`business.facebook.com/latest/content_calendar`) & Instagram Web (`instagram.com`)  
-> **Conversion Engine:** ManyChat Comment-to-DM Automation (`manychat.com`)  
-> **Account Safety Protocol:** Days 1–5 Warmup Window active (zero raw `.store` links or discount spam in bio; 100% conversion routed via ManyChat Comment-to-DM triggers).
+> **v2.9.5 Status Notice (Updated `9 Nov 2026`):**
+> * **Active 11-Day Reels Schedule (`9–19 Nov 2026`):** All **11 Master Dancing Reels** are scheduled live in Meta Business Suite under [`ORGANIC-MASTER-DANCING-REELS-CALENDAR.md`](ORGANIC-MASTER-DANCING-REELS-CALENDAR.md) ([`reels-active-11/`](reels-active-11/)). Per [`../GEMINI.md`](../GEMINI.md), **any future Reels must open on 100% fluid video dance motion** (never Ken Burns / static stills).
+> * **Active Reusable Assets in This File:**
+>   1. **Carousels `01–06` ([`carousels/`](carousels/)):** `01-Pinned-Carousel-5Slides` is live and pinned on `@personalabsacademy`; **`02`–`06`** (`Smartphone-Realism-Prompts`, `5Day-Launch-Roadmap`, `Same-Face-Consistency`, `Free-Mobile-Stack`, `Faceless-Creator-Income`) are ready to interleave organically between Reels.
+>   2. **Section 4 Daily 3-Story Sequences:** Interactive Poll (`10:00 AM IST`) → BTS Proof (`3:30 PM IST`) → Link Sticker / DM Trigger (`8:30 PM IST`) remain 100% active.
+> * **DM Fulfillment Mode (`9 Nov 2026`):** Owner is replying **manually via Instagram Saved Replies** while early comment volume is low (`see` [`../docs/OUTREACH.md`](../docs/OUTREACH.md) Section 1). Section 1 below is preserved intact as the **Phase-2 ManyChat Automation Blueprint** ready to activate once comments exceed `~10–15/day`.
+> * **Bio Link Unlock:** External profile bio link cooldown expires **tomorrow, Tue `10 Nov 2026`** — add `https://personalabs.store` to the `@personalabsacademy` profile bio before Reel `#02`.
 
 ---
 
-## 1. ManyChat Comment-to-DM Master Keyword Trigger Matrix
+## 1. Phase-2 ManyChat Comment-to-DM Blueprint *(Standby Until Comments > 10–15/Day)*
 
-Configure these **7 active keyword triggers** inside **ManyChat → Automation → Instagram Comment-to-DM** so every commentacross Batch #1 and the 14-Day Calendar fires an instant public reply (doubling total comment count) + an automated private DM funnel.
+> **Active Today (`Phase 1`):** Use Instagram Saved Replies (`../docs/OUTREACH.md`) for manual Comment-to-DM replies across all **11 Reel Keywords** (`PROMPT`, `MODEL`, `GLITCH`, `TRAVEL`, `DANCE`, `TWIRL`, `CREATOR`, `VACATION`, `SKIN`, `LAUNCH`, `VIP` + `AI`) so replies feel personal while daily volume is low.
+
+Configure these active keyword triggers inside **ManyChat → Automation → Instagram Comment-to-DM** when daily volume scales past `~10–15 comments/day` so every Reel/Carousel comment fires an instant public reply + automated private DM funnel.
 
 ### Active Trigger Keywords (Case-Insensitive, "Comment Contains" or "Exact Match")
-`AI` | `LAUNCH` | `MODEL` | `REEL` | `HACK` | `LINK` | `PROMPT`
+**7 Core Keywords:** `AI` | `LAUNCH` | `MODEL` | `REEL` | `HACK` | `LINK` | `PROMPT`  
+**Extended 11-Reel Keywords (`9–19 Nov`):** `GLITCH` | `TRAVEL` | `DANCE` | `TWIRL` | `CREATOR` | `VACATION` | `SKIN` | `VIP`
 
 ### ManyChat Public Comment Auto-Replies (Rotate 5 Variations to Prevent Spam Flags)
 1. `"Just sent the full 5-day blueprint straight to your DMs! Check your Primary or Requests tab 🚀"`
@@ -37,14 +43,14 @@ Configure these **7 active keyword triggers** inside **ManyChat → Automation �
 > **Message Copy:**  
 > Here is your access to the **PersonaLabs Academy 5-Day AI Influencer Blueprint**:  
 >  
-> 👉 **Get Instant Access Here:** `https://personalabs.store` *(or active checkout/landing URL)*  
+> 👉 **Get Instant Access Here:** `https://personalabs.store` *(₹199 India / $9 Global Flash Offer)*  
 >  
 > **What you'll unlock today:**  
 > ✅ **Day 1:** Character DNA & Seed-Locking (100% identical face in every shot)  
-> ✅ **Day 2:** Photorealistic Skin Texture & Lighting Prompt Vault  
+> ✅ **Day 2:** Photorealistic Skin Texture & Lighting Prompt Vault (`250+` prompts)  
 > ✅ **Day 3:** Static Image → 9:16 Viral Motion Reel Pipeline (100% Mobile-Friendly)  
 > ✅ **Day 4:** High-Retention Hooks + Automated Audio Sync  
-> ✅ **Day 5:** ManyChat Comment-to-DM Monetization & Brand Deal System  
+> ✅ **Day 5:** Comment-to-DM Monetization & Brand Deal System  
 >  
 > Reply **`QUESTION`** if you want me to review your niche before you start! ⚡
 
@@ -52,19 +58,19 @@ Configure these **7 active keyword triggers** inside **ManyChat → Automation �
 | Keyword Trigger | Primary Asset Assigned | Custom First Line in DM Step 1 |
 | :--- | :--- | :--- |
 | **`AI`** | Post #1 (Pinned Carousel) & Universal | *"Hey {{first_name}}! 👋 Ready to build your first hyper-realistic AI Persona from scratch?"* |
-| **`LAUNCH`** | Reel #1 (Curiosity Reveal) & Universal | *"Hey {{first_name}}! 🚀 Here is the exact 5-Day Launch Blueprint to take your AI creator page from 0 to viral."* |
-| **`MODEL`** | Reel #2 (Same-Face Consistency) | *"Hey {{first_name}}! 🧬 Want the exact Seed-Locking & Face-ID workflow so your AI model never changes faces?"* |
-| **`REEL`** | Reel #3 (No-Laptop Mobile Pipeline) | *"Hey {{first_name}}! 📱 Here is the exact mobile-only pipeline to turn still AI photos into 9:16 viral Reels!"* |
-| **`HACK`** | Week 1–2 Retention & Growth Reels | *"Hey {{first_name}}! ⚡ Just unlocked the realism + retention workflow for you!"* |
+| **`LAUNCH`** | Reel #10 (`LAUNCH`) & Universal | *"Hey {{first_name}}! 🚀 Here is the exact 5-Day Launch Blueprint to take your AI creator page from 0 to viral."* |
+| **`MODEL`** | Reel #02 (`MODEL`) & Consistency Carousels | *"Hey {{first_name}}! 🧬 Want the exact Seed-Locking & Face-ID workflow so your AI model never changes faces?"* |
+| **`REEL`** | Mobile Pipeline Content | *"Hey {{first_name}}! 📱 Here is the exact mobile-only pipeline to turn still AI photos into 9:16 viral Reels!"* |
+| **`HACK`** | Week 1–2 Retention & Realism Tips | *"Hey {{first_name}}! ⚡ Just unlocked the realism + retention workflow for you!"* |
 | **`LINK`** | Stories & Bio DM Trigger | *"Hey {{first_name}}! 🔗 Here is the direct private access link you requested!"* |
-| **`PROMPT`** | Behind-the-Scenes Carousels & Stories | *"Hey {{first_name}}! 🧠 Here is the copy-paste photorealism prompt formula + full 5-day system!"* |
+| **`PROMPT`** | Reel #01 (`PROMPT`), Carousel #02 & Prompt Vault | *"Hey {{first_name}}! 🧠 Here is the copy-paste photorealism prompt formula + full 5-day system!"* |
 
 ---
 
 ## 2. Batch #1 Copy-Paste Captions, First-Comment SEO Hashtags & Hook Specs
 
-### Post #1 — Pinned 5-Slide Carousel (`4:5` — `1080x1350`)
-* **Schedule Slot:** Day 1 — Pin to Top of Grid immediately after publishing (`6:00 PM IST`)
+### Post #1 — Pinned 5-Slide Carousel (`4:5` — [`carousels/01-Pinned-Carousel-5Slides/`](carousels/01-Pinned-Carousel-5Slides/))
+* **Status:** Published & Pinned to top of `@personalabsacademy`.
 * **Slide-by-Slide Hook Structure:**
   * **Slide 1 (Cover):** `"Wait... She Doesn't Actually Exist 😳 (Swipe to see how she was built in 15 mins →)"`
   * **Slide 2 (The Problem):** `"99% of beginners fail at AI influencers because every photo looks like a different plastic face."`
@@ -91,27 +97,26 @@ At PersonaLabs Academy, we engineered a repeatable 3-step workflow that fixes bo
 
 Whether you want to build a faceless theme brand, launch a virtual model, or scale digital products on autopilot—this is the exact system.
 
-💬 Comment "AI" or "LAUNCH" below and I will automatically DM you the complete 5-Day AI Influencer Blueprint! 🚀
+💬 Comment "AI" or "LAUNCH" below and I will DM you the complete 5-Day AI Influencer Blueprint! 🚀
 
 (Make sure to save this post so you don't lose the 5-slide breakdown 🔖)
 ```
 
 #### Copy-Paste First Comment (SEO Keywords + Hashtags — Post #1):
 ```text
-📌 Save this breakdown for later! Drop "AI" or "LAUNCH" in the comments and check your DMs in 5 seconds ⚡
+📌 Save this breakdown for later! Drop "AI" or "LAUNCH" in the comments and I'll send it straight to your DMs ⚡
 
 #aiinfluencer #aimodel #virtualinfluencer #aicreator #aigenerated #facelessinstagram #facelessmarketing #digitalcreator #instagramgrowthhacks #aireels #midjourneyart #fluxai #contentautomation #personalabsacademy #passiveincomeideas
 ```
 
 ---
 
-### Reel #1 — Curiosity Reveal Organic Reel (`9:16` — `1080x1920`, `30fps`)
-* **Schedule Slot:** Day 1 — `7:30 PM IST`
-* **0–3s On-Screen Text Hook:** `"Wait... she doesn't actually exist 😳"`
-* **Visual Pacing & Loop:** Opens on hyper-real close-up eye/smile movement (`0.0s–2.2s`), cuts to 3 rapid lifestyle shots (`2.2s–6.0s`), reveals prompt/seed wireframe overlay (`6.0s–8.5s`), ends with seamless audio loop back to frame 1.
-* **Primary ManyChat Triggers:** `AI`, `LAUNCH`, `PROMPT`
+### Archival Reference — Initial Oct Batch Reel Outlines *(Superseded by 11 Master Fluid-Dance Reels)*
+> **Mandatory Rule Reminder:** All video Reels now follow [`ORGANIC-MASTER-DANCING-REELS-CALENDAR.md`](ORGANIC-MASTER-DANCING-REELS-CALENDAR.md) (`100% Fluid Dance Motion` hooks). The text hooks below remain useful as talking points or **Story / Carousel copy only**.
 
-#### Copy-Paste Caption (Reel #1):
+#### Reel Outline A — Curiosity Reveal
+* **0–3s On-Screen Text Hook:** `"Wait... she doesn't actually exist 😳"`
+* **Copy-Paste Caption Reference:**
 ```text
 I showed this video to 10 creators today and not a single one guessed she was 100% AI 🤯
 
@@ -125,31 +130,18 @@ And the best part? You never have to step in front of a camera yourself.
 
 Want the exact tools, prompts, and 5-day step-by-step system we used to build her from scratch?
 
-💬 Comment "AI" or "LAUNCH" (or "PROMPT") right now and I’ll DM you the full 5-Day Blueprint instantly! 👇🚀
+💬 Comment "AI" or "LAUNCH" (or "PROMPT") right now and I’ll DM you the full 5-Day Blueprint! 👇🚀
 ```
 
-#### Copy-Paste First Comment (SEO Keywords + Hashtags — Reel #1):
-```text
-⚡ Reply "LAUNCH" or "AI" below and check your DMs for the step-by-step blueprint!
-
-#aiinfluencer #virtualmodel #aireels #aimodelagency #facelesscontent #aicreator #realisticai #aiartcommunity #instagramreelsviral #creatorblueprint #digitalavatar #aivideogeneration #personalabsacademy
-```
-
----
-
-### Reel #2 — Same-Face Consistency Proof Organic Reel (`9:16` — `1080x1920`, `30fps`)
-* **Schedule Slot:** Day 2 — `12:30 PM IST`
+#### Reel Outline B — Same-Face Consistency Proof
 * **0–3s On-Screen Text Hook:** `"1 AI girl. 5 outfits. 100% the exact same face 🧬"`
-* **Visual Pacing & Loop:** Fast `1.8s` match-cut transitions snapping the exact same AI persona across 5 environments (Tokyo street night, morning coffee shop, gym mirror, beach sunset, studio portrait) with face-alignment grid markers flashing briefly on each transition.
-* **Primary ManyChat Triggers:** `MODEL`, `AI`, `HACK`
-
-#### Copy-Paste Caption (Reel #2):
+* **Copy-Paste Caption Reference:**
 ```text
 The #1 reason 95% of AI influencer accounts look fake (and how to fix it in 60 seconds) 👇🧬
 
 Anyone can type a random prompt and get ONE pretty AI photo.
 
-The real test? Putting that exact same character in a coffee shop, a Tokyo crosswalk at night, a gym mirror selfie, and golden-hour sunlight—without her face morphing into a different person every time.
+The real test? Putting that exact same character in a coffee shop, a modern city crosswalk at night, a gym mirror selfie, and golden-hour sunlight—without her face morphing into a different person every time.
 
 Here is how we lock 100% facial identity inside PersonaLabs Academy:
 🔹 Step 1: Build a clean Base Anchor Sheet (neutral lighting, zero distortion)
@@ -163,22 +155,9 @@ Want our exact Same-Face Consistency workflow?
 💬 Comment "MODEL" or "AI" below and I’ll DM you the 5-Day AI Influencer Blueprint right now! 📩🔥
 ```
 
-#### Copy-Paste First Comment (SEO Keywords + Hashtags — Reel #2):
-```text
-🧬 Tired of your AI character changing faces every prompt? Comment "MODEL" and I'll DM you the exact consistency method!
-
-#characterconsistency #aimodel #aiinfluencer #consistentcharacter #virtualcreator #aiphotography #facelesspage #aiworkflow #digitalinfluencer #midjourneyv6 #flux1 #aigrowth #personalabsacademy
-```
-
----
-
-### Reel #3 — No-Laptop Mobile Pipeline Organic Reel (`9:16` — `1080x1920`, `30fps`)
-* **Schedule Slot:** Day 2 — `7:30 PM IST`
+#### Reel Outline C — No-Laptop Mobile Pipeline
 * **0–3s On-Screen Text Hook:** `"Stop buying ₹1.5L laptops to build an AI Influencer 📱"`
-* **Visual Pacing & Loop:** Starts with a strike-through over an expensive desktop setup (`0.0s–2.0s`), transitions to a fast mobile screen-flow showing cloud prompt → face lock → 9:16 motion render (`2.0s–8.0s`), and finishes on the finished ultra-real Reel (`8.0s–11.0s`).
-* **Primary ManyChat Triggers:** `REEL`, `HACK`, `LINK`
-
-#### Copy-Paste Caption (Reel #3):
+* **Copy-Paste Caption Reference:**
 ```text
 You do NOT need an expensive gaming PC or a coding degree to build a viral AI Influencer in 2026 📱🚫
 
@@ -189,73 +168,50 @@ Here is the truth: all the heavy rendering happens in the cloud.
 Our entire mobile-friendly pipeline runs in 3 simple stages from the phone already in your hand:
 📲 Stage 1 (5 mins): Generate your photorealistic base shot using our smartphone-optics prompt template
 📲 Stage 2 (5 mins): Apply the Same-Face Identity Lock so she looks identical to yesterday's post
-📲 Stage 3 (10 mins): Run the 9:16 cloud motion pass + add a 3-second curiosity hook and ManyChat DM trigger
+📲 Stage 3 (10 mins): Run the 9:16 cloud motion pass + add a 3-second curiosity hook and DM trigger
 
-Total time: ~20 minutes from anywhere—whether you're on the metro, on a college break, or working a 9-to-5.
+Total time: ~20 minutes from anywhere—whether you're on your commute, on a study break, or working a 9-to-5.
 
 Want the exact mobile-friendly stack and 5-day launch guide?
 
-💬 Comment "REEL" or "HACK" below and I will DM you the complete 5-Day Blueprint in 5 seconds! ⚡👇
-```
-
-#### Copy-Paste First Comment (SEO Keywords + Hashtags — Reel #3):
-```text
-📱 Comment "REEL" or "HACK" below and I'll send the entire mobile AI creator workflow straight to your DMs!
-
-#mobilecreator #aiinfluencer #aireels #facelessinstagram #sidehustleideas #aicreator #nocodeai #aivideo #contentcreatorlife #instagramautomation #manychatfunnel #virtualinfluencer #personalabsacademy
+💬 Comment "REEL" or "HACK" below and I will DM you the complete 5-Day Blueprint! ⚡👇
 ```
 
 ---
 
-## 3. Complete 14-Day Autonomous Posting & Story Schedule (`@personalabsacademy`)
+## 3. Ready-to-Post Carousel Angles (`carousels/02–06`) & Caption Framework
 
-Designed specifically for batch-scheduling inside **Meta Business Suite Content Planner** (`business.facebook.com/latest/content_calendar`).
+Use these captions when interleaving **Carousels `02–06`** ([`carousels/`](carousels/)) on top of your daily `9–19 Nov` Reels schedule:
 
-### Account Safety & Warmup Rules Embedded in Schedule:
-* **Days 1–5 (Warmup Phase):** Bio contains **ZERO** raw `.store` links or discount text. 100% of traffic is captured via ManyChat Comment-to-DM (`AI`, `LAUNCH`, `MODEL`, `REEL`, `HACK`, `LINK`, `PROMPT`) + Story DM Stickers.
-* **Days 6–14 (Scale Phase):** Bio link activated alongside ManyChat Comment-to-DM + Trial Reels testing on non-followers.
-* **Daily Cadence:** 1–2 Feed Posts/Reels per day at peak IST windows (`12:30 PM IST` & `7:30 PM IST`) + 3 interactive Stories per day (`10:00 AM`, `3:30 PM`, `8:30 PM IST`).
+| Carousel Folder (`carousels/`) | Visual Concept (`5 Slides, 4:5`) | Primary Hook Headline | Suggested DM Keyword |
+| :--- | :--- | :--- | :---: |
+| [`02-Smartphone-Realism-Prompts/`](carousels/02-Smartphone-Realism-Prompts/) | Plastic AI skin vs. Raw smartphone texture prompts | `"Why your AI photos scream 'FAKE' (and the 3-word fix) 📸"` | `PROMPT` |
+| [`03-5Day-Launch-Roadmap/`](carousels/03-5Day-Launch-Roadmap/) | Step-by-step Day 1–5 AI Influencer launch roadmap | `"Give me 5 days and I'll help you build a virtual creator 🚀"` | `LAUNCH` |
+| [`04-Same-Face-Consistency/`](carousels/04-Same-Face-Consistency/) | Seed locking & Reference ID consistency guide | `"How to lock the exact same face across 50+ outfits 🧬"` | `MODEL` |
+| [`05-Free-Mobile-Stack/`](carousels/05-Free-Mobile-Stack/) | Complete phone-only cloud stack (zero gaming PC) | `"Zero gaming PC: the complete mobile-only creator stack 📱"` | `AI` |
+| [`06-Faceless-Creator-Income/`](carousels/06-Faceless-Creator-Income/) | 4 monetization streams & Comment-to-DM funnel math | `"You don't need 100K followers to monetize an AI page 💰"` | `VIP` |
 
-| Day | Date / Phase | Slot 1 (`12:30 PM IST`) | Slot 2 (`7:30 PM IST`) | Primary 0–3s On-Screen Hook | ManyChat Trigger(s) | Daily Story Sequence (`10:00 AM` / `3:30 PM` / `8:30 PM IST`) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Day 1** | Warmup Day 1 *(No Bio Link)* | **Post #1 (Pinned Carousel - 6:00 PM IST):** 5-Slide System Reveal | **Reel #1:** Curiosity Reveal Organic Reel | `"Wait... she doesn't actually exist 😳"` | `AI`, `LAUNCH`, `PROMPT` | S1: Real vs AI Poll • S2: Base Prompt Blurred Preview • S3: Reply `AI` for Blueprint |
-| **Day 2** | Warmup Day 2 *(No Bio Link)* | **Reel #2:** Same-Face Consistency Proof (5 Outfits, 1 Face) | **Reel #3:** No-Laptop Mobile Pipeline Reel | `"1 AI girl. 5 outfits. 100% the exact same face 🧬"` / `"Stop buying ₹1.5L laptops..."` | `MODEL`, `REEL`, `HACK` | S1: Laptop vs Phone Poll • S2: Face-Lock Seed Grid BTS • S3: Reply `MODEL` for Guide |
-| **Day 3** | Warmup Day 3 *(No Bio Link)* | **Carousel #2 (5 Slides):** Plastic AI Skin vs. Raw iPhone Texture Prompts | **Reel #4:** The "iPhone Lens Physics" Prompt Secret | `"Why your AI photos scream 'FAKE' (and the 3-word fix) 📸"` | `PROMPT`, `HACK` | S1: Left or Right Realism Quiz • S2: Raw Skin Prompt Snippet • S3: Reply `PROMPT` to DM |
-| **Day 4** | Warmup Day 4 *(No Bio Link)* | **Reel #5:** Static Image to 9:16 Natural Motion (Zero Warping Hands) | **Reel #6:** Faceless Creator Math: Traditional Shoot vs. AI Persona | `"How I stopped AI hands from melting in Reels 🖐️✨"` | `REEL`, `AI` | S1: Biggest AI Struggle Poll • S2: Motion Prompt Frame Comparison • S3: Reply `REEL` for Workflow |
-| **Day 5** | Warmup Day 5 *(No Bio Link)* | **Carousel #3 (5 Slides):** The 5-Day AI Influencer Launch Roadmap | **Reel #7:** 20-Minute Daily Routine to Run an AI Creator Page | `"Give me 5 days and I'll help you build a virtual creator 🚀"` | `LAUNCH`, `AI` | S1: Ready to Launch This Weekend? Poll • S2: Inside Day 1–5 Modules • S3: Reply `LAUNCH` for Access |
-| **Day 6** | Scale Day 6 *(Bio Link Live)* | **Reel #8:** Choosing a Profitable AI Niche (Fashion, Travel, Tech, Fitness) | **Reel #9:** How ManyChat Turns 100 Views into Automated Leads | `"Don't start an AI page until you pick 1 of these 4 niches 🎯"` | `LAUNCH`, `LINK` | S1: Which Niche Wins? Poll • S2: ManyChat Automation Live Tree • S3: Link Sticker + `LINK` Trigger |
-| **Day 7** | Scale Day 7 | **Carousel #4 (5 Slides):** 5 Viral Hook Formulas Getting 110%+ Watch Time | **Reel #10:** Week 1 Transformation: Blank Page to Hyper-Real Grid | `"Steal the 3-second hook formula behind our top Reels 📈"` | `HACK`, `REEL` | S1: Watch Time Quiz Sticker • S2: Editing Timeline Cut Pacing (1.8s) • S3: Link Sticker + `HACK` Trigger |
-| **Day 8** | Scale Day 8 | **Reel #11:** Lighting Mastery: Golden Hour vs. Neon Night Street Prompts | **Reel #12:** Split-Screen Proof: Typed Text Prompt → Living 9:16 Video | `"Change 4 words in your prompt for cinema-grade lighting 🌅"` | `PROMPT`, `MODEL` | S1: Golden Hour vs Cyber Night Poll • S2: Exact Lighting Keywords • S3: Link Sticker + `PROMPT` Trigger |
-| **Day 9** | Scale Day 9 | **Carousel #5 (5 Slides):** How Virtual Influencers Monetize (4 Revenue Streams) | **Reel #13:** Why Faceless Digital Creators Are Winning in 2026 | `"You don't need 100K followers to monetize an AI page 💰"` | `AI`, `LAUNCH` | S1: Would You ever Show Your Face? Poll • S2: Funnel Math Breakdown • S3: Link Sticker + `LAUNCH` Trigger |
-| **Day 10** | Scale Day 10 | **Reel #14:** Fixing Dead AI Eyes: Catchlights & Micro-Expression Prompts | **Reel #15:** 3 Mistakes Getting New AI Pages Shadowbanned | `"Look at her eyes—this 1 prompt detail makes her look alive 👁️"` | `MODEL`, `HACK` | S1: Can You Spot the Catchlight? Poll • S2: Eye Realism Prompt Card • S3: Link Sticker + `MODEL` Trigger |
-| **Day 11** | Scale Day 11 | **Carousel #6 (5 Slides):** Complete Tool Stack Breakdown (Phone-Only Edition) | **Reel #16:** Behind the Scenes: Building a New Persona in 15 Minutes Timed | `"I put 15 minutes on the clock to build a brand new AI model ⏱️"` | `REEL`, `AI` | S1: Guess How Long This Took Poll • S2: Stopwatch Screen Recording BTS • S3: Link Sticker + `AI` Trigger |
-| **Day 12** | Scale Day 12 | **Reel #17:** Seamless Loop Engineering: How to Get Viewers Watching Twice | **Reel #18:** Outfit Swap Tutorial: Putting Your AI Model in Streetwear Brands | `"How we trick the Instagram algorithm into 120% watch time 🔁"` | `HACK`, `MODEL` | S1: Streetwear vs Luxury Look Poll • S2: Wardrobe Lock Workflow • S3: Link Sticker + `HACK` Trigger |
-| **Day 13** | Scale Day 13 | **Carousel #7 (5 Slides):** FAQ Answered: Copyright, Ethics, Tools & Time Cost | **Reel #19:** Student/Creator Spotlight: What Happens After Day 5 | `"Everything you were scared to ask about AI Influencers Answered 👇"` | `LINK`, `LAUNCH` | S1: What's Holding You Back? Question Box • S2: Top 3 FAQ Answers • S3: Link Sticker + `LINK` Trigger |
-| **Day 14** | Scale Day 14 | **Reel #20:** Full 14-Day Grid Tour & Best Performing Prompts Recap | **Reel #21:** Final Call: Grab the 5-Day AI Influencer Blueprint Tonight | `"14 days ago this account didn't exist. Here's the exact blueprint 🚀"` | `LAUNCH`, `AI`, `LINK` | S1: Want the Full 14-Day Prompt Vault? Poll • S2: Blueprint Walkthrough • S3: Direct Link Sticker + `LAUNCH` |
-
-### Copy-Paste Caption Templates for Days 3–14 (Meta Business Suite Ready)
-
-#### Day 3–14 Universal High-Conversion Caption Framework:
+#### Universal High-Conversion Carousel Caption Framework:
 ```text
-[Insert Day's 0-3s Hook Line from Schedule Table Above] 👇
+[Insert Carousel Hook Line from Table Above] 👇
 
-Most creators overcomplicate AI content because they are using outdated 2024 prompts that produce blurry hands, plastic skin, and inconsistent faces.
+Most creators overcomplicate AI content because they are using outdated prompts that produce blurry hands, plastic skin, and inconsistent faces.
 
-Here is the exact 3-part fix we use inside PersonaLabs Academy for today's post:
-1️⃣ [Key Takeaway #1 — e.g., Lock the Character Seed before changing backgrounds]
-2️⃣ [Key Takeaway #2 — e.g., Specify 35mm smartphone lens physics + raw skin micro-texture]
-3️⃣ [Key Takeaway #3 — e.g., Cut every 1.8–2.5 seconds and loop the final audio beat into frame 1]
+Swipe through all 5 slides for the exact 3-part fix we use inside PersonaLabs Academy:
+1️⃣ Lock your Character DNA Seed before changing scenes
+2️⃣ Specify 24mm/35mm smartphone lens physics + natural skin micro-texture
+3️⃣ Turn consistent stills into fluid 9:16 Reels + convert comments via DM
 
 You don't need a high-end PC, and you don't need to spend months guessing prompts on your own.
 
-💬 Comment "[INSERT DAY'S PRIMARY KEYWORD: AI / LAUNCH / MODEL / REEL / HACK / LINK / PROMPT]" below and I will automatically DM you our complete 5-Day AI Influencer Blueprint! 🚀
+💬 Comment "[PROMPT / LAUNCH / MODEL / AI / VIP]" below and I will DM you our complete 5-Day AI Influencer Blueprint! 🚀
 ```
 
 ---
 
 ## 4. Daily 3-Part Story Sticker & Poll Conversion Sequence
 
-Publish this **3-Story sequence daily** (`10:00 AM IST`, `3:30 PM IST`, `8:30 PM IST`). In Instagram's algorithm, an interactive Sticker tap on Story 1 boosts Story reach by 30–50%, setting up Story 2 (Authority Proof) and Story 3 (DM/Link Conversion).
+Publish this **3-Story sequence daily** (`10:00 AM IST`, `3:30 PM IST`, `8:30 PM IST`). In Instagram's algorithm, an interactive Sticker tap on Story 1 boosts Story reach by 30–50%, setting up Story 2 (Authority Proof) and Story 3 (Direct Link Sticker / Manual DM Conversion).
 
 ---
 
@@ -269,21 +225,21 @@ Publish this **3-Story sequence daily** (`10:00 AM IST`, `3:30 PM IST`, `8:30 PM
   * **Poll Question:** `Could you tell she's AI?`
   * **Option A:** `No way, looks 100% real 🤯`
   * **Option B:** `Wait—she's not real?! 👀`
-* **Alternate Daily Poll Variations (Rotate Across Days 2–14):**
-  * *Day 2:* `"What's harder right now?"` → `[Keeping the same face 🧬]` vs `[Making realistic Reels 📱]`
-  * *Day 3:* `"Which shot looks more real?"` → `[Left (35mm Prompt) 📸]` vs `[Right (Raw iPhone) 🔥]`
-  * *Day 4:* `"Do you have a gaming PC?"` → `[Nope, phone only 📱]` vs `[Yes, laptop/PC 💻]`
-  * *Day 5:* `"Want to launch your AI page this week?"` → `[100% YES 🚀]` vs `[Send me the guide first 👀]`
+* **Alternate Daily Poll Variations (Rotate Daily):**
+  * *Variation A:* `"What's harder right now?"` → `[Keeping the same face 🧬]` vs `[Making fluid dance Reels 📱]`
+  * *Variation B:* `"Which shot looks more real?"` → `[Left (24mm Optics) 📸]` vs `[Right (Raw Smartphone) 🔥]`
+  * *Variation C:* `"Do you have a gaming PC?"` → `[Nope, phone only 📱]` vs `[Yes, laptop/PC 💻]`
+  * *Variation D:* `"Want to launch your AI page this week?"` → `[100% YES 🚀]` vs `[Send me the guide first 👀]`
 
 ---
 
 ### Story 2: Behind-the-Scenes Prompt & Workflow Preview (`3:30 PM IST` — Authority & Curiosity Gap)
-* **Visual Background:** Screen-recording or annotated screenshot showing the Raw Prompt + Character Seed Lock Grid + Final Photorealistic Output side-by-side (with 20% of the secret modifier blurred/highlighted to build curiosity).
+* **Visual Background:** Screen-recording or annotated screenshot showing the Raw Prompt + Character Seed Lock Grid + Final Photorealistic Output side-by-side (with 20% of the modifier highlighted to build curiosity).
 * **On-Screen Text Overlay:**
   ```text
   Everyone in the DMs is asking how we stopped her face from changing across 20+ outfits 🧬
 
-  The secret isn't a ₹1.5L computer—it's locking the Base Identity Seed + adding our 4-word "Raw Smartphone Skin" modifier before animating into 9:16.
+  The secret isn't a ₹1.5L computer—it's locking the Base Identity Seed + adding our 4-word "Raw Smartphone Skin" modifier before animating into fluid 9:16 motion.
 
   Look at the zoom-in on the skin texture & catchlights 👇🔍
   ```
@@ -292,30 +248,22 @@ Publish this **3-Story sequence daily** (`10:00 AM IST`, `3:30 PM IST`, `8:30 PM
 
 ---
 
-### Story 3: DM Trigger / Link Sticker Conversion (`8:30 PM IST` — Direct Lead & Sales Capture)
-* **Visual Background:** Clean dark-mode summary graphic or looping 5-second video preview of the **PersonaLabs Academy 5-Day AI Influencer Blueprint** modules.
-* **On-Screen Text Overlay (Days 1–5 Warmup Mode — DM Keyword Trigger Only):**
-  ```text
-  Want the exact 5-Day AI Influencer Blueprint + Copy-Paste Prompt Stack? 🚀
-
-  I packaged the entire workflow (Same-Face Lock + Realistic Skin Prompts + Phone-Only Viral Reels) into a step-by-step guide.
-
-  💬 Reply to this story with the word "AI" or "LAUNCH" (or "LINK") and my automated system will send it straight to your DMs in 5 seconds! 👇📩
-  ```
-* **On-Screen Text Overlay (Days 6–14 Scale Mode — Dual Link Sticker + DM Trigger):**
+### Story 3: Link Sticker + DM Trigger Conversion (`8:30 PM IST` — Direct Lead & Sales Capture)
+* **Visual Background:** Share today's newly published `19:30 IST` Master Dancing Reel via `Add to Story`, or a dark-mode summary graphic of the **PersonaLabs Academy ₹199 / $9 Launch Kit**.
+* **On-Screen Text Overlay (Tonight — Nov 9 Before Bio Unlock + Nov 10+ Dual Funnel):**
   ```text
   Ready to build & launch your own AI Influencer in the next 5 days? ⚡
 
-  Tap the link sticker below for instant access to the 5-Day Blueprint — OR reply "LINK" to this story and I'll DM it to you directly! 👇🚀
+  Tap the link sticker below for instant ₹199 / $9 access — OR reply "PROMPT" / "VIP" to this story and I'll DM it to you directly! 👇🚀
   ```
 * **Interactive Sticker Configuration:**
-  * **Days 1–5:** **Question Sticker** or **DM Me Sticker** set to prompt: `Reply "AI" or "LAUNCH" here 👇` (Triggers ManyChat Story Reply Automation when user replies with `AI`, `LAUNCH`, `MODEL`, `REEL`, `HACK`, `LINK`, or `PROMPT`).
-  * **Days 6–14:** **Link Sticker** (`https://personalabs.store`) with Custom Sticker Text: `🔓 Unlock The 5-Day AI Blueprint` + Secondary caption text: `Or reply "LINK" to get it in your DMs!`
+  * **Link Sticker:** Point directly to `https://personalabs.store` with Custom Sticker Text: **`Get The ₹199 Launch Kit 🚀`**
+  * **Secondary Caption Callout:** `Or reply "PROMPT" / "VIP" and I'll send it to your DMs!`
 
 ---
 
-## 5. Pre-Publish Quality Checklist (Meta Business Suite & Instagram Web)
-- [ ] **Aspect Ratio Check:** Carousels exported at `4:5` (`1080x1350`); Reels exported at `9:16` (`1080x1920`, `30fps`, `H.264`).
-- [ ] **0–3s Safe Zone Check:** All burned-in text hooks centered inside the `1080x1350` central safe grid so UI overlays don't crop text on grid or Reels tab.
-- [ ] **ManyChat Trigger Live Check:** Verify `AI`, `LAUNCH`, `MODEL`, `REEL`, `HACK`, `LINK`, and `PROMPT` are active in ManyChat before publishing.
-- [ ] **First-Comment SEO Hashtags:** Paste the matching First-Comment block immediately upon publishing (or inside Meta Business Suite's First Comment field).
+## 5. Pre-Publish Quality Checklist (Meta Business Suite & Instagram)
+- [x] **All 11 Master Dancing Reels Scheduled (`9–19 Nov 2026`):** Verified live in Meta Business Suite Content Planner with `Public` privacy, `CC` enabled, and custom `Cover_01–11` thumbnails.
+- [ ] **First-Comment SEO Stack:** Paste the matching First Comment from [`ORGANIC-MASTER-DANCING-REELS-CALENDAR.md`](ORGANIC-MASTER-DANCING-REELS-CALENDAR.md) right after each `19:30–19:43 IST` Reel goes live.
+- [ ] **Daily Story Link Sticker + Tomorrow (`10 Nov`) Bio Link:** Reshare every live Reel to Stories with `https://personalabs.store`; add bio link tomorrow before `19:39 IST`.
+- [ ] **Manual Saved Replies Active:** Keep the [`OUTREACH.md`](../docs/OUTREACH.md) Saved Reply shortcut (`kit`) ready in Instagram DMs; upgrade to Phase-2 ManyChat once comments exceed `10–15/day`.

@@ -1,68 +1,74 @@
-# PersonaLabs Academy (`@personalabsacademy`) — Manual Upload Master List (Nov 9 – Nov 19, 2026)
+# PersonaLabs Academy (`@personalabsacademy`) — Master Dancing Reels Schedule & Manual DM Playbook (`9–19 Nov 2026`)
 
-> **Posting Account:** `@personalabsacademy`  
-> **Video Folder:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\`  
-> **Cover Thumbnails Folder:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\`  
-> **Posting Cadence:** Daily at **19:30 IST (7:30 PM IST)** — *(Optional 2x/day accelerated schedule: 12:30 PM IST + 7:30 PM IST)*  
-> **Bio Link Unlock Date:** **Tomorrow — Tuesday, 10 Nov 2026** (Add `https://personalabs.store` to IG Profile Bio)  
-> **Funnel Rule:** 100% Organic engagement (**Comment Trigger Word + Like & Share + Follow `@personalabsacademy`** → ManyChat Instant Auto-DM)
-
----
-
-## 1. Master 11-Day Schedule & File Matrix
-
-| # | Scheduled Date & Time (IST) | Video File (`instagram-studio\reels-active-11\`) | Cover Thumbnail (`...\thumbnails\`) | ManyChat Keyword |
-| :---: | :--- | :--- | :--- | :---: |
-| **01** | **Mon, 9 Nov 2026 @ 7:30 PM** *(Tonight)* | `Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4` (`14.81s`) | `Cover_01_PROMPT_Wine_Saree_Smile.jpg` | **`PROMPT`** |
-| **02** | **Tue, 10 Nov 2026 @ 7:30 PM** *(🔓 Bio Link Unlocks)* | `Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4` (`14.75s`) | `Cover_02_MODEL_Emerald_Satin_Turn.jpg` | **`MODEL`** |
-| **03** | **Wed, 11 Nov 2026 @ 7:30 PM** | `Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4` (`13.33s`) | `Cover_03_GLITCH_Champagne_Corset_VIP.jpg` | **`GLITCH`** |
-| **04** | **Thu, 12 Nov 2026 @ 7:30 PM** | `Hottest_Hook_04_Mediterranean_Resort_Smile.mp4` (`14.08s`) | `Cover_04_TRAVEL_Resort_Smile.jpg` | **`TRAVEL`** |
-| **05** | **Fri, 13 Nov 2026 @ 7:30 PM** | `Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4` (`13.42s`) | `Cover_05_DANCE_Rooftop_Sway.jpg` | **`DANCE`** |
-| **06** | **Sat, 14 Nov 2026 @ 7:30 PM** | `Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4` (`16.75s`) | `Cover_06_TWIRL_Couture_Gown_Spin.jpg` | **`TWIRL`** |
-| **07** | **Sun, 15 Nov 2026 @ 7:30 PM** | `Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4` (`15.43s`) | `Cover_07_CREATOR_Terrace_Workout_Glow.jpg` | **`CREATOR`** |
-| **08** | **Mon, 16 Nov 2026 @ 7:30 PM** | `Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4` (`15.88s`) | `Cover_08_VACATION_Amalfi_Linen_Sway.jpg` | **`VACATION`** |
-| **09** | **Tue, 17 Nov 2026 @ 7:30 PM** | `Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4` (`14.43s`) | `Cover_09_SKIN_Parisian_Silk_Suite.jpg` | **`SKIN`** |
-| **10** | **Wed, 18 Nov 2026 @ 7:30 PM** | `Hottest_Hook_10_Classical_Mudra_Grace.mp4` (`14.96s`) | `Cover_10_LAUNCH_Mudra_Hands_Grace.jpg` | **`LAUNCH`** |
-| **11** | **Thu, 19 Nov 2026 @ 7:30 PM** | `Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4` (`15.42s`) | `Cover_11_VIP_Sculptural_Couture_Front.jpg` | **`VIP`** |
+> **Posting Account:** [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/)  
+> **Video Folder:** [`reels-active-11/`](reels-active-11/) (`11` broadcast-grade `1080×1920` `30fps` Reels)  
+> **Cover Thumbnails Folder:** [`reels-active-11/thumbnails/`](reels-active-11/thumbnails/) (`11` front-facing `1080×1920` covers)  
+> **Meta Business Suite Queue:** 🟢 **ALL 11 REELS SCHEDULED LIVE (`9–19 Nov 2026 @ 19:30–19:43 IST`) • `Public` • `CC` Enabled**  
+> **Bio Link Unlock Date:** **Tomorrow — Tuesday, 10 Nov 2026** (Add `https://personalabs.store` before Reel `#02 @ 19:39 IST`)  
+> **DM Fulfillment Mode (`v2.9.5`):** **Phase 1 Manual Comment-to-DM Replies via Instagram Saved Replies** (Owner handles early low-volume comments manually; **ManyChat stays standby** for Phase 2 once daily comments exceed `~10–15/day`).
 
 ---
 
-## 2. "Other Things" Upload & Funnel Checklist
+## 1. Verified 11-Day Meta Business Suite Schedule & Asset Matrix
 
-### A. Before Scheduling Reel #01 (Must Do First)
-1. **Wire All 11 ManyChat Keyword Triggers (`manychat.com` → Automation → Instagram Comments):**
-   Add all 11 keywords (case-insensitive, **Comment Contains** match) pointing to your 2-step **5-Day Blueprint & `https://personalabs.store` DM flow** *(plus `AI` as universal fallback)*:
-   `PROMPT`, `MODEL`, `GLITCH`, `TRAVEL`, `DANCE`, `TWIRL`, `CREATOR`, `VACATION`, `SKIN`, `LAUNCH`, `VIP`, `AI`.
-2. **Public Comment Auto-Reply Variations (Rotate in ManyChat):**
-   - `"Just sent the full blueprint straight to your DMs! Check Primary or Message Requests 🚀"`
-   - `"Check your DMs! Just dropped the exact mobile workflow & prompt vault for you 🔥"`
-   - `"Sent! Look inside your inbox right now 👀📩"`
-3. **ManyChat Step 1 + Step 2 DM Flow:**
-   - **DM 1 (Fires 5s after comment):**  
-     `Hey {{first_name}}! 👋 You asked for our AI Influencer Blueprint & Prompt Vault! Tap below so Instagram keeps our chat open and I'll send your instant access link 👇` → Button: `Send The Blueprint 🚀`
-   - **DM 2 (On tap):**  
-     `Here is instant access to the PersonaLabs 5-Day AI Influencer Launch Kit + 250+ DNA Prompts: 👉 https://personalabs.store 🚀 Let me know if you need help picking your model's niche!`
-4. **Clear Stale Drafts/Scheduled Posts:** Check **Meta Business Suite → Content → Scheduled / Drafts** for any leftover October test drafts.
-
-### B. Settings Inside Meta Business Suite / Instagram Uploader
-1. **Composer Type:** Always use **Create Reel** (not single photo/feed post) so Reels get full non-follower Explore/Reels discovery.
-2. **Toggle ON:** `"Also share to feed"` / `"Share to Instagram profile grid"`.
-3. **Cover Thumbnail:** Click **Edit** on the video thumbnail → **Upload image** → select the matching `Cover_XX_...jpg` from `instagram-studio\reels-active-11\thumbnails\`. Verify in **Crop Profile Grid (`3:4` & `1:1`)** that her face and smile are centered.
-4. **Audio Level:** Video audio is already mastered with clean speech + studio music (`LEXMusic - Tropical Haze`, zero hum). Do **NOT** add extra Meta/Instagram overlay audio unless muting added track to 1% for trending attribution.
-5. **First Comment:** Immediately after each Reel goes live (or right after posting), drop the **First Comment** listed below to stack extra SEO hashtags without cluttering the main caption.
-6. **Story Cross-Promotion (After Every Reel Goes Live):** Share the newly published Reel to Stories (`Paper Airplane → Add to Story`) + overlay a native **Link Sticker** pointing to `https://personalabs.store` with label `Get The 5-Day Blueprint 🚀`.
-7. **Tomorrow — Tue, 10 Nov 2026:** External bio link cooldown expires — add `https://personalabs.store` directly into `@personalabsacademy` Instagram Bio.
+| # | Scheduled Date & Time (IST) | MBS Status | Video File (`reels-active-11/`) | Cover Thumbnail (`thumbnails/`) | DM Keyword |
+| :---: | :--- | :---: | :--- | :--- | :---: |
+| **01** | **Mon, 9 Nov 2026 @ `19:30 IST`** *(Tonight!)* | ✅ **Scheduled** | [`Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`](reels-active-11/Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4) (`14.81s`) | [`Cover_01_PROMPT_Wine_Saree_Smile.jpg`](reels-active-11/thumbnails/Cover_01_PROMPT_Wine_Saree_Smile.jpg) | **`PROMPT`** |
+| **02** | **Tue, 10 Nov 2026 @ `19:39 IST`** *(🔓 Bio Link Unlocks)* | ✅ **Scheduled** | [`Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`](reels-active-11/Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4) (`14.75s`) | [`Cover_02_MODEL_Emerald_Satin_Turn.jpg`](reels-active-11/thumbnails/Cover_02_MODEL_Emerald_Satin_Turn.jpg) | **`MODEL`** |
+| **03** | **Wed, 11 Nov 2026 @ `19:40 IST`** | ✅ **Scheduled** | [`Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`](reels-active-11/Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4) (`13.33s`) | [`Cover_03_GLITCH_Champagne_Corset_VIP.jpg`](reels-active-11/thumbnails/Cover_03_GLITCH_Champagne_Corset_VIP.jpg) | **`GLITCH`** |
+| **04** | **Thu, 12 Nov 2026 @ `19:41 IST`** | ✅ **Scheduled** | [`Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`](reels-active-11/Hottest_Hook_04_Mediterranean_Resort_Smile.mp4) (`14.08s`) | [`Cover_04_TRAVEL_Resort_Smile.jpg`](reels-active-11/thumbnails/Cover_04_TRAVEL_Resort_Smile.jpg) | **`TRAVEL`** |
+| **05** | **Fri, 13 Nov 2026 @ `19:42 IST`** | ✅ **Scheduled** | [`Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`](reels-active-11/Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4) (`13.42s`) | [`Cover_05_DANCE_Rooftop_Sway.jpg`](reels-active-11/thumbnails/Cover_05_DANCE_Rooftop_Sway.jpg) | **`DANCE`** |
+| **06** | **Sat, 14 Nov 2026 @ `19:43 IST`** | ✅ **Scheduled** | [`Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4`](reels-active-11/Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4) (`16.75s`) | [`Cover_06_TWIRL_Couture_Gown_Spin.jpg`](reels-active-11/thumbnails/Cover_06_TWIRL_Couture_Gown_Spin.jpg) | **`TWIRL`** |
+| **07** | **Sun, 15 Nov 2026 @ `19:43 IST`** | ✅ **Scheduled** | [`Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4`](reels-active-11/Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4) (`15.43s`) | [`Cover_07_CREATOR_Terrace_Workout_Glow.jpg`](reels-active-11/thumbnails/Cover_07_CREATOR_Terrace_Workout_Glow.jpg) | **`CREATOR`** |
+| **08** | **Mon, 16 Nov 2026 @ `19:30 IST`** | ✅ **Scheduled** | [`Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4`](reels-active-11/Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4) (`15.88s`) | [`Cover_08_VACATION_Amalfi_Linen_Sway.jpg`](reels-active-11/thumbnails/Cover_08_VACATION_Amalfi_Linen_Sway.jpg) | **`VACATION`** |
+| **09** | **Tue, 17 Nov 2026 @ `19:30 IST`** | ✅ **Scheduled** | [`Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4`](reels-active-11/Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4) (`14.43s`) | [`Cover_09_SKIN_Parisian_Silk_Suite.jpg`](reels-active-11/thumbnails/Cover_09_SKIN_Parisian_Silk_Suite.jpg) | **`SKIN`** |
+| **10** | **Wed, 18 Nov 2026 @ `19:30 IST`** | ✅ **Scheduled** | [`Hottest_Hook_10_Classical_Mudra_Grace.mp4`](reels-active-11/Hottest_Hook_10_Classical_Mudra_Grace.mp4) (`14.96s`) | [`Cover_10_LAUNCH_Mudra_Hands_Grace.jpg`](reels-active-11/thumbnails/Cover_10_LAUNCH_Mudra_Hands_Grace.jpg) | **`LAUNCH`** |
+| **11** | **Thu, 19 Nov 2026 @ `19:30 IST`** | ✅ **Scheduled** | [`Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4`](reels-active-11/Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4) (`15.42s`) | [`Cover_11_VIP_Sculptural_Couture_Front.jpg`](reels-active-11/thumbnails/Cover_11_VIP_Sculptural_Couture_Front.jpg) | **`VIP`** |
 
 ---
 
-## 3. All 11 Reels — Exact Paths, Captions & First Comments
+## 2. Daily Post-Launch & Manual Comment-to-DM Playbook (Nov 9–19)
 
-### Reel 01 — Mon, 9 Nov 2026 @ 7:30 PM IST *(Tonight)*
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_01_PROMPT_Wine_Saree_Smile.jpg`
-* **ManyChat Trigger:** `PROMPT`
+Because all **11 Reels** are already scheduled in Meta Business Suite, daily execution takes under **10 minutes/day**:
 
-**Caption (Copy & Paste):**
+### A. Immediate Calendar Milestones
+1. **Tonight — Mon, 9 Nov @ `19:30 IST` (Reel `#01` — `PROMPT`):**
+   - Within 2 minutes of Reel `#01` publishing, drop **Reel `#01`'s First Comment** below (`Section 3`) to boost early SEO indexing & comment velocity.
+   - Share Reel `#01` directly to **Instagram Stories** (`Paper Airplane → Add to Story`) + add a clickable **Link Sticker** pointing to `https://personalabs.store` (`Get The ₹199 Kit 🚀`). *(Essential tonight because the bio link unlocks tomorrow!)*
+2. **Tomorrow — Tue, 10 Nov (Before `19:39 IST` Reel `#02`):**
+   - External profile link cooldown expires! Open Instagram app → **Edit Profile → Links → Add external link** → paste `https://personalabs.store`.
+3. **Ongoing `10–19 Nov` Routine:**
+   - Immediately after each daily Reel publishes (`19:30–19:43 IST`), post its **First Comment**, reshare to Stories with the **Link Sticker**, and interleave reusable **Carousels `02–06`** ([`carousels/`](carousels/)) + interactive Polls from [`CONTENT-CALENDAR-AND-CAPTIONS.md`](CONTENT-CALENDAR-AND-CAPTIONS.md).
+
+### B. Manual Comment-to-DM Workflow (Phase 1 — Low Initial Volume)
+Save these into **Instagram App → Settings → Business / Creator → Saved Replies** (e.g., shortcut `kit`) so every manual reply takes ~5 seconds and feels genuinely personal:
+1. **Quick Public Reply Under Their Comment (Pick 1 — Signals Algorithm + Directs to Inbox):**
+   - `"Just DM'd you the exact workflow & Prompt Vault link! Check Primary or Message Requests 🚀"`
+   - `"Sent to your inbox! Let me know once you check it 🔥"`
+   - `"Done! Check your DMs — dropped the direct mobile blueprint there ⚡"`
+2. **1-Tap Saved Reply DM (Shortcut: `kit`):**
+   ```text
+   Hey! 👋 Thanks for commenting on our Reel — here is the exact PersonaLabs 5-Day AI Influencer Launch Kit & 250+ Character DNA Prompt Vault:
+
+   👉 Instant Access: https://personalabs.store
+
+   Works 100% on Android/iOS (no gaming PC needed), and the ₹199 / $9 flash launch offer (90% OFF) is active right now inside the page. Let me know what style of AI model you're planning to launch first! ⚡
+   ```
+3. **When to Switch ManyChat ON (Phase 2 Scale Trigger):**
+   - Stay 100% manual while comments are `≤ 10–15/day` (higher warmth, zero bot risk, zero monthly cost). Once comments cross **`> 10–15/day`**, connect the same 11 keywords (`PROMPT`, `MODEL`, `GLITCH`, `TRAVEL`, `DANCE`, `TWIRL`, `CREATOR`, `VACATION`, `SKIN`, `LAUNCH`, `VIP` + universal `AI`) in ManyChat using the exact 2-step template in [`../docs/OUTREACH.md`](../docs/OUTREACH.md).
+
+---
+
+## 3. All 11 Scheduled Reels — Verified Paths, Captions & First Comments
+
+> **Note:** Captions below match the copy **scheduled live in Meta Business Suite** so your First Comments stay 100% synchronized each evening (`19:30–19:43 IST`).
+
+### Reel 01 — Mon, 9 Nov 2026 @ `19:30 IST` *(Tonight — ✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`](reels-active-11/Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_01_PROMPT_Wine_Saree_Smile.jpg`](reels-active-11/thumbnails/Cover_01_PROMPT_Wine_Saree_Smile.jpg)
+* **DM Keyword Trigger:** `PROMPT`
+
+**Caption (Scheduled in MBS):**
 ```text
 Wait... she doesn't actually exist 😳📸
 
@@ -84,7 +90,7 @@ Want our 250+ Character DNA Prompt Bible + the complete 5-Day Launch Kit?
 #aiinfluencer #virtualcreator #aimodel #aiphotography #promptengineering #facelesscreator #creatoreconomy #digitalproducts #personalabsacademy #generativeai
 ```
 
-**First Comment:**
+**First Comment (Post at `19:30 IST` Tonight):**
 ```text
 Drop any questions you have about prompt seeds or realistic skin pores below — I reply to every comment 👇
 
@@ -93,13 +99,13 @@ Drop any questions you have about prompt seeds or realistic skin pores below —
 
 ---
 
-### Reel 02 — Tue, 10 Nov 2026 @ 7:30 PM IST *(🔓 Bio Link Unlocks Today)*
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_02_MODEL_Emerald_Satin_Turn.jpg`
-* **ManyChat Trigger:** `MODEL`
-* **Bio Action:** Add `https://personalabs.store` to `@personalabsacademy` Bio today!
+### Reel 02 — Tue, 10 Nov 2026 @ `19:39 IST` *(🔓 Bio Link Unlocks Today — ✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`](reels-active-11/Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_02_MODEL_Emerald_Satin_Turn.jpg`](reels-active-11/thumbnails/Cover_02_MODEL_Emerald_Satin_Turn.jpg)
+* **DM Keyword Trigger:** `MODEL`
+* **Bio Action:** Add `https://personalabs.store` to `@personalabsacademy` Bio today before `19:39 IST`!
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 The #1 mistake beginners make with AI models? 🧬🤦‍♂️
 
@@ -119,7 +125,7 @@ Traditional agency shoots cost ₹50,000+. With Seed Locking + Reference Face ID
 #characterconsistency #aimodel #aiinfluencer #virtualmodel #promptengineer #seedlocking #digitalfashion #facelessmarketing #personalabsacademy
 ```
 
-**First Comment:**
+**First Comment (Post at `19:39 IST`):**
 ```text
 Which outfit style or location should we put our virtual model in next? Drop your ideas below 👇
 
@@ -128,12 +134,12 @@ Which outfit style or location should we put our virtual model in next? Drop you
 
 ---
 
-### Reel 03 — Wed, 11 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_03_GLITCH_Champagne_Corset_VIP.jpg`
-* **ManyChat Trigger:** `GLITCH`
+### Reel 03 — Wed, 11 Nov 2026 @ `19:40 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`](reels-active-11/Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_03_GLITCH_Champagne_Corset_VIP.jpg`](reels-active-11/thumbnails/Cover_03_GLITCH_Champagne_Corset_VIP.jpg)
+* **DM Keyword Trigger:** `GLITCH`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 Zero studio fees. Zero camera crew. Built in 15 minutes on a phone 🍾✨
 
@@ -153,7 +159,7 @@ The truth? Everything runs 100% in the cloud straight from your phone or laptop 
 #aiinfluencer #virtualcreator #aimodel #cinematicai #aifashion #facelesscreator #phoneonly #digitalcreator #personalabsacademy
 ```
 
-**First Comment:**
+**First Comment (Post at `19:40 IST`):**
 ```text
 Be honest — if you didn't see the caption, would you spot any AI glitch? Comment below 👇
 
@@ -162,12 +168,12 @@ Be honest — if you didn't see the caption, would you spot any AI glitch? Comme
 
 ---
 
-### Reel 04 — Thu, 12 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_04_TRAVEL_Resort_Smile.jpg`
-* **ManyChat Trigger:** `TRAVEL`
+### Reel 04 — Thu, 12 Nov 2026 @ `19:41 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`](reels-active-11/Hottest_Hook_04_Mediterranean_Resort_Smile.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_04_TRAVEL_Resort_Smile.jpg`](reels-active-11/thumbnails/Cover_04_TRAVEL_Resort_Smile.jpg)
+* **DM Keyword Trigger:** `TRAVEL`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 Human or AI? 97% of people get this wrong! 🌊☀️
 
@@ -186,7 +192,7 @@ Want our complete prompt vault for photorealistic travel & resort aesthetics?
 #travelinfluencer #virtualtravel #aimodel #aiinfluencer #luxurytravel #virtualcreator #personalabsacademy #generativeai
 ```
 
-**First Comment:**
+**First Comment (Post at `19:41 IST`):**
 ```text
 Where should we send our virtual resort model next? Drop your dream destination below ✈️🗺️
 
@@ -195,12 +201,12 @@ Where should we send our virtual resort model next? Drop your dream destination 
 
 ---
 
-### Reel 05 — Fri, 13 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_05_DANCE_Rooftop_Sway.jpg`
-* **ManyChat Trigger:** `DANCE`
+### Reel 05 — Fri, 13 Nov 2026 @ `19:42 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`](reels-active-11/Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_05_DANCE_Rooftop_Sway.jpg`](reels-active-11/thumbnails/Cover_05_DANCE_Rooftop_Sway.jpg)
+* **DM Keyword Trigger:** `DANCE`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 AI models are officially dancing now! 🚀💃
 
@@ -218,7 +224,7 @@ Here is the exact 5-day roadmap to launch your first virtual creator:
 #aiinfluencer #aimodel #creatorblueprint #digitalempire #facelessinstagram #manychat #personalabsacademy #passiveincomeideas
 ```
 
-**First Comment:**
+**First Comment (Post at `19:42 IST`):**
 ```text
 Save this 5-day roadmap for later! Ask any question about AI motion or face locking below 👇
 
@@ -227,12 +233,12 @@ Save this 5-day roadmap for later! Ask any question about AI motion or face lock
 
 ---
 
-### Reel 06 — Sat, 14 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_06_TWIRL_Couture_Gown_Spin.jpg`
-* **ManyChat Trigger:** `TWIRL`
+### Reel 06 — Sat, 14 Nov 2026 @ `19:43 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4`](reels-active-11/Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_06_TWIRL_Couture_Gown_Spin.jpg`](reels-active-11/thumbnails/Cover_06_TWIRL_Couture_Gown_Spin.jpg)
+* **DM Keyword Trigger:** `TWIRL`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 Wait for the twirl... she doesn't actually exist 😳💃
 
@@ -252,7 +258,7 @@ Want our 250+ Master DNA Prompt Bible?
 #aiinfluencer #virtualcreator #aimodel #backlesstwirl #editorialfashion #promptengineering #facelesscreator #creatoreconomy #personalabsacademy
 ```
 
-**First Comment:**
+**First Comment (Post at `19:43 IST`):**
 ```text
 Rate the dress spin from 1 to 10! Would you guess this editorial clip was 100% AI? 👇
 
@@ -261,12 +267,12 @@ Rate the dress spin from 1 to 10! Would you guess this editorial clip was 100% A
 
 ---
 
-### Reel 07 — Sun, 15 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_07_CREATOR_Terrace_Workout_Glow.jpg`
-* **ManyChat Trigger:** `CREATOR`
+### Reel 07 — Sun, 15 Nov 2026 @ `19:43 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4`](reels-active-11/Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_07_CREATOR_Terrace_Workout_Glow.jpg`](reels-active-11/thumbnails/Cover_07_CREATOR_Terrace_Workout_Glow.jpg)
+* **DM Keyword Trigger:** `CREATOR`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 Watch her waist and movement closely! ✨🧘‍♀️
 
@@ -282,7 +288,7 @@ What makes this clip look indistinguishable from real smartphone footage:
 #aiinfluencer #fitnessmodel #aimodel #virtualcreator #characterconsistency #facelesscreator #personalabsacademy #creatorbusiness #digitalproducts
 ```
 
-**First Comment:**
+**First Comment (Post at `19:43 IST`):**
 ```text
 Fitness & wellness is one of the highest-RPM virtual creator niches right now — ask any question below! 👇
 
@@ -291,12 +297,12 @@ Fitness & wellness is one of the highest-RPM virtual creator niches right now �
 
 ---
 
-### Reel 08 — Mon, 16 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_08_VACATION_Amalfi_Linen_Sway.jpg`
-* **ManyChat Trigger:** `VACATION`
+### Reel 08 — Mon, 16 Nov 2026 @ `19:30 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4`](reels-active-11/Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_08_VACATION_Amalfi_Linen_Sway.jpg`](reels-active-11/thumbnails/Cover_08_VACATION_Amalfi_Linen_Sway.jpg)
+* **DM Keyword Trigger:** `VACATION`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 This is NOT a real vacation ☀️🌊
 
@@ -314,7 +320,7 @@ The 2026 faceless creator formula is simple:
 #travelinfluencer #amalficoast #aimodel #virtualinfluencer #facelessmarketing #digitalnomad #personalabsacademy #passiveincome
 ```
 
-**First Comment:**
+**First Comment (Post at `19:30 IST`):**
 ```text
 Dream coastal shoot on a smartphone workflow 📱☀️ Drop "VACATION" above to grab the exact stack!
 
@@ -323,12 +329,12 @@ Dream coastal shoot on a smartphone workflow 📱☀️ Drop "VACATION" above to
 
 ---
 
-### Reel 09 — Tue, 17 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_09_SKIN_Parisian_Silk_Suite.jpg`
-* **ManyChat Trigger:** `SKIN`
+### Reel 09 — Tue, 17 Nov 2026 @ `19:30 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4`](reels-active-11/Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_09_SKIN_Parisian_Silk_Suite.jpg`](reels-active-11/thumbnails/Cover_09_SKIN_Parisian_Silk_Suite.jpg)
+* **DM Keyword Trigger:** `SKIN`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 Look at her skin and lighting... zero editing, 100% AI generated 🕯️✨
 
@@ -343,7 +349,7 @@ Our unretouched smartphone prompt formula preserves real skin texture, gentle un
 #aimodel #virtualcreator #skinrealism #cinematiclighting #aiphotography #personalabsacademy #facelesscreator #prompthacks
 ```
 
-**First Comment:**
+**First Comment (Post at `19:30 IST`):**
 ```text
 Save this tip: never put "glossy", "airbrushed", or "3D render" in realism prompts! Drop "SKIN" above for our full negative-prompt cheat sheet 👇
 
@@ -352,12 +358,12 @@ Save this tip: never put "glossy", "airbrushed", or "3D render" in realism promp
 
 ---
 
-### Reel 10 — Wed, 18 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_10_Classical_Mudra_Grace.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_10_LAUNCH_Mudra_Hands_Grace.jpg`
-* **ManyChat Trigger:** `LAUNCH`
+### Reel 10 — Wed, 18 Nov 2026 @ `19:30 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_10_Classical_Mudra_Grace.mp4`](reels-active-11/Hottest_Hook_10_Classical_Mudra_Grace.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_10_LAUNCH_Mudra_Hands_Grace.jpg`](reels-active-11/thumbnails/Cover_10_LAUNCH_Mudra_Hands_Grace.jpg)
+* **DM Keyword Trigger:** `LAUNCH`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 AI characters can officially dance now with zero face warp! 🎶💃
 
@@ -376,7 +382,7 @@ Inside our 5-Day Launch Kit, you get:
 #aiinfluencer #virtualcreator #aimodel #danceai #facelesscreator #creatoreconomy #personalabsacademy #reelsvideo
 ```
 
-**First Comment:**
+**First Comment (Post at `19:30 IST`):**
 ```text
 What's been harder for you with AI video — fingers/hands, face consistency, or smooth body motion? Let me know below! 👇
 
@@ -385,12 +391,12 @@ What's been harder for you with AI video — fingers/hands, face consistency, or
 
 ---
 
-### Reel 11 — Thu, 19 Nov 2026 @ 7:30 PM IST
-* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4`
-* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_11_VIP_Sculptural_Couture_Front.jpg`
-* **ManyChat Trigger:** `VIP`
+### Reel 11 — Thu, 19 Nov 2026 @ `19:30 IST` *(✅ Scheduled)*
+* **Video:** [`reels-active-11/Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4`](reels-active-11/Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4)
+* **Thumbnail:** [`reels-active-11/thumbnails/Cover_11_VIP_Sculptural_Couture_Front.jpg`](reels-active-11/thumbnails/Cover_11_VIP_Sculptural_Couture_Front.jpg)
+* **DM Keyword Trigger:** `VIP`
 
-**Caption (Copy & Paste):**
+**Caption (Scheduled in MBS):**
 ```text
 Can you spot the AI glitch in this couture spin? 🖤✨
 
@@ -407,7 +413,7 @@ Want instant VIP access to our entire master creator vault?
 #aiinfluencer #aimodel #virtualmodel #highfashionai #digitalempire #promptengineering #personalabsacademy #creatorgrowth
 ```
 
-**First Comment:**
+**First Comment (Post at `19:30 IST`):**
 ```text
 Comment "VIP" above and check your inbox — full vault & 5-day launch guide sent instantly ⚡
 
