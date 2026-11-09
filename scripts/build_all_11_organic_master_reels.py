@@ -11,9 +11,9 @@ from PIL import Image, ImageDraw, ImageFont
 import concurrent.futures
 
 PROJECT_DIR = r"C:\Projects\ai-influencer-course-website"
-AD_HOOKS_DIR = os.path.join(PROJECT_DIR, "ads-ready", "dancing-ad-hooks")
-RAW_DIR = os.path.join(PROJECT_DIR, "ads-ready", "raw-gemini-videos")
-BGM_PATH = os.path.join(PROJECT_DIR, "ads-ready", "bgm_master.mp3")
+AD_HOOKS_DIR = os.path.join(PROJECT_DIR, "instagram-studio", "reels-active-11")
+RAW_DIR = os.path.join(PROJECT_DIR, "instagram-studio", "source-assets", "raw-gemini-videos")
+BGM_PATH = os.path.join(PROJECT_DIR, "instagram-studio", "source-assets", "bgm_master.mp3")
 BRAIN_DIR = r"C:\Users\piyus\.gemini\antigravity\brain\253e6085-f880-4a72-b935-20afe2df40a6"
 SCRATCH_DIR = os.path.join(BRAIN_DIR, "scratch", "master_11_organic")
 FFMPEG_EXE = imageio_ffmpeg.get_ffmpeg_exe()

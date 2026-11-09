@@ -1,7 +1,7 @@
 # 📖 PersonaLabs Academy — Complete Launch & Operations Manual
 
-Last Updated: **November 8, 2026** (`v2.9.4`)  
-Status: **🟢 100% Organic Growth & Viral Reels Funnel • 11 Master Dancing Video Reels Ready • ManyChat Comment-to-DM Engine Active • Zero Ad Spend / Zero GST Liability**
+Last Updated: **November 9, 2026** (`v2.9.5`)  
+Status: **🟢 100% Organic Growth & Viral Reels Funnel • 11 Master Dancing Video Reels Scheduled (`9–19 Nov`) • ManyChat Comment-to-DM Engine Active • Zero Ad Spend / Zero GST Liability**
 
 ---
 
@@ -13,7 +13,7 @@ Status: **🟢 100% Organic Growth & Viral Reels Funnel • 11 Master Dancing Vi
 | **Secret Testing Route** | [https://www.personalabs.store/kjboavhpoieabpraegnaln](https://www.personalabs.store/kjboavhpoieabpraegnaln) | 🟢 **Active for Testing** | **₹1 INR** (Razorpay) / **$1 USD** (PayPal) per item with 1-click currency toggle. Can be disabled anytime in `app.js`. |
 | **Official Printable PDF Receipt** | [`https://personalabs.store/course-vault/receipt.html`](../course-vault/receipt.html) | 🟢 **100% Live** | Instant (`<50ms`) A4 printable invoice/receipt. Shows `Tax Invoice` + `Included (₹0.00)` for India (`INR`) and `Payment Receipt` + `Included ($0.00)` (no GST) for International (`USD`). |
 | **Member Vault Portal** | `https://personalabs.store/course-vault/` | 🟢 **100% Live** | 18 HD lessons, 250+ prompts, and authenticated add-on downloads. |
-| **11 Master Dancing Video Reels** | [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/) | 🟢 **100% Ready** | 11 broadcast-grade 1080×1920 video reels (`Hottest_Hook_01` to `11`) opening at `0:00` with real fluid dance motion, radiant smiles, 100% generic audio, and ManyChat comment CTAs. |
+| **11 Master Dancing Video Reels** | [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) | 🟢 **Scheduled (`9–19 Nov`)** | 11 broadcast-grade 1080×1920 video reels (`Hottest_Hook_01` to `11`) + custom `thumbnails/`, scheduled daily `@ 7:30 PM IST` in Meta Business Suite. |
 | **Meta Ad Account** | `PersonaLabs Academy Ads` (`2218391099056783`) | 🟢 **Active** | Currency: INR (`₹`). Timezone: Asia/Kolkata. Paused on `Payment error` upon prepaid budget exhaustion; top up via UPI to resume. |
 | **Meta Dataset / Pixel** | `PersonaLabs Academy Pixel` (`1661173205598260`) | 🟢 **Tracking Live** | Events: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout`, `Purchase`. |
 | **Instagram Organic Funnel** | [`@personalabsacademy`](https://www.instagram.com/personalabsacademy/) | 🟢 **Active (26 Followers)** | 19 posts, active library of 11 dancing reels + 6 carousels. Operating on 100% organic reach via ManyChat Comment-to-DM triggers and Story Link Stickers (zero ad spend). External bio link unlock scheduled for 10 Nov 2026. |
@@ -138,7 +138,7 @@ Instead of messaging leads from a personal WhatsApp number, your **Google Apps S
 Per the mandatory creative rule codified in [`GEMINI.md`](../GEMINI.md), paid Meta Ads are completely halted, eliminating daily ad spend and 18% GST liabilities. Customer acquisition is driven entirely through high-retention organic Instagram Reels and ManyChat Comment-to-DM automation:
 1. **100% Fluid Dance Motion Mandate:** Every video Reel hook must open on real fluid dance movement (alluring, tasteful, rhythmic, high retention). Zero static photo pans or Ken Burns effects will ever be used for video Reels.
 2. **100% Generic AI Model Terminology:** All voiceovers, burned-in subtitles, and captions use generic terminology ("hyper-realistic AI model", "virtual creator", "AI influencer") with zero geographic, regional, or ethnic labels.
-3. **The 11 Master Dancing Reels Portfolio:** Ready to post in [`ads-ready/dancing-ad-hooks/`](../ads-ready/dancing-ad-hooks/) (`Hottest_Hook_01` to `11`).
+3. **The 11 Master Dancing Reels Portfolio:** Scheduled in Meta Business Suite from [`instagram-studio/reels-active-11/`](../instagram-studio/reels-active-11/) (`Hottest_Hook_01` to `11`).
 
 ### B. Bypassing Caption Link Limitations (ManyChat + Story Stickers)
 While the Instagram profile external link is under security cooldown until **10 Nov 2026**:

@@ -1,511 +1,415 @@
-# 📱 PersonaLabs Academy (`@personalabsacademy`) — Organic Master Dancing Reels Calendar (Nov 8 – Nov 18, 2026 — 11-Day Master Schedule)
+# PersonaLabs Academy (`@personalabsacademy`) — Manual Upload Master List (Nov 9 – Nov 19, 2026)
 
-> **Strategic Directive:** 100% Organic Growth & Reels Publishing (Zero Paid Meta Ad Spend)  
-> **Brand / Handle:** `@personalabsacademy` (PersonaLabs Academy)  
-> **Target Audience:** Aspiring AI Creators, Solopreneurs, Digital Marketers, Faceless Influencers  
-> **Primary Conversion Funnel:** ManyChat Automated Comment-to-DM Trigger + Instagram Stories Link Sticker  
-> **Daily Posting Window:** `19:30 IST` (7:30 PM IST — Peak Indian & Global Evening Engagement)  
-> **Key Rule:** 100% Generic AI Model Terminology (Zero geographic/ethnic tags in copy, audio, or overlays)
-
----
-
-## 🚀 Why This Organic Reels Engine Converts Without Paid Ads
-
-1. **Scroll-Stopping 0:00 Eye-Contact & Motion:**
-   Each of the 5 Master Reels opens at `0:00` with the model's high-contrast radiant smile and dynamic dance movement, triggering Instagram's watch-time algorithm immediately.
-2. **Bypassing Caption Link Limitations via ManyChat Comment-to-DM:**
-   Instagram caption links are unclickable. Every Reel below ends with a specific single-word comment call-to-action (`PROMPT`, `MODEL`, `CREATOR`, `TRAVEL`, `LAUNCH`). ManyChat automatically DMs the user the clickable direct checkout link (`https://personalabs.store`) within 5 seconds.
-3. **Instagram Story Link Stickers:**
-   Immediately after publishing each Reel, share it to Stories with a native clickable **Link Sticker** pointing directly to `https://personalabs.store`.
-4. **Bio Link Cooldown Expiry (10 Nov 2026):**
-   In 2 days, the Instagram profile external link field unlocks, allowing `https://personalabs.store` to sit permanently in the profile bio.
+> **Posting Account:** `@personalabsacademy`  
+> **Video Folder:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\`  
+> **Cover Thumbnails Folder:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\`  
+> **Posting Cadence:** Daily at **19:30 IST (7:30 PM IST)** — *(Optional 2x/day accelerated schedule: 12:30 PM IST + 7:30 PM IST)*  
+> **Bio Link Unlock Date:** **Tomorrow — Tuesday, 10 Nov 2026** (Add `https://personalabs.store` to IG Profile Bio)  
+> **Funnel Rule:** 100% Organic engagement (**Comment Trigger Word + Like & Share + Follow `@personalabsacademy`** → ManyChat Instant Auto-DM)
 
 ---
 
-## 📅 Day-by-Day Master Reels Schedule (5 Consecutive Days)
+## 1. Master 11-Day Schedule & File Matrix
+
+| # | Scheduled Date & Time (IST) | Video File (`instagram-studio\reels-active-11\`) | Cover Thumbnail (`...\thumbnails\`) | ManyChat Keyword |
+| :---: | :--- | :--- | :--- | :---: |
+| **01** | **Mon, 9 Nov 2026 @ 7:30 PM** *(Tonight)* | `Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4` (`14.81s`) | `Cover_01_PROMPT_Wine_Saree_Smile.jpg` | **`PROMPT`** |
+| **02** | **Tue, 10 Nov 2026 @ 7:30 PM** *(🔓 Bio Link Unlocks)* | `Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4` (`14.75s`) | `Cover_02_MODEL_Emerald_Satin_Turn.jpg` | **`MODEL`** |
+| **03** | **Wed, 11 Nov 2026 @ 7:30 PM** | `Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4` (`13.33s`) | `Cover_03_GLITCH_Champagne_Corset_VIP.jpg` | **`GLITCH`** |
+| **04** | **Thu, 12 Nov 2026 @ 7:30 PM** | `Hottest_Hook_04_Mediterranean_Resort_Smile.mp4` (`14.08s`) | `Cover_04_TRAVEL_Resort_Smile.jpg` | **`TRAVEL`** |
+| **05** | **Fri, 13 Nov 2026 @ 7:30 PM** | `Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4` (`13.42s`) | `Cover_05_DANCE_Rooftop_Sway.jpg` | **`DANCE`** |
+| **06** | **Sat, 14 Nov 2026 @ 7:30 PM** | `Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4` (`16.75s`) | `Cover_06_TWIRL_Couture_Gown_Spin.jpg` | **`TWIRL`** |
+| **07** | **Sun, 15 Nov 2026 @ 7:30 PM** | `Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4` (`15.43s`) | `Cover_07_CREATOR_Terrace_Workout_Glow.jpg` | **`CREATOR`** |
+| **08** | **Mon, 16 Nov 2026 @ 7:30 PM** | `Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4` (`15.88s`) | `Cover_08_VACATION_Amalfi_Linen_Sway.jpg` | **`VACATION`** |
+| **09** | **Tue, 17 Nov 2026 @ 7:30 PM** | `Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4` (`14.43s`) | `Cover_09_SKIN_Parisian_Silk_Suite.jpg` | **`SKIN`** |
+| **10** | **Wed, 18 Nov 2026 @ 7:30 PM** | `Hottest_Hook_10_Classical_Mudra_Grace.mp4` (`14.96s`) | `Cover_10_LAUNCH_Mudra_Hands_Grace.jpg` | **`LAUNCH`** |
+| **11** | **Thu, 19 Nov 2026 @ 7:30 PM** | `Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4` (`15.42s`) | `Cover_11_VIP_Sculptural_Couture_Front.jpg` | **`VIP`** |
 
 ---
 
-### DAY 1: Sunday, 8 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Studio Photoshoot Replacement / Cost Elimination
-* **Primary ManyChat Keyword Trigger:** `PROMPT` or `AI`
+## 2. "Other Things" Upload & Funnel Checklist
 
-#### Spoken Voiceover Audio:
-> *"Stop paying thousands of dollars for studio photoshoots. You can create hyper-realistic AI models like this in under 15 minutes right from your phone. Tap below to copy our exact prompt system."*
+### A. Before Scheduling Reel #01 (Must Do First)
+1. **Wire All 11 ManyChat Keyword Triggers (`manychat.com` → Automation → Instagram Comments):**
+   Add all 11 keywords (case-insensitive, **Comment Contains** match) pointing to your 2-step **5-Day Blueprint & `https://personalabs.store` DM flow** *(plus `AI` as universal fallback)*:
+   `PROMPT`, `MODEL`, `GLITCH`, `TRAVEL`, `DANCE`, `TWIRL`, `CREATOR`, `VACATION`, `SKIN`, `LAUNCH`, `VIP`, `AI`.
+2. **Public Comment Auto-Reply Variations (Rotate in ManyChat):**
+   - `"Just sent the full blueprint straight to your DMs! Check Primary or Message Requests 🚀"`
+   - `"Check your DMs! Just dropped the exact mobile workflow & prompt vault for you 🔥"`
+   - `"Sent! Look inside your inbox right now 👀📩"`
+3. **ManyChat Step 1 + Step 2 DM Flow:**
+   - **DM 1 (Fires 5s after comment):**  
+     `Hey {{first_name}}! 👋 You asked for our AI Influencer Blueprint & Prompt Vault! Tap below so Instagram keeps our chat open and I'll send your instant access link 👇` → Button: `Send The Blueprint 🚀`
+   - **DM 2 (On tap):**  
+     `Here is instant access to the PersonaLabs 5-Day AI Influencer Launch Kit + 250+ DNA Prompts: 👉 https://personalabs.store 🚀 Let me know if you need help picking your model's niche!`
+4. **Clear Stale Drafts/Scheduled Posts:** Check **Meta Business Suite → Content → Scheduled / Drafts** for any leftover October test drafts.
 
-#### On-Screen Subtitle Overlay:
-> `100% Hyper-Realistic AI Model • Zero photoshoot or studio fees!`
+### B. Settings Inside Meta Business Suite / Instagram Uploader
+1. **Composer Type:** Always use **Create Reel** (not single photo/feed post) so Reels get full non-follower Explore/Reels discovery.
+2. **Toggle ON:** `"Also share to feed"` / `"Share to Instagram profile grid"`.
+3. **Cover Thumbnail:** Click **Edit** on the video thumbnail → **Upload image** → select the matching `Cover_XX_...jpg` from `instagram-studio\reels-active-11\thumbnails\`. Verify in **Crop Profile Grid (`3:4` & `1:1`)** that her face and smile are centered.
+4. **Audio Level:** Video audio is already mastered with clean speech + studio music (`LEXMusic - Tropical Haze`, zero hum). Do **NOT** add extra Meta/Instagram overlay audio unless muting added track to 1% for trending attribution.
+5. **First Comment:** Immediately after each Reel goes live (or right after posting), drop the **First Comment** listed below to stack extra SEO hashtags without cluttering the main caption.
+6. **Story Cross-Promotion (After Every Reel Goes Live):** Share the newly published Reel to Stories (`Paper Airplane → Add to Story`) + overlay a native **Link Sticker** pointing to `https://personalabs.store` with label `Get The 5-Day Blueprint 🚀`.
+7. **Tomorrow — Tue, 10 Nov 2026:** External bio link cooldown expires — add `https://personalabs.store` directly into `@personalabsacademy` Instagram Bio.
 
-#### Instagram Caption:
+---
+
+## 3. All 11 Reels — Exact Paths, Captions & First Comments
+
+### Reel 01 — Mon, 9 Nov 2026 @ 7:30 PM IST *(Tonight)*
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_01_Wine_Saree_Mudra_Dance.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_01_PROMPT_Wine_Saree_Smile.jpg`
+* **ManyChat Trigger:** `PROMPT`
+
+**Caption (Copy & Paste):**
 ```text
 Wait... she doesn't actually exist 😳📸
 
-No photographer. No studio lighting. Zero ₹50,000 camera gear.
+No photographer. No studio lighting. Zero ₹50,000+ camera gear.
 
-In 2026, the creator economy shifted forever. What used to take a full production team and a ₹2 Lakh budget can now be generated on a laptop or smartphone in 15 minutes.
+In 2026, the creator economy shifted forever. What used to take a full production crew and an expensive shoot budget can now be generated on a smartphone in 15 minutes.
 
 Here is the exact 3-step stack we use to build virtual models with 100% realistic skin texture and natural eye catchlights:
 1️⃣ 24mm Candid Smartphone Optics (natural depth, zero plastic blur)
 2️⃣ Locked Character Seed DNA (identical facial bones across every outfit)
-3️⃣ Ambient Real-World Lighting Physics (golden hour, city nightscapes, resort sun)
+3️⃣ Ambient Real-World Lighting Physics (golden hour, nightscapes, resort sun)
 
 Want our 250+ Character DNA Prompt Bible + the complete 5-Day Launch Kit?
 
-💬 Comment "PROMPT" below and I'll send the full step-by-step blueprint straight to your DMs! 🚀
+💬 Comment "PROMPT" below, like & share, and follow @personalabsacademy! I will DM you the complete blueprint straight to your inbox! 🚀
 
 (Make sure you're following @personalabsacademy so our Auto-DM doesn't get hidden in your message requests!)
 
 #aiinfluencer #virtualcreator #aimodel #aiphotography #promptengineering #facelesscreator #creatoreconomy #digitalproducts #personalabsacademy #generativeai
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Drop any questions you have about prompt seeds or skin textures below! I'll reply to every comment 👇
+Drop any questions you have about prompt seeds or realistic skin pores below — I reply to every comment 👇
 
 #aimodel #virtualinfluencer #midjourneyphoto #promptcraft #aigenerated #digitalcreator #aipersona #contentcreator
 ```
 
 ---
 
-### DAY 2: Monday, 9 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Same-Face Consistency Across Different Scenes
-* **Primary ManyChat Keyword Trigger:** `MODEL` or `AI`
+### Reel 02 — Tue, 10 Nov 2026 @ 7:30 PM IST *(🔓 Bio Link Unlocks Today)*
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_02_Emerald_Satin_Backless_Turn.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_02_MODEL_Emerald_Satin_Turn.jpg`
+* **ManyChat Trigger:** `MODEL`
+* **Bio Action:** Add `https://personalabs.store` to `@personalabsacademy` Bio today!
 
-#### Spoken Voiceover Audio:
-> *"Want to know how we generate consistent AI models that brands actually pay for? Tap below to copy our exact prompt system."*
-
-#### On-Screen Subtitle Overlay:
-> `CONSISTENT AI MODEL • Flawless facial features in every scene!`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
 The #1 mistake beginners make with AI models? 🧬🤦‍♂️
 
 Their character looks like a completely different person in every scene.
 
-One day she's at a cafe, the next day at a photoshoot, and the face structure completely scrambles. Brands will NEVER sponsor an inconsistent face.
+One day she's at a cafe, the next day at a rooftop photoshoot, and the face structure completely scrambles. Brands will NEVER sponsor an inconsistent face.
 
-The secret isn't typing longer prompts. It's Seed Locking + Reference Face ID:
+Traditional agency shoots cost ₹50,000+. With Seed Locking + Reference Face ID, you build your entire luxury creator studio on your phone:
 ✨ 3-Layer Character Architecture
-✨ Ambient modifier swapping without touching the facial anchor
-✨ Photorealistic fabric rendering (satin, silk, athletic knit)
+✨ Ambient lighting & outfit swapping without touching the facial anchor
+✨ Photorealistic fabric rendering (emerald satin, silk, knitwear)
 
-We broke down the entire method click-by-click in our 5-Day Launch Kit.
+💬 Comment "MODEL" below, like & share, and follow @personalabsacademy! I will DM you our exact mobile prompt system right now! 🔥
 
-💬 Comment "MODEL" below and I'll DM you the exact consistency blueprint right now! 🔥
+🔗 Instant Access link is also now live in our bio @personalabsacademy!
 
 #characterconsistency #aimodel #aiinfluencer #virtualmodel #promptengineer #seedlocking #digitalfashion #facelessmarketing #personalabsacademy
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Which outfit style do you want to see our virtual model wear next? Drop your ideas below! 👇
+Which outfit style or location should we put our virtual model in next? Drop your ideas below 👇
 
-#virtualcreator #aigeneratedart #facelessyoutube #creatorbusiness #aistartup #digitalempire
+#virtualcreator #aigeneratedart #creatorbusiness #aistartup #digitalempire #smartphonephotography
 ```
 
 ---
 
-### DAY 3: Tuesday, 10 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Nightlife & Luxury Fashion Aesthetics (Zero Equipment)
-* **Special Event:** 🔓 **Instagram Bio External Link Unlocks Today!**
-* **Primary ManyChat Keyword Trigger:** `CREATOR` or `AI`
+### Reel 03 — Wed, 11 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_03_Champagne_Corset_VIP_Club.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_03_GLITCH_Champagne_Corset_VIP.jpg`
+* **ManyChat Trigger:** `GLITCH`
 
-#### Spoken Voiceover Audio:
-> *"Meet our newest virtual creator. Built in 15 minutes right from a smartphone. Tap below to get started today."*
-
-#### On-Screen Subtitle Overlay:
-> `VIRTUAL LUXURY CREATOR • Built in 15 minutes on a phone!`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
 Zero studio fees. Zero camera crew. Built in 15 minutes on a phone 🍾✨
 
-Meet our newest virtual creator.
+Can you spot the AI glitch in this video? Watch her eyes and champagne corset closely.
 
-Most people think you need an expensive ₹1.5L PC with liquid-cooled GPUs to generate 4K motion and cinematic VIP lighting.
+Most people think you need an expensive gaming PC with liquid-cooled GPUs to generate lifelike motion and cinematic VIP lounge lighting.
 
 The truth? Everything runs 100% in the cloud straight from your phone or laptop browser:
-📱 Step 1: Lock the character identity in the cloud
-📱 Step 2: Inject cinematic nightlife lighting physics (ambient neon, glass caustics)
+📱 Step 1: Lock your character identity in the cloud
+📱 Step 2: Inject cinematic nightlife lighting physics (ambient gold bokeh, glass caustics)
 📱 Step 3: Animate into 9:16 viral motion reels with natural eye contact
 
-We packaged the exact prompt templates and step-by-step masterclass for you.
+💬 Comment "GLITCH" below, like & share, and follow @personalabsacademy! I will DM you the step-by-step phone blueprint to build your own model today! 📩
 
-💬 Comment "CREATOR" below and I'll send the starter pack directly to your DMs! 📩
-
-🔗 You can also tap the link in our bio to grab the instant launch kit!
+🔗 Check @personalabsacademy bio link anytime!
 
 #aiinfluencer #virtualcreator #aimodel #cinematicai #aifashion #facelesscreator #phoneonly #digitalcreator #personalabsacademy
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-What niche would you build your AI influencer in? Fashion, fitness, luxury, or travel? Let me know below! 👇
+Be honest — if you didn't see the caption, would you spot any AI glitch? Comment below 👇
 
-#digitalproducts #passiveincome #contentcreation #aiartcommunity #virtualinfluencer
+#digitalproducts #contentcreation #aiartcommunity #virtualinfluencer #aireels
 ```
 
 ---
 
-### DAY 4: Wednesday, 11 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Travel & Resort Influencer Without Booking Flights
-* **Primary ManyChat Keyword Trigger:** `TRAVEL` or `AI`
+### Reel 04 — Thu, 12 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_04_Mediterranean_Resort_Smile.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_04_TRAVEL_Resort_Smile.jpg`
+* **ManyChat Trigger:** `TRAVEL`
 
-#### Spoken Voiceover Audio:
-> *"Meet the next-gen virtual resort model. Zero flights, zero camera crew. Flawless facial consistency in every single scene."*
-
-#### On-Screen Subtitle Overlay:
-> `MEET THE NEXT-GEN VIRTUAL RESORT MODEL • Zero flights or crew!`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-From your desk to an Amalfi cliffside resort in 15 minutes 🌊☀️
+Human or AI? 97% of people get this wrong! 🌊☀️
 
-How travel influencers are scaling without booking ₹2,00,000 international flights:
+From your desk to a Mediterranean cliffside resort in 15 minutes — on an iPhone, without booking a single flight or hotel room.
 
-They build a virtual travel creator, lock the facial structure, and place her in luxury villas, coastal yachts, and rooftop terraces across the globe.
+How next-gen travel & lifestyle creators scale effortlessly:
+🏖️ Unlimited exotic resort locations on demand
+🏖️ Perfect sun-dappled golden-hour skin realism 100% of the time
+🏖️ Zero flight tickets, visas, or production crew expenses
+🏖️ High-converting brand visuals generated straight from prompts
 
-The benefits:
-🏖️ Unlimited exotic locations on demand
-🏖️ Perfect golden hour lighting 100% of the time
-🏖️ Zero travel fatigue, visas, or luggage fees
-🏖️ High-paying luxury brand partnerships
+Want our complete prompt vault for photorealistic travel & resort aesthetics?
 
-Want to learn how to generate photorealistic travel sets with identical character identity?
+💬 Comment "TRAVEL" below, like & share, and follow @personalabsacademy! I will DM you the full prompt vault today! 🚀
 
-💬 Comment "TRAVEL" below and I'll drop the full prompt breakdown straight in your inbox! 🚀
-
-#travelinfluencer #virtualtravel #aimodel #aiinfluencer #amalficoast #luxurytravel #virtualcreator #personalabsacademy #generativeai
+#travelinfluencer #virtualtravel #aimodel #aiinfluencer #luxurytravel #virtualcreator #personalabsacademy #generativeai
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Where should our AI creator travel next? Drop your dream destination below! ✈️🗺️
+Where should we send our virtual resort model next? Drop your dream destination below ✈️🗺️
 
-#travelcontent #virtualcreator #digitalnomad #creatoreconomy #aiphotography
+#travelcontent #digitalnomad #creatoreconomy #aiphotography #aimodels
 ```
 
 ---
 
-### DAY 5: Thursday, 12 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Full 5-Day Launch Roadmap & Master Kit
-* **Primary ManyChat Keyword Trigger:** `LAUNCH` or `AI`
+### Reel 05 — Fri, 13 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_05_Bollywood_Rooftop_Sway.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_05_DANCE_Rooftop_Sway.jpg`
+* **ManyChat Trigger:** `DANCE`
 
-#### Spoken Voiceover Audio:
-> *"Every single day, creators are launching virtual models with flawless facial consistency. You don't need a studio, you don't need expensive gear. Tap below to copy our exact prompt system."*
-
-#### On-Screen Subtitle Overlay:
-> `LAUNCH YOUR AI CREATOR • Flawless facial consistency!`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-The complete 5-day roadmap to launch your first virtual creator 🚀🧬
+AI models are officially dancing now! 🚀💃
 
-You don't need coding skills. You don't need expensive cameras. You don't need studio lighting.
+Zero camera gear. Zero photoshoot fees. Just fluid rooftop motion and locked facial consistency.
 
-Here is the exact day-by-day plan:
+Here is the exact 5-day roadmap to launch your first virtual creator:
 🗓️ Day 1: Build & lock your character's facial DNA seed
-🗓️ Day 2: Master unretouched skin micro-pores and smartphone lens physics
-🗓️ Day 3: Transform still images into viral 9:16 motion video reels
-🗓️ Day 4: Set up automated comment-to-DM funnels that convert viewers into buyers
-🗓️ Day 5: Land your first brand collaboration or digital product sales
+🗓️ Day 2: Master unretouched skin micro-pores & smartphone lens physics
+🗓️ Day 3: Animate still photos into viral 9:16 dancing Reels
+🗓️ Day 4: Wire automated Comment-to-DM funnels that convert viewers on autopilot
+🗓️ Day 5: Monetize with digital products, affiliate links, and brand collabs
 
-Ready to launch?
+💬 Comment "DANCE" below, like & share, and follow @personalabsacademy! I will DM you our complete 5-day prompt blueprint right now! 🔥
 
-💬 Comment "LAUNCH" below and I'll DM you the full step-by-step master kit right now! 🔥
-
-🔗 Or tap the link in our bio @personalabsacademy for instant access.
-
-#aiinfluencer #creatoreconomy #virtualcreator #launchkit #digitalproducts #facelessmarketing #aimodel #personalabsacademy #passiveincome
+#aiinfluencer #aimodel #creatorblueprint #digitalempire #facelessinstagram #manychat #personalabsacademy #passiveincomeideas
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Save this post for your launch reference! What's the biggest roadblock holding you back from launching an AI creator? Ask below 👇
+Save this 5-day roadmap for later! Ask any question about AI motion or face locking below 👇
 
-#aimodel #virtualinfluencer #creators #aistartup #digitalempire
+#aimodel #virtualinfluencer #creators #aistartup #digitalcreator #reelshooks
 ```
 
 ---
 
----
+### Reel 06 — Sat, 14 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_06_TWIRL_Couture_Gown_Spin.jpg`
+* **ManyChat Trigger:** `TWIRL`
 
-### DAY 6: Friday, 13 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_06_Over_Shoulder_Backless_Twirl.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Seductive Backless Dress Twirl & Toned Waistline
-* **Primary ManyChat Keyword Trigger:** `MODEL` or `AI`
-
-#### Spoken Voiceover Audio:
-> *"Wait for the twirl! Notice her natural waistline, smooth skin texture, and fluid dress motion. This hyper-realistic AI creator was built in 15 minutes right from a phone. Comment MODEL to copy our exact prompt system!"*
-
-#### On-Screen Subtitle Overlay:
-> `WAIT FOR THE TWIRL... • SHE DOESN'T ACTUALLY EXIST`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-Wait for the twirl... 😳💃
+Wait for the twirl... she doesn't actually exist 😳💃
 
-Notice the natural waist curve, the unretouched skin texture, and how fluidly the dress moves.
+Notice her natural waistline, smooth skin texture, and how fluidly the midnight couture gown moves through the spin.
 
-She looks like a high-fashion creator getting ready for an event, but she was completely generated on a phone in 15 minutes.
+She looks like a high-fashion editorial star at a brutalist gallery shoot, yet the entire creator was built in 15 minutes right from a phone.
 
-The secret? We locked her facial bone structure using our 3-Layer Character DNA architecture:
-1️⃣ Reference Face Anchor (identical eyes and facial symmetry)
-2️⃣ Ambient Lighting Modifier (realistic nightclub & studio rim lights)
-3️⃣ Motion Pacing Engine (smooth video dance motion without facial warping)
+The secret? 3-Layer Character DNA:
+1️⃣ Reference Face Anchor (identical eyes & facial symmetry through turns)
+2️⃣ Ambient Architecture Lighting (natural shadows & silk folds)
+3️⃣ Motion Pacing Control (smooth dance turns without facial warping)
 
-Want our 250+ Master DNA Prompt Bible + 5-Day Launch Kit?
+Want our 250+ Master DNA Prompt Bible?
 
-💬 Comment "MODEL" below and I'll DM you the complete blueprint right now! 🚀
+💬 Comment "TWIRL" below, like & share, and follow @personalabsacademy! I will DM you our exact prompt system right now! 🚀
 
-(Check the link in our bio @personalabsacademy for instant access!)
-
-#aiinfluencer #virtualcreator #aimodel #backlesstwirl #promptengineering #facelesscreator #creatoreconomy #digitalproducts #personalabsacademy
+#aiinfluencer #virtualcreator #aimodel #backlesstwirl #editorialfashion #promptengineering #facelesscreator #creatoreconomy #personalabsacademy
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Did you spot the backless turn? Drop your thoughts below! 👇
+Rate the dress spin from 1 to 10! Would you guess this editorial clip was 100% AI? 👇
 
-#aimodel #virtualinfluencer #creators #aistartup #digitalfashion
+#aifashion #virtualmodel #midjourney #aireels #digitalcouture
 ```
 
 ---
 
-### DAY 7: Saturday, 14 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Hypnotic Fluid Waist Sway & Continuous Body Rhythm
-* **Primary ManyChat Keyword Trigger:** `CREATOR` or `AI`
+### Reel 07 — Sun, 15 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_07_Emotional_Waist_Dance_Sway.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_07_CREATOR_Terrace_Workout_Glow.jpg`
+* **ManyChat Trigger:** `CREATOR`
 
-#### Spoken Voiceover Audio:
-> *"Watch her waist and movement! Pure fluid motion, authentic eye contact, and locked facial consistency. You do not need a high-end studio to launch a viral virtual model. Comment CREATOR to get our 5-day launch kit!"*
-
-#### On-Screen Subtitle Overlay:
-> `WATCH HER WAIST & MOVEMENT... • FLAWLESS REAL-TIME MOTION`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-Watch her waist and movement closely... ⏳✨
+Watch her waist and movement closely! ✨🧘‍♀️
 
-Notice how her face stays 100% consistent while her body sways naturally to the beat.
+Pure fluid motion, authentic eye contact, and 100% locked facial consistency — you do not need an expensive studio to launch a viral fitness or lifestyle virtual model.
 
-Most people think AI video always melts, blurs, or distorts hands and waistlines. That only happens when you use beginner text-to-video prompts.
+What makes this clip look indistinguishable from real smartphone footage:
+🔥 Dewy sun-kissed skin texture with natural collar-bone highlights
+🔥 Fluid terrace dance rhythm with zero flickering
+🔥 Locked facial identity across every movement & hand gesture
 
-When you use our Smartphone Motion Stack:
-✨ 100% anatomically stable body proportions
-✨ Natural specular lighting catching the collarbones
-✨ Flawless continuous rhythm that loops seamlessly
+💬 Comment "CREATOR" below, like & share, and follow @personalabsacademy! I will DM you our step-by-step 5-day launch kit right away! 🚀
 
-Ready to launch your own virtual creator?
-
-💬 Comment "CREATOR" below and I'll send the starter blueprint straight to your inbox! 🔥
-
-#characterconsistency #aimodel #aiinfluencer #virtualcreator #waistdance #aipersona #seedlocking #facelessmarketing #personalabsacademy
+#aiinfluencer #fitnessmodel #aimodel #virtualcreator #characterconsistency #facelesscreator #personalabsacademy #creatorbusiness #digitalproducts
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-What type of music does your virtual persona dance to? Let me know below! 👇
+Fitness & wellness is one of the highest-RPM virtual creator niches right now — ask any question below! 👇
 
-#virtualinfluencer #digitalnomad #creatoreconomy #aiartcommunity
+#virtualinfluencer #creatoreconomy #aistartup #digitalmarketing
 ```
 
 ---
 
-### DAY 8: Sunday, 15 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Red Silk Fabric Physics & Glass-Skin Realism
-* **Primary ManyChat Keyword Trigger:** `PROMPT` or `AI`
+### Reel 08 — Mon, 16 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_08_Red_Silk_Rhythm_Sway.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_08_VACATION_Amalfi_Linen_Sway.jpg`
+* **ManyChat Trigger:** `VACATION`
 
-#### Spoken Voiceover Audio:
-> *"Can you spot the AI glitch in her dance? Zero warping, authentic fabric physics, and radiant skin realism. We show you how to generate viral virtual creators with zero coding. Comment PROMPT to copy our blueprint!"*
-
-#### On-Screen Subtitle Overlay:
-> `CAN YOU SPOT THE AI GLITCH? • NATURAL FABRIC PHYSICS`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-Can you spot the AI glitch in her dance? 🤔💃
+This is NOT a real vacation ☀️🌊
 
-Look at the red silk fabric reflections, the crisp collarbone contours, and the glass-skin realism.
+Zero flight tickets. Zero cliffside hotel bills. Zero camera crew.
 
-Zero Photoshop. Zero CGI green screens. Built completely inside cloud tools in 15 minutes.
+We generated this entire Amalfi coastal scene with locked character consistency straight from a phone in 15 minutes.
 
-Here is how creators are replacing ₹50,000 photoshoot budgets in 2026:
-1️⃣ Realistic skin micro-pores (no artificial plastic smoothing)
-2️⃣ Natural camera lens physics (candid 35mm focal depth)
-3️⃣ High-retention dancing movement hooks that stop the scroll
+The 2026 faceless creator formula is simple:
+1️⃣ Generate luxury lifestyle assets from any location on Earth
+2️⃣ Post 9:16 rhythmic dance & curiosity Reels that trigger organic shares
+3️⃣ Deliver digital blueprints automatically via Comment-to-DM
 
-Want our exact prompt formulas?
+💬 Comment "VACATION" below, like & share, and follow @personalabsacademy! I will DM you our exact mobile workflow today! 🏖️
 
-💬 Comment "PROMPT" below and I'll DM you the 250+ Master Prompt Vault instantly! 🚀
-
-#aiinfluencer #virtualcreator #aimodel #silkfashion #promptcraft #facelesscreator #personalabsacademy #generativeai
+#travelinfluencer #amalficoast #aimodel #virtualinfluencer #facelessmarketing #digitalnomad #personalabsacademy #passiveincome
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Could you tell she is AI? Comment below! 👇
+Dream coastal shoot on a smartphone workflow 📱☀️ Drop "VACATION" above to grab the exact stack!
 
-#aimodel #virtualinfluencer #midjourneyphoto #digitalcreator
+#virtualtravel #aitravel #creatoreconomy #digitalproducts
 ```
 
 ---
 
-### DAY 9: Monday, 16 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** High-Energy Bollywood Dance Sweep & Radiant Smile
-* **Primary ManyChat Keyword Trigger:** `LAUNCH` or `AI`
+### Reel 09 — Tue, 17 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_09_Bollywood_Welcoming_Sweep.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_09_SKIN_Parisian_Silk_Suite.jpg`
+* **ManyChat Trigger:** `SKIN`
 
-#### Spoken Voiceover Audio:
-> *"Stop scrolling! What used to take a full production crew and expensive cameras can now be generated on your smartphone in 15 minutes. Meet our next-gen virtual creator. Comment LAUNCH to copy our exact prompt system!"*
-
-#### On-Screen Subtitle Overlay:
-> `STOP SCROLLING: SHE IS 100% VIRTUAL • ZERO REAL MODELS`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-Stop scrolling: she is 100% virtual 📸🚫
+Look at her skin and lighting... zero editing, 100% AI generated 🕯️✨
 
-What used to take an entire production crew, rental cameras, and hair/makeup stylists can now be built on your phone while drinking coffee.
+Notice the natural hair flow, warm tungsten suite lamp reflections, silk fabric sheen, and realistic facial warmth.
 
-Meet our next-generation virtual creator:
-💃 100% consistent face in every scene
-💃 High-energy dance hooks that trigger the Instagram algorithm
-💃 Automated comment-to-DM funnels that turn viewers into buyers
+Most people think AI models always look plastic or overly airbrushed. That only happens when you rely on rookie prompt buzzwords like "ultra-HD 8K".
 
-Ready to start building?
+Our unretouched smartphone prompt formula preserves real skin texture, gentle under-eye depth, and authentic indoor shadow falloff.
 
-💬 Comment "LAUNCH" below and I'll send the full 5-day creator blueprint straight to your DMs! 🚀
+💬 Comment "SKIN" below, like & share, and follow @personalabsacademy! I will DM you our Master Prompt Vault today! 📩
 
-🔗 Or tap the link in our bio @personalabsacademy for instant access.
-
-#aiinfluencer #virtualcreator #aimodel #dancehook #creatoreconomy #facelessmarketing #personalabsacademy #digitalempire
+#aimodel #virtualcreator #skinrealism #cinematiclighting #aiphotography #personalabsacademy #facelesscreator #prompthacks
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Save this post for your launch reference! Questions about phone workflows? Ask below! 👇
+Save this tip: never put "glossy", "airbrushed", or "3D render" in realism prompts! Drop "SKIN" above for our full negative-prompt cheat sheet 👇
 
-#aimodel #virtualinfluencer #creators #aistartup
+#promptcraft #aimodels #aiinfluencer #photorealism
 ```
 
 ---
 
-### DAY 10: Tuesday, 17 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_10_Classical_Mudra_Grace.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Anatomically Perfect Mudra Hand Expressions & Eye Contact
-* **Primary ManyChat Keyword Trigger:** `MODEL` or `AI`
+### Reel 10 — Wed, 18 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_10_Classical_Mudra_Grace.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_10_LAUNCH_Mudra_Hands_Grace.jpg`
+* **ManyChat Trigger:** `LAUNCH`
 
-#### Spoken Voiceover Audio:
-> *"Look at her hands and eyes! Clean fingers, delicate mudra expressions, and zero AI glitches. Traditional agencies spend thousands on shoots, but you can build this in the cloud today. Comment MODEL to get our prompt vault!"*
-
-#### On-Screen Subtitle Overlay:
-> `LOOK AT HER HANDS & EYES... • NO FAKE AI FINGERS`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-Look closely at her hands and eyes 👁️✋
+AI characters can officially dance now with zero face warp! 🎶💃
 
-The biggest giveaway of bad AI has always been distorted fingers, melting hands, and blank eyes.
+Look closely at her hand gestures, fluid rhythm, clean 5-finger anatomy, and locked eye contact.
 
-Notice here:
-✨ 5 clean, anatomically perfect fingers
-✨ Delicate mudra dance expressions
-✨ Authentic natural eye reflections that feel 100% human
+You can build your own digital creator brand and engaged organic audience from home — without showing your own face on camera, buying studio gear, or spending a rupee on ads.
 
-You don't need a ₹1.5L PC or complex coding to get this level of quality. Everything runs in the cloud from your smartphone.
+Inside our 5-Day Launch Kit, you get:
+✅ 250+ Character DNA & Face-Lock Prompts
+✅ Image-to-Video Motion Pacing Workflows
+✅ Automated Comment-to-DM Funnel Setup
+✅ High-Retention Viral Hook Templates
 
-💬 Comment "MODEL" below and I'll DM you the exact prompt architecture! 🔥
+💬 Comment "LAUNCH" below, like & share, and follow @personalabsacademy! I will DM you the 5-day system this week! 🔥
 
-#characterconsistency #aimodel #aiinfluencer #mudradance #anatomicalprecision #promptengineering #personalabsacademy
+#aiinfluencer #virtualcreator #aimodel #danceai #facelesscreator #creatoreconomy #personalabsacademy #reelsvideo
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-What's the hardest part of AI generation for you? Fingers, face consistency, or video motion? Let me know below! 👇
+What's been harder for you with AI video — fingers/hands, face consistency, or smooth body motion? Let me know below! 👇
 
-#virtualinfluencer #aiartcommunity #digitalnomad
+#virtualinfluencer #aiartcommunity #promptengineering
 ```
 
 ---
 
-### DAY 11: Wednesday, 18 November 2026 @ 19:30 IST
-* **Video File:** `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4`
-* **Format:** `9:16` Full HD (`1080x1920`, 30fps, Generic Spoken Audio + Subtitles)
-* **Core Hook Angle:** Golden Hour Sunset Skyline Lifestyle & Radiant Smile
-* **Primary ManyChat Keyword Trigger:** `TRAVEL` or `AI`
+### Reel 11 — Thu, 19 Nov 2026 @ 7:30 PM IST
+* **Video:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\Hottest_Hook_11_Sunset_Skyline_Radiant_Dance.mp4`
+* **Thumbnail:** `C:\Projects\ai-influencer-course-website\instagram-studio\reels-active-11\thumbnails\Cover_11_VIP_Sculptural_Couture_Front.jpg`
+* **ManyChat Trigger:** `VIP`
 
-#### Spoken Voiceover Audio:
-> *"Meet the next-gen virtual model. Golden hour lighting, breeze in her hair, and a captivating radiant smile. You can generate unlimited fashion and lifestyle scenes without ever booking a photographer. Comment TRAVEL to get started!"*
-
-#### On-Screen Subtitle Overlay:
-> `MEET THE NEXT-GEN VIRTUAL MODEL • GOLDEN HOUR SUNSET`
-
-#### Instagram Caption:
+**Caption (Copy & Paste):**
 ```text
-Golden hour lighting, sea breeze in her hair, and zero flights booked 🌅✨
+Can you spot the AI glitch in this couture spin? 🖤✨
 
-How modern digital creators are building multi-scene lifestyle brands:
+Liquid fabric physics, seamless 180-degree twirl, and sculptural high-fashion lighting — built 100% from prompts.
 
-They generate unlimited luxury sunset shoots, rooftop dates, and beach club visuals on demand from their laptop or phone.
+The virtual creator economy is scaling fast. Creators who master face consistency, dynamic 9:16 Reels, and automated DM funnels early are building durable digital assets that run around the clock.
 
-Why it works:
-🏖️ 100% predictable lighting every single time
-🏖️ Identical character facial structure in every setting
-🏖️ High-converting ManyChat comment-to-DM monetization
+Want instant VIP access to our entire master creator vault?
 
-Ready to build your lifestyle creator?
+💬 Comment "VIP" below, like & share, and follow @personalabsacademy! I will DM you instant access to our master creator vault right now! 🚀
 
-💬 Comment "TRAVEL" below and I'll send the prompt vault directly to your inbox! 📩
+🔗 Or tap the link in our bio @personalabsacademy anytime!
 
-🔗 Tap the link in our bio @personalabsacademy for instant access.
-
-#travelinfluencer #virtualcreator #aimodel #goldenhour #sunsetvibes #facelessmarketing #personalabsacademy #passiveincome
+#aiinfluencer #aimodel #virtualmodel #highfashionai #digitalempire #promptengineering #personalabsacademy #creatorgrowth
 ```
 
-#### First Comment (SEO Keywords & Indexing):
+**First Comment:**
 ```text
-Where should our virtual model go next? Drop your favorite travel spot below! ✈️🗺️
+Comment "VIP" above and check your inbox — full vault & 5-day launch guide sent instantly ⚡
 
-#travelcontent #virtualcreator #digitalnomad #creatoreconomy
+#aimodels #virtualcreator #facelessbusiness #digitalproducts
 ```
-
----
-
-## 🛠️ Step-by-Step Publishing SOP
-
-### Route 1: Post via Instagram Mobile App / Web (Quickest & Most Reliable)
-1. Open Instagram on your phone or web (`instagram.com`).
-2. Tap **`+`** (Create) → **`Reel`**.
-3. Select the day's `.mp4` file from `ads-ready/dancing-ad-hooks/`.
-4. Leave aspect ratio at `9:16 Original`.
-5. Select a cover frame (the first frame at `0:00` has the radiant smile).
-6. Paste the corresponding **Instagram Caption** above.
-7. Tap **Share**.
-8. Paste the corresponding **First Comment** immediately under the post.
-9. **Share to Story:** Tap the paper-plane share icon on the new Reel → `Add to story` → Add a **Link Sticker** pointing to `https://personalabs.store` with sticker text: `Get The Blueprint 🚀`.
-
-### Route 2: Batch Schedule in Meta Business Suite Content Planner
-1. Navigate to [Meta Business Suite Content Calendar](https://business.facebook.com/latest/content_calendar).
-2. Click **Create Reel** → Select `@personalabsacademy`.
-3. Upload the `.mp4` file from `C:\Projects\ai-influencer-course-website\ads-ready\dancing-ad-hooks\`.
-4. Paste the caption.
-5. Under Scheduling Options, select **Schedule** → Set date and time to `19:30` (7:30 PM IST).
-6. Click **Schedule**.

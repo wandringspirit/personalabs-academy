@@ -1,10 +1,13 @@
-﻿*.zip
+*.zip
 .DS_Store
 Thumbs.db
-
+__pycache__/
+*.pyc
 
 videos/
 videos-captioned/
 *.mp4
 *.srt
 
+instagram-studio/.browser_session/
+instagram-studio/schedule_logs/

@@ -38,4 +38,4 @@ git push origin main
 > **Note:**
 > 1. Always keep `git config user.email` set to `209062033+wandringspirit@users.noreply.github.com` so Vercel Hobby automatically builds and deploys every push within ~8 seconds.
 > 2. When updating `app.js` or `styles.css`, increment the `?v=XX` query string in [`index.html`](../index.html) (`app.js?v=21`).
-> 3. Large video files (`videos/`, `videos-captioned/`, `ads-ready/`, `*.mp4`, `*.srt`, `*.zip`) are excluded in `.gitignore` so GitHub pushes and static CDN deploys stay instantaneous.
+> 3. Large media files (`videos/`, `videos-captioned/`, `*.mp4`, `*.srt`, `*.zip`) and browser/log artifacts (`instagram-studio/.browser_session/`, `instagram-studio/schedule_logs/`) are excluded in `.gitignore`, and non-web studio/doc folders are excluded in `.vercelignore`.

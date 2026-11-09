@@ -1,0 +1,17 @@
+# Exclude non-website directories, docs, scripts, and studio media from Vercel deployments
+docs/
+scripts/
+instagram-studio/
+videos/
+videos-captioned/
+README.md
+GEMINI.md
+.gitignore
+*.py
+*.ps1
+*.md
+*.mp4
+*.mp3
+*.srt
+*.zip
+*.docx

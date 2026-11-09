@@ -1,6 +1,13 @@
 # 📋 PersonaLabs Academy — Changelog (`CHANGES.md`)
 
-## v2.9.4 — 2026-11-08 (Latest Release)
+## v2.9.5 — 2026-11-09 (Latest Release)
+- **Full Directory & Repository Consolidation Cleanup:**
+  - Recycled discontinued paid Meta Ads (`ads-ready/01-India-INR-Ads/`, `02-Global-USD-Ads/`, `02-India-INR-Feed-4x5/`), old pre-pivot reel drafts (`archive-drafts/`, `02-Organic-Reels/`, `05-Dancing-Hook-Options/`), 160 MB Playwright session cache (`.browser_session/`), 38 debug PNG screenshots (`schedule_logs/`), 8 temporary debug scripts, duplicate loose intro video (`videos-captioned/`), and exact duplicate/unused images in `assets/`.
+  - Eliminated the split `ads-ready/` root folder and unified all organic assets cleanly inside [`instagram-studio/`](../instagram-studio/): `reels-active-11/` (the 11 scheduled Master Reels + `thumbnails/`), `carousels/` (`01`–`06`), `source-assets/` (`character-assets/`, `raw-gemini-videos/`, `brand-dps/`, `bgm_master.mp3`), and `archive/`.
+  - Consolidated `instagram-studio/scripts/` into the single top-level [`scripts/`](../scripts/) folder (`scripts/archive/` for legacy builders) and moved `CREATOR-DELIVERY-README.md` from `course-vault/` to [`docs/`](../docs/).
+  - Added [`.vercelignore`](../.vercelignore) and updated [`.gitignore`](../.gitignore) + script/doc paths so public deploys and Git tracking stay clean.
+
+## v2.9.4 — 2026-11-08
 - **Strategic Pivot to 100% Organic Growth & Viral Reels Acquisition:**
   - Halted all paid Meta Ads campaigns, eliminating daily media spend (`₹500/day`) and 18% Indian GST cash outflows.
   - Transitioned the primary customer acquisition funnel to 100% organic Instagram Reels paired with ManyChat automated Comment-to-DM conversion triggers (`PROMPT`, `MODEL`, `CREATOR`, `TRAVEL`, `LAUNCH`), overcoming caption link restrictions and delivering direct checkout links to `https://personalabs.store` with >90% message open rates.
